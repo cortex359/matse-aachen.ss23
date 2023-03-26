@@ -1,0 +1,33 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 4}
+Durch welche der folgenden Funktionen werden Skalarprodukte auf $\mathbb{R}^{2}$ definiert?
+
+\begin{enumerate}
+    \item $\left(\vec{x} ,\vec{y}\right) =x_{1}^{2} +x_{2} \cdotp y_{1} \cdotp y_{2}$
+    \item $\left(\vec{x} ,\vec{y}\right) =x_{1} \cdotp y_{1} +x_{1} \cdotp y_{2} +x_{2} \cdot y_{1} +x_{2} \cdot y_{2}$
+\end{enumerate}
+
+\subsection{Lösung 4a}
+$\left(\vec{x} ,\vec{y}\right)$ definiert kein Skalarprodukt, da $\left(\vec{x} ,\vec{y}\right) \neq \left(\vec{y} ,\vec{x}\right)$:
+\begin{equation*}
+    x_{1}^{2} +x_{2} \cdotp y_{1} \cdotp y_{2} \neq y_{1}^{2} +y_{2} \cdotp x_{1} \cdotp x_{2}
+\end{equation*}
+
+\subsection{Lösung 4b}
+$\left(\vec{x} ,\vec{y}\right)$ definiert kein Skalarprodukt, die Bedingung 5 $\left(\vec{x},\vec{x}\right) = 0 \Leftrightarrow \vec{x} = \vec{0}$ verletzt ist:
+\begin{equation*}
+    \begin{array}{ c r l c }
+    & \left(\vec{x} ,\vec{x}\right) & =x_{1} \cdotp x_{1} +x_{1} \cdotp x_{2} +x_{2} \cdot x_{1} +x_{2} \cdot x_{2} & \\
+    &  & =x_{1}^{2} +2x_{1} x_{2} +x_{2}^{2} & \\
+    &  & =( x_{1} +x_{2})^{2} & \\
+    & \left(\vec{x} ,\vec{x}\right) & \eqdef 0 & \\
+    \Leftrightarrow  & 0 & =( x_{1} +x_{2})^{2} & \\
+    \Rightarrow  &  & x_{1} =-x_{2} \ \lor \ x_{2} =-x_{1} &
+    \end{array}
+\end{equation*}
+$\left(\vec{x} ,\vec{y}\right)$ definiert kein Skalarprodukt, da z.B. für $\vec{a} =(1,1)^{T}$ mit $\left(\vec{a} ,\vec{a}\right) =4 \neq 0$ \ gilt.
+
+\end{document}

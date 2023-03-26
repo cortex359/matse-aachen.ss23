@@ -1,0 +1,42 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+Untersuchen Sie die folgenden Funktionen auf Stetigkeit.
+
+\begin{enumerate}
+    \item $f( x) =2\cdotp |x|$ in $x_{0} =0$
+    \item $f( x) =\begin{cases}
+        \frac{1}{x} & \text{für} \ x\neq 0\\
+        0 & \text{für} \ x=0
+        \end{cases}$
+\end{enumerate}
+
+\subsection{Lösung 1a}
+\begin{gather*}
+    f( x) =\begin{cases}
+    2x & \text{für} \ x >0\\
+    -2x & \text{für} \ x\leq 0
+    \end{cases}\\
+    \\
+    \lim _{x\uparrow x_{0}} f( x) =\lim _{x\uparrow 0} -2x=0\\
+    \\
+    \lim _{x\downarrow x_{0}} f( x) =\lim _{x\downarrow 0} 2x=0
+\end{gather*}
+
+Die Funktion $f( x)$ ist stetig in $x_{0} =0$, da $\lim _{x\uparrow x_{0}} f( x) =\lim _{x\downarrow x_{0}} f( x)$.
+
+\subsection{Lösung 1b}
+\begin{gather*}
+    f( 0) =0\\
+    \\
+    \lim _{x\uparrow x_{0}} f( x) =\lim _{x\uparrow 0}\frac{1}{x} =-\infty \\
+    \\
+    \lim _{x\downarrow x_{0}} f( x) =\lim _{x\downarrow 0}\frac{1}{x} =\infty
+\end{gather*}
+
+Die Funktion $f( x)$ ist unstetig an der Stelle $x_{0} =0$, da $\lim _{x\uparrow x_{0}} f( x) \neq 0\neq \lim _{x\downarrow x_{0}} f( x)$.
+
+\end{document}

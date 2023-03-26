@@ -1,0 +1,67 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+Berechnen Sie folgende Integrale:
+\begin{enumerate}
+    \item $\int _{1}^{2}\left( 3x^{2} +2x\right) \cdotp e^{x^{3} +x^{2}} \dx$
+    \item $\int \frac{1-x}{( x+5)^{2}} \dx$
+    \item $\int _{0}^{\pi }\sin( x) \cdotp x^{2} \dx$
+\end{enumerate}
+
+\subsection{Lösung 2a}
+Substituiere $z=x^{3} +x^{2}$, sodass $\frac{~\mathrm{d}z}{\dx} =3x^{2} +2x\Leftrightarrow \frac{1}{3x^{2} +2x} ~\mathrm{d}z=\dx$ und damit
+\begin{equation*}
+    \int \left( 3x^{2} +2x\right) \cdotp e^{x^{3} +x^{2}} \dx=\int \left( 3x^{2} +2x\right) \cdotp e^{z}\frac{1}{3x^{2} +2x} ~\mathrm{d}z=\int e\ ~\mathrm{d}z.
+\end{equation*}
+
+Durch Rücksubstitution und Einsetzen der Grenzen ergibt sich:
+\begin{equation*}
+    \int _{1}^{2}\left( 3x^{2} +2x\right) \cdotp e^{x^{3} +x^{2}} \dx=\left[ e^{x^{3} +x^{2}}\right]_{1}^{2} =e^{12} -e^{2} =e^{10}
+\end{equation*}
+
+\subsection{Lösung 2b}
+Partialbruchzerlegung:
+\begin{gather*}
+    \begin{array}{ l c r l }
+    &  & \frac{1-x}{( x+5)^{2}} & =\frac{A}{( x+5)} +\frac{B}{( x+5)^{2}}\\
+    & \Leftrightarrow  & 1-x & =A\cdotp ( x+5) +B\\
+    &  &  & \\
+    x=-5: &  & 1-( -5) & =A\cdotp ( -5+5) +B\\
+    & \Leftrightarrow  & 6 & =B\\
+    &  &  & \\
+    x=0: &  & 1 & =A\cdotp ( 0+5) +6\\
+    & \Leftrightarrow  & -5 & =A\cdotp 5\\
+    & \Leftrightarrow  & -1 & =A
+    \end{array}\\
+    \\
+    \Rightarrow \frac{1-x}{( x+5)^{2}} =\frac{-1}{( x+5)} +\frac{6}{( x+5)^{2}}
+\end{gather*}
+Integration:
+\begin{equation*}
+    \int \frac{1-x}{( x+5)^{2}} dx=\int \frac{-1}{( x+5)} +\frac{6}{( x+5)^{2}} dx=-\ln( |x+5|) -\frac{6}{x+5} +C
+\end{equation*}
+
+\subsection{Lösung 2c}
+Partielle Integration mit $u'=\sin( x)$ und $v=x^{2}$.\\\
+Setzte $u=-\cos( x)$ und $v'=2x$ ein:
+
+\begin{equation*}
+    \begin{array}{ c c }
+    \int _{0}^{\pi }\sin( x) \cdotp x^{2} dx & =\left[ -x^{2}\cos( x)\right]_{0}^{\pi } -\int _{0}^{\pi } -2x\cdot \cos( x) dx
+    \end{array}
+\end{equation*}
+
+Partielle Integration mit $u'=-\cos( x)$ und $v=2x$.\\
+Setze $u=-\sin( x)$ und $v'=2$ ein:
+\begin{equation*}
+    \begin{array}{ c l }
+    \int _{0}^{\pi }\sin( x) \cdotp x^{2} dx & =\left[ -x^{2}\cos( x)\right]_{0}^{\pi } -\left([ -2x\sin( x)]_{0}^{\pi } -\int _{0}^{\pi } -2\sin( x) dx\right)\\
+    & =\left[ -x^{2}\cos( x)\right]_{0}^{\pi } -[ -2x\sin( x)]_{0}^{\pi } +2[\cos( x)]_{0}^{\pi }\\
+    & =-\pi ^{2}\cos( \pi ) +2\pi \sin( \pi ) +2\cos( \pi ) -2\cos( 0)\\
+    & =\pi ^{2} -4
+    \end{array}
+\end{equation*}
+
+\end{document}

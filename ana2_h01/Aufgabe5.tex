@@ -1,0 +1,36 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 5}
+Wie lautet die Ableitung der gegebenen Funktionen nach dem genannten Parameter?
+
+\begin{enumerate}
+    \item Ableitung von $g( x,y) =( 2x-y)^{2} +\ln( x\cdotp y)$ nach $x$
+    \item Ableitung von $l( u,v,w) =\ln\left(\sqrt{u\cdotp w} \cdotp e^{-v}\right)$ nach $u$
+    \item Ableitung von $m( i,j,k) =\ln\left(\frac{j\cdotp \sqrt{k}}{i}\right)$ nach $i$
+\end{enumerate}
+
+\subsection{Lösung 5a}
+$$
+    \frac{\mathrm{d}g}{\mathrm{d}x} =2\cdotp ( 2x-y)^{2} +y\cdotp \ln( x\cdotp y)
+$$
+
+\subsection{Lösung 5b}
+\begin{equation*}
+    \begin{array}{ c l }
+    \frac{\mathrm{d}l}{\mathrm{d}u} & =w\cdotp \frac{1}{2}( u\cdotp w)^{-\frac{1}{2}} \cdotp e^{-v} \cdotp \frac{1}{\sqrt{u\cdotp w} \cdotp e^{-v}}\\
+     & =w\cdotp \frac{1}{2\cdotp u\cdotp w}\\
+     & =\frac{1}{2\cdotp u}
+    \end{array}
+\end{equation*}
+
+\subsection{Lösung 5c}
+\begin{equation*}
+    \begin{array}{ c l }
+    \frac{\mathrm{d}m}{\mathrm{d}i} & =\frac{-j\sqrt{k}}{i^{2}} \cdotp \frac{i}{j\cdotp \sqrt{k}}\\
+     & =-\frac{1}{i}
+    \end{array}
+\end{equation*}
+
+\end{document}
