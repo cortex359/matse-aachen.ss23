@@ -170,6 +170,123 @@ right=25mm
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
+\RequirePackage{mathtools}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
+\DeclarePairedDelimiter\interval{[}{]}
+
+\newcommand*\conj[1]{\,\overline{\!{#1}}} % kinda fits here
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Operators
+\DeclareMathOperator{\Eig}{Eig}
+\DeclareMathOperator{\Exists}{\exists}
+\DeclareMathOperator{\Forall}{\forall}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Mean}{E}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\Bild}{Bild}
+\DeclareMathOperator{\defect}{defect}
+\DeclareMathOperator{\rang}{rang}
+\DeclareMathOperator{\spur}{spur}
+\DeclareMathOperator{\diagonal}{diag}
+\DeclareMathOperator{\Sol}{Sol}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\diff}{d}
+\DeclareMathOperator{\Poi}{Poi}
+\DeclareMathOperator{\VarK}{VarK}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\IG}{IG}
+\DeclareMathOperator{\CosSim}{CosSim}
+\DeclareMathOperator{\PVE}{PVE}
+\DeclareMathOperator{\PDME}{PDME}
+\DeclareMathOperator{\purity}{purity}
+\DeclareMathOperator{\koh}{koh}
+\DeclareMathOperator{\sep}{sep}
+\DeclareMathOperator{\ps}{ps}
+\DeclareMathOperator{\ACC}{ACC}
+\DeclareMathOperator{\TP}{TP}
+\DeclareMathOperator{\TN}{TF}
+\DeclareMathOperator{\FP}{FP}
+\DeclareMathOperator{\FN}{FF}
+\DeclareMathOperator{\PPV}{PPV}
+\DeclareMathOperator{\TPR}{TPR}
+\DeclareMathOperator{\FPR}{FPR}
+\DeclareMathOperator{\recall}{recall}
+\DeclareMathOperator{\precision}{precision}
+
+% db
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\cnt}{count}
+\DeclareMathOperator{\ident}{ident}
+\DeclareMathOperator{\schema}{schema}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\FD}{FD}
+\DeclareMathOperator{\AttrHuelle}{\textnormal{AttrHülle}}
+
+% integration, compatibility with ana1
+\newcommand{\dx}{~\mathrm{d}x}
+\newcommand{\du}{~\mathrm{d}u}
+\newcommand{\dv}{~\mathrm{d}v}
+\newcommand{\dw}{~\mathrm{d}w}
+\newcommand{\dt}{~\mathrm{d}t}
+\newcommand{\dn}{~\mathrm{d}n}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Symbols
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\newcommand{\Nplus}{\mathbb{N}^+}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Rnonneg}{\mathbb{R}^+_0}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\Pot}{\mathcal{P}}
+
+\newcommand{\Modal}[1]{\conj{#1}_M}
+\newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+\newcommand{\Fabs}{F_{\text{abs}}}
+\newcommand{\Frel}{F_{\text{rel}}}
+
+\def\ojoin{\setbox0=\hbox{$\bowtie$}%
+  \rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
+
+\newcommand{\lojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
+\newcommand{\rojoin}{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
+\newcommand{\fojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
+
+\newcommand{\dotto}{\stackrel{\boldsymbol{\cdot}}{\to}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Symbols @cortex359
+\newcommand{\cis}[1]{\left( \cos\left( #1 \right) + i \sin\left( #1 \right) \right)}
+
+\newcommand{\dudx}{~\frac{\mathrm{d}u}{\mathrm{d}x}}
+\newcommand{\dudn}{~\frac{\mathrm{d}u}{\mathrm{d}n}}
+\newcommand{\dvdx}{~\frac{\mathrm{d}v}{\mathrm{d}x}}
+\newcommand{\dwdx}{~\frac{\mathrm{d}w}{\mathrm{d}x}}
+\newcommand{\dtdx}{~\frac{\mathrm{d}t}{\mathrm{d}x}}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
+\newcommand{\dFdx}{\frac{\mathrm{d}F}{\mathrm{d}x}}
+\newcommand{\dfdx}{\frac{\mathrm{d}f}{\mathrm{d}x}}
+
+
 % Standardmäßige Vergrößerung normaler Arrays
 \arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
 % Anpassbarkeit von Matrizen und Vektoren
