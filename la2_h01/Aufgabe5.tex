@@ -1,0 +1,90 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 5}
+Welche der folgenden Abbildungen $\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ sind linear?
+
+\begin{enumerate}
+    \item $f( x_{1} ,x_{2}) =( x_{1} ,0)$
+    \item $f( x_{1} ,x_{2}) =( x_{1} x_{2} ,0)$
+    \item $f( x_{1} ,x_{2}) =( x_{1} +x_{2} ,x_{2})$
+\end{enumerate}
+
+\subsection{Lösung 5a}
+\begin{equation*}
+    \begin{array}{ r l }
+    f( x_{1} ,x_{2}) & =( x_{1} ,0)
+    \end{array}
+\end{equation*}
+Die Abbildung $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ ist genau dann linear, wenn $f$ additiv und homogen ist.
+
+Additivität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f( x_{1} +y_{1} ,x_{2} +y_{2}) & =( x_{1} +y_{1} ,0)\\
+    & f( x_{1} ,x_{2}) +f( y_{1} ,y_{2}) & =( x_{1} ,0) +( y_{1} ,0)\\
+    &  & =( x_{1} +y_{1} ,0)\\
+    \Rightarrow  & f( x_{1} +y_{1} ,x_{2} +y_{2}) & =f( x_{1} ,x_{2}) +f( y_{1} ,y_{2}) \ \checked
+    \end{array}
+\end{equation*}
+Homogenität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f( \lambda x_{1} ,\lambda x_{2}) & =( \lambda x_{1} ,0)\\
+    & \lambda f( x_{1} ,x_{2}) & =( \lambda x_{1} ,0)\\
+    \Rightarrow  & f( \lambda x_{1} ,\lambda x_{2}) & =\lambda f( x_{1} ,x_{2}) \ \checked
+    \end{array}
+\end{equation*}
+Die Abbildung ist linear.
+
+\subsection{Lösung 5b}
+\begin{equation*}
+    \begin{array}{ r l }
+    f( x_{1} ,x_{2}) & =( x_{1} x_{2} ,0)
+    \end{array}
+\end{equation*}
+Die Abbildung $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ ist genau dann linear, wenn $f$ additiv und homogen ist.
+
+Additivität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f( x_{1} +y_{1} ,x_{2} +y_{2}) & =(( x_{1} +y_{1}) \cdotp ( x_{2} +y_{2}) ,0)\\
+    &  & =(( x_{1} x_{2} +x_{1} y_{2} +y_{1} x_{2} +y_{1} y_{2}) ,0)\\
+    & f( x_{1} ,x_{2}) +f( y_{1} ,y_{2}) & =( x_{1} x_{2} ,0) +( y_{1} y_{2} ,0)\\
+    &  & =( x_{1} x_{2} +y_{1} y_{2} ,0)\\
+    \Rightarrow  & f( x_{1} +y_{1} ,x_{2} +y_{2}) & \neq f( x_{1} ,x_{2}) +f( y_{1} ,y_{2})
+    \end{array}
+\end{equation*}
+Die Abbildung ist nicht additiv, also auch nicht linear.
+
+\subsection{Lösung 5c}
+\begin{equation*}
+    \begin{array}{ r l }
+    f( x_{1} ,x_{2}) & =( x_{1} +x_{2} ,x_{2})
+    \end{array}
+\end{equation*}
+Die Abbildung $f:\mathbb{R}^{2}\rightarrow \mathbb{R}^{2}$ ist genau dann linear, wenn $f$ additiv und homogen ist.
+
+Additivität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f( x_{1} +y_{1} ,x_{2} +y_{2}) & =( x_{1} +y_{1} +x_{2} +y_{2} ,x_{2} +y_{2})\\
+    & f( x_{1} ,x_{2}) +f( y_{1} ,y_{2}) & =( x_{1} +x_{2} ,x_{2}) +( y_{1} +y_{2} ,y_{2})\\
+    &  & =( x_{1} +x_{2} +y_{1} +y_{2} ,x_{2} +y_{2})\\
+    \Rightarrow  & f( x_{1} +y_{1} ,x_{2} +y_{2}) & =f( x_{1} ,x_{2}) +f( y_{1} ,y_{2}) \ \checked
+    \end{array}
+\end{equation*}
+Homogenität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f( \lambda x_{1} ,\lambda x_{2}) & =( \lambda x_{1} +\lambda x_{2} ,\lambda x_{2})\\
+    & \lambda f( x_{1} ,x_{2}) & =\lambda ( x_{1} +x_{2} ,x_{2})\\
+    &  & =( \lambda ( x_{1} +x_{2}) ,\lambda x_{2})\\
+    &  & =( \lambda x_{1} +\lambda x_{2} ,\lambda x_{2})\\
+    \Rightarrow  & f( \lambda x_{1} ,\lambda x_{2}) & =\lambda f( x_{1} ,x_{2}) \ \checked
+    \end{array}
+\end{equation*}
+Die Abbildung ist linear.
+
+\end{document}

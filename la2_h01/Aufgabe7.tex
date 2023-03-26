@@ -1,0 +1,54 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 7}
+
+Die Abbildung $f:A\rightarrow B$, wobei $A=\mathbb{Z}$ und $B=\mathbb{Z}$ sind, sei folgendermaßen definiert:
+\begin{equation*}
+    f( a) =a\bmod 17.
+\end{equation*}
+
+\begin{enumerate}
+    \item Handelt es sich um eine lineare Abbildung?
+    \item Wie lautet der Kern von $f$?
+    \item Zeigen Sie, dass die Abbildung weder surjektiv noch injektiv ist.
+    \item Welche Möglichkeiten gibt es, $A$ und $B$ zu wählen, damit die Abbildung bijektiv ist?
+\end{enumerate}
+
+\subsection{Lösung 7a}
+
+Die Abbildung $f:\mathbb{Z}\rightarrow \mathbb{Z}$ ist genau dann linear, wenn sie additiv und homogen ist.
+
+Additivität:
+\begin{equation*}
+\begin{array}{ r r l }
+ & f( a+y) & =( a+y) \ \bmod 17\\
+ & f( a) +y & =( a\bmod 17) +y\\
+\Rightarrow  & f( a+y) & \neq f( a) +y
+\end{array}
+\end{equation*}
+Die Abbildung ist nicht linear, da sie nicht additiv ist.
+
+
+\subsection{Lösung 7b}
+Der Kern von $f$ ist die Menge aller Vielfachen von 17:
+\begin{equation*}
+    \ker( f) =f^{-1}( 0) =\{n\cdotp 17 | n\in \mathbb{Z}\}
+\end{equation*}
+
+\subsection{Lösung 7c}
+
+Die Abbildung ist nicht injektiv, da nicht jedes Element der Zielmenge maximal einmal als Funktionswert angenommen wird. Beispiel: $f(1) = f(18) = 1$.\\
+
+Die Abbildung ist nicht surjektiv, weil nicht jedes Element der Zielmenge mindestens einmal als Funktionswert angenommen wird. Beispiel: $18\in \mathbb{Z}$ aber $18 \notin B$.
+
+\subsection{Lösung 7d}
+
+Man könnte den Definitionsbereich auf das Intervall $A=[n;n+16],\ n\in \mathbb{Z}$ für ein beliebiges
+$n\geq 0$ einschränken um die Abbildung injektiv zu machen und den Wertebereich auf das Intervall
+$B=[0;16]$ zuschneiden, damit die Abbildung surjektiv wird.\\
+
+Die Abbildung $f:[ n;n+16]\rightarrow [ 0;16] ,n\in \mathbb{Z}$ wäre bijektiv.
+
+\end{document}

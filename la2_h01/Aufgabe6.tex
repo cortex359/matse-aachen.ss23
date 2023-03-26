@@ -1,0 +1,54 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 6}
+
+\begin{enumerate}
+    \item Sei $0\neq a\in \mathbb{R}^{n}$ und $f:\mathbb{R}^{n}\rightarrow \mathbb{R} ,\ f( x) =a\cdotp x$. Zeigen Sie: $f$ ist zwar surjektiv, aber nicht injektiv.
+    \item Wir betrachten $\mathcal{C}[ 0,1]$, die Menge der stetigen Funktionen auf $[ 0,1]$. Man zeige: Die Auswertung einer stetigen Funktion in einem festen Punkt $a\in [ 0,1]$, d.h. die Abbildung
+        \begin{equation*}
+            \varphi _{a} :\mathcal{C}[ 0,1]\rightarrow \mathbb{R} ,\ \varphi _{a}( f) =f( a)
+        \end{equation*}
+        ist linear. Ist $\varphi _{a}$ bijektiv?
+    \item Der Vektorraum $\mathcal{C}^{1}[ a,b]$ der stetig differenzierbaren Funktionen ist in den Vektorraum der stetigen Funktionen $\mathcal{C}[ a,b] ,\ a< b\in \mathbb{R}$, eingebettet durch die Einbettung $\varphi :\mathcal{C}^{1}[ a,b]\rightarrow \mathcal{C}[ a,b] ,\ \varphi ( f) =f.$ Man schreibt $\mathcal{C}^{1}[ a,b] \hookrightarrow \mathcal{C}[ a,b] .$ Man zeige: Die Einbettung $\varphi $ ist linear, injektiv, aber nicht surjektiv.
+\end{enumerate}
+
+\subsection{Lösung 6a}
+Gemeint scheint hier die Skalarmultiplikation zu sein, also $f:\mathbb{R}^{n}\rightarrow \mathbb{R} ,f(x) = \scalarprod{a,x} $.\\
+
+Die Abbildung ist surjektiv, da $Bild( f) =\mathbb{R}$ gilt und daher auch $rg( f) =\dim( Bild( f)) =\dim(\mathbb{R}) =1$.\\
+
+Sie ist jedoch nicht injektiv, da $\ker( f) \neq \{0\}$.\\
+
+Notiz: Bild $f\left(\tilde{X}\right) =\left\{f( x)\middle| x\in \tilde{X}\right\} \subseteq \mathbb{R} ,\ \tilde{X} \subseteq \mathbb{R}^{n}$)
+
+
+\subsection{Lösung 6b}
+Die Abbildung $\varphi _{a}$ ist genau dann linear, wenn sie additiv und homogen ist.
+
+Additivität:
+\begin{equation*}
+    \begin{array}{ r r l }
+     & \varphi _{a}( f+y) & =f( a) +y\\
+     & \varphi _{a}( f) +y & =f( a) +y
+    \end{array}
+\end{equation*}
+Homogenität:
+\begin{equation*}
+    \begin{array}{ r r l }
+     & \varphi _{a}( \lambda f) & =\lambda f( a)\\
+     & \lambda \varphi _{a}( f) & =\lambda f( a)
+    \end{array}
+\end{equation*}
+Die Abbildung ist linear.\\
+
+$\varphi _{a}$ ist nicht injektiv, da es mehrere stetige Funktionen gibt, welche an einem Punkt $a$ den gleichen Wert haben können. Beispiel: Mit $a=1$ und $f( x) =x,\ g( x) =-x+2$ also $f,g\in \mathcal{C}[ 0,1]$ gilt $\varphi _{1}( f) =\varphi _{1}( g) =1.$\\
+
+Daher kann $\varphi _{a}$ auch nicht bijektiv sein.
+
+
+\subsection{Lösung 6c}
+Fehlt.
+
+\end{document}
