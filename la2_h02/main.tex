@@ -125,6 +125,8 @@ right=25mm
 \usepackage{siunitx} % für SI Einheiten
 \sisetup{locale = DE}
 
+\usepackage{icomma} % Intelligent commas for decimal numbers
+
 %\usepackage{physics}
 
 \usepackage{mathdots}
@@ -168,6 +170,10 @@ right=25mm
 \newcommand*{\defeq}{\overset{?}{=}}
 \renewcommand{\cdotp}{\cdot} % for compatibility with mathcha.io exports
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
+\newcommand{\vektor}[1]{%
+  \arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[c] #1 \end{pmatrix*}%
+}
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
 \RequirePackage{mathtools}
@@ -332,8 +338,8 @@ right=25mm
 \newcommand{\module}{Lineare Algebra 2}
 %\newcommand{\module}{Analysis 2}
 
-\hausaufgabe{01}{20.03.2023}{26.03.2023}
-%\hausaufgabe{02}{27.03.2023}{02.04.2023}
+%\hausaufgabe{01}{20.03.2023}{26.03.2023}
+\hausaufgabe{02}{27.03.2023}{02.04.2023}
 %\hausaufgabe{03}{03.04.2023}{10.04.2023}
 %\hausaufgabe{04}{11.04.2023}{16.04.2023}
 %\hausaufgabe{05}{17.04.2023}{23.04.2023}
@@ -347,8 +353,8 @@ right=25mm
 %\hausaufgabe{13}{12.06.2023}{18.06.2023}
 %--- Footer -
 \newcommand{\lastMod}{
-    \Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}}}
-    %\Filemodtoday{\filemodNewest{{Aufgabe5.tex}{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
+    %\Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}}}
+    \Filemodtoday{\filemodNewest{{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
 }
 \date{\lastMod{}}
 \author{Christian Rene Thelen}
@@ -361,15 +367,14 @@ right=25mm
 
 \begin{document}
 
-\subfile{Aufgabe1.tex}
+% \subfile{Aufgabe1.tex}
 % \subfile{Aufgabe2.tex}
 % \subfile{Aufgabe3.tex}
 % \subfile{Aufgabe4.tex}
-
 % \subfile{Aufgabe5.tex}
-% \subfile{Aufgabe6.tex}
-% \subfile{Aufgabe7.tex}
-% \subfile{Aufgabe8.tex}
+\subfile{Aufgabe6.tex}
+\subfile{Aufgabe7.tex}
+\subfile{Aufgabe8.tex}
 % \subfile{Aufgabe9.tex}
 
 \end{document}

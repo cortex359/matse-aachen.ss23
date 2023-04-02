@@ -3,7 +3,39 @@
 \begin{document}
 
 \section{Aufgabe 8}
+Gegeben sei die Abbildung $f : \mathbb{R}^3 \to \mathbb{R}^2$ mit $f(x_1, x_2, x_3) = (x_1 - 2x_3, 4x_2)$.
 
-\subsection{Lösung 8}
+\begin{enumerate}
+    \item Zeigen Sie, dass $f$ linear ist.
+    \item Bestimmen Sie den $\ker(f)$ und geben Sie die $\dim (\ker (f))$ an.
+    \item Berechnen Sie die $\dim(\Bild(f))$ bzw. $\rang(f)$ und bestimmen Sie das $\Bild(f)$.
+    \item Ist die Abbildung $f$ injektiv oder surjektiv?
+\end{enumerate}
+
+\subsection{Lösung 8a}
+
+Additivität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f(x_1, x_2, x_3) & = (x_1 - 2x_3, 4x_2)\\
+    & f(x_1 + y_1, x_2 + y_2, x_3 + y_3)  & = (x_1 + y_1 - 2(x_3 + y_3), 4(x_2 + y_2)) \\
+    & f(x_1, x_2, x_3) + f(y_1, y_2, y_3) & = (x_1 - 2x_3, 4x_2) + (y_1 - 2y_3, 4y_2) \\
+    & & = (x_1 - 2x_3 + y_1 - 2y_3, 4x_2 + 4y_2) \\
+    & & = (x_1 + y_1 - 2(x_3 + y_3 ), 4(x_2 + y_2)) \\
+    \Rightarrow  & f(x_1, x_2, x_3) + f(y_1, y_2, y_3) & = f(x_1 + y_1, x_2 + y_2, x_3 + y_3) \ \checked
+    \end{array}
+\end{equation*}
+Homogenität:
+\begin{equation*}
+    \begin{array}{ r r l }
+    & f(\lambda x_1, \lambda x_2, \lambda x_3) & = (\lambda \cdot x_1 - 2\cdot \lambda \cdot x_3, 4 \cdot \lambda \cdot x_2)\\
+    & & = (\lambda \cdot (x_1 - 2 \cdot x_3), 4 \cdot \lambda \cdot x_2)\\
+    & \lambda f(x_1, x_2, x_3) & = \lambda \cdot (x_1 - 2x_3, 4x_2)\\
+    & & = (\lambda \cdot (x_1 - 2x_3), 4 \cdot \lambda \cdot x_2)\\
+    \Rightarrow  & f( \lambda x_{1} ,\lambda x_{2}) & =\lambda f( x_{1} ,x_{2}) \ \checked
+    \end{array}
+\end{equation*}
+Die Abbildung ist linear.
+
 
 \end{document}

@@ -125,6 +125,8 @@ right=25mm
 \usepackage{siunitx} % für SI Einheiten
 \sisetup{locale = DE}
 
+\usepackage{icomma} % Intelligent commas for decimal numbers
+
 %\usepackage{physics}
 
 \usepackage{mathdots}
@@ -168,6 +170,10 @@ right=25mm
 \newcommand*{\defeq}{\overset{?}{=}}
 \renewcommand{\cdotp}{\cdot} % for compatibility with mathcha.io exports
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
+\newcommand{\vektor}[1]{%
+  \arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[c] #1 \end{pmatrix*}%
+}
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
 \RequirePackage{mathtools}
