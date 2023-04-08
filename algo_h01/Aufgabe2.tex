@@ -1,0 +1,70 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+
+Schreiben Sie ein RAM-Programm, welches das Maximum zweier Zahlen A und B bestimmt.\\
+Können Sie mithilfe der Schrittrelation $\vdash$ beweisen, dass Ihr Programm korrekt ist?
+
+\subsection{Lösung 2}
+
+Die folgende RAM bestimmt das Maximum von $A$ und $B$ durch abwechselndes Dekrementieren
+der beiden Werte. Sie springt zu einer Ausgabe, sowie einer der geladenen Werte $0$ ist.\\
+Dies wäre notwendig für eine RAM, dessen Hauptspeicher nur natürliche Zahlen speichern könnte $N \to \mathbb{N}_0$.
+
+\begin{lstlisting}[language=RAM, caption={Maximum von $A$ und $B$ wenn $N \to \mathbb{N}_0$}, label={Programm 1}]
+    READ 1		 : Lese $A$ ein
+    READ 2		 : Lese $B$ ein
+    LOAD [1]
+    JZ (*@\ref{write2a}@*)        : Wenn Akkumulator 0 ist, ist B größer oder gleichgroß
+    SUB 1
+    STORE [1]
+    LOAD [2]
+    JZ (*@\ref{write1a}@*)        : Wenn Akkumulator 0 ist, ist A größer
+    SUB 1
+    STORE [2]
+    GOTO 3
+    (*@\label{write2a}@*)WRITE 2
+    HALT
+    (*@\label{write1a}@*)WRITE 1
+    HALT
+\end{lstlisting}
+
+Es sei darauf hingewiesen, dass eine RAM, wie wir sie definiert haben, auch negative Zahlen speichern
+und Gebrauch von dem Befehl \lstinline[language=RAM]{JGTZ} machen kann.
+Das macht die Bestimmung des Maximums deutlich einfacher:
+
+\begin{lstlisting}[language=RAM, caption={Maximum von A und B bei $N \to \mathbb{Z}$}, label={Programm 2}]
+    READ 1     : Lese $A$ ein
+    READ 2     : Lese $B$ ein
+    LOAD [1]
+    SUB [2]    : $\sigma (0) = A - B$
+    JGTZ (*@\ref{write1b}@*)     : $\sigma (0) > 0 \Rightarrow A$ ist max
+    WRITE 2    : $\sigma (0) < 0 \Rightarrow B$ ist max
+    HALT
+    (*@\label{write1b}@*)WRITE 1
+    HALT
+\end{lstlisting}
+
+Die Korrektheit der RAM \ref{Programm 2} lässt sich durch die Angabe der Menge aller Konfigurationen $\operatorname{Conf}(\mathcal{R}_{am})$ zeigen,
+wobei jede Konfiguration als Quadrupel der Form $(\pi , \alpha , \beta , \sigma)$ angegeben ist.
+
+\begin{lstlisting}[language=RAM, caption={Beweis von RAM \ref{Programm 2}}, label={Beweis Programm 2}, firstnumber=-1]
+               : $       (\pi, \alpha, \beta, \sigma)$
+               : $       (1,   (A, B), (),    \sigma_0)$          // Startkonfiguration
+    READ 1     : $\vdash (2,   (B),    (),    \sigma_0[1\mapsto A])$
+    READ 2     : $\vdash (3,   (),     (),    \sigma_0[1\mapsto A][2\mapsto B])$
+    LOAD [1]   : $\vdash (4,   (),     (),    \sigma_0[0\mapsto A][1\mapsto A][2\mapsto B])$
+    SUB [2]    : $\vdash (5,   (),     (),    \sigma_0[0\mapsto A - B][1\mapsto A][2\mapsto B])$
+    JGTZ 8     : $A-B > 0$ ? $\vdash (8,   (),     (),    \sigma_0[\ldots ])$ : $\vdash (6,   (),     (),    \sigma_0[\ldots ])$
+    WRITE 2    : $\vdash (7,   (),     (2),   \sigma_0[0\mapsto A - B][1\mapsto A][2\mapsto B])$
+    HALT       : $\vdash (0,   (),     (2),   \sigma_0[0\mapsto A - B][1\mapsto A][2\mapsto B])$
+    WRITE 1    : $\vdash (8,   (),     (1),   \sigma_0[0\mapsto A - B][1\mapsto A][2\mapsto B])$
+    HALT       : $\vdash (0,   (),     (1),   \sigma_0[0\mapsto A - B][1\mapsto A][2\mapsto B])$
+\end{lstlisting}
+
+Für den Fall $A-B > 0$ wird der Programmzähler auf 8 gesetzt und 1 auf das Ausgabeband geschrieben,
+für den Fall $A-B \leq 0$ wird der Programmzähler auf 6 gesetzt und 2 auf das Ausgabeband geschrieben.
+
+\end{document}

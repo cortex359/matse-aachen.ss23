@@ -1,0 +1,58 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+Die RAM soll um einen Befehl
+
+$$
+    \mathtt{cmpbs} \ [ *n_{1}] \ [ *n_{2}]
+$$
+
+zum Vergleich von Speicherbereichen erweitert werden.
+Der Beginn des ersten Bereichs ist an Adresse $n_1$ abgelegt, der Beginn des zweiten an Adresse $n_2$. Die Länge
+der zu vergleichenden Bereiche steht im Akkumulator. Am Ende der Operation soll der Akkumulator den Wert $0$ enthalten, falls sich die Bereiche unterscheiden;
+an Speicheradresse $n_1$ und $n_2$ stehen dann die Adressen, an denen der erste Unterschied auftritt.
+Enthalten beide Bereiche identische Werte, soll der Akkumulator den Wert $1$ enthalten.
+Hat der Akkumulator zu Beginn den Wert $0$ (die Bereiche sind leer), soll der Vergleich als erfolgreich gelten -
+der Akkumulator ist dann also auf $1$ zu setzen.
+
+\subsection*{Lösung 1}
+
+Solange der Akkumulator größer 0 ist, dekementiere den Akkumulator und inkrementiere die Speicheradressen:
+\begin{equation*}
+    \frac{
+        s_{\pi } =\mathtt{cmpbs} \ [*n_{1}] \ [*n_{2}] \kern+0.4em \kern+0.4em \sigma ( 0)  >0\kern+0.4em \kern+0.4em \sigma ( \sigma ( n_{1})) =\sigma ( \sigma ( n_{2}))
+    }{
+        ( \pi ,\alpha ,\beta ,\sigma ) \vdash ( \pi ,\alpha ,\beta ,\sigma [ 0\mapsto \sigma ( 0) -1][ n_{1} \mapsto \sigma ( n_{1}) +1][ n_{2} \mapsto \sigma ( n_{2}) +1])
+    }
+\end{equation*}
+
+
+Wenn die Speicheradressen $n_{1}$ und $n_{2}$ unterschiedliche Werte enthalten, der Akkumulator jedoch noch nicht bei $0$ angekommen ist, soll der Akkumulator den Wert $0$ bekommen:
+\begin{equation*}
+    \frac{
+        s_{\pi } =\mathtt{cmpbs} \ n_{1} \ n_{2} \kern+0.4em \kern+0.4em \sigma ( 0)  >0\kern+0.4em \kern+0.4em \sigma ( \sigma ( n_{1})) \neq \sigma ( \sigma ( n_{2}))
+    }{
+        ( \pi ,\alpha ,\beta ,\sigma ) \vdash ( \pi +1,\alpha ,\beta ,\sigma [ 0\mapsto 0])
+    }
+\end{equation*}
+
+
+Hatte der Akkumulator zu Beginn den Wert $0$ oder ist der Akkumulator bei $0$ angekommen (also war der letzte Vergleich $\sigma ( \sigma ( n_{1})) =\sigma ( \sigma ( n_{2}))$ erfolgreich) soll der Akkumulator den Wert $1$ bekommen:
+\begin{equation*}
+    \frac{
+        s_{\pi } =\mathtt{cmpbs} \ n_{1} \ n_{2} \kern+0.4em \kern+0.4em \sigma ( 0) =0
+    }{
+        ( \pi ,\alpha ,\beta ,\sigma ) \vdash ( \pi +1,\alpha ,\beta ,\sigma [ 0\mapsto 1])
+    }
+\end{equation*}
+
+
+% Schreibweise mit Zuweisung:
+% \begin{equation*}
+%     \frac{s_{\pi } =\mathtt{cmpbs} \ n_{1} \ n_{2} \kern+0.4em \kern+0.4em ( \pi ,\alpha ,\beta ,\sigma ) \vdash n_{1} =z_{a} \kern+0.4em \kern+0.4em ( \pi ,\alpha ,\beta ,\sigma ) \vdash n_{2} =z_{b} \kern+0.4em \kern+0.4em \sigma ( 0)  >0\kern+0.4em \kern+0.4em z_{a} =z_{b}}{( \pi ,\alpha ,\beta ,\sigma ) \vdash ( \pi ,\alpha ,\beta ,\sigma [ 0\mapsto \sigma ( 0) -1][ n_{1} \mapsto z_{a} +1][ n_{2} \mapsto z_{b} +1])}
+% \end{equation*}
+
+\end{document}
