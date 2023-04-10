@@ -11,6 +11,75 @@ Stellen Sie zu folgenden Abbildungen die zugehörigen Abbildungsmatritzen auf.
     \item Können Sie den Wertebereich von $f$ so einschränken, dass $f$ bijektiv ist? Falls ja, wie lautet die Umkehrabbildung von $f$?
 \end{enumerate}
 
-\subsection{Lösung 6}
+\subsection{Lösung 6a}
+Die Abbildung der Polynome maximal zweiten Gerades auf ihre Stammfunktion aus den Polynomen maximal dritten Gerades
+$$
+    f : \begin{cases}
+        \mathbb{P}^2 \to \mathbb{P}^3\\
+        p(x) \mapsto \int_{C=0} p(x) \dx
+    \end{cases}
+$$
+
+lässt sich ebenfalls als $f(p(x)) = A\cdot p(x)$ schreiben, mit
+
+$$
+    A = \begin{pmatrix}[1]
+        0 & 0 & 0 \\
+        1 & 0 & 0 \\
+        0 & \nicefrac{1}{2} & 0 \\
+        0 & 0 & \nicefrac{1}{3}
+    \end{pmatrix}.
+$$
+
+\subsection{Lösung 6b}
+Umgekehrt lässt sich
+$$
+    g : \begin{cases}
+        \mathbb{P}^3 \to \mathbb{P}^2\\
+        p(x) \mapsto p'(x)
+    \end{cases}
+$$
+
+als $f(p(x)) = B\cdot p(x)$ mit
+
+$$
+    B = \begin{pmatrix}[1]
+        0 & 0 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        0 & 2 & 0 & 0 \\
+        0 & 0 & 3 & 0
+    \end{pmatrix}
+$$
+
+schreiben.
+
+\subsection{Lösung 6c}
+
+Begrenzt man den Wertebereich der injektiven Abbildung $f$ auf die Menge aller Polynome
+maximal vierten Gerades ohne die Polynome vom Grad Null
+$\tilde{f}:\mathbb{P}^2 \to \mathbb{P}^3\setminus \mathbb{P}^0$,
+so wird die Abbildung surjektiv und damit bijektiv.\\
+
+Die Umkehrabbildung $f^{-1}$ kann nun so angegeben werden:
+
+$$
+    f^{-1} : \begin{cases}
+        \mathbb{P}^3 \setminus \mathbb{P}^0 \to \mathbb{P}^2\\
+        p(x) \mapsto p'(x)
+    \end{cases}
+$$
+
+Die Abbildungsmatrix braucht dabei ebenfalls nur invertiert zu werden.
+
+$$
+    A^{-1} = \begin{pmatrix}[1]
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & \nicefrac{1}{2} & 0 \\
+        0 & 0 & 0& \nicefrac{1}{3}
+    \end{pmatrix}.
+$$
+
+
 
 \end{document}

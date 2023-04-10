@@ -30,13 +30,28 @@ $$
 \end{enumerate}
 
 \subsection{Lösung 7}
+Wir betrachten die lineare Abbildung $f : V \to W$ mit $V \subseteq \mathbb{R}^3$ und $W \subseteq \mathbb{R}^2$.
+
+Sei $\mathcal{B}_V = \left(\begin{pmatrix}
+    1 \\ 1 \\ 0
+\end{pmatrix}, \begin{pmatrix}
+    0 \\ 1 \\ 1
+\end{pmatrix}, \begin{pmatrix}
+    1 \\ 0 \\ \alpha
+\end{pmatrix}\right)$
+eine Basis von $V$ und $\mathcal{B}_W = \left(\begin{pmatrix}
+    1 \\ 1
+\end{pmatrix}, \begin{pmatrix}
+    0 \\ 1
+\end{pmatrix}\right)$ eine Basis von $W$…
+
 $$
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0 \\
-        0 & 1 & \alpha 
+        0 & 1 & \alpha
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & -1
@@ -49,21 +64,21 @@ $$
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0 \\
-        0 & 1 & 1 
+        0 & 1 & 1
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 1 \\
         0 & 1 & -1 \\
-        0 & 1 & 1 
+        0 & 1 & 1
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 1 \\
         0 & 1 & -1 \\
-        0 & 0 & 2 
+        0 & 0 & 2
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 0 \\
         0 & 1 & 0 \\
@@ -77,13 +92,13 @@ $$
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0 \\
-        0 & 1 & 0 
+        0 & 1 & 0
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         0 & 0 & 1 \\
         1 & 0 & 0 \\
-        0 & 1 & 0 
+        0 & 1 & 0
     \end{pmatrix}
 $$
 
@@ -93,15 +108,15 @@ $$
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0 \\
-        0 & 1 & -1 
+        0 & 1 & -1
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0 \\
-        1 & 1 & 0 
+        1 & 1 & 0
     \end{pmatrix}
-    \rightsquigarrow 
+    \rightsquigarrow
     \begin{pmatrix}
         1 & 0 & 1 \\
         1 & 1 & 0

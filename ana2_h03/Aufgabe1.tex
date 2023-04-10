@@ -17,6 +17,41 @@ $$
     \item Für welche Werte von $a$ ist das Feld wirbelfrei?
 \end{enumerate}
 
-\subsection{Lösung 1}
+\subsection{Lösung 1a}
+
+% Das Kreuzprodukt vom Nabla-Operator mit einem Vektorfeld nennt man Rotation.
+% Die Rotation eines Vektorfeldes ist ein Maß für Drehbewegungen bzw. für die Wirbel des Vektorfeldes.
+\arraycolsep=1pt\def\arraystretch{1} % streach array
+
+$$
+    \operatorname{rot} \vec{f} = \vec{\nabla} \times \vec{f} = \begin{pmatrix}
+        \frac{\partial f_z}{\partial y} - \frac{\partial f_y}{\partial z} \\
+        \frac{\partial f_x}{\partial z} - \frac{\partial f_z}{\partial x} \\
+        \frac{\partial f_y}{\partial x} - \frac{\partial f_x}{\partial y}
+    \end{pmatrix} = \begin{pmatrix}
+        2x + a\cdot x - 3a\cdot x\\
+        3y - (2y + a\cdot y) \\
+        5 + 3a\cdot z - (5a + 3z)
+    \end{pmatrix} = \begin{pmatrix}
+        2x \cdot (1 - a)\\
+        y \cdot (1 - a) \\
+        5\cdot (1-a) + 3z\cdot (a-1)
+    \end{pmatrix}
+$$
+
+\subsection{Lösung 1b}
+
+Das Feld ist wirbelfrei, wenn $\operatorname{rot} \vec{f} = \vec{0}$ ist, also für $a = 1$.
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}

@@ -3,11 +3,12 @@
 \begin{document}
 
 \section{Aufgabe 5}
-Berechnen Sie in Abhängigkeit von $x$
+\textit{Hinweis: Umbenennung des Parameters von $x$ nach $a$.}\\
+Berechnen Sie in Abhängigkeit von $a$
 
 \begin{enumerate}
     \item den Kern
-    \item die Dimension des Krens
+    \item die Dimension des Kerns
     \item den Rang
     \item das Bild
 \end{enumerate}
@@ -17,9 +18,16 @@ $$
     A = \begin{pmatrix}[1]
         2 & 1 & 2 & 3 \\
         2 & 5 & 4 & 3 \\
-        1 & 2 & 5 & x \\
+        1 & 2 & 5 & a \\
         2 & 1 & 3 & 5
     \end{pmatrix}
+$$
+
+\subsection{Lösung 5}
+\textit{Dimensionsformel für lineare Abbildungen:}\\
+Für eine lineare Abbildung $f: V \to W$ gilt
+$$
+    \dim (\ker (f)) + \operatorname{rg}(f) = \dim (V).
 $$
 
 \subsection{Lösung 5a}
@@ -33,36 +41,50 @@ Durch elementare Zeilenumformungen erhalten wir die Zeilenstufenform der Koeffiz
 
 \begin{gather*}
     \arraycolsep=0.6em
-    \begin{pmatrix}[1]
-        2 & 1 & 2 & 3 \\
-        2 & 5 & 4 & 3 \\
-        1 & 2 & 5 & x \\
-        2 & 1 & 3 & 5
-    \end{pmatrix}\\
-    \rightsquigarrow
-    \begin{pmatrix}[1]
-        1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
-        0 &   4 & 2 &   0 \\
-        0 & \nicefrac{3}{2} & 4 & x - \nicefrac{3}{2} \\
-        0 &   0 & 1 &   2
-    \end{pmatrix}\\
-    \rightsquigarrow
-    \begin{pmatrix}[1]
-        1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
-        0 & 1 & \nicefrac{1}{2} & 0 \\
-        0 & 0 & \frac{13}{6} & \frac{2x}{3} - 1 \\
-        0 & 0 & 1 & 2
-    \end{pmatrix}\\
-    \rightsquigarrow
-    \begin{pmatrix}[1]
-        1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
-        0 & 1 & \nicefrac{1}{2} & 0 \\
-        0 & 0 & 1 & 4x - 6 \\
-        0 & 0 & 0 & 20 - 4x
-    \end{pmatrix}
+    \begin{array}{ r l }
+        & \begin{pmatrix}[1]
+            2 & 1 & 2 & 3 \\
+            2 & 5 & 4 & 3 \\
+            1 & 2 & 5 & a \\
+            2 & 1 & 3 & 5
+        \end{pmatrix}\\
+        \rightsquigarrow &
+        \begin{pmatrix}[1]
+            1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
+            0 &   4 & 2 &   0 \\
+            0 & \nicefrac{3}{2} & 4 & a - \nicefrac{3}{2} \\
+            0 &   0 & 1 &   2
+        \end{pmatrix}\\
+        \rightsquigarrow &
+        \begin{pmatrix}[1]
+            1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
+            0 & 1 & \nicefrac{1}{2} & 0 \\
+            0 & 0 & \frac{13}{6} & \frac{2a}{3} - 1 \\
+            0 & 0 & 1 & 2
+        \end{pmatrix}\\
+        \rightsquigarrow &
+        \begin{pmatrix}[1]
+            1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
+            0 & 1 & \nicefrac{1}{2} & 0 \\
+            0 & 0 & 1 & 4a - 6 \\
+            0 & 0 & 0 & 20 - 4a
+        \end{pmatrix}
+    \end{array}
 \end{gather*}
 
 % Die Determinante ist eine normierte, alternierende Multiliniarform auf der Menge der quadtratsichen Matrizen einer festen größe
 % \det{A} = 64 - 8x
+
+Es gilt $A x = f(x) = 0$ und wir erhalten
+
+$x_4 \cdot (20-4a) = 0 \Leftrightarrow x_4 = 0 \vee  a = 5$
+
+$x_3 + x_4 \cdot (4a-6)  = 0$
+$x_3 = - 14 x_4$
+
+
+
+\subsection{Lösung 5}
+
 
 \end{document}
