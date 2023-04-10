@@ -30,5 +30,82 @@ $$
 \end{enumerate}
 
 \subsection{Lösung 7}
+$$
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        0 & 1 & \alpha 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & -1
+    \end{pmatrix}
+$$
+
+Wenn $\alpha = 1$
+
+$$
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        0 & 1 & 1 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & -1 \\
+        0 & 1 & 1 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & -1 \\
+        0 & 0 & 2 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+$$
+
+was passiert, wenn $\alpha \neq 1$ z.B. $\alpha = 0$
+
+$$
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        0 & 1 & 0 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        0 & 0 & 1 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 
+    \end{pmatrix}
+$$
+
+da $\det (A_f) = \alpha + 1$ und für $\alpha + 1 = 0 \Leftrightarrow \alpha = -1$ gilt:
+
+$$
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        0 & 1 & -1 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0 \\
+        1 & 1 & 0 
+    \end{pmatrix}
+    \rightsquigarrow 
+    \begin{pmatrix}
+        1 & 0 & 1 \\
+        1 & 1 & 0
+    \end{pmatrix}
+$$
 
 \end{document}
