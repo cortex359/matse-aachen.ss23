@@ -18,6 +18,122 @@ Gegeben sei die folgende Matrix:
     \item Stellen Sie eine Vermutung auf für $A^n$ und beweisen Sie diese.
 \end{enumerate}
 
-\subsection{Lösung 6}
+\subsection{Lösung 6a}
+
+\begin{equation*}
+    \begin{aligned}
+        A^1 & = \begin{pmatrix}
+            2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix}\\
+        A^2 & = \begin{pmatrix}
+            2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix} \times \begin{pmatrix}
+            2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix} = \begin{pmatrix}
+            4 & 0 & 0 \\
+            0 & 1 & 0 \\
+            3 & 0 & 1
+        \end{pmatrix}\\
+        A^3 & = \begin{pmatrix}
+            4 & 0 & 0 \\
+            0 & 1 & 0 \\
+            3 & 0 & 1
+        \end{pmatrix} \times \begin{pmatrix}
+            2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix} = \begin{pmatrix}
+            8 & 0 & 0 \\
+            0 & 1 & 0 \\
+            7 & 0 & 1
+        \end{pmatrix}\\
+    \end{aligned}
+\end{equation*}
+
+\subsection{Lösung 6b}
+Zu zeigen:
+\begin{equation*}
+    \begin{aligned}
+        A^n & = \begin{pmatrix}
+            2^n & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^n -1 & 0 & 1
+        \end{pmatrix}\\
+    \end{aligned}
+\end{equation*}
+
+Induktionsanfang mit $n = 1$:
+\begin{equation*}
+    \begin{aligned}
+        A^1 & = \begin{pmatrix}
+            2^1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^1 -1 & 0 & 1
+        \end{pmatrix}\\
+    \end{aligned} = \begin{pmatrix}
+        2 & 0 & 0 \\
+        0 & 1 & 0 \\
+        1 & 0 & 1
+    \end{pmatrix}\ \checkmark
+\end{equation*}
+
+Induktionsvoraussetzung: Es sei 
+\begin{equation*}
+    \begin{aligned}
+        A^n & = \begin{pmatrix}
+            2^n & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^n -1 & 0 & 1
+        \end{pmatrix}
+    \end{aligned}
+\end{equation*}
+für ein festes, aber beliebiges $n \in \mathbb{N}$.\\
+
+Induktionsbehauptung: Dann gilt für $n+1$ ebenso
+\begin{equation*}
+    \begin{aligned}
+        A^{n+1} & = \begin{pmatrix}
+            2^{n+1} & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^{n+1} -1 & 0 & 1
+        \end{pmatrix}.
+    \end{aligned}
+\end{equation*}
+
+Induktionsschluss: 
+\begin{equation*}
+    \begin{aligned}
+        A^{n+1} = A^n \times A & = \begin{pmatrix}
+            2^n & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^n -1 & 0 & 1
+        \end{pmatrix} \times \begin{pmatrix}
+            2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix} \\
+        & = \begin{pmatrix}
+            2^n\cdot 2 & 0 & 0 \\
+            0 & 1 & 0 \\
+            (2^n -1)\cdot 2 + 1 & 0 & 1
+        \end{pmatrix}\\
+        & = \begin{pmatrix}
+            2^{n+1} & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^{n+1} -2 + 1 & 0 & 1
+        \end{pmatrix}\\
+        & = \begin{pmatrix}
+            2^{n+1} & 0 & 0 \\
+            0 & 1 & 0 \\
+            2^{n+1} -1 & 0 & 1
+        \end{pmatrix}\ \checkmark
+    \end{aligned}
+\end{equation*}
 
 \end{document}

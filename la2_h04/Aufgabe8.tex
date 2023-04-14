@@ -19,6 +19,61 @@ Die Spur einer quadratischen Matrix $A=(a_{ij})$ ist definiert durch
     \item Man zeige weiter: $\Spur (ABC) = \Spur (BCA)$, aber i.a. $\Spur (ABC) \neq \Spur (BAC)$.
 \end{enumerate}
 
-\subsection{Lösung 8}
+\subsection{Lösung 8a}
+Die Abbildung 
+$$
+    f : \begin{cases}
+        \mathbb{R}^{n\times n} \to \mathbb{R}\\
+        A \mapsto \Spur (A)
+    \end{cases}
+$$
+ist genau dann lineare, wenn sie homogen und additiv ist.\\
+
+Zeige Homogenität mit $\lambda \in \mathbb{R}$:
+\begin{equation}
+    \begin{aligned}
+                        \Spur (\lambda \cdot A)       & = \lambda \cdot \Spur (A)\\
+        \Leftrightarrow \sum_{i=1}^{n} \lambda a_{ii} & = \lambda \cdot \sum_{i=1}^{n} a_{ii}\ \checkmark
+    \end{aligned}
+\end{equation}
+
+Zeige Additivität mit $B = (b_{ij}) \in \mathbb{R}^{n\times n}$:
+\begin{equation}
+    \begin{aligned}
+        \Spur (A + B) & = \Spur (B) + \Spur (A) \\
+        \Leftrightarrow \sum_{i=1}^{n} ( a_{ii} + b_{ii} ) & = \sum_{i=1}^{n} a_{ii} + \sum_{i=1}^{n} b_{ii} \ \checkmark
+    \end{aligned}
+\end{equation}
+
+\subsection{Lösung 8b}
+\begin{align}
+    A\times B = \begin{pmatrix}
+        1 & 2 & 3 \\
+        0 & 1 & 0 \\
+    \end{pmatrix} \times \begin{pmatrix}
+        1 & 0 \\
+        2 & 1 \\
+        3 & 0 \\
+    \end{pmatrix} &= \begin{pmatrix}
+        14 & 2 \\
+        2 & 1 \\
+    \end{pmatrix}\\
+    B\times A = \begin{pmatrix}
+        1 & 0 \\
+        2 & 1 \\
+        3 & 0 \\
+    \end{pmatrix} \times \begin{pmatrix}
+        1 & 2 & 3 \\
+        0 & 1 & 0 \\
+    \end{pmatrix} &= \begin{pmatrix}
+            1 & 2 & 3 \\
+            2 & 5 & 6 \\
+            3 & 6 & 9 \\
+    \end{pmatrix}
+\end{align}
+
+Es ergibt sich somit für $\Spur (A\times B) = 14 + 1 = 15$ und für $\Spur (B\times A) = 1 + 5 + 9 = 15$.
+
+\subsection*{Lösung 8c}
 
 \end{document}
