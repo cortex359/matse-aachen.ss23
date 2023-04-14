@@ -493,15 +493,20 @@ right=25mm
 
 
 % Standardmäßige Vergrößerung normaler Arrays
-\arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
+% \arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
 % Anpassbarkeit von Matrizen und Vektoren
-\makeatletter
-\renewcommand*\env@matrix[1][\arraystretch]{%
-  \edef\arraystretch{#1}%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{*\c@MaxMatrixCols c}}
-\makeatother
+% \makeatletter
+% \renewcommand*\env@matrix[1][\arraystretch]{%
+%   \edef\arraystretch{#1}%
+%   \hskip -\arraycolsep
+%   \let\@ifnextchar\new@ifnextchar
+%   \array{*\c@MaxMatrixCols c}}
+% \makeatother
+
+
+\newenvironment{ematrix}[1]
+{\left(\begin{array}{@{}#1@{}}}
+{\end{array}\right)}
 
 \newcommand{\hausaufgabe}[3]{
   \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}

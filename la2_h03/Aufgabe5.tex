@@ -15,7 +15,7 @@ Berechnen Sie in Abhängigkeit von $a$
 der zu der folgenden Matrix gehörenden linearen Abbildung:
 $$
     \arraycolsep=0.6em
-    A = \begin{pmatrix}[1]
+    A = \begin{pmatrix}
         2 & 1 & 2 & 3 \\
         2 & 5 & 4 & 3 \\
         1 & 2 & 5 & a \\
@@ -42,28 +42,28 @@ Durch elementare Zeilenumformungen erhalten wir die Zeilenstufenform der Koeffiz
 \begin{gather*}
     \arraycolsep=0.6em
     \begin{array}{ r l }
-        & \begin{pmatrix}[1]
+        & \begin{pmatrix}
             2 & 1 & 2 & 3 \\
             2 & 5 & 4 & 3 \\
             1 & 2 & 5 & a \\
             2 & 1 & 3 & 5
         \end{pmatrix}\\
         \rightsquigarrow &
-        \begin{pmatrix}[1]
+        \begin{pmatrix}
             1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
             0 &   4 & 2 &   0 \\
             0 & \nicefrac{3}{2} & 4 & a - \nicefrac{3}{2} \\
             0 &   0 & 1 &   2
         \end{pmatrix}\\
         \rightsquigarrow &
-        \begin{pmatrix}[1]
+        \begin{pmatrix}
             1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
             0 & 1 & \nicefrac{1}{2} & 0 \\
             0 & 0 & \frac{13}{6} & \frac{2a}{3} - 1 \\
             0 & 0 & 1 & 2
         \end{pmatrix}\\
         \rightsquigarrow &
-        \begin{pmatrix}[1]
+        \begin{pmatrix}
             1 & \nicefrac{1}{2} & 1 & \nicefrac{3}{2} \\
             0 & 1 & \nicefrac{1}{2} & 0 \\
             0 & 0 & 1 & 4a - 6 \\
@@ -75,16 +75,43 @@ Durch elementare Zeilenumformungen erhalten wir die Zeilenstufenform der Koeffiz
 % Die Determinante ist eine normierte, alternierende Multiliniarform auf der Menge der quadtratsichen Matrizen einer festen größe
 % \det{A} = 64 - 8x
 
-Es gilt $A x = f(x) = 0$ und wir erhalten
+Unterscheidung 
+$$
+    \begin{ematrix}{cc|c}
+        a & b & c
+    \end{ematrix}
+$$
 
-$x_4 \cdot (20-4a) = 0 \Leftrightarrow x_4 = 0 \vee  a = 5$
+Aus der letzten Zeile ergeben sich die Fälle
+$x_4 \cdot (20-4a) = 0 \Leftrightarrow x_4 = 0 \vee  a = 5$.\\
 
-$x_3 + x_4 \cdot (4a-6)  = 0$
-$x_3 = - 14 x_4$
+Für $a \neq 5$ ergibt sich $x_4 = 0$ und entsprechend $x_{3,2,1} = 0$. Somit ist 
+$$
+    \ker (A) = \left\{\vec{0}\right\}.
+$$
+
+Für $a = 5$ wird die vierte Zeile zu einer Nullzeile, d.h. das LGS ist unterbestimmt und $x_4$ kann beliebig sein.
+Setze daher $x_4 := \lambda$. 
+Entsprechend der übrigen Gleichungen ergibt sich 
+\begin{gather*}
+    \begin{align}
+        x_3 + 14\lambda = 0 & \Leftrightarrow x_3 = -14 \lambda \\
+        x_2 + \frac{1}{2} \cdot (-14) \lambda = 0 & \Leftrightarrow x_2 = 7 \lambda \\
+        x_1 + \frac{7}{2} \lambda -14 \lambda + \frac{3}{2} \lambda & \Leftrightarrow x_1 = 9 \lambda 
+    \end{align}
+\end{gather*}
+
+Der Kern bei $a = 5$ ist also
+$$
+    \arraycolsep=1pt\def\arraystretch{1}
+    \ker (A) = \left\{\lambda \begin{pmatrix}
+        9 \\ 7 \\ -14
+    \end{pmatrix} \middle| \lambda \in \mathbb{R}  \right\}.
+$$
 
 
 
-\subsection{Lösung 5}
+\subsection{Lösung 5b}
 
 
 \end{document}
