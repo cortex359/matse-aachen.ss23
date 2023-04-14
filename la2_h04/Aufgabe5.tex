@@ -1,0 +1,76 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 5}
+Berechnen Sie jeweils die Inverse folgender Matrizen, falls diese existiert:
+
+\begin{enumerate}
+    \item $A = \begin{pmatrix}
+        1 & 2 & 3 \\
+        1 & 1 & 2 \\
+        3 & 2 & 2
+    \end{pmatrix}$ \\
+    \item $B = \begin{pmatrix}
+        2 & -1 & 1 \\
+        1 & -2 & 0 \\
+        0 &  3 & 1 
+    \end{pmatrix}$
+\end{enumerate}
+
+\subsection{Lösung 5}
+
+Eine quadtratsiche Matrix $A$ ist genau dann invertierbar, wenn gilt: $\det (A) \neq 0$.
+
+
+\subsection{Lösung 5a}
+Aus $\det (A) = 2 + 12 + 6 -9 -4 -4 = 3 \neq 0$ folgt, dass die Matrix invertierbar ist. 
+
+Durch elementare Zeilenumformungen lässt sich $A^{-1}$ wie folgt bestimmen:
+\begin{equation*}
+    \begin{aligned}
+        & \eqmatrix{rrr|rrr}{
+            1 & 2 & 3 & 1 & 0 & 0\\
+            1 & 1 & 2 & 0 & 1 & 0\\
+            3 & 2 & 2 & 0 & 0 & 1\\
+        }\\
+        \leadsto  & \eqmatrix{rrr|rrr}{
+            1 &  2 &  3 &  1 & 0 & 0\\
+            0 & -1 & -1 & -1 & 1 & 0\\
+            0 & -4 & -7 & -3 & 0 & 1\\
+        }\\
+        \leadsto  & \eqmatrix{rrr|rrr}{
+            1 &  2 &  3 &  1 &  0 & 0\\
+            0 &  1 &  1 &  1 & -1 & 0\\
+            0 &  0 & -3 &  1 & -4 & 1\\
+        }\\
+        \leadsto  & \eqmatrix{rrr|rrr}{
+            1 &  2 &  3 &     1 &   0 &    0 \\
+            0 &  1 &  0 &  \frac{4}{3}  & -\frac{7}{3} & \frac{1}{3} \\
+            0 &  0 &  1 &  -\frac{1}{3} & \frac{4}{3}  & -\frac{1}{3} \\
+        }\\
+        \leadsto  & \eqmatrix{rrr|rrr}{
+            1 &  2 &  0 &             2 &           -4 &           1 \\
+            0 &  1 &  0 &  \frac{4}{3}  & -\frac{7}{3} & \frac{1}{3} \\
+            0 &  0 &  1 &  -\frac{1}{3} & \frac{4}{3}  & -\frac{1}{3} \\
+        }\\
+        \leadsto  & \eqmatrix{rrr|rrr}{
+            1 &  0 &  0 &  -\frac{2}{3} & \frac{2}{3}  &  \frac{1}{3} \\
+            0 &  1 &  0 &  \frac{4}{3}  & -\frac{7}{3} & \frac{1}{3} \\
+            0 &  0 &  1 &  -\frac{1}{3} & \frac{4}{3}  & -\frac{1}{3} \\
+        }\\
+    \end{aligned}
+\end{equation*}
+
+\begin{equation*}
+    A^{-1} = \frac{1}{3} \cdot \eqmatrix{rrr}{
+        -2 &  2 &  1 \\
+         4 & -7 &  1 \\
+        -1 &  4 & -1 \\
+    }\\
+\end{equation*}
+\subsection{Lösung 5b}
+Da $\det (B) = -4 + 3 - (-1) = 0$, ist die Matrix $B$ nicht invertierbar.
+
+
+\end{document}

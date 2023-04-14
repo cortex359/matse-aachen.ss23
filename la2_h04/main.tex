@@ -505,6 +505,13 @@ right=25mm
 %  \array{*\c@MaxMatrixCols c}}
 %\makeatother
 
+%% Erweiterte Matrizen in der Form \eqmatrix{ccc|c}{1 & 1 \\ ...}
+\newcommand*{\eqmatrix}[2]{%
+    \ensuremath{\left(\begin{array}{#1}
+        #2
+    \end{array}\right)}%
+}
+
 \newcommand{\hausaufgabe}[3]{
   \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
   \fancyhead[C]{\textbf{Hausaufgaben}\\\textbf{Blatt #1}}
