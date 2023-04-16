@@ -182,8 +182,8 @@ linkcolor=td-blue
 % User interface
 \newcommand\ifnumber[4][]{%
     \begingroup
-    \let\parsesign=\iftrue
-    \let\parsefloat=\iftrue
+    \let\parsesign=\iftrue%
+    \let\parsefloat=\iftrue%
     \let\parse@num@minus=-%
     \let\parse@num@plus=+%
     \let\parse@num@point=.%
@@ -438,6 +438,8 @@ right=25mm
 \DeclareMathOperator{\FD}{FD}
 \DeclareMathOperator{\AttrHuelle}{\textnormal{AttrHülle}}
 
+\DeclareMathOperator{\Spur}{Spur}
+
 % integration, compatibility with ana1
 \newcommand{\dx}{~\mathrm{d}x}
 \newcommand{\du}{~\mathrm{d}u}
@@ -493,15 +495,22 @@ right=25mm
 
 
 % Standardmäßige Vergrößerung normaler Arrays
-\arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
+%\arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
 % Anpassbarkeit von Matrizen und Vektoren
-\makeatletter
-\renewcommand*\env@matrix[1][\arraystretch]{%
-  \edef\arraystretch{#1}%
-  \hskip -\arraycolsep
-  \let\@ifnextchar\new@ifnextchar
-  \array{*\c@MaxMatrixCols c}}
-\makeatother
+%\makeatletter
+%\renewcommand*\env@matrix[1][\arraystretch]{%
+%  \edef\arraystretch{#1}%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{*\c@MaxMatrixCols c}}
+%\makeatother
+
+%% Erweiterte Matrizen in der Form \eqmatrix{ccc|c}{1 & 1 \\ ...}
+\newcommand*{\eqmatrix}[2]{%
+    \ensuremath{\left(\begin{array}{#1}
+        #2
+    \end{array}\right)}%
+}
 
 \newcommand{\hausaufgabe}[3]{
   \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
