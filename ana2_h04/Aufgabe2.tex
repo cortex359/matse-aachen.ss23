@@ -1,0 +1,41 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+
+Bestimmen Sie die relativen Extrema und Sattelpunkte der Funktionen
+
+\begin{enumerate}
+    \item $f(x,y) = 4x\cdot y +2x^3 -2y^3 +5$
+    \item $f(x,y) = 10x^2 + (y-10)^2 -10x \cdot y$
+\end{enumerate}
+
+\subsection{Lösung 2a}
+\underline{1. Ableitung}:
+\begin{align}
+    f_x(x,y) &= 4y + 6x^2 \\
+    f_y(x,y) &= 4x - 6y^2
+\end{align}
+
+\underline{Berechnung der Nullstellen}\\
+
+Für (1):
+\begin{align*}
+                    0   & = 4y + 6x^2 \\
+    \Leftrightarrow -4y & = 6x^2 \\
+    \Leftrightarrow y   & = - \frac{3x^2}{2} \\
+\end{align*}
+
+Einsetzen in (2):
+\begin{align*}
+                        0 &= 4x - 6\left(\frac{3x^2}{2}\right)^2 \\
+    \Leftrightarrow     0 &= 4x - \frac{27x^4}{2} \\
+    \Leftrightarrow     0 &= x \cdot (27x^3 - 8) \\
+    \Leftrightarrow     0 &= x \vee 27x^3 - 8 = 0 \\
+    \Leftrightarrow     0 &= x \vee x = \sqrt[3]{\frac{8}{27}} = \frac{2}{3}\\
+\end{align*}
+
+Daraus folgen die kritischen Punkte $\left(0 \middle| -\frac{3x^2}{2}\right)$ und $\left(\frac{2}{3} \middle|- \frac{3x^2}{2}\right)$.
+
+\end{document}

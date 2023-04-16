@@ -1,0 +1,76 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Sind die folgenden Funktionen im Punkt $(0,0)$ stetig?
+\begin{enumerate}
+    \item $f(x,y) \begin{cases}
+        \frac{x^3+y^3}{x^2+y^2} & \text{ für } (x,y) \neq (0,0)\\
+        0                       & \text{ für } (x,y) = (0,0)
+    \end{cases}$
+    \item $f(x,y) \begin{cases}
+        \frac{x+y}{x^2+y^2} & \text{ für } (x,y) \neq (0,0)\\
+        0                   & \text{ für } (x,y) = (0,0)
+    \end{cases}$
+\end{enumerate}
+
+\subsection{Lösung 1a}
+Sei
+\begin{align*}
+    \vec{X_n} = \begin{pmatrix}x_n \\ y_n \end{pmatrix}
+    = \begin{pmatrix}
+        r_n\cdot \cos (\phi_n) \\
+        r_n\cdot \sin (\phi_n)
+    \end{pmatrix} \text{ mit } \lim_{n\rightarrow \infty} r_n = 0
+\end{align*}
+
+dann folgt die Stetigkeit im Punkt $(0,0)$ durch
+\begin{align*}
+    \lim_{n\rightarrow \infty} f(\vec{X_n})
+        &= \lim_{n\rightarrow \infty} \frac{(r_n\cdot \cos (\phi_n))^3+(r_n\cdot \sin (\phi_n))^3}{(r_n\cdot \cos (\phi_n))^2+(r_n\cdot \sin (\phi_n))^2} \\
+        &= \lim_{r_n\rightarrow 0} \frac{
+                r_n^3 \cdot \left( \cos^3 (\phi_n) + \sin^3 (\phi_n) \right)
+            }{
+                r_n^2 \cdot \left( \cos^2 (\phi_n) + \sin^2 (\phi_n) \right)
+            }\\
+        &= \lim_{r_n\rightarrow 0} r_n \cdot \frac{
+                \cos^3 (\phi_n) + \sin^3 (\phi_n)
+            }{
+                \cos^2 (\phi_n) + \sin^2 (\phi_n)
+            }\\
+        &= \lim_{r_n\rightarrow 0} r_n \cdot \left( \cos^3 (\phi_n) + \sin^3 (\phi_n) \right) \\
+        &= 0 \\
+        &= f(0,0). \ \checkmark
+\end{align*}
+
+\subsection{Lösung 1b}
+Sei
+\begin{align*}
+    \vec{X_n} = \begin{pmatrix}x_n \\ y_n \end{pmatrix}
+    = \begin{pmatrix}
+        r_n\cdot \cos (\phi_n) \\
+        r_n\cdot \sin (\phi_n)
+    \end{pmatrix} \text{ mit } \lim_{n\rightarrow \infty} r_n = 0
+\end{align*}
+
+dann folgt die Umstetigkeit im Punkt $(0,0)$ durch
+\begin{align*}
+    \lim_{n\rightarrow \infty} f(\vec{X_n})
+        &= \lim_{n\rightarrow \infty} \frac{
+                r_n\cdot \cos (\phi_n) + r_n\cdot \sin (\phi_n)
+            }{
+                (r_n\cdot \cos (\phi_n))^2+(r_n\cdot \sin (\phi_n))^2
+            }\\
+        &= \lim_{r_n\rightarrow 0} \frac{
+                r_n \cdot \left( \cos (\phi_n) + \sin (\phi_n)\right)
+            }{
+                r_n^2 \cdot \left( \cos^2 (\phi_n) + \sin^2 (\phi_n) \right)
+            }\\
+        &= \lim_{r_n\rightarrow 0} \frac{1}{r_n}
+                \left( \cos (\phi_n) + \sin (\phi_n)\right) \\
+        &= \pm \infty \\
+        &\neq f(0,0). \ \lightning
+\end{align*}
+
+\end{document}
