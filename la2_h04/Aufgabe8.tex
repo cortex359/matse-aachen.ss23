@@ -4,9 +4,9 @@
 
 \section{Aufgabe 8}
 Die Spur einer quadratischen Matrix $A=(a_{ij})$ ist definiert durch
-\[
+\begin{equation} \label{eq:spur}
     \Spur (A) = \sum_{i=1}^{n} a_{ii}.
-\]
+\end{equation}
 
 \begin{enumerate}
     \item Zeigen Sie, dass die Spur eine lineare Abbildung darstellt.
@@ -20,7 +20,7 @@ Die Spur einer quadratischen Matrix $A=(a_{ij})$ ist definiert durch
 \end{enumerate}
 
 \subsection{Lösung 8a}
-Die Abbildung 
+Die Abbildung
 $$
     f : \begin{cases}
         \mathbb{R}^{n\times n} \to \mathbb{R}\\
@@ -30,23 +30,23 @@ $$
 ist genau dann lineare, wenn sie homogen und additiv ist.\\
 
 Zeige Homogenität mit $\lambda \in \mathbb{R}$:
-\begin{equation}
+\begin{equation*}
     \begin{aligned}
                         \Spur (\lambda \cdot A)       & = \lambda \cdot \Spur (A)\\
         \Leftrightarrow \sum_{i=1}^{n} \lambda a_{ii} & = \lambda \cdot \sum_{i=1}^{n} a_{ii}\ \checkmark
     \end{aligned}
-\end{equation}
+\end{equation*}
 
 Zeige Additivität mit $B = (b_{ij}) \in \mathbb{R}^{n\times n}$:
-\begin{equation}
+\begin{equation*}
     \begin{aligned}
         \Spur (A + B) & = \Spur (B) + \Spur (A) \\
         \Leftrightarrow \sum_{i=1}^{n} ( a_{ii} + b_{ii} ) & = \sum_{i=1}^{n} a_{ii} + \sum_{i=1}^{n} b_{ii} \ \checkmark
     \end{aligned}
-\end{equation}
+\end{equation*}
 
 \subsection{Lösung 8b}
-\begin{align}
+\begin{align*}
     A\times B = \begin{pmatrix}
         1 & 2 & 3 \\
         0 & 1 & 0 \\
@@ -70,10 +70,65 @@ Zeige Additivität mit $B = (b_{ij}) \in \mathbb{R}^{n\times n}$:
             2 & 5 & 6 \\
             3 & 6 & 9 \\
     \end{pmatrix}
-\end{align}
+\end{align*}
 
 Es ergibt sich somit für $\Spur (A\times B) = 14 + 1 = 15$ und für $\Spur (B\times A) = 1 + 5 + 9 = 15$.
 
 \subsection*{Lösung 8c}
+Das Produkt der Matrizen $A = (a_{ij}) \in \mathbb{R}^{m\times n}$ und $B = (b_{ij}) \in \mathbb{R}^{n\times m}$
+ist von der Form $AB = C \in \mathbb{R}^{m\times m}$ bzw. $BA = D \in \mathbb{R}^{n \times n}$.\\
+
+Nach Definition 4.56 gilt für die Koordinaten $(c_{ik})$ des Produkts der Matrizen $A$ und $B$,
+sowie entsprechend für die Koordinaten $(d_{ik})$
+\begin{align*}
+    c_{ik} &= \sum_{j=1}^{n} a_{ij} b_{jk}\\
+    d_{ik} &= \sum_{j=1}^{m} b_{ij} a_{jk}.
+\end{align*}
+
+Aus der Definition der Spur \ref{eq:spur} ergibt sich
+\begin{align*}
+    \Spur (C) &= \sum_{i=1}^{m} c_{ii} = \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij} b_{ji}\\
+    \Spur (D) &= \sum_{i=1}^{n} d_{ii} = \sum_{i=1}^{n} \sum_{j=1}^{m} b_{ij} a_{ji}.
+\end{align*}
+
+Durch umordnung der Summenzeichen zeigt sich, dass die beiden Darstellung isomorph (gleich bis auf Umbenennung der Indizes $i$ und $j$) zueinander sind.
+\begin{align*}
+    \sum_{i=1}^{n} \sum_{j=1}^{m} b_{ij} a_{ji} = \sum_{j=1}^{m} \sum_{i=1}^{n} b_{ij} a_{ji} = \sum_{j=1}^{m} \sum_{i=1}^{n} a_{ji} b_{ij} \simeq \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij} b_{ji}
+\end{align*}
+
+Somit ist gezeigt, dass $\Spur (AB) = \Spur (BA). \ \checkmark$
+
+\subsection*{Lösung 8d}
+Für eine Matrix $A = (a_{ij}) \in \mathbb{R}^{m\times n}$ ist bekannt, dass $A^T = (a_{ji}) \in \mathbb{R}^{n\times m}$.
+
+Für das Produkt $B \in \mathbb{R}^{n\times n}$ mit $B = (b_{ik}) = A^T \times A$ gilt
+\begin{align*}
+    b_{ik} &= \sum_{j=1}^{n} a_{ij} a_{kj}.
+\end{align*}
+
+Entsprechend der Definition der Spur \ref{eq:spur} ergibt sich
+\begin{align*}
+    \Spur (B) = \sum_{i=1}^{n} b_{ii}
+    = \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij} a_{ij}
+    = \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2.
+\end{align*}
+
+Es gilt $\Spur (A^T \times A) = 0$ genau dann wenn $a_{ij} = 0\ \forall i\in [1;m], j\in [1;n].\ \checkmark$
+
+\subsection*{Lösung 8e}
+
+Durch Anwendung des Assoziativgesetzes der Matrixmultiplikation (Satz 4.59 Abs. 1) und der Kommutativität aus 8c lässt sich
+für $A\in \mathbb{R}^{m\times n}$ und $BC\in \mathbb{R}^{n\times m}$ zeigen
+\begin{align*}
+    \Spur (ABC) = \Spur \left(A(BC)\right) = \Spur \left((BC)A\right) = \Spur (BCA).
+\end{align*}
+
+
+% {{a_11,a_12,a_13},{a_21,a_22,a_23},{a_31,a_32,a_33}}
+
+% {x_1,x_2,x_3}
+
+% {{b_11,b_12,b_13},{b_21,b_22,b_23},{b_31,b_32,b_33}}
+% {{c_11,c_12,c_13},{c_21,c_22,c_23},{c_31,c_32,c_33}}
 
 \end{document}
