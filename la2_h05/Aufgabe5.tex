@@ -3,7 +3,111 @@
 \begin{document}
 
 \section{Aufgabe 5}
+Es sind folgende Abbildungsmatrizen gegeben:
 
-\subsection{Lösung 5}
+\begin{align*}
+    A_\phi &= \begin{pmatrix}
+        \cos (\phi) & -\sin (\phi) \\
+        \sin (\phi) & \cos (\phi)
+    \end{pmatrix}
+    &\text{und} & &
+    B &= \begin{pmatrix}
+        1 &  0 \\
+        0 & -1
+    \end{pmatrix}
+\end{align*}
 
+Durch Matrix $A_\phi$ wird ein Vektor im $\mathbb{R}^2$ um den Winkel $\phi$ gedreht, die Matrix $B$ spiegelt selbigen an der $x$-Achse.
+
+\begin{enumerate}
+    \item Veranschaulichen Sie die Behauptungen am Beispiel des Vektors $x_0 = \begin{pmatrix}2 \\ 1 \end{pmatrix}$ und $\phi = \frac{\pi}{2}$, wobei $A=A_{\left(\frac{\pi}{2}\right)}$, in dem Sie den Vektor selber und dessen Abbildungen $f_A(x_0) = A\cdot x_0$ und $f_B(x_0) = B\cdot x_0$ in ein Koordinatensystem einzeichnen.
+    \item Zeichnen Sie auch die hintereinander geschalteten Abbildungen $f_{AB}(x_0) = A\cdot B\cdot x_0$ und $f_{BA}(x_0) = B\cdot A\cdot x_0$ von $x_0$.
+    \item Wie sehen die Umkehrabbildungen zu $f_A(X)$ und $f_B(x)$ aus? Stellen Sie dazu die Abbildungsmatrizen $A^{-1}$ und $B^{-1}$ auf.
+    \item Bestimmen Sie die zugehörigen Abbildungsmatrizen zu den Umkehrabbildungen $f^{-1}_{AB}$ und $f^{-1}_{BA}$.
+    \item Verifizieren Sie die Ergebnisse aus b) und d), indem Sie die Vektoren $f_{AB}(x_0)$ und $f_{BA}(x_0)$, die Sie zeichnerisch bei b) erhalten haben, mit den Matrizen aus d) multiplizieren.
+\end{enumerate}
+
+\subsection{Lösung 5a}
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+            width=\textwidth,
+            unit vector ratio*=1 1 1,
+            axis lines = middle,
+            ymin=-1,
+            ymax=2,
+            xmin=-2,
+            xmax=3,
+            xlabel = $x$,
+            ylabel = $y$,
+            xtick distance=1,
+            ytick distance=1,
+            disabledatascaling,
+            legend cell align={left},
+        ]
+
+        \draw[black,->] (axis cs:0,0) -- (axis cs:2,1) node [midway, above left] {$x_0$};
+        \addlegendimage{black,->}
+        \addlegendentry{$x_0 = (2, 1)^T$}
+
+        \draw[td-orange,->] (axis cs:0,0) -- (axis cs:-1,2) node [midway, below left] {$f_A(x_0)$};
+        \addlegendimage{td-orange,->}
+        \addlegendentry{$f_A(x_0) = (-1,2)^T$}
+
+        \draw[blue,->] (axis cs:0,0) -- (axis cs:2,-1) node [midway, below left] {$f_B(x_0)$};;
+        \addlegendimage{blue,->}
+        \addlegendentry{$f_B(x_0) = (2,-1)^T$}
+
+        \draw[thin, blue, dotted] (axis cs:2,1) -- (axis cs:2,-1);
+
+        \draw [thin, td-orange, dotted, ->] (axis cs:0.5,0.25) arc [radius=0.55,start angle=26.56,end angle=116.56];
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Lösung 5b}
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+            width=0.8\textwidth,
+            unit vector ratio*=1 1 1,
+            axis lines = middle,
+            ymin=-2,
+            ymax=2,
+            xmin=-2,
+            xmax=2,
+            xlabel = $x$,
+            ylabel = $y$,
+            xtick distance=1,
+            ytick distance=1,
+            disabledatascaling,
+            legend cell align={left},
+            legend style={at={(1.2,0)},anchor=south east}
+        ]
+
+        \draw[black,->] (axis cs:0,0) -- (axis cs:2,1) node [midway, above left] {$x_0$};
+        \addlegendimage{black,->}
+        \addlegendentry{$x_0 = (2, 1)^T$}
+
+        \draw[td-orange,->] (axis cs:0,0) -- (axis cs:-1,-2) node [midway, above left] {$f_{BA}(x_0)$};
+        \addlegendimage{td-orange,->}
+        \addlegendentry{$f_{BA}(x_0) = (-1,-2)^T$}
+
+        \draw[thin, td-orange, dotted, ->] (axis cs:0,0) -- (axis cs:-1,2);
+
+        \draw[thin, td-orange, dotted] (axis cs:-1,2) -- (axis cs:-1,-2);
+
+
+        \draw[blue,->] (axis cs:0,0) -- (axis cs:1,2) node [midway, below right] {$f_{AB}(x_0)$};;
+        \addlegendimage{blue,->}
+        \addlegendentry{$f_{AB}(x_0) = (1,2)^T$}
+
+        \draw[thin, blue, dotted, ->] (axis cs:0,0) -- (axis cs:2,-1);
+
+        \draw[thin, blue, dotted, ->] (axis cs:0.5,-0.25) arc [radius=0.4,start angle=0,end angle=90];
+
+
+    \end{axis}
+\end{tikzpicture}
+\end{center}
 \end{document}
