@@ -14,4 +14,21 @@ entlang der Kurve.
 
 \subsection{Lösung 1}
 
+Das Kurvenintegral $W$ im Vektorfeld $\vec{F}(x,y,z)$ ist gegeben mit
+\begin{equation*}
+    W = \int \vec{F}(\vec{X}(t)) \cdot \vec{X}'(t) \dt
+\end{equation*}
+
+Wir berechnen:
+\begin{align*}
+    W &= \int \vec{F}(\vec{X}(t)) \cdot \vec{X}'(t) \dt \\
+      &= \int \begin{pmatrix} t + t^2t^3 \\ t^2 + t \cdot t^3 \\ t^3 + t \cdot t^2 \end{pmatrix}
+          \cdot \begin{pmatrix} 1 \\ 2t \\ 3t^2 \end{pmatrix} \dt \\
+      &= \int \begin{pmatrix} t + t^5 \\ t^2 + t^4 \\ 2t^3 \end{pmatrix}
+          \cdot \begin{pmatrix} 1 \\ 2t \\ 3t^2 \end{pmatrix} \dt \\
+      &= \int t + t^5 + 2t \cdot ( t^2 + t^4 ) + 3t^2 \cdot 2t^3 \dt \\
+      &= \int 9t^5 + 2t^3 + t \dt \\
+      &= \frac{3}{2} t^6 + \frac{1}{2} t^4 + 1 + C \\
+\end{align*}
+
 \end{document}

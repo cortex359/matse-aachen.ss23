@@ -103,11 +103,72 @@ Durch Matrix $A_\phi$ wird ein Vektor im $\mathbb{R}^2$ um den Winkel $\phi$ ged
         \addlegendentry{$f_{AB}(x_0) = (1,2)^T$}
 
         \draw[thin, blue, dotted, ->] (axis cs:0,0) -- (axis cs:2,-1);
-
-        \draw[thin, blue, dotted, ->] (axis cs:0.5,-0.25) arc [radius=0.4,start angle=0,end angle=90];
-
-
     \end{axis}
 \end{tikzpicture}
 \end{center}
+
+\subsection{Lösung 5c}
+Bestimmung der Inversen von $A$ für $\cos (\phi) \neq 0$ und $\sin (\phi) \neq 0$, also $\phi \neq \pi \cdot n \wedge  \phi \neq \pi \cdot n - \frac{\pi}{2}\ \forall\ n \in \mathbb{Z}.$
+\begin{align*}
+    & \eqmatrix{cc|cc}{
+        \cos (\phi) & -\sin (\phi) &  1 & 0 \\
+        \sin (\phi) &  \cos (\phi) &  0 & 1 \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & -\frac{\sin (\phi)}{\cos (\phi)} &  \cos^{-1} (\phi) & 0 \\
+        1 &  \frac{\cos (\phi)}{\sin (\phi)} &  0 & \sin^{-1} (\phi) \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & -\frac{\sin (\phi)}{\cos (\phi)}                                 &  \cos^{-1} (\phi)   & 0 \\
+        0 & \frac{\cos (\phi)}{\sin (\phi)}-\frac{-\sin (\phi)}{\cos (\phi)} &  - \cos^{-1} (\phi) & \sin^{-1} (\phi) \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & -\frac{\sin (\phi)}{\cos (\phi)} &  \cos^{-1} (\phi) & 0 \\
+        0 & \frac{\cos^2 (\phi) + \sin^2 (\phi)}{\sin (\phi) \cdot \cos (\phi)} & -\frac{1}{\cos (\phi)} & \frac{1}{\sin (\phi)} \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 0 & \cos^{-1} (\phi) - \frac{\sin^2 (\phi)}{\cos (\phi)} & \sin (\phi) \\
+        0 & 1 & -\sin (\phi)            & \cos (\phi) \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 0 & \frac{1 - \sin^2 (\phi)}{\cos (\phi)} & \sin (\phi) \\
+        0 & 1 & -\sin (\phi)                          & \cos (\phi) \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 0 &  \cos (\phi) & \sin (\phi) \\
+        0 & 1 & -\sin (\phi) & \cos (\phi) \\
+    }\\
+\end{align*}
+
+Für $\phi = \pi \cdot n$ gilt $\cos (\phi) = \pm 1 \wedge \sin (\phi) = 0$:
+\begin{align*}
+    & \eqmatrix{cc|cc}{
+        \cos (\phi) & 0 &  1 & 0 \\
+        0 &  \cos (\phi) &  0 & 1 \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 0 & \cos^{-1}(\phi) & 0 \\
+        0 & 1 &               0 & \cos^{-1}(\phi) \\
+    }
+\end{align*}
+
+Für $\phi = \pi \cdot n - \frac{\pi}{2}$ gilt $\cos (\phi) = 0 \wedge \sin (\phi) = \pm 1$:
+\begin{align*}
+    & \eqmatrix{cc|cc}{
+        0           & -\sin (\phi) & 1 & 0 \\
+        \sin (\phi) & 0            & 0 & 1 \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        0 & 1 & -\sin^{-1} (\phi) & 0 \\
+        1 & 0 & 0 & \sin^{-1}(\phi) \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 2 & -2\sin^{-1} (\phi) & \sin^{-1}(\phi) \\
+        0 & 1 & -\sin^{-1} (\phi) & 0 \\
+    }\\
+    \leadsto & \eqmatrix{cc|cc}{
+        1 & 0 & 0                 & \sin^{-1}(\phi) \\
+        0 & 1 & -\sin^{-1} (\phi) & 0 \\
+    }\\
+\end{align*}
 \end{document}

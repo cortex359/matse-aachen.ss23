@@ -5,25 +5,65 @@
 \section{Aufgabe 2}
 Bestimmen Sie die Potentialfunktion von
 \begin{enumerate}
-\item
-$\begin{aligned}
-\vec{f}(x,y) 
-= \begin{pmatrix}
-	y^2 + 2e^{2x - y} - 1 \\[2mm]
-	2x \cdot y - e^{2x - y} + 4y^3
-\end{pmatrix}
-\end{aligned}$
+	\item $\begin{aligned}
+		\vec{f}(x,y) 
+		= \begin{pmatrix}
+			y^2 + 2\ct{e}^{2x - y} - 1 \\[2mm]
+			2x \cdot y - \ct{e}^{2x - y} + 4y^3
+		\end{pmatrix}
+		\end{aligned}$
 %
-\item
-$\begin{aligned}
-\vec{g}(x,y) 
-= \begin{pmatrix}
-	e^x + 2x \cdot y \cdot \cos(x^2 + y) \\[2mm]
-    \sin(x^2 + y) + y \cdot \cos(x^2 + y) + 6y
-\end{pmatrix}
-\end{aligned}$
+	\item $\begin{aligned}
+		\vec{g}(x,y) 
+		= \begin{pmatrix}
+			\ct{e}^x + 2x \cdot y \cdot \cos(x^2 + y) \\[2mm]
+			\sin(x^2 + y) + y \cdot \cos(x^2 + y) + 6y
+		\end{pmatrix}
+		\end{aligned}$
 \end{enumerate}
 
 \subsection{Lösung 2}
+
+$\vec{f}$ heißt Gradientenfeld, wenn es eine skalare Funktion $V$ gibt, mit der gilt
+$\nabla (V) = \vec{f}$. Die Funktion $V$ heißt dann Potentialfunktion oder mehrdimensionale Stammfunktion von $\vec{f}$.
+
+Im $\mathbb{R}^2$ existiert die Potentialfunktion nur, wenn gilt
+$$
+	\frac{\partial f_1}{\partial y} = \frac{\partial f_2}{\partial x}.
+$$
+
+\subsection{Lösung 2a}
+Wir prüfen die Existenz der Potentialfunktion 
+\begin{align*}
+	\frac{\partial f_1}{\partial y} &= 2y - 2\ct{e}^{2x - y} \\
+	\frac{\partial f_2}{\partial x} &= 2y - 2\ct{e}^{2x - y} \\
+\end{align*}
+
+und rechnen die Stammfunktion mit der ersten Komponenten aus:
+\begin{align*}
+	V(x,y) &= \int f_1(x,y) \dx \\
+		   &= \int y^2 + 2\ct{e}^{2x - y} - 1 \dx \\
+		   &= xy^2 + \ct{e}^{2x - y} - x + c(y) \\
+\end{align*}
+
+Die Konstante $c(y)$ wird nun berechnet durch partielle Ableitung nach $y$.
+
+\begin{align*}
+	\frac{\partial V}{\partial y} &= 2x\cdot y - \ct{e}^{2x - y} + c'(y) \\
+								  &= f_2(x,y) \\
+	     		 			      &= 2x \cdot y - \ct{e}^{2x - y} + 4y^3
+\end{align*}
+
+Daraus folgt für $c(y)$:
+\begin{align*}
+	c'(y) &= 4y^3 \\
+	c(y)  &= \int 4y^3 \dy \\
+		  &= y^4 + c \\
+\end{align*}
+
+und damit für $V(x,y)$
+\begin{align*}
+	V(x,y) &= xy^2 + \ct{e}^{2x - y} - x + y^4 + c \\
+\end{align*}
 
 \end{document}

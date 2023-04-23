@@ -375,6 +375,8 @@ right=25mm
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
+\newcommand\ct[1]{\text{\rmfamily\upshape #1}}
+
 \RequirePackage{mathtools}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -442,6 +444,7 @@ right=25mm
 
 % integration, compatibility with ana1
 \newcommand{\dx}{~\mathrm{d}x}
+\newcommand{\dy}{~\mathrm{d}y}
 \newcommand{\du}{~\mathrm{d}u}
 \newcommand{\dv}{~\mathrm{d}v}
 \newcommand{\dw}{~\mathrm{d}w}
@@ -545,15 +548,15 @@ right=25mm
 \fancyhf{}
 \newcommand{\semester}{SoSe 2023}
 
-\newcommand{\module}{Lineare Algebra 2}
-%\newcommand{\module}{Analysis 2}
+%\newcommand{\module}{Lineare Algebra 2}
+\newcommand{\module}{Analysis 2}
 %\newcommand{\module}{Theoretische Informatik}
 
-\hausaufgabe{01}{20.03.2023}{26.03.2023}
+%\hausaufgabe{01}{20.03.2023}{26.03.2023}
 %\hausaufgabe{02}{27.03.2023}{02.04.2023}
 %\hausaufgabe{03}{03.04.2023}{10.04.2023}
 %\hausaufgabe{04}{11.04.2023}{16.04.2023}
-%\hausaufgabe{05}{17.04.2023}{23.04.2023}
+\hausaufgabe{05}{17.04.2023}{23.04.2023}
 %\hausaufgabe{06}{24.04.2023}{01.05.2023}
 %\hausaufgabe{07}{02.05.2023}{07.05.2023}
 %\hausaufgabe{08}{08.05.2023}{14.05.2023}
