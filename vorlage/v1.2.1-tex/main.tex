@@ -375,6 +375,12 @@ right=25mm
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
+% \ct{e} für Konstanten wie e, i, etc.
+%\newcommand\ct[1]{\text{\rmfamily\upshape #1}}
+\newcommand{\ct}[1]{\mathrm{#1}}
+\newcommand{\dx}[1]{~\mathrm{d}#1}
+
+
 \RequirePackage{mathtools}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -440,13 +446,6 @@ right=25mm
 
 \DeclareMathOperator{\Spur}{Spur}
 
-% integration, compatibility with ana1
-\newcommand{\dx}{~\mathrm{d}x}
-\newcommand{\du}{~\mathrm{d}u}
-\newcommand{\dv}{~\mathrm{d}v}
-\newcommand{\dw}{~\mathrm{d}w}
-\newcommand{\dt}{~\mathrm{d}t}
-\newcommand{\dn}{~\mathrm{d}n}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Symbols
