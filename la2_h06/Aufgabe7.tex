@@ -16,6 +16,86 @@ Dann gilt $S:\mathbb{R}^3 \to \mathbb{R}^3, S(x) = x-2 \scalarprod{x,n} n$.
     \item Bestimmen Sie nun die Matrix $M^{-1}$ bezüglich der Basis $\mathcal{B}$ im Definitions- und Wertebereich.
 \end{enumerate}
 
-\subsection{Lösung 7}
+\subsection{Lösung 7a}
+
+Es gilt $n\in \mathbb{R}^3$ und $S(x) = x - 2\cdot \left(x_1n_1 + x_2n_2 + x_3n_3\right) \cdot n$. Durch ausmultiplizieren ergibt sich:
+
+\begin{align*}
+    S(x) &= \vektor{x_1 \\ x_2 \\ x_3} - 2\cdot \vektor{
+        \left(x_1n_1 + x_2n_2 + x_3n_3\right) \cdot n_1 \\
+        \left(x_1n_1 + x_2n_2 + x_3n_3\right) \cdot n_2 \\
+        \left(x_1n_1 + x_2n_2 + x_3n_3\right) \cdot n_3} \\
+         &= \vektor{x_1 \\ x_2 \\ x_3} - 2\cdot \vektor{
+            x_1n_1n_1 + x_2n_2n_1 + x_3n_3n_1 \\
+            x_1n_1n_2 + x_2n_2n_2 + x_3n_3n_2 \\
+            x_1n_1n_3 + x_2n_2n_3 + x_3n_3n_3} \\
+        &= \vektor{x_1 \\ x_2 \\ x_3} - 2\cdot \vektor{
+            x_1n_1^2  + x_2n_2n_1 + x_3n_3n_1 \\
+            x_1n_1n_2 + x_2n_2^2  + x_3n_3n_2 \\
+            x_1n_1n_3 + x_2n_2n_3 + x_3n_3^2} \\
+\end{align*}
+
+
+Für die Abbildungsmatrix $M$ mit $M=E -2\cdot n\cdot n^T$ ergibt sich Schrittweise
+\begin{align*}
+    n\cdot n^T &= \vektor{n_1 \\ n_2 \\ n_3} \cdot \vektor{n_1 & n_2 & n_3} \\
+               &= \eqmatrix{ccc}{
+                    n_1^2   & n_1 n_2 & n_1 n_3 \\
+                    n_2 n_1 & n_2^2   & n_2 n_3 \\
+                    n_3 n_1 & n_3 n_2 & n_3^2
+                }\\
+    M = E -2\cdot n\cdot n^T &= \eqmatrix{ccc}{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1} - 2\cdot \eqmatrix{ccc}{
+        n_1^2   & n_1 n_2 & n_1 n_3 \\
+        n_2 n_1 & n_2^2   & n_2 n_3 \\
+        n_3 n_1 & n_3 n_2 & n_3^2
+    }\\
+        &= \eqmatrix{ccc}{
+            1-2 n_1^2   & -2 n_1 n_2 & -2 n_1 n_3 \\
+            -2 n_2 n_1 & 1-2 n_2^2   & -2 n_2 n_3 \\
+            -2 n_3 n_1 & -2 n_3 n_2 & 1-2 n_3^2
+        }\\
+    S(x)=M\cdot x &= \eqmatrix{ccc}{
+        1-2 n_1^2   & -2 n_1 n_2 & -2 n_1 n_3 \\
+        -2 n_2 n_1 & 1-2 n_2^2   & -2 n_2 n_3 \\
+        -2 n_3 n_1 & -2 n_3 n_2 & 1-2 n_3^2
+    } \cdot \vektor{x_1 \\ x_2 \\ x_3}\\
+     &= \vektor{
+        (\textcolor{gruen}{1}-2 n_1^2) \textcolor{gruen}{x_1} - 2 n_1 n_2  x_2 - 2 n_1 n_3  x_3\\
+        -2 n_2 n_1  x_1 + (\textcolor{gruen}{1}-2 n_2^2) \textcolor{gruen}{x_2} - 2 n_2 n_3  x_3\\
+        -2 n_3 n_1  x_1 - 2 n_3 n_2  x_2 + (\textcolor{gruen}{1}-2 n_3^2) \textcolor{gruen}{x_3}
+    }\\
+    &= \vektor{\textcolor{gruen}{x_1} \\ \textcolor{gruen}{x_2} \\ \textcolor{gruen}{x_3}} + \vektor{
+        -2 n_1^2    x_1 -2 n_1 n_2  x_2 -2 n_1 n_3  x_3\\
+        -2 n_2 n_1  x_1 -2 n_2^2    x_2 -2 n_2 n_3  x_3\\
+        -2 n_3 n_1  x_1 -2 n_3 n_2  x_2 -2 n_3^2    x_3
+    }\\
+    &= \vektor{x_1 \\ x_2 \\ x_3} - 2\cdot \vektor{
+        n_1^2    x_1 + n_1 n_2  x_2 + n_1 n_3  x_3\\
+        n_2 n_1  x_1 + n_2^2    x_2 + n_2 n_3  x_3\\
+        n_3 n_1  x_1 + n_3 n_2  x_2 + n_3^2    x_3
+    }
+\end{align*}
+
+wodruch gezeigt ist, dass $S(x) = M\cdot x = x-2 \scalarprod{x,n} n$. $\checkmark$
+
+
+\subsection*{Lösung 7b}
+
+Für $n = \frac{1}{\sqrt{6}} (1, 2, 1)^T$ ist nach dem zuvor gezeigten
+
+\begin{align*}
+    M &= E -2 \cdot \frac{1}{\sqrt{6}}\cdot \vektor{1 \\ 2 \\ 1} \cdot \frac{1}{\sqrt{6}}\cdot \vektor{1 & 2 & 1} \\
+      &= E - \frac{1}{3} \cdot \eqmatrix{rrr}{
+        1 & 2 & 1 \\
+        2 & 4 & 2 \\
+        1 & 2 & 1} \\
+      &= \frac{1}{3} \cdot \eqmatrix{rrr}{
+        2 & -2 & -1 \\
+        -2 & -1 & -2 \\
+        -1 & -2 & 2}.
+\end{align*}
+
+Diese Matrix ist ihre eigene Inverse, es gilt: $M = M^{-1}$. 
+
 
 \end{document}
