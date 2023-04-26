@@ -1,0 +1,66 @@
+\documentclass[main.tex]{subfiles}7
+
+\begin{document}
+
+\section{Aufgabe 5}
+Der Konzern MATSE Chemicals stellt seine Umsätze aus den Sparten Kunststoffe, Petrochemie
+und Organische Chemie mit Hilfe des Vektors $x = (x_K, x_P, x_O)^T$ dar. Der Vektor
+$y = (y_E, y_A)^T$ gibt die Einnahmen und Ausgaben des Gesamtkonzern in M€ wieder und
+berechnet sich nach derzeitigem Stand wie folgt:
+\begin{itemize}
+    \item Die Einnahmen ergeben sich als Summe der Umsätze der einzelnen Sparten.
+    \item Die Ausgaben belaufen sich auf 95\% der Umsätze aus dem Kunststoffbereich plus 90\%
+    der Umsätze aus dem Bereich Petrochemie plus 85\% der Umsätze aus dem Bereich der
+    Organischen Chemie.
+\end{itemize}
+
+\begin{enumerate}
+    \item Stellen Sie den Vektor $y$ als Lineare Abbildung des Vektors $x$ dar, indem Sie die zugehörige Abbildungsmatrix $M^x_y$ aufstellen.
+\end{enumerate}
+Die Sparte Petrochemie soll nun aufgelöst werden und zu 80\% in die Sparte Kunststoffe sowie
+20\% in Organische Chemie eingegliedert werden.
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Stellen Sie die Umsätze $x' =(x'_K, x'_O)^T$ der Sparten Kunststoffe und Organische Chemie
+    nach Umgliederung des Konzerns allgemein dar, indem Sie die Transformationsmatrix
+    $T^x_{x'}$ für die Transformation von $x$ nach $x'$ berechnen.
+    \item Begründen Sie inhaltlich sowie mathematisch, warum Sie die Abbildungsmatrix $M^{x'}_y$ zur Bestimmung der Einnahmen und Ausgaben nach der neuen Konzernstruktur nicht
+    allgemein aufstellen können.
+    \item Geben Sie ein sinnvolles Beispiel an, wie $M^{x'}_y$ aussehen könnte.
+\end{enumerate}
+
+\subsection{Lösung 5a}
+Die Abbildungsmatrix $M^x_y$ muss von der Form $\mathbb{R}^{2\times 3}$ sein, um die Gleichung $M^x_y \cdot x = y$ zu erfüllen.
+Aus Satz 1 lässt sich ableiten, dass die erste Zeile nur Einsen enthalten soll.
+Aus Satz 2 lässt sich die zweite Zeile ablesen. Wir erhalten somit:
+$$
+    M^x_y = \eqmatrix{rrr}{1 & 1 & 1 \\ 0,95 & 0,9 & 0,85}
+$$
+
+\subsection{Lösung 5b}
+Die Transformationsmatrix $T^x_{x'}$ muss von der Form $\mathbb{R}^{2\times 3}$ sein, um die Gleichung $T^x_{x'} \cdot x = x'$ zu erfüllen.
+Dabei soll $x' = \vektor{x_K + 0,8x_P \\ x_O +0,2x_P}$ gelten. Entsprechend ergibt sich:
+$$
+    T^x_{x'} = \eqmatrix{rrr}{1 & 0,8 & 0 \\ 0 & 0,2 & 1}
+$$
+
+\subsection{Lösung 5c}
+Aus den gegebenen Informationen lässt sich eine Abbildungsmatrix $M^{x'}_y$ nicht eindeutig aufstellen, da eine Abbildung $x'(x_P) \to y$ abhängig von $x_P$ wäre.\\
+
+Ohne zu wissen, wie hoch der absolute Umsatz aus dem Bereich der Petrochemie vor der Umstrukturierung war, lässt sich nicht sagen, wie die Auflösung der Sparte sich auf die relativen Umsätze der anderen Geschäftsbereiche auswirken wird.
+
+\subsection{Lösung 5d}
+
+Kunststoffbereich mit dem Geld von der Petrochemie einfach hochskalieren kann und dann immer noch Ausgaben i.H.v. 95\% seiner Umsätze macht
+
+Sicher ist, dass eine solche Abbildungsmatrix $M^{x'}_y$ von der Form $\mathbb{R}^{2\times 2}$ sein muss und weiterhin nur Einsen in der ersten Zeile enthalten darf.\\
+
+Betriebswirtschaftlich kann man nun zwei Szenarien unterscheiden. Das eine Szenario besteht darin, dass eine völlständige Auflösung des Geschäftsbereiches Petrochemie erfolgt und die Bereiche Kunststoff und Organische Chemie ihre Produktion ohne Verzögerung hochskalieren können und daruch, unter Vernachlässigung von Skaleneffekten (\textit{economies of scale}), also unter Annahe einer gleichbleibenden Umsatz-Ausgaben-Relation, weiterhin Ausgaben in Höhe von 95\% respektive 85\% ihrer Umsätze haben. Eine solche Abbildungsmatrix würde dann so aussehen:
+$$
+    M^{x'}_y = \eqmatrix{rr}{1 & 1 \\ 0,95 & 0,85}
+$$
+
+Das andere Szenario wäre eine Umstrukturierung verwaltungstechnischer Art, also keine Veränderung der tatsächlichen Produktion, sondern lediglich eine andere Zuordnung der Umsätze und Ausgaben. Für diesen Fall kann jedoch keine eindeutige Abbildungsmatrix erstellt werden, da nicht bekannt ist wie groß die Umsätze der Petrochemie im Verhältnis zu den anderen Geschäftsbereichen war.
+
+\end{document}

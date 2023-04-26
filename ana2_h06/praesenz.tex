@@ -1,0 +1,73 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+Berechnen Sie mit $G=\left\{(x,y) \in \mathbb{R}^2 \middle| 0 \leq x \leq 1, 2 \leq y \leq 4 \right\}$ die folgenden Doppelintegrale
+
+\begin{enumerate}
+    \item $\iint_G x\cdot y \dx{x} \dx{y}$
+    \item $\iint_G \sin (x+2y) \dx{x} \dx{y}$
+\end{enumerate}
+
+\subsection{Lösung 2a}
+
+\begin{align*}
+    \iint_G x\cdot y \dx{x} \dx{y} &= \int_{2}^{4} \int_{0}^{1} x\cdot y \dx{x} \dx{y}\\
+                                   &= \int_{2}^{4} \left[ y\frac{x^2}{2} \right]_{0}^{1} \dx{y}\\
+                                   &= \int_{2}^{4} \frac{y}{2} \dx{y}\\
+                                   &= \left[ \frac{y^2}{4} \right]_{2}^{4}\\
+                                   &= \frac{4^2}{4} - \frac{2^2}{4}\\
+                                   &= 4 - 1\\
+                                   &= 3
+\end{align*}
+
+\subsection{Lösung 2b}
+
+\begin{align*}
+    \iint_G \sin (x+2y) \dx{x}\dx{y} &= \int_{2}^{4} \int_{0}^{1} \sin (x+2y) \dx{x} \dx{y}\\
+                                     &= \int_{2}^{4} \left[ -\cos (x+2y) \right]_{0}^{1} \dx{y}\\
+                                     &= \int_{2}^{4} -\cos (1+2y) + \cos (2y) \dx{y}\\
+                                     &= \left[ \frac{1}{2} \sin (2y) - \frac{1}{2} \sin (1+2y) \right]_{2}^{4}\\
+                                     %&= \frac{1}{2} \left( \sin (2\cdot 4) - \sin (1+2\cdot 4) - \sin (2\cdot 2) + \sin (1+2\cdot 2) \right)\\
+                                     &= \frac{1}{2} \left( \sin (8) - \sin (9) - \sin (4) + \sin (5) \right)\\
+\end{align*}
+
+\section{Aufgabe 3}
+Berechnen Sie das folgende 2-dimensionale Integral mit $G=\left\{ (x,y)\in \mathbb{R}^2 \middle| 0 \leq y \leq x^2, 0 \leq x \leq 2 \right\}$.
+\begin{align*}
+    \iint_G (x^2+y^2)\dx{(y,x)} &= \int_{0}^{2} \int_{0}^{x^2} (x^2+y^2)\dx{(y,x)} \\
+                                &= \int_{0}^{2} \left[ y\cdot x^2 + \frac{1}{3} y^3 \right]_{0}^{x^2} \dx{x} \\
+                                &= \int_{0}^{2} \left( x^2\cdot x^2 + \frac{1}{3} {x^2}^3 \right) \dx{x} \\
+                                &= \int_{0}^{2} \left( x^4 + \frac{1}{3} x^6 \right) \dx{x} \\
+                                &= \left[ \frac{1}{5} x^5 + \frac{1}{21} x^7 \right]_{0}^{2} \\
+                                &= \frac{1}{5} 2^5 + \frac{1}{21} 2^7 \\
+                                &= \frac{32}{5} + \frac{128}{21} \\
+\end{align*}
+
+\pagebreak
+\section{Aufgabe 4}
+Berechnen Sie die folgenden Integrale:
+
+\subsection{a)}
+\begin{align*}
+    \int_{\phi = 0}^{\frac{\pi}{2}} \int_{r=0}^{\cos (\phi)} r \dx{(r,\phi)}
+        &= \int_{\phi = 0}^{\frac{\pi}{2}} \left[ \frac{1}{2} r^2 \right]_{r=0}^{\cos (\phi)} \dx{\phi} \\
+        &= \int_{\phi = 0}^{\frac{\pi}{2}} \frac{1}{2} \cos^2(\phi) \dx{\phi} \\
+        &= \left[ \frac{1}{4} \left(\phi + \sin (\phi) \cos (\phi) \right) \right]_{\phi = 0}^{\frac{\pi}{2}} \\
+        &= \frac{1}{4} \left(\frac{\pi}{2} + \sin \left(\frac{\pi}{2}\right) \cos \left(\frac{\pi}{2}\right) \right)  \\
+        &= \frac{\pi}{8}
+\end{align*}
+
+\subsection{b)}
+\begin{align*}
+    \int_{\phi = 0}^{\frac{\pi}{2}} \int_{r=0}^{\sin^2 (\phi)} r \dx{(r,\phi)} 
+        &= \int_{\phi = 0}^{\frac{\pi}{2}} \left[ \frac{1}{2} r^2 \right]_{r=0}^{\sin^2 (\phi)} \dx{\phi} \\
+        &= \int_{\phi = 0}^{\frac{\pi}{2}} \frac{1}{2} \sin^4 (\phi) \dx{\phi} \\
+        &= \frac{1}{2} \left[ \frac{1}{32} (12\phi - 8\sin (2\phi) + \sin(4\phi)) \right]_{\phi = 0}^{\frac{\pi}{2}} \\
+        &= \frac{1}{64} \cdot 6 \pi\\
+        &= \frac{3}{32} \pi
+\end{align*}
+
+\end{document}
+
