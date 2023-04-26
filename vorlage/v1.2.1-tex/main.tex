@@ -324,6 +324,8 @@ right=25mm
 \usepackage{siunitx} % für SI Einheiten
 \sisetup{locale = DE}
 
+\usepackage{icomma} % Intelligent commas for decimal numbers
+
 %\usepackage{physics}
 
 \usepackage{mathdots}
@@ -373,6 +375,10 @@ right=25mm
 \newcommand*{\defeq}{\overset{?}{=}}
 \renewcommand{\cdotp}{\cdot} % for compatibility with mathcha.io exports
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
+\newcommand{\vektor}[1]{%
+  \arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[c] #1 \end{pmatrix*}%
+}
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
 % \ct{e} für Konstanten wie e, i, etc.
@@ -483,14 +489,6 @@ right=25mm
 % Symbols @cortex359
 \newcommand{\cis}[1]{\left( \cos\left( #1 \right) + i \sin\left( #1 \right) \right)}
 
-\newcommand{\dudx}{~\frac{\mathrm{d}u}{\mathrm{d}x}}
-\newcommand{\dudn}{~\frac{\mathrm{d}u}{\mathrm{d}n}}
-\newcommand{\dvdx}{~\frac{\mathrm{d}v}{\mathrm{d}x}}
-\newcommand{\dwdx}{~\frac{\mathrm{d}w}{\mathrm{d}x}}
-\newcommand{\dtdx}{~\frac{\mathrm{d}t}{\mathrm{d}x}}
-\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
-\newcommand{\dFdx}{\frac{\mathrm{d}F}{\mathrm{d}x}}
-\newcommand{\dfdx}{\frac{\mathrm{d}f}{\mathrm{d}x}}
 
 
 % Standardmäßige Vergrößerung normaler Arrays
