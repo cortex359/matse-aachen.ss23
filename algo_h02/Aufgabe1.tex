@@ -1,0 +1,48 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+\subsection{Lösung 1a}
+Seien $\Sigma$ ein Alphabet und $w,v\in \Sigma^*$ und $a \in \Sigma$. 
+Die Anzahl der Vorkommen von $a$ in $w$ sei $|w|_a$.
+
+
+\begin{align*}
+    |\epsilon |_a &= 0 \\
+    |v \cdot x|_a &= \begin{cases}
+        |v|_a       & x \neq a\\
+        |v|_a ...   & x = a\\
+    \end{cases}
+\end{align*}
+
+\subsection{Lösung 1b}
+
+$\operatorname{remove\_last}(\epsilon) = \epsilon$ \\
+
+$\operatorname{remove\_last}(v \cdot a) = v$
+
+
+\subsection{Lösung 1c}
+\subsection{Lösung 1d}
+
+\begin{align*}
+    \operatorname{equal}(\epsilon, \epsilon) &= \ct{true} \\
+    \operatorname{equal}(\epsilon, v\cdot a) &= \ct{false} \\
+    \operatorname{equal}(v\cdot a, \epsilon) &= \ct{false} \\
+    \operatorname{equal}(w\cdot a, v\cdot b) &= \begin{cases}
+        \operatorname{equal}(w, v) & a = b\\
+        \ct{false} & a \neq b \\
+    \end{cases}
+\end{align*}
+
+
+
+\subsection{Lösung 1e}
+$\operatorname{has\_prefix}(w,p) = \ct{true}$, wenn $p$ Präfix von $w$. \\
+$\operatorname{has\_prefix}(w,\epsilon) = \ct{true}$ \\
+$\operatorname{has\_prefix}(\epsilon, p) = \ct{false}$ \\
+$\operatorname{has\_prefix}(w\cdot a, p) = \operatorname{equal}(w\cdot a, p) \vee \operatorname{has\_prefix}(w,p)$
+
+\end{document}

@@ -12,4 +12,32 @@ Bestimmen Sie die Fläche, die begrenzt ist durch die Parabeln
 
 \subsection{Lösung 1}
 
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+        \begin{axis}[
+                width=\textwidth,
+                unit vector ratio*=1 1 1,
+                axis lines = middle,
+                ymin=-10,
+                ymax=10,
+                xmin=-10,
+                xmax=10,
+                xlabel = $x$,
+                ylabel = $y$,
+                xtick distance=1,
+                ytick distance=1,
+                disabledatascaling,
+                legend cell align={left},
+            ]
+    
+            %\draw[black,->] (axis cs:0,0) -- (axis cs:2,1) node [midway, above left] {$x_0$};
+            %\addlegendimage{black,->}
+            %\addlegendentry{$x_0 = (2, 1)^T$}
+    
+            %\addplot[domain=-10:10, y domain=-10:10,samples=100] {sqrt(2-x)};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+
 \end{document}
