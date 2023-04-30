@@ -3,17 +3,17 @@
 \begin{document}
 
 \section{Aufgabe 2}
-Gegeben seien die Funktionen 
+Gegeben seien die Funktionen
 \[
-    f(x) = 5 - \frac{5}{\pi^2} x^2 
-    \qquad \mbox{und} \qquad 
+    f(x) = 5 - \frac{5}{\pi^2} x^2
+    \qquad \mbox{und} \qquad
     g(x) = 4 \cos \left( \frac{x}{2} \right)
 \]
 \begin{enumerate}
 \item Berechnen Sie die von den beiden Funktionen begrenzte Fläche.
 \item Bestimmen Sie anschließend den Schwerpunkt der eingeschlossenen Fläche.
 \end{enumerate}
-\textit{Hinweise:} Die Schnittstellen der beiden Funktionen sind die Nullstellen. Nutzen Sie zur Berechnung der Fläche ggfls. die Symmetrie der Funktionen. 
+\textit{Hinweise:} Die Schnittstellen der beiden Funktionen sind die Nullstellen. Nutzen Sie zur Berechnung der Fläche ggfls. die Symmetrie der Funktionen.
 
 \subsection{Lösung 2a}
 
@@ -65,9 +65,9 @@ und entsprechend für $y_s$
         &= \frac{1}{F} \int_{-\pi}^{\pi} \left(\frac{5^2}{2} - \frac{5^2\cdot x^2}{\pi^2} + \frac{5^2\cdot x^4}{\pi^4\cdot 2} \right) - 8 \cos^2 \left( \frac{x}{2} \right) \dx{x} \\
         &= \frac{1}{F} \int_{-\pi}^{\pi} 5^2\cdot \left(\frac{1}{2} - \frac{x^2}{\pi^2} + \frac{x^4}{2\pi^4} \right) - 8 \cos^2 \left( \frac{x}{2} \right) \dx{x} \\
         &= \frac{1}{F} \left[ 5^2\cdot \left(\frac{1}{2} x - \frac{x^3}{3\pi^2} + \frac{x^5}{10\pi^4} \right) - 4x +\sin(x) \right]_{-\pi}^{\pi} \\
-        &= \frac{1}{F} \left( 5^2\cdot \left(\frac{1}{2} \pi - \frac{\pi}{3} + \frac{\pi}{10} \right) - 4\pi \right) 
+        &= \frac{1}{F} \left( 5^2\cdot \left(\frac{1}{2} \pi - \frac{\pi}{3} + \frac{\pi}{10} \right) - 4\pi \right)
             - \left( 5^2\cdot \left(\frac{-\pi}{2} + \frac{\pi}{3} - \frac{\pi}{10} \right) + 4\pi \right) \\
-        &= \frac{1}{F} \left( 5^2 \pi \cdot \left(\frac{1}{2} - \frac{1}{3} + \frac{1}{10} \right) 
+        &= \frac{1}{F} \left( 5^2 \pi \cdot \left(\frac{1}{2} - \frac{1}{3} + \frac{1}{10} \right)
             - 5^2\cdot \pi \left(\frac{-1}{2} + \frac{1}{3} - \frac{1}{10} \right) - 8\pi \right)\\
         &= \frac{1}{F} \left( 5^2 \pi \cdot \frac{8}{15} - 8\pi \right) \\
         &= \frac{1}{\frac{20}{3} \pi - 16} \pi \cdot \frac{16}{3} \\[2mm]
@@ -75,38 +75,35 @@ und entsprechend für $y_s$
         &= \frac{4\pi}{5\pi - 12} \\
 \end{align*}
 
-Damit befindet sich der Schwerpunkt der Koordinaten an der Stelle $(x_s, y_s) = (0, \frac{4\pi}{5\pi - 12})$
+Damit befindet sich der Schwerpunkt der Koordinaten an der Stelle $(x_s, y_s) = \left(0, \frac{4\pi}{5\pi - 12}\right)$.
 
 \begin{center}
     \begin{tikzpicture}[scale=1]
         \begin{axis}[
-                width=0.8\textwidth,
-                unit vector ratio*=pi 1 pi,
+                width=0.9\textwidth,
+                unit vector ratio*=1.5 1 1,
                 axis lines = middle,
-                no markers,
                 ymin=-6, ymax=6,
+                ytick distance=2,
+                minor y tick num = 1,
                 xmin=-6, xmax=6,
-                xtick = {-pi, -pi/2, 0, pi/2, pi},
-                xticklabels={$-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$},
-                %xtick distance=(pi/2), ytick distance=1,
+                xtick = {-3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2},
+                xticklabels={$-\frac{3}{2}\pi$, $-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$, $\frac{3}{2}\pi$},
+                xlabel = $x$,
                 ylabel = $y$,
                 legend cell align={left},
                 samples=100,
                 domain=-6:6, y domain=-5:6,
             ]
-    
-            %\draw[black,->] (axis cs:0,0) -- (axis cs:2,1) node [midway, above left] {$x_0$};
-            %\addlegendimage{black,->}
-            %\addlegendentry{$x_0 = (2, 1)^T$}
-    
-            \addplot +[name path=f, red]  {5- 5/(pi^2)*x^2};
-            \addplot +[name path=g, blue] {4*cos(deg(x/2))};
+
+            \addplot [name path=f, red]  {5- 5/(pi^2)*x^2};
+            \addplot [name path=g, blue] {4*cos(deg(x/2))};
             \legend{$f(x)$, $g(x)$}
 
             \addplot [
                 thick,
                 color=red,
-                fill=red, 
+                fill=red,
                 fill opacity=0.05
             ]
             fill between[
@@ -114,6 +111,7 @@ Damit befindet sich der Schwerpunkt der Koordinaten an der Stelle $(x_s, y_s) = 
                 soft clip={domain=-pi:pi},
             ];
 
+            \addplot[only marks, mark={asterisk}, mark options={scale=1, fill=red, fill opacity=0.15}] coordinates {(0,3.3890224110311)} node[pin=300:{$(x_s, y_s)$}]{};
         \end{axis}
     \end{tikzpicture}
 \end{center}

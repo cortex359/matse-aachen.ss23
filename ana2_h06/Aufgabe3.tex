@@ -7,11 +7,19 @@ Berechnen Sie das Volumen unterhalb der Funktion
 \begin{align*}
     f(x,y) = x^2 + y^2 + 1
 \end{align*}
-über das folgende Integrationsgebiet 
+über das folgende Integrationsgebiet
 \begin{align*}
-    G = \{ (x,y) \in \mathbb{R}^2 \ | \ 0 \leq x \leq 1, 0 \leq y \leq x \}.
+    G = \left\{ (x,y) \in \mathbb{R}^2 \ | \ 0 \leq x \leq 1, 0 \leq y \leq x \right\}.
 \end{align*}
 
 \subsection{Lösung 3}
+
+\begin{align*}
+    V &= \int_{x=0}^{1} \int_{y=0}^{x} x^2 + y^2 + 1 \dx{(y,x)} \\
+      &= \int_{x=0}^{1} \left[ x^2\cdot y + \frac{1}{3} y^3 + y \right]_{0}^{x}  \dx{x} \\
+      &= \int_{0}^{1} \frac{4}{3} x^3 + x \dx{x} \\
+      &= \left[ \frac{1}{3} x^4 + \frac{1}{2} x^2 \right]_{0}^{1} \\
+      &= \frac{5}{6}
+\end{align*}
 
 \end{document}

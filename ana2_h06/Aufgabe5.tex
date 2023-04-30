@@ -3,15 +3,42 @@
 \begin{document}
 
 \section{Aufgabe 5}
-Gegeben ist der Integrationsbereich 
+Gegeben ist der Integrationsbereich
 \begin{align*}
-    A = \{ (x, y) \in \mathbb{R}^2 \ | \ x^2 + y^2 \leq 4, \ x \leq 0, \ y \geq 0 \}.
+    A = \left\{ (x, y) \in \mathbb{R}^2 \ | \ x^2 + y^2 \leq 4, \ x \leq 0, \ y \geq 0 \right\}.
 \end{align*}
 Berechnen Sie mit Hilfe der Polarkoordinaten
 \begin{align*}
-    \int \limits_{A} y \cdot (x^2 + y^2)^{\frac{1}{2}} \ dA
-\end{align*} 
+    \int \limits_{A} y \cdot (x^2 + y^2)^{\frac{1}{2}} \dx{A}.
+\end{align*}
 
 \subsection{Lösung 5}
+Durch umformen des Integrationsgebietes erhalten wir
+\begin{align*}
+    A &= \left\{ (x, y) \in \mathbb{R}^2 \middle| x^2 + y^2 \leq 4, \ x \leq 0, \ y \geq 0 \right\}\\
+      &= \left\{ (x, y) \in \mathbb{R}^2 \middle| -2 < x \leq 0, \ 0 \leq y \leq \sqrt{4-x^2} \right\}\\
+    \tilde{A} &= \left\{ (r, \phi) \in \mathbb{R}^2 \middle| 0 < r \leq 2, \ \frac{\pi}{2} \leq \phi \leq \pi \right\}.\\
+\end{align*}
+
+Für die Umwandlung kartesischer Koordinaten $(x, y)$ in Polarkoordinaten gilt
+$$
+    f(x, y) = f\left(r\cdot \cos (\phi), r\cdot \sin (\phi)\right) \quad \wedge \quad \dx{y}\dx{x} = r \dx{r} \dx{\phi}.
+$$
+
+Somit können wir das Integral berechnen.
+\begin{align*}
+    \int \limits_{A} y \cdot (x^2 + y^2)^{\frac{1}{2}} \dx{A}
+        &= \int \limits_{\tilde{A}} r\cdot \sin (\phi) \cdot \left(\left(r\cdot \cos (\phi)\right)^2 + \left(r\cdot \sin (\phi)\right)^2\right)^{\frac{1}{2}} \cdot r \dx{r} \dx{\phi} \\
+        &= \int \limits_{\tilde{A}} r\cdot \sin (\phi) \cdot \left(r^2\cdot \left(\cos^2 (\phi) + \sin^2 (\phi)\right)\right)^{\frac{1}{2}} \cdot r \dx{r} \dx{\phi} \\
+        &= \int \limits_{\tilde{A}} r\cdot \sin (\phi) \cdot \left(r^2\right)^{\frac{1}{2}} \cdot r \dx{r} \dx{\phi} \\
+        &= \int \limits_{\tilde{A}} r^3 \cdot \sin (\phi) \dx{r} \dx{\phi} \\
+        &= \int_{\frac{\pi}{2}}^{\pi} \int_{0}^{2} r^3 \cdot \sin (\phi) \dx{r} \dx{\phi} \\
+        &= \int_{\frac{\pi}{2}}^{\pi} \left[ \frac{\sin (\phi)}{4} r^4 \right]_{0}^{2} \dx{\phi} \\
+        &= \int_{\frac{\pi}{2}}^{\pi} 4 \sin (\phi) \dx{\phi} \\
+        &= \left[ -4 \cos (\phi) \right]_{\frac{\pi}{2}}^{\pi} \\
+        &= -4 \cos (\pi) +4 \cos \left(\frac{\pi}{2}\right) \\
+        &= 4 \\
+\end{align*}
+
 
 \end{document}
