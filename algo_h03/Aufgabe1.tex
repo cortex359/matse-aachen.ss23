@@ -46,21 +46,24 @@ Der letzte Buchstabe kann entweder $p$ oder $r$ sein.
 
 \subsection{Lösung 1e}
 
-Es gilt $L_1 = \left\{w \in L_2 \middle| |w|=7\right\}$. Es muss jedoch beachtet werden, dass die Anzahl der Konfigurationen in $L_1$,
-in denen bereits zweimal der Buchstabe $r$ auftritt $\left\{ w\in \Sigma^*\ \middle|\ w\in L_1 \land |w|_r = 2 \right\}$,
-also $4\cdot3 = 12$, nicht doppelt gezählt werden.
+Es gilt $L_1 = \left\{w \in L_2 \middle| |w|=7\right\}$, jedoch muss beachtet werden, dass die Anzahl der Konfigurationen in $L_1$,
+in denen bereits zweimal der Buchstabe $r$ auftritt $\left\{ w\in \Sigma^*\ \middle|\ w\in L_1 \land |w|_r = 2 \right\}$, also 
+$$
+    \vektor{4\\1}\cdot \vektor{3\\2}\cdot 3^1 = 4\cdot 3\cdot 3 = 36,
+$$
+nicht doppelt gezählt werden.
 
 Betrachtet man die Ziehung ohne Zurücklegen von 2 aus 7 Positionen, multipliziert mit den jeweils 3 möglichen Belegungen der übrigen 5 Positionen, so ergeben sich
 insgesamt
 $$
     \vektor{7\\ 2} \cdot 3^5 = \frac{7!}{(7-2)!\cdot 2!} \cdot 3^5 = 21 \cdot 243 = 5103
 $$
-Möglichkeiten den Buchstaben $r$ in einem Wort der Länge 7 unterzubringen.
+Möglichkeiten den Buchstaben $r$ in einem Wort der Länge 7 unterzubringen.\\
 
 Für die Mächtigkeit von $L_5$ ergibt sich sodann
 \begin{align*}
-    |L_5| &= |L_1| - 12 + 5103 \\[1mm]
-          &= 5347.
+    |L_5| &= |L_1| - 36 + 5103 \\[1mm]
+          &= 5323.
 \end{align*}
 
 \end{document}
