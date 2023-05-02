@@ -1,0 +1,47 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+Berechnen Sie die folgenden Dreifachintegrale:
+\begin{enumerate}
+\item 
+$\begin{aligned}
+\int \limits_{x=0}^{1} 
+	\int \limits_{y=0}^{1-x} 
+		\int \limits_{z=0}^{2-x} x \cdot y \cdot z \ dz \ dy \ dx
+\end{aligned}$
+\item 
+$\begin{aligned}
+\int \limits_{\alpha=0}^{\frac{\pi}{2}} 
+	\int \limits_{r=0}^{1} 
+		\int \limits_{z=0}^{2} 
+			z \cdot r^2 \cdot \sin(\alpha) \ dz \ dr \ d\alpha
+\end{aligned}$
+\end{enumerate}
+
+\subsection{Lösung 2a}
+
+\begin{align*}
+    \int \limits_{x=0}^{1} 
+	\int \limits_{y=0}^{1-x} 
+    \int \limits_{z=0}^{2-x} x \cdot y \cdot z \dx{(z,y,x)}
+ &= \int \limits_{x=0}^{1} 
+    \int \limits_{y=0}^{1-x} 
+    \left[ \frac{x \cdot y}{2} \cdot z^2 \right]_{z=0}^{2-x} \dx{(y,x)} \\
+ &= \int \limits_{x=0}^{1} 
+    \int \limits_{y=0}^{1-x} 
+    \frac{1}{2} \cdot x \cdot y \cdot (2-x)^2 \dx{(y,x)} \\
+ &= \int \limits_{x=0}^{1} 
+    \left[ \frac{1}{4} \cdot x \cdot (2-x)^2 \cdot y^2 \right]_{y=0}^{1-x} \dx{x} \\
+ &= \int \limits_{0}^{1} \frac{1}{4} \cdot x \cdot (2-x)^2 \cdot (1-x)^2 \dx{x} \\
+ &= \int \limits_{0}^{1} \frac{1}{4} x^5 - \frac{3}{2} x^4 + \frac{13}{4} x^3 - 3 x^2 + x \dx{x} \\
+ &= \left[ \frac{1}{24} x^6 - \frac{3}{10} x^5 + \frac{13}{16} x^4 - x^3 + \frac{1}{2}x^2 \right]_{0}^{1} \\
+ &= \frac{1}{24} - \frac{3}{10} + \frac{13}{16} - 1 + \frac{1}{2} \\[2mm]
+ &= \frac{13}{240} \\
+\end{align*}
+
+\subsection{Lösung 2b}
+
+
+\end{document}
