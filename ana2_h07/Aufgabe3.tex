@@ -5,14 +5,18 @@
 \section{Aufgabe 3}
 Gegeben sei die Halbkugel
 \[
-H = \{ (x,y,z) \in \mathbb{R}^3 \ | \ x^2 + y^2 + z^2 \leq 9, \ z \geq 0 \}
+    H = \{ (x,y,z) \in \mathbb{R}^3 \ | \ x^2 + y^2 + z^2 \leq 9, \ z \geq 0 \}
 \]
 mit der Dichte $\rho(x,y,z) = 1$.
 \begin{enumerate}
-\item Berechnen Sie die Masse der Halbkugel.
-\item Berechnen Sie anschließend den Schwerpunkt der Halbkugel.
+    \item Berechnen Sie die Masse der Halbkugel.
+    \item Berechnen Sie anschließend den Schwerpunkt der Halbkugel.
 \end{enumerate}
 
 \subsection{Lösung 3}
+Für das Rechnen mit Kugelkoordinaten gilt
+\begin{align*}
+    \iiint f(x,y,z) \dx{(z,y,x)} &= \iiint f(r\cos\phi\sin\theta, r\sin\phi\sin\theta, r\cos\theta ) |r^2\sin\theta| \dx{(\theta, \phi, r)}
+\end{align*}
 
 \end{document}

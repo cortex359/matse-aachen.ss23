@@ -43,5 +43,30 @@ $\begin{aligned}
 
 \subsection{Lösung 2b}
 
+\begin{align*}
+    \int \limits_{\alpha=0}^{\frac{\pi}{2}} 
+	\int \limits_{r=0}^{1} 
+    \int \limits_{z=0}^{2} 
+        z \cdot r^2 \cdot \sin(\alpha) 
+    \dx{(z, r, \alpha)}
+    &=
+    \int \limits_{\alpha=0}^{\frac{\pi}{2}} 
+	\int \limits_{r=0}^{1} 
+        \left[ \frac{1}{2} r^2 \cdot \sin(\alpha) \cdot z^2 \right]_{z=0}^{2}  
+    \dx{(r, \alpha)} \\
+    &=
+    \int \limits_{\alpha=0}^{\frac{\pi}{2}} 
+	\left[ 
+        \frac{1}{6} r^3 \cdot \sin(\alpha) \cdot 4  
+    \right]_{r=0}^{1}
+    \dx{\alpha} \\
+    &=
+    \int \limits_{\alpha=0}^{\frac{\pi}{2}} 
+        \frac{4}{6} \sin(\alpha)  
+    \dx{\alpha} \\
+    &= \left[ - \frac{2}{3} \cos(\alpha) \right]_{\alpha=0}^{\frac{\pi}{2}} \\
+    &= - \frac{2}{3} \cos\left(\frac{\pi}{2}\right) + \frac{2}{3} \cos(0)  \\
+    &=  \frac{2}{3} \\
+\end{align*}
 
 \end{document}
