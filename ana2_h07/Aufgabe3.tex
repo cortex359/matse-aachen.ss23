@@ -7,16 +7,97 @@ Gegeben sei die Halbkugel
 \[
     H = \{ (x,y,z) \in \mathbb{R}^3 \ | \ x^2 + y^2 + z^2 \leq 9, \ z \geq 0 \}
 \]
-mit der Dichte $\rho(x,y,z) = 1$.
+mit der Dichte $\rho(x, y, z) = 1$.
 \begin{enumerate}
     \item Berechnen Sie die Masse der Halbkugel.
     \item Berechnen Sie anschließend den Schwerpunkt der Halbkugel.
 \end{enumerate}
 
 \subsection{Lösung 3}
-Für das Rechnen mit Kugelkoordinaten gilt
+Für das Rechnen mit Kugelkoordinaten, mit $\phi$ \textbf{auf} der $x$-$y$-Ebene und 
+dem Winkel $\theta$ von der $z$-Achse auf die $x$-$y$-Ebene gilt:
 \begin{align*}
-    \iiint f(x,y,z) \dx{(z,y,x)} &= \iiint f(r\cos\phi\sin\theta, r\sin\phi\sin\theta, r\cos\theta ) |r^2\sin\theta| \dx{(\theta, \phi, r)}
+    \iiint f(x,y,z) \dx{(z,y,x)} &= 
+        \iiint f(r\cos\phi\sin\theta, r\sin\phi\sin\theta, r\cos\theta )\cdot |r^2\sin\theta| \dx{(\theta, \phi, r)}
 \end{align*}
+
+Um die Halbkugel als Integral über das Gebiet $H$ der Funktion $\rho(x, y, z)$ zu beschreiben, überlegen wir uns die Orientierung
+der Halbkugel im Koordinatensystem und die Darstellung in Kugelkoordinaten.
+
+Um den Betrag im Integral zu behandeln, teilen wir das Integral in die Summer zweier Integrale auf.
+
+\begin{align*}
+    \iiint \limits_H \rho(x, y, z) \dx{H} 
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{\frac{\pi}{2}}
+    \int_{\theta=0}^{2\pi}
+        1 \cdot \abs{r^2\sin\theta}
+    \dx{(\theta, \phi, r)}\\
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{\frac{\pi}{2}}
+    \left(
+        \int_{\theta=0}^{\pi}
+            r^2\sin\theta
+        \dx{\theta}+ (-1) \cdot
+        \int_{\theta=\pi}^{2\pi}
+            r^2\sin\theta
+        \dx{\theta}
+    \right)
+    \dx{(\phi, r)}\\
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{\frac{\pi}{2}}
+    \left(
+        \left[
+            - r^2 \cos\theta
+        \right]_{\theta=0}^{\pi} 
+        + (-1) \cdot
+        \left[
+            - r^2 \cos\theta
+        \right]_{\theta=\pi}^{2\pi}
+    \right)
+    \dx{(\phi, r)}\\
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{\frac{\pi}{2}}
+    \left(
+        \left(
+            - r^2 \cos (\pi)
+            + r^2 \cos (0)
+        \right) 
+        -
+        \left(
+            - r^2 \cos (2\pi)
+            + r^2 \cos (\pi)
+        \right)
+    \right)
+    \dx{(\phi, r)}\\
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{\frac{\pi}{2}}
+        4 r^2
+    \dx{(\phi, r)}\\
+    &=
+    \int_{r=0}^{3}
+    \left[
+        4 r^2 \cdot \phi
+    \right]_{\phi=0}^{\frac{\pi}{2}}
+    \dx{r}\\
+    &=
+    \int_{r=0}^{3}
+        2 r^2 \cdot \pi
+    \dx{r}\\
+    &=
+    \left[
+        \frac{2}{3} \pi r^3
+    \right]_{r=0}^{3}\\
+    &= \frac{2}{3} \pi\cdot 3^3 \\
+    &= 18\pi \\
+\end{align*}
+
+Zur Probe rechnen wir das Volumen einer Kugel mit dem Radius $r=3$ aus
+$V = \frac{4}{3} \pi r^3 = 36 \pi$, halbieren dies und erhalten ebenfalls $18\pi$. 
 
 \end{document}

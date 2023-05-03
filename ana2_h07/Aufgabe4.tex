@@ -9,6 +9,41 @@ Berechnen Sie den Schwerpunkt einer Fläche, die von den gegebenen Funktionen be
     \item $x = y^4$ \quad und \quad $x = 1$
 \end{enumerate}
 
-\subsection{Lösung 4}
+\subsection{Lösung 4a}
+Aufgrund der symmetrie der Parabel ist bekannt, dass $y_s=0$ ist. 
+Die Fläche $F$ erhalten wir mit $F = \int_{x=0}^{1} \int_{y=-\sqrt{x}}^{\sqrt{x}} 1 \dx{(y,x)} = \frac{4}{5}$.
+
+Für $x_s$ gilt
+\begin{align*}
+    x_s &= \frac{1}{F} \int \limits_A x \dx{A} \\
+        &= \frac{3}{4} \int \limits_{0}^{1} \int \limits_{y=-\sqrt{x}}^{\sqrt{x}} x \dx{(y,x)} \\
+        &= \frac{3}{4} \int \limits_{0}^{1} \left[ xy \right]_{y=-\sqrt{x}}^{\sqrt{x}} \dx{x} \\
+        &= \frac{3}{4} \int \limits_{0}^{1} x\cdot \sqrt{x} + x\cdot \sqrt{x} \dx{x} \\
+        &= \frac{3}{4} \int \limits_{0}^{1} 2 {x}^{\frac{3}{2}} \dx{x} \\
+        &= \frac{3}{4} \left[ \frac{4}{5} {x}^{\frac{5}{2}} \right]_{0}^{1} \\
+        &= \frac{3}{4} \cdot \frac{4}{5}  \\
+        &= \frac{3}{5}. \\
+\end{align*}
+
+Somit liegt der Schwerpunkt bei $(x_s, y_s) = \left(\frac{3}{5}, 0\right)$.
+
+\subsection{Lösung 4b}
+
+Aufgrund der symmetrie der Parabel ist bekannt, dass $y_s=0$ ist. 
+Die Fläche $F$ erhalten wir mit $F = \int_{x=0}^{1} \int_{y=-\sqrt[4]{x}}^{\sqrt[4]{x}} 1 \dx{(y,x)} = \frac{8}{5}$.
+
+Für $x_s$ gilt
+\begin{align*}
+    x_s &= \frac{1}{F} \int \limits_A x \dx{A} \\
+        &= \frac{5}{8} \int \limits_{0}^{1} \int \limits_{y=-\sqrt[4]{x}}^{\sqrt[4]{x}} x \dx{(y,x)} \\
+        &= \frac{5}{8} \int \limits_{0}^{1} \left[ xy \right]_{y=-\sqrt[4]{x}}^{\sqrt[4]{x}} \dx{x} \\
+        &= \frac{5}{8} \int \limits_{0}^{1} x\cdot \sqrt[4]{x} + x\cdot \sqrt[4]{x} \dx{x} \\
+        &= \frac{5}{8} \int \limits_{0}^{1} 2 {x}^{\frac{5}{4}} \dx{x} \\
+        &= \frac{5}{8} \left[ \frac{8}{9} {x}^{\frac{9}{4}} \right]_{0}^{1} \\
+        &= \frac{5}{8} \cdot \frac{8}{9}  \\
+        &= \frac{5}{9}. \\
+\end{align*}
+
+Somit liegt der Schwerpunkt bei $(x_s, y_s) = \left(\frac{5}{9}, 0\right)$.
 
 \end{document}

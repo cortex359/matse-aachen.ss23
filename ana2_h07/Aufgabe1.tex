@@ -5,8 +5,8 @@
 \section{Aufgabe 1}
 Berechnen Sie mittels Polarkoordinaten das uneigentliche mehrdimensionale Integral
 \[
-\int \int \limits_{\mathbb{R}^2} \ct{e}^{-(x^2 + y^2)} \ dx \ dy
-= \int \limits_{y = -\infty}^{\infty} \int \limits_{x=-\infty}^{\infty} 
+\iint \limits_{\mathbb{R}^2} \ct{e}^{-(x^2 + y^2)} \ dx \ dy
+   = \int \limits_{y = -\infty}^{\infty} \int \limits_{x=-\infty}^{\infty} 
 		\ct{e}^{-(x^2 + y^2)} \ dx \ dy
 \]
 
@@ -14,17 +14,21 @@ Berechnen Sie mittels Polarkoordinaten das uneigentliche mehrdimensionale Integr
 
 Uneigentliche Integrale können mithilfe von Polarkoordinaten wie folgt gelöst werden:
 \begin{align*}
-    \iint f(x,y) \dx{y,x} = \int_{\phi=0}^{2\pi} \int_{r=0}^{\inf} f(r\cdot \cos \phi, r\cdot \sin \phi) \cdot r \dx{(r,\phi)} \\
+    \iint \limits_{\mathbb{R}^2} 
+        f(x,y) \dx{y,x} = \int_{\phi=0}^{2\pi} \int_{r=0}^{\infty} f(r\cdot \cos \phi, r\cdot \sin \phi) \cdot r 
+    \dx{(r,\phi)} \\
 \end{align*} 
 
 Es gilt also
 \begin{align*}
-    \iint \ct{e}^{-(x^2 + y^2)} \dx{(x,y)}
-    &= \int_{\phi=0}^{2\pi} \int_{r=0}^{\infty} \ct{e}^{-\left((r\cdot \cos \phi)^2 + (r\cdot \sin \phi)^2\right)} \cdot r \dx{(r,\phi)} \\
-    &= \int_{\phi=0}^{2\pi} \int_{r=0}^{\infty} \ct{e}^{-r^2} \cdot r \dx{(r,\phi)} \\
-    &= \int_{\phi=0}^{2\pi} \int_{r=0}^{\infty} r\cdot \ct{e}^{u} \frac{1}{-2r} \dx{(u,\phi)} \\
-    &= \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \int_{r=0}^{\infty} \ct{e}^{u} \dx{(u,\phi)} \\
-    &= \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \left[ \ct{e}^{-r^2} \right]_{r=0}^{\infty} \dx{\phi} \\
+    \iint \limits_{\mathbb{R}^2} \ct{e}^{-(x^2 + y^2)} \dx{(x,y)}
+    &= \lim_{n \to \infty} \int_{\phi=0}^{2\pi} \int_{r=0}^{n} \ct{e}^{-\left((r\cdot \cos \phi)^2 + (r\cdot \sin \phi)^2\right)} \cdot r \dx{(r,\phi)} \\
+    &= \lim_{n \to \infty} \int_{\phi=0}^{2\pi} \int_{r=0}^{n} \ct{e}^{-r^2} \cdot r \dx{(r,\phi)} \\
+    &= \lim_{n \to \infty} \int_{\phi=0}^{2\pi} \int_{r=0}^{n} r\cdot \ct{e}^{u} \frac{1}{-2r} \dx{(u,\phi)} \\
+    &= \lim_{n \to \infty} \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \int_{r=0}^{n} \ct{e}^{u} \dx{(u,\phi)} \\
+    &= \lim_{n \to \infty} \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \left[ \ct{e}^{-r^2} \right]_{r=0}^{n} \dx{\phi} \\
+    &= \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \left( \lim_{n \to \infty} \ct{e}^{-n^2} - 1 \right) \dx{\phi} \\
+    &= \int_{\phi=0}^{2\pi} \frac{-1}{2} \cdot \left( - 1 \right) \dx{\phi} \\
     &= \int_{\phi=0}^{2\pi} \frac{1}{2} \dx{\phi} \\
     &= \left[ \frac{1}{2}\phi \right]_{\phi=0}^{2\pi} \\
     &= \pi \\

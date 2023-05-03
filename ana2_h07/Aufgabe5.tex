@@ -5,13 +5,30 @@
 \section{Aufgabe 5}
 Berechnen Sie das folgende Doppelintegral im Integrationsbereich $A$ mithilfe der Polarkoordinaten
 \[
-\int \int \limits_{A} \sqrt{4 - x^2 - y^2} \ dx \ dy
+    \int \int \limits_{A} \sqrt{4 - x^2 - y^2} \dx{x} \dx{y}
 \]
 \[ 
 \mbox{mit } \qquad 
-A = \{ (x,y) \in \mathbb{R}^2 \ | \ x^2 + y^2 \leq 4, y \geq |x| \}
+    A = \left\{ (x,y) \in \mathbb{R}^2 \ \middle| \ x^2 + y^2 \leq 4, y \geq |x| \right\}.
 \]
 
 \subsection{Lösung 5}
+Das Gebiet ist ein Kreis vom Radius $r=2$, welcher durch $y\geq x \land y \geq -x$ zu einem Viertelkreis beschnitten wird.
+
+\begin{align*}
+    \int \int \limits_{A} \sqrt{4 - x^2 - y^2} \dx{(x,y)}
+    &=
+    \int_{\frac{1}{4}\pi}^{\frac{3}{4}\pi}
+    \int_{0}^{2}
+        \sqrt{4 - (r\cdot \cos \phi)^2 - (r\cdot \sin \phi)^2}
+        \cdot r
+    \dx{(r,\phi)} \\
+    &=
+    \int_{\frac{1}{4}\pi}^{\frac{3}{4}\pi}
+    \int_{0}^{2}
+        \sqrt{4 - r^2\cdot (\cos^2 \phi - \sin^2 \phi)}
+        \cdot r
+    \dx{(r,\phi)} \\
+\end{align*}
 
 \end{document}
