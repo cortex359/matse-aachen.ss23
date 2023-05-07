@@ -14,6 +14,77 @@ Sei $0 \neq v \in \mathbb{R}^n$ gegeben. Wir betrachten die Projektion $p$ von $
     \item Zeigen Sie, dass $P$ keine Umkehrabbildung besitzt.
 \end{enumerate}
 
-\subsection{Lösung 5}
+\subsection{Lösung 5a}
+$$
+    P: \begin{cases}
+        \mathbb{R}^n \to \mathbb{R}^n \\
+        x \mapsto \frac{\scalarprod{v,x}}{\norm{v}^2} \cdot v\\
+    \end{cases}
+$$
+
+Die Abbildung $P(x)=p$ ist linear, genau dann wenn sie additiv und homogen ist.
+Zeige Additivität mit $x,y\in \mathbb{R}^n$:
+\begin{align*}
+    P(x+y) &= \frac{\scalarprod{v,x+y}}{\norm{v}^2} \cdot v \\
+    &= \frac{\scalarprod{v,x}+\scalarprod{v,y}}{\norm{v}^2} \cdot v \\
+    &= \left(
+        \frac{\scalarprod{v,x}}{\norm{v}^2} + \frac{\scalarprod{v,y}}{\norm{v}^2}
+    \right) \cdot v \\
+    &= \frac{\scalarprod{v,x}}{\norm{v}^2}\cdot v + \frac{\scalarprod{v,y}}{\norm{v}^2}\cdot v \\
+    &= P(x) + P(y) \quad \checkmark
+\end{align*}
+Zeige Homogenität mit $\lambda \in \mathbb{R}$:
+\begin{align*}
+    P(\lambda \cdot x) &= \frac{\scalarprod{v,\lambda x}}{\norm{v}^2} \cdot v \\
+                 &= \lambda \cdot \frac{\scalarprod{v,x}}{\norm{v}^2} \cdot v \\
+                 &= \lambda \cdot P(x)  \quad \checkmark
+\end{align*}
+
+\subsection{Lösung 5b}
+Es gilt
+\begin{align*}
+    P(x)
+    &= \frac{\scalarprod{v,x}}{\norm{v}^2} \cdot v \\[2mm]
+    &= \frac{v_1 x_1 + \dots + v_n x_n}{v_1^2 + \dots + v_n^2} \cdot v
+\end{align*}
+
+Um die Abbildungsmatrix $A$ bzgl. der kanonischen Einheitsvektoren zu erhalten, setzen wir diese der Reihe nach ein.
+
+\begin{align*}
+    A &= \eqmatrix{cccc}{
+        P(e_1) & P(e_2) & \cdots & P(e_n)
+    } \\[2mm]
+    &=
+    \eqmatrix{cccc}{
+        \frac{v_1}{\norm{v}^2} \cdot v & \frac{v_2}{\norm{v}^2} \cdot v & \cdots & \frac{v_n}{\norm{v}^2} \cdot v
+    } \\[2mm]
+    &=
+    \frac{1}{\norm{v}^2} \cdot
+    \eqmatrix{cccc}{
+        v_1 \cdot v & v_2 \cdot v & \cdots & v_n \cdot v
+    } \\
+    &=
+    \frac{1}{\norm{v}^2} \cdot
+    \eqmatrix{cccc}{
+        v_1 v_1 & v_2 v_1 & \cdots & v_n v_1 \\
+        v_1 v_2 & v_2 v_2 & \cdots & v_n v_2 \\
+               \vdots &        \vdots & \ddots & \vdots \\
+        v_1 v_n & v_2 v_n & \cdots & v_n v_n \\
+    }
+\end{align*}
+
+\subsection{Lösung 5c}
+
+Es gilt $\Bild (P) = \mathcal{L}\left( P(e_1), P(e_2), \dots, P(e_n) \right) = \mathcal{L} (A) = \mathcal{L} (v)$ und somit ist $(v)$ eine Basis von $\Bild (P)$ und $\rg (P) = \dim(\Bild(P)) = 1$.
+
+\subsection{Lösung 5d}
+$\ker (P) = \left\{x \middle| \scalarprod{x, v} = 0\right\}$ da die Projektion eines Vektors $x$ auf einen anderen Vektor $v$ nur dann $0$ ist, wenn $x\bot v$ also $\scalarprod{x,v} = 0$.
+
+\subsection{Lösung 5e}
+Für die Normalform gilt $\scalarprod{x,v}=\scalarprod{p,v}$.
+
+\subsection{Lösung 5f}
+Aus $\det(A) \neq 0$  folgt, dass $A$ nicht invertierbar ist.
+
 
 \end{document}
