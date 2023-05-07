@@ -3,7 +3,84 @@
 \begin{document}
 
 \section{Aufgabe 7}
+Gegeben ist das lineare Gleichungssystem $Ax=b$, mit
+$$
+    A = \eqmatrix{ccc}{
+        3 & 2 & 1 \\
+        2 & 3 & 1 \\
+        1 & 2 & 3
+    } \quad \text{und} \quad
+    b=\vektor{39\\ 34\\ 26}.
+$$
+
+\begin{enumerate}
+    \item Bringen Sie die Matrix $A$ auf die obere Dreiecksgestalt, indem Sie sie von links mit den für die Zeilenumformungen erforderlichen Elementarmatrizen multiplizieren.
+    \item Multiplizieren Sie auch die rechte Seite $b$ von links mit diesen Elementarmatrizen.
+    \item Lösen Sie anschließend das Gleichungssystem durch Rückwärtssubstitution.
+\end{enumerate}
 
 \subsection{Lösung 7}
+
+% {{1,0,0},{0,1,0},{0,0,15/36}}
+% {{1,0,0},{0,1,0},{0,-4/3,1}}
+% {{1,0,0},{0,1,0},{-1,0,1}}
+% {{1,0,0},{0,3/5,0},{0,0,1}}
+% {{1,0,0},{-2,1,0},{0,0,1}}
+% {{1/3,0,0},{0,1,0},{0,0,1}}
+% A = {{3,2,1},{2,3,1},{1,2,3}}
+% b = {{39},{34},{26}}
+% C's = {{1/3,0,0},{-2/5,3/5,0},{1/12,-1/3,5/12}}
+% A* =  {{1,2/3,1/3},{0,1,1/5},{0,0,1}}
+% b* = {{13},{24/5},{11/4}}
+
+\begin{align*}
+    C3_{\lambda_{3,3}=\frac{15}{36}} \cdot
+    C1_{\lambda_{3,2}=-\frac{4}{3}} \cdot
+    C1_{\lambda_{3,1}=-1} \cdot
+    C3_{\lambda_{2,2}=\frac{3}{5}} \cdot
+    C1_{\lambda_{2,1}=-2} \cdot
+    C3_{\lambda_{1,1}=\frac{1}{3}} \cdot
+    A
+    &=
+    \eqmatrix{ccc}{
+        1 & \frac{2}{3} & \frac{1}{3} \\
+        0 &           1 & \frac{1}{5} \\
+        0 &           0 & 1
+    }\\[2mm]
+    C3_{\lambda_{3,3}=\frac{15}{36}} \cdot
+    C1_{\lambda_{3,2}=-\frac{4}{3}} \cdot
+    C1_{\lambda_{3,1}=-1} \cdot
+    C3_{\lambda_{2,2}=\frac{3}{5}} \cdot
+    C1_{\lambda_{2,1}=-2} \cdot
+    C3_{\lambda_{1,1}=\frac{1}{3}}
+    &=
+    \eqmatrix{ccc}{
+        \frac{1}{3}  &            0 & 0 \\
+        -\frac{2}{5} & \frac{3}{5}  & 0 \\
+        \frac{1}{12} & -\frac{1}{3} & \frac{5}{12}
+    }\\[2mm]
+    \eqmatrix{ccc}{
+        \frac{1}{3}  &            0 & 0 \\
+        -\frac{2}{5} & \frac{3}{5}  & 0 \\
+        \frac{1}{12} & -\frac{1}{3} & \frac{5}{12}
+    } \cdot b
+    &= \vektor{13\\ \nicefrac{24}{5} \\ \nicefrac{11}{4}}\\
+\end{align*}
+
+Durch Rückwärtssubstitution ergibt sich $x_3 = \frac{11}{4}$,
+\begin{align*}
+                      & x_2 + \frac{1}{5} x_3 = \frac{24}{5} \\
+    \Leftrightarrow\  & x_2 = \frac{24}{5} - \frac{11}{20}\\
+    \Leftrightarrow\  & x_2 = \frac{17}{4}\\
+\end{align*}
+und für $x_1$
+\begin{align*}
+                      & x_1 + \frac{2}{3} x_2 + \frac{1}{3} x_3 = 13 \\
+    \Leftrightarrow\  & x_1 = 13 - \frac{45}{12} \\
+    \Leftrightarrow\  & x_1 = \frac{37}{4}.
+\end{align*}
+
+% {{37/4},{17/4},{11/4}}
+Somit erhalten wir $x = \frac{1}{4} \cdot \vektor{37\\ 17\\ 11}$.
 
 \end{document}
