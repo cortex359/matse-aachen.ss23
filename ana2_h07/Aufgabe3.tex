@@ -13,21 +13,35 @@ mit der Dichte $\rho(x, y, z) = 1$.
     \item Berechnen Sie anschließend den Schwerpunkt der Halbkugel.
 \end{enumerate}
 
-\subsection{Lösung 3}
-Für das Rechnen mit Kugelkoordinaten, mit $\phi$ \textbf{auf} der $x$-$y$-Ebene und 
+\subsection{Lösung 3a}
+\begin{figure}
+    \begin{center}
+        \includesvg[width=0.7\textwidth]{Kugelkoord-lokale-Basis-s}
+        \caption{Kugelkoordinaten.CC-BY-SA by \href{https://commons.wikimedia.org/wiki/User:Ag2gaeh}{User:Ag2gaeh}}
+    \end{center}
+\end{figure}
+
+Für das Rechnen mit Kugelkoordinaten, mit $\phi$ \textbf{auf} der $x$-$y$-Ebene und
 dem Winkel $\theta$ von der $z$-Achse auf die $x$-$y$-Ebene gilt:
 \begin{align*}
-    \iiint f(x,y,z) \dx{(z,y,x)} &= 
+    \iiint f(x,y,z) \dx{(z,y,x)} &=
         \iiint f(r\cos\phi\sin\theta, r\sin\phi\sin\theta, r\cos\theta )\cdot |r^2\sin\theta| \dx{(\theta, \phi, r)}
 \end{align*}
 
-Um die Halbkugel als Integral über das Gebiet $H$ der Funktion $\rho(x, y, z)$ zu beschreiben, überlegen wir uns die Orientierung
-der Halbkugel im Koordinatensystem und die Darstellung in Kugelkoordinaten.
+Um die Halbkugel als Integral über das Gebiet $H$ der Funktion $\rho(x, y, z)$ zu beschreiben, überlegen wir uns die Orientierung der Halbkugel im Koordinatensystem und die Darstellung in Kugelkoordinaten.\\
+
+Die Halbkugel liegt mit der flachen Seite auf der $x$-$y$-Ebene, entsprechend betrachten wir $\phi$ im Intervall $[0;2\pi]$ und $\theta \in [0; \frac{\pi}{2}]$.
 
 Um den Betrag im Integral zu behandeln, teilen wir das Integral in die Summer zweier Integrale auf.
 
 \begin{align*}
-    \iiint \limits_H \rho(x, y, z) \dx{H} 
+    \iiint \limits_H \rho(x, y, z) \dx{H}
+    &=
+    \int_{r=0}^{3}
+    \int_{\phi=0}^{2\pi}
+    \int_{\theta=0}^{\frac{\pi}{2}}
+        1 \cdot \abs{r^2\sin\theta}
+    \dx{(\theta, \phi, r)}\\
     &=
     \int_{r=0}^{3}
     \int_{\phi=0}^{\frac{\pi}{2}}
@@ -52,7 +66,7 @@ Um den Betrag im Integral zu behandeln, teilen wir das Integral in die Summer zw
     \left(
         \left[
             - r^2 \cos\theta
-        \right]_{\theta=0}^{\pi} 
+        \right]_{\theta=0}^{\pi}
         + (-1) \cdot
         \left[
             - r^2 \cos\theta
@@ -66,7 +80,7 @@ Um den Betrag im Integral zu behandeln, teilen wir das Integral in die Summer zw
         \left(
             - r^2 \cos (\pi)
             + r^2 \cos (0)
-        \right) 
+        \right)
         -
         \left(
             - r^2 \cos (2\pi)
@@ -98,6 +112,13 @@ Um den Betrag im Integral zu behandeln, teilen wir das Integral in die Summer zw
 \end{align*}
 
 Zur Probe rechnen wir das Volumen einer Kugel mit dem Radius $r=3$ aus
-$V = \frac{4}{3} \pi r^3 = 36 \pi$, halbieren dies und erhalten ebenfalls $18\pi$. 
+$V = \frac{4}{3} \pi r^3 = 36 \pi$, halbieren dies und erhalten ebenfalls $18\pi$.
+
+\subsection{Lösung 3b}
+Aufgrund der Rotationssymmetrie um die $z$-Achse und der homogenität der Dichte ist klar, dass $x_s = y_s = 0$ sein muss.
+
+Für $z_s$ gilt $z_s = \frac{3}{8} r = \nicefrac{9}{8}$.
+
+Somit befindet sich der Schwerpunkt $S = (0, 0, \nicefrac{9}{8})$.
 
 \end{document}
