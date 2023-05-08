@@ -17,8 +17,9 @@ Sei $\Sigma = \{o, p, t, r\}$. Bestimmen Sie die Mächtigkeit der folgenden Spra
 
 \subsection{Lösung 1a}
 Es gibt vier Positionen, an denen das Wort $otto$ stehen kann, sowie jeweils drei weitere Stellen, an denen ein beliebiger Buchstabe stehen kann.
+Außerdem gibt es noch eine Dopplung im Fall $ottotto$, welche nicht doppelt gezählt werden darf.
 $$
-    |L_1| = 4\cdot 4^3 = 256
+    |L_1| = 4\cdot 4^3 - 1 = 255
 $$
 
 \subsection{Lösung 1b}
@@ -26,7 +27,8 @@ Für $|w|\leq 4$ gibt es genau ein Wort, nämlich das Teilwort selbst.
 Für $|w|=5$ gibt es zwei mögliche Positionen für das Teilwort und jeweils eine weitere Stelle $2\cdot 4^1$.
 Für $|w|=6$ gibt es drei mögliche Positionen und jeweils zwei weitere Stellen $3\cdot 4^2$ und für $|w|=7$ entsprechend $|L_1|$ viele Möglichkeiten.
 $$
-    |L_2| = 1 + 2\cdot 4^1 + 3\cdot 4^2 + 4\cdot 4^3 = 1 + 8 + 48 +  256 = 313
+    |L_2| = 1 + 2\cdot 4^1 + 3\cdot 4^2 + 4\cdot 4^3 - 1 
+          = 1 + 8 + 48 + 255 = 312
 $$
 
 \subsection{Lösung 1c}
@@ -63,7 +65,7 @@ Möglichkeiten den Buchstaben $r$ in einem Wort der Länge 7 unterzubringen.\\
 Für die Mächtigkeit von $L_5$ ergibt sich sodann
 \begin{align*}
     |L_5| &= |L_1| - 36 + 5103 \\[1mm]
-          &= 5323.
+          &= 5322.
 \end{align*}
 
 \end{document}
