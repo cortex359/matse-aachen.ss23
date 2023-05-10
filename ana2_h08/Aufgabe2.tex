@@ -1,0 +1,30 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+Lösen Sie das Anfangswertproblem $\quad y' = -2x \cdot y + 10x, \quad  y(0) = 2$
+
+\subsection{Lösung 2}
+\begin{align*}
+    y' &= -2xy + 10x \\
+    &= \underbrace{x}_{f(x)}\cdot \underbrace{(10-2y)}_{g(y)}
+\end{align*}
+
+Wir trennen die Variablen und erhalten
+\begin{equation*}
+    \begin{array}{lrl}
+        & \int \frac{1}{10-2y} \dx{y(x)} &= \int x \dx{x} \\
+        \Leftrightarrow & -\frac{1}{2} \ln (5 - y(x)) &= \frac{x^2}{2} + C \\
+        \Leftrightarrow & \ln (5 - y(x))  &= -x^2 - 2C \\
+        \Leftrightarrow & 5 - y(x)  &= \ct{e}^{-x^2 - 2C} \\
+        \Leftrightarrow & y(x)  &= 5 - \ct{e}^{-x^2 - 2C} \\
+    \end{array}
+\end{equation*}
+
+Da $y(0) = 5-\ct{e}^{-2C} = 2 \Leftrightarrow C = -\frac{\ln(3)}{2}$ folgt somit
+$$
+    y(x) = 5 - 3\ct{e}^{- x^2}
+$$
+
+\end{document}

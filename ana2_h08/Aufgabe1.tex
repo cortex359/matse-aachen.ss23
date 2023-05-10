@@ -1,0 +1,21 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Seit Jahrtausenden wird Sauerteig zur Herstellung von Brotteig verwendet. Dabei werden gezielt Bakterien im Teig vermehrt. Für einen bestimmten Vermehrungsprozess werden $1$g Mehl etwa $100$ Bakterien zugesetzt. Nach $4$ Stunden sind etwa $3.500$ Bakterien vorhanden. Die Sättigungsgrenze liegt bei etwa $7.000$ Bakterien.
+\begin{enumerate}
+    \item Ermitteln Sie für die Anzahl $y(t)$ der Bakterien in Abhängigkeit von der Zeit $t$ in Stunden einen geeigneten Funktionsterm.
+    \item Wie viele Bakterien sind in einem $8$ Stunden gereiften Sauerteig vorhanden?
+\end{enumerate}
+
+\subsection{Lösung 1}
+
+Wir modellieren den Wachstumsprozess mit $y_n(t) = y_0 \cdot \ct{e}^{k\cdot t}$, wobei $y_0 = 100$. Wir erhalten $k$ durch $3.500 = 100\cdot \ct{e}^{4k} \Leftrightarrow k = \frac{\ln(3,5)}{4}$ und durch die Sättigungsgrenze von $7.000$ eine obere Grenze von $t = \frac{4\cdot\ln(70)}{\ln(3,5)} = 13,5652\dots$
+$$
+    y(t) = 100 \cdot \ct{e}^{\frac{\ln(3,5)}{4} \cdot t}\qquad t\in \left[ 0; \frac{4\cdot\ln(70)}{\ln(3,5)}\right]
+$$
+
+Nach 8 Stunden befinden sich somit $y(8) = 1.225$ Bakterien im Hefeteig.
+
+\end{document}
