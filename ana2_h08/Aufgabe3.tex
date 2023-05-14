@@ -10,7 +10,24 @@ Lösen Sie folgende Differentialgleichungen mit Hilfe einer geeigneten Substitut
 \end{enumerate}
 
 \subsection{Lösung 3a}
-Substituiere $z = x + y +1$. Es ergibt sich
+Zur Lösung der Differentialgleichung $y'(x) = (x + y(x) + 1)^2$ substituieren wir $z(x) = x + y(x) +1$. Damit ergibt sich
+\begin{align*}
+	y'(x) = z(x)^2 \\
+	z'(x) = 1 + y'(x) \\
+\end{align*}
+
+also die separable Differentialgleichung
+\begin{align*}
+	z'(x) = 1 + z(x)^2
+\end{align*}
+
+für die gilt:
+\begin{align*}
+	z'(x) = 1 + z(x)^2\\
+\end{align*}
+
+
+
 \begin{align*}
     y = z-x-1 \implies y' = z'-1\\
     z' = 1 + z^2 \\
