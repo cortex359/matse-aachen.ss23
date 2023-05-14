@@ -19,6 +19,39 @@ Berechnen Sie mittels Gauß-Algorithmus die folgenden Determinanten, wobei alle 
 \end{enumerate}
 
 \subsection{Lösung 5a}
+\begin{align*}
+    \begin{vmatrix}
+        a & b \\
+        c & d \\
+    \end{vmatrix}
+    &= a \cdot c \cdot \begin{vmatrix}
+        1 & \nicefrac{b}{a} \\
+        1 & \nicefrac{d}{c} \\
+    \end{vmatrix} \\
+    &= a \cdot c \cdot \begin{vmatrix}
+        1 & \nicefrac{b}{a} \\
+        0 & \nicefrac{d}{c} - \nicefrac{b}{a} \\
+    \end{vmatrix} \\
+    &= a \cdot c \cdot \left(\frac{d}{c} - \frac{b}{a}\right) \cdot \begin{vmatrix}
+        1 & \nicefrac{b}{a} \\
+        0 & 1 \\
+    \end{vmatrix} \\
+    &= a \cdot c \cdot \left(\frac{d}{c} - \frac{b}{a}\right) \cdot \begin{vmatrix}
+        1 & 0 \\
+        0 & 1 \\
+    \end{vmatrix} \\
+    &= a\cdot d - b\cdot c \\
+\end{align*}
 
+\subsection{Lösung 5b}
+
+\begin{align*}
+    \begin{vmatrix}
+        1 & 1 &  0 &  a \\
+        b & 0 &  a &  2 \\
+        2 & 2 &  1 & -1 \\
+       -b & a & -a &  3 \\
+   \end{vmatrix} = -2 a^3 + a^2 b - a^2 - 2 a - 5 b\\
+\end{align*}
 
 \end{document}
