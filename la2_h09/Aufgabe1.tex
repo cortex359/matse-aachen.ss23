@@ -1,0 +1,220 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Weisen Sie folgende Gleichung nach:
+
+$$
+    \begin{vmatrix}
+        1 & a & a^2 & a^3 \\
+        1 & b & b^2 & b^3 \\
+        1 & c & c^2 & c^3 \\
+        1 & d & d^2 & d^3 \\
+    \end{vmatrix}
+    = (d-a)(c-a)(b-a)(d-b)(c-b)(d-c)
+$$
+
+\subsection{Lösung 1}
+Lösung mit Laplace, Spalte 1:
+
+\begin{align*}
+    \begin{vmatrix}
+        1 & a & a^2 & a^3 \\
+        1 & b & b^2 & b^3 \\
+        1 & c & c^2 & c^3 \\
+        1 & d & d^2 & d^3 \\
+    \end{vmatrix} 
+    =&
+    \begin{vmatrix}
+        b & b^2 & b^3 \\
+        c & c^2 & c^3 \\
+        d & d^2 & d^3 \\
+    \end{vmatrix}
+    -
+    \begin{vmatrix}
+        a & a^2 & a^3 \\
+        c & c^2 & c^3 \\
+        d & d^2 & d^3 \\
+    \end{vmatrix}
+    +
+    \begin{vmatrix}
+        a & a^2 & a^3 \\
+        b & b^2 & b^3 \\
+        d & d^2 & d^3 \\
+    \end{vmatrix}
+    -
+    \begin{vmatrix}
+        a & a^2 & a^3 \\
+        b & b^2 & b^3 \\
+        c & c^2 & c^3 \\
+    \end{vmatrix}\\
+% 2x2 Matrizen:
+    =&\ 
+    b \cdot \textcolor{OliveGreen}{\begin{vmatrix}
+        c^2 & c^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    - c \cdot
+    \textcolor{Cerulean}{\begin{vmatrix}
+        b^2 & b^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    + d \cdot
+    \textcolor{BrickRed}{\begin{vmatrix}
+        b^2 & b^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}\\
+%
+    -&\ 
+    a \cdot \textcolor{OliveGreen}{\begin{vmatrix}
+        c^2 & c^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    - c \cdot
+    \textcolor{Goldenrod}{\begin{vmatrix}
+        a^2 & a^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    + d \cdot
+    \textcolor{Melon}{\begin{vmatrix}
+        a^2 & a^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}\\
+%
+    +&\ 
+    a \cdot \textcolor{Cerulean}{\begin{vmatrix}
+        b^2 & b^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    - b \cdot
+    \textcolor{Goldenrod}{\begin{vmatrix}
+        a^2 & a^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    + d \cdot
+    \begin{vmatrix}
+        a^2 & a^3 \\
+        b^2 & b^3 \\
+    \end{vmatrix}\\
+%
+    -&\ 
+    a \cdot \textcolor{BrickRed}{\begin{vmatrix}
+        b^2 & b^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}
+    - b \cdot
+    \textcolor{Melon}{\begin{vmatrix}
+        a^2 & a^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}
+    + c \cdot
+    \begin{vmatrix}
+        a^2 & a^3 \\
+        b^2 & b^3 \\
+    \end{vmatrix}\\
+% Matrizen ausklammern:
+    =& 
+    \left( b - a \right) \cdot \textcolor{OliveGreen}{\begin{vmatrix}
+        c^2 & c^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}} 
+    + \left( a - c \right) \cdot
+    \textcolor{Cerulean}{\begin{vmatrix}
+        b^2 & b^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    + \left( d - a \right) \cdot
+    \textcolor{BrickRed}{\begin{vmatrix}
+        b^2 & b^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}\\
+    -& \left( b + c \right) \cdot
+    \textcolor{Goldenrod}{\begin{vmatrix}
+        a^2 & a^3 \\
+        d^2 & d^3 \\
+    \end{vmatrix}}
+    + \left( d - b \right) \cdot
+    \textcolor{Melon}{\begin{vmatrix}
+        a^2 & a^3 \\
+        c^2 & c^3 \\
+    \end{vmatrix}}
+    + \left( d + c \right) \cdot
+    \begin{vmatrix}
+        a^2 & a^3 \\
+        b^2 & b^3 \\
+    \end{vmatrix}\\
+    \\
+% Quadrate rausziehen:
+    =& 
+    \left( b - a \right) \cdot c^2 d^2 \cdot \textcolor{OliveGreen}{\begin{vmatrix}
+        1 & c \\
+        1 & d \\
+    \end{vmatrix}} 
+    + \left( a - c \right) \cdot b^2 d^2 \cdot
+    \textcolor{Cerulean}{\begin{vmatrix}
+        1 & b \\
+        1 & d \\
+    \end{vmatrix}}
+    + \left( d - a \right) \cdot b^2 c^2 \cdot
+    \textcolor{BrickRed}{\begin{vmatrix}
+        1 & b \\
+        1 & c \\
+    \end{vmatrix}}\\
+    -& \left( b + c \right) \cdot a^2 d^2 \cdot
+    \textcolor{Goldenrod}{\begin{vmatrix}
+        1 & a \\
+        1 & d \\
+    \end{vmatrix}}
+    + \left( d - b \right) \cdot a^2 c^2 \cdot
+    \textcolor{Melon}{\begin{vmatrix}
+        1 & a \\
+        1 & c \\
+    \end{vmatrix}}
+    + \left( d + c \right) \cdot a^2 b^2 \cdot
+    \begin{vmatrix}
+        1 & a \\
+        1 & b \\
+    \end{vmatrix}\\
+    \\
+% Triviale Determinanten lösen:
+    =& 
+    \left( b - a \right) \cdot c^2 d^2 \cdot 
+    \textcolor{OliveGreen}{(d - c)} 
+    + \left( a - c \right) \cdot b^2 d^2 \cdot
+    \textcolor{Cerulean}{(d-b)}
+    + \left( d - a \right) \cdot b^2 c^2 \cdot
+    \textcolor{BrickRed}{(c-b)}\\
+    -& \left( b + c \right) \cdot a^2 d^2 \cdot
+    \textcolor{Goldenrod}{(d-a)}
+    + \left( d - b \right) \cdot a^2 c^2 \cdot
+    \textcolor{Melon}{(c-a)}
+    + \left( d + c \right) \cdot a^2 b^2 \cdot
+    (b-a)\\
+    \\
+%
+%
+=&\  b c^2 d^3 + b^2 c^3 d + b^3 c d^2 - b^3 c^2 d - b c^3 d^2 - b^2 c d^3 \\
+     & - \left( a c^2 d^3 + a^2 c^3 d + a^3 c d^2 - a^3 c^2 d - a c^3 d^2 - a^2 c d^3 \right) \\
+     & + a b^2 d^3 + a^2 b^3 d + a^3 b d^2 - a^3 b^2 d - a b^3 d^2 - a^2 b d^3 \\
+     & - \left( a b^2 c^3 + a^2 b^3 c + a^3 b c^2 - a^3 b^2 c - a b^3 c^2 - a^2 b c^3 \right) \\
+    =&\  b c^2 d^3 + b^2 c^3 d + b^3 c d^2 - b^3 c^2 d - b c^3 d^2 - b^2 c d^3 \\
+     & - a c^2 d^3 - a^2 c^3 d - a^3 c d^2 + a^3 c^2 d + a c^3 d^2 + a^2 c d^3 \\
+     & + a b^2 d^3 + a^2 b^3 d + a^3 b d^2 - a^3 b^2 d - a b^3 d^2 - a^2 b d^3 \\
+     & - a b^2 c^3 - a^2 b^3 c - a^3 b c^2 + a^3 b^2 c + a b^3 c^2 + a^2 b c^3 \\
+    %=&
+    % bcd \cdot \left(  c d^2 + b c^2 + b^2 d - b^2 c - c^2 d - b d^2 \right) \\
+    % acd \cdot \left(- c d^2 - a c^2 - a^2 d + a^2 c + c^2 d + a d^2 \right) \\
+    % abd \cdot \left(  b d^2 + a b^2 + a^2 d - a^2 b - b^2 d - a d^2 \right) \\
+    % abc \cdot \left(- b c^2 - a b^2 - a^2 c + a^2 b + b^2 c + a c^2 \right) \\
+    =& \textcolor{OliveGreen}{\left( dc -da -ac +a^2 \right)} 
+    \textcolor{Cerulean}{\left( bd -b^2 -ad +ab \right)} 
+    \textcolor{BrickRed}{\left( cd - c^2 -bd +bc \right)} 
+    \\
+    =& \textcolor{OliveGreen}{(d-a)(c-a)}
+    \textcolor{Cerulean}{(b-a)(d-b)}
+    \textcolor{BrickRed}{(c-b)(d-c)} \\
+\end{align*}
+
+
+\end{document}
