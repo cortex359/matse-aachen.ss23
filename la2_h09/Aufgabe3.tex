@@ -3,7 +3,41 @@
 \begin{document}
 
 \section{Aufgabe 3}
+Bestimmen Sie die Anzahl der linear unabhängigen Zeilen- bzw. Spaltenvektoren, also den Rang, der folgenden Matrix:
+$$
+    A = \eqmatrix{rrrr}{
+         1 & 0 &  2 & 1 \\
+        -1 & 2 & -4 & 1 \\
+         0 & 1 & -1 & 1 \\
+    }
+$$
 
 \subsection{Lösung 3}
+
+\begin{align*}
+    \eqmatrix{rrrr}{
+         1 & 0 &  2 & 1 \\
+        -1 & 2 & -4 & 1 \\
+         0 & 1 & -1 & 1 \\
+    } \overset{\ct{II} +\ct{I}}{\leadsto}
+    \eqmatrix{rrrr}{
+         1 & 0 &  2 & 1 \\
+         0 & 2 & -2 & 2 \\
+         0 & 1 & -1 & 1 \\
+    } \overset{\ct{II} -2\cdot\ct{III}}{\leadsto}
+    \eqmatrix{rrrr}{
+        1 & 0 &  2 & 1 \\
+        0 & 0 & 0 & 0 \\
+        0 & 1 & -1 & 1 \\
+   } \overset{\ct{II} \leftrightarrow \ct{III}}{\leadsto}
+   \eqmatrix{rrrr}{
+    1 & 0 &  2 & 1 \\
+    0 & 1 & -1 & 1 \\
+    0 & 0 & 0 & 0 \\
+   }
+\end{align*}
+
+Damit ist $\rg(A) = 2$.
+
 
 \end{document}

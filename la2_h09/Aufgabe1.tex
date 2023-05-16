@@ -217,4 +217,98 @@ Lösung mit Laplace, Spalte 1:
 \end{align*}
 
 
+\subsection{Lösung 1 Variante 2}
+Da $\det (A) = \det (A^T)$ betachten wir $A^T$ und ziehen das $a^{(i-1)}$-fache der ersten Zeile von den übrigen Zeilen ab und lösen mit Laplace:
+\begin{align*}
+    A^T &=
+    \begin{vmatrix}
+        1 & 1 & 1 & 1 \\
+        a & b & c & d \\
+        a^2 & b^2 & c^2 & d^2 \\
+        a^3 & b^3 & c^3 & d^3 \\
+    \end{vmatrix} \\[2mm]
+    &=
+    \begin{vmatrix}
+        1 & 1 & 1 & 1 \\
+        0 & b-a & c-a & d-a \\
+        0 & b^2-a^2 & c^2-a^2 & d^2-a^2 \\
+        0 & b^3-a^3 & c^3-a^3 & d^3-a^3 \\
+    \end{vmatrix} \\[2mm]
+    &=
+    1 \cdot 
+    \begin{vmatrix}
+        b-a & c-a & d-a \\
+        b^2-a^2 & c^2-a^2 & d^2-a^2 \\
+        b^3-a^3 & c^3-a^3 & d^3-a^3 \\
+    \end{vmatrix} \\[2mm]
+    &= % wir ziehen (b-a) aus der ersten Spalte raus und erhalten mit binomischen formeln:
+    (b-a) \cdot 
+    \begin{vmatrix}
+        1 & c-a & d-a \\
+        a+b & c^2-a^2 & d^2-a^2 \\
+        (a+b)^2 & c^3-a^3 & d^3-a^3 \\
+    \end{vmatrix} \\[2mm]
+    &= \underbrace{\textcolor{Cerulean}{
+    {(b-a) (c-a) (d-a)}}}_{:=p_1} \cdot 
+    \begin{vmatrix}
+              1 &       1 & 1 \\
+            a+b &     a+c & a+d \\
+        (a+b)^2 & (a+c)^2 & (a+d)^2 \\
+    \end{vmatrix} \\[2mm]
+    &= p_1 \cdot 
+        \begin{vmatrix}
+            1 &               1 & 1 \\
+            0 &       a+c-(a+b) & a+d-(a+b) \\
+            0 & (a+c)^2-(a+b)^2 & (a+d)^2-(a+b)^2 \\
+        \end{vmatrix} \\[2mm]
+    &= p_1 \cdot 
+        \begin{vmatrix}
+            1 &               1 & 1 \\
+            0 &             c-b & d-b \\
+            0 & (a+c)^2-(a+b)^2 & (a+d)^2-(a+b)^2 \\
+        \end{vmatrix} \\[2mm]
+    &= p_1 \cdot 
+        \begin{vmatrix}
+                        c-b & d-b \\
+            (a+c)^2-(a+b)^2 & (a+d)^2-(a+b)^2 \\
+        \end{vmatrix} \\[2mm]
+    &= p_1 \cdot 
+    \left( (c-b)\left((a+d)^2-(a+b)^2\right) - (d-b)\left((a+c)^2-(a+b)^2\right) \right)\\
+    &= p_1 \cdot 
+    \left( (c-b)\left(
+        2ad +d^2  -2ab -b^2
+    \right) - (d-b)\left(
+        2ac +c^2  -2ab -b^2
+    \right) \right)\\
+    &= p_1 \cdot 
+    \left( (c-b)\left(
+        2a\cdot (d-b) + \textcolor{Cerulean}{d^2 - b^2}
+    \right) - (d-b)\left(
+        2a \cdot(c-b) + \textcolor{ForestGreen}{c^2 - b^2}
+    \right) \right)\\
+    &= % Binomische Formeln
+    p_1 \cdot 
+    \left( (c-b)\left(
+        2a\cdot (d-b) + \textcolor{Cerulean}{(d-b)(d+b)}
+    \right) - (d-b)\left(
+        2a \cdot(c-b) + \textcolor{ForestGreen}{(c-b)(c+b)}
+    \right) \right)\\
+    &= % Ausklammern
+    p_1 \cdot 
+    \left( (c-b)
+        (d-b) \cdot (2a + (d+b))
+    - (d-b)
+        (c-b) \cdot (2a + (c+b))
+    \right)\\
+    &= % (d-b) ausklammern
+    p_1 \cdot 
+    \left( (c-b)(d-b) \left(
+         (2a+b+d) - (2a+b+c)
+    \right) \right)\\
+    &= % (d-b) ausklammern
+    p_1 \cdot (c-b)(d-b)(d - c) \\
+    &= \textcolor{Cerulean}{(d-a)(c-a)(b-a)} \cdot (d-b)(c-b)(d-c)
+\end{align*}
+
+
 \end{document}

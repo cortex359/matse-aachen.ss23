@@ -4,6 +4,21 @@
 
 \section{Aufgabe 4}
 
+Finden Sie die Lösung des linearen Gleichungssystems $Ax = b$ mit $K = \{\mathbb{R}, \mathbb{C}\}$, $x \in K^3$,
+
+$$
+    A = \eqmatrix{rrr}{
+        -1 & 1 & 0 \\
+         0 & 1 & 1 \\
+    } \qquad \text{und} \qquad b= \vektor{0 \\ 2}.
+$$
+
 \subsection{Lösung 4}
+Der Kern der Abbildungsmatrix $\ker (A)$ ist die Menge aller Lösungen für die $Ax = 0$ gilt, also
+\begin{align*}
+    -x_1 + x_2 &= 0 \land\\
+     x_2 + x_3 &= 0. \\
+\end{align*} 
+Daraus folgt, dass $x_1 = x_2 = - x_3$ also $\ker (A) = \left\{ x\in K^3 \middle| \lambda \eqmatrix{r}{1\\ 1\\ -1\\} \forall \lambda \in K \right\}$. 
 
 \end{document}

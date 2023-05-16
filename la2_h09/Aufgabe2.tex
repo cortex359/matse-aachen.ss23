@@ -3,7 +3,37 @@
 \begin{document}
 
 \section{Aufgabe 2}
+Für welches $\alpha \in \mathbb{R}$ hat das lineare Gleichungssystem
+
+$$
+    \begin{array}{rcrcrcr}
+        2x_1 & + & 3x_2 & - & 4x_3 & = & 2 \\
+         x_1 & - & 3x_2 & - &  x_3 & = & 1 \\
+        3x_1 & + & \alpha x_2 & - & 5x_3 & = & 4 \\        
+    \end{array}
+$$
+
+keine, eine bzw. unendlich viele Lösungen? Geben Sie ggf. die Lösungen an.
 
 \subsection{Lösung 2}
+Wir betrachten das LGS als Abbildung $Ax=b$ mit 
+$$
+    A = \eqmatrix{rrr}{
+        2 &  3 & -4 \\
+        1 & -3 & -1 \\
+        3 & \alpha & -5 \\
+    }\qquad \text{und}
+    \qquad
+    b = \vektor{2 \\ 1 \\ 4}
+$$
+
+\begin{align*}
+    \det (A) &= 30 + (-9) + (-4\alpha) -36 -(-2\alpha) -(-15) \\
+             &= -2\alpha
+\end{align*}
+
+Daraus folgt, dass das LGS eindeutig lösbar ist, wenn $\alpha \neq 0$ ist. Für $\alpha = 0$ stellen wir durch Addition der ersten beiden Zeilen zu der dritten Zeile fest, dass nur zwei Zeilen linear unabhängig sind, also $\rg (A) = 2$.
+Da jedoch $\rg (A) = 2 \neq 3 = \rg(A,b)$ erhalten wir keine Lösung.
+
 
 \end{document}
