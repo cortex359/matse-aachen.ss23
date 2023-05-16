@@ -3,7 +3,74 @@
 \begin{document}
 
 \section{Aufgabe 1}
+Gesucht ist die allgemeine Lösung der jeweiligen Differentialgleichung.
+\begin{enumerate}
+    \item $y' + 2y = 8\sin(x) - \cos(x)$
+    \item $y' - 4y = -28\sin(3x) + 21\cos(3x)$
+\end{enumerate}
 
-\subsection{Lösung 1}
+\subsection{Lösung 1a}
+
+Löse die homogene Differentialgleichung $y'_h(x) + 2y_h(x) = 0$ durch \textit{Trennung der Variablen}.
+\begin{equation*}
+\begin{array}{rrl}
+                & y'_h(x) + 2y_h(x) &= 0 \\[2mm]
+\Leftrightarrow & y_h(x) &= -\frac{1}{2} \frac{\dx{y_h}}{\dx{x}} \\[2mm]
+\Leftrightarrow & 1 \dx{x} &= -\frac{1}{2\cdot y_h(x)} \dx{y_h} \\[2mm]
+\Leftrightarrow & \int 1 \dx{x} &= -\frac{1}{2} \int \frac{1}{y_h(x)} \dx{y_h} \\[2mm]
+\Leftrightarrow & x + c &= -\frac{1}{2} \ln \abs{y_h(x)} \\[2mm]
+\Leftrightarrow & -2x + -2c &= \ln \abs{y_h(x)} \\[2mm]
+\Leftrightarrow & \ct{e}^{-2x} \cdot \underbrace{\ct{e}^{-2c}}_{:=\tilde{c} \in \mathbb{R^+}} &= \abs{y_h(x)} \\[7mm]
+\Leftrightarrow & \ct{e}^{-2x} \cdot \underbrace{c}_{c \in \mathbb{R}} &= y_h(x) \\[2mm]
+\end{array}
+\end{equation*}
+
+Die homogene Lösung lautet somit $y_h(x) = c \cdot \ct{e}^{-2x}$.
+
+Bestimme die partikuläre Lösung $y_p(x)$ mittels \textit{Ansatz vom Typ der rechten Seite} für die Störfunktion $g(x) = 8\sin(x) - \cos(x)$.
+\begin{align*}
+    y_p(x)  &= c_0 \sin (ax) + c_1\cos(ax) \\
+    y'_p(x) &= ac_0 \cos (ax) - ac_1\sin(ax)
+\end{align*}
+
+Wir setzten den Ansatz für in die DGL ein und bereiten den Koeffizientenvergleich vor.
+\begin{equation*}
+\begin{array}{rrl}
+                & 8\sin(x) - \cos(x) &\overset{!}{=} y'_p(x) + 2y_p(x) \\
+\Leftrightarrow & 8\sin(x) - \cos(x) &= ac_0 \cos (ax) - ac_1\sin(ax) +  2c_0 \sin(ax) + 2c_1\cos(ax) \\
+\Leftrightarrow & 8\sin(x) - \cos(x) &= \sin(ax)\underbrace{(2c_0 - ac_1)}_{\overset{!}{=}8} + \cos (ax)\underbrace{(ac_0 + 2c_1)}_{\overset{!}{=}-1}\\
+\end{array}
+\end{equation*}
+
+Mit $a=1$ ergibt sich für $c_0 = 3$ und für $c_1 = -2$. Somit erhalten wir die partikuläre Lösung:
+
+\begin{align*}
+    y_p(x)  &= 3\sin (x) -2 \cos(ax) \\
+\end{align*}
+
+Zusammengesetzt bedeutet das für die allgemeine Lösung der DGL
+
+\begin{align*}
+    y(x) &= y_h(x) + y_p(x) \\
+         &= c \cdot \ct{e}^{-2x} + 3\sin (x) -2 \cos(ax) \\
+\end{align*}
+
+\subsection{Lösung 1b}
+Nach dem zuvor beschriebenen Verfahren lösen wir $y'_h(x) - 4y_h(x) = 0$ zu $y_h(x) = c\cdot \ct{e}^{4x}$ 
+und bestimmen mit Koeffizientenvergleich:
+\begin{equation*}
+    \begin{array}{rrl}
+                    & -28\sin(3x) + 21\cos(3x) &\overset{!}{=} y'_p(x) - 4y_p(x) \\
+    \Leftrightarrow & -28\sin(3x) + 21\cos(3x) &= ac_0 \cos (ax) - ac_1\sin(ax) - 4c_0 \sin (ax) -4c_1\cos(ax) \\
+    \Leftrightarrow & -28\sin(3x) + 21\cos(3x) &= \underbrace{-(ac_1 + 4c_0)}_{\overset{!}{=}-28}\sin(ax) + \underbrace{(ac_0  -4c_1)}_{\overset{!}{=}21}\cos(ax) \\
+    \end{array}
+\end{equation*}
+
+Wir erhalten die Koeffizienten $a=3, c_0=7, c_1=0$ und können somit mit der partikulären Lösung $y_p(x)=7\sin(3x)$ die allgemeine Lösung zusammensetzen:
+
+\begin{align*}
+    y(x) &= y_h(x) + y_p(x) \\
+         &= c\cdot \ct{e}^{4x} + 7\sin(3x)
+\end{align*}
 
 \end{document}

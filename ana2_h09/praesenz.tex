@@ -2,21 +2,73 @@
 
 \begin{document}
 
-\section{Aufgabe 1}
+\section{Präsenz}
+
+% Aufgabe 1 bis 3: Lineare DGL 1. Ordnung mit konst. Koeffizienten.
+% 
+% Lineare inhomogene DGL
+% $$
+% y'+f(x)\cdot y = g(x) 
+% $$
+% 
+% 
+% Lineare inhomogene DGL mit kostanten Koeffizent
+% $$
+%     y'+a\cdot y = g(x) 
+% $$
+
+%---
+
+% 1. Lösen homog. DGL $(y' + a \cdot y = 0) => y_h(x)$\\
+% 2. Bestimmen partikuläre Lösung $y_p(x)$ mit 
+%    - Auswahl vom Typ der rechten Seite 
+%    a) $y_P$ und $y'_p$ in DGL einsetzen
+%    b) Koeffizientenvergleich
+% 3. Gesamtlösung $y(x) = y_h(x) + y_p(x)$
+
+\subsection{Aufgabe 1}
 Lösen Sie das Anfangswertproblem 
 $$
-    y' = 3y + x^2 -x \qquad y(0) = 3
+    y' = 3y + 15x^2 - 5x \qquad y(0) = 3
 $$
 
 \subsection{Lösung 1}
-Es handelt sich um ein lineares Anfangswertproblem
+Es handelt sich um ein Anfangswertproblem mit einer DGL 1. Ordnung mit konstanten Koeffizienten.
+
+Bestimmte die homogene DGL $y'_h(x) - 3y_h(x) = 0$ durch Trennung der Variablen zu $y_h(x) = c \cdot \ct{e}^3x$.\\
+
+Bestimme die partikuläre Lösung der Form $y_p(x) = c_2 x^2 + c_1 x + c_0$ und $y'_p(x) = 2c_2 x + c_1$.
+
+\begin{equation*}
+\begin{array}{rrl}       
+        & y'_p(x) - 3y_p(x) &= 15x^2 - 5x \\
+\Leftrightarrow & (2c_2 x + c_1) - 3\cdot \left( c_2 x^2 + c_1 x + c_0 \right) &= 15x^2 - 5x \\
+\Leftrightarrow & (-3 c_2) x^2 + (2c_2 - 3c_1)x + (c_1 - 3c_0)  &= 15x^2 - 5x \\
+\end{array}
+\end{equation*}
+
+So erhalten wir für $c_2 =5$, $c_1 = -\frac{5}{3}$ und $c_0 = -\frac{5}{9}$ und somit
+
+$$
+    y_p(x) = -5x^2 -\frac{5}{3} x - \frac{5}{9}
+$$
+
+Wir setzen die Lösungen zusammen und bestimmen $c$ mit $y(0) = 3 \Leftrightarrow c = \frac{32}{9}$
 
 \begin{align*}
-\begin{array}{rrl}
-                        & \frac{\dx{y}}{\dx{x}} &= 3y + x^2 -x \\
-        \Leftrightarrow & \frac{\dx{y}}{\dx{x}} &= 3y + x^2 -x \dx{x} \\
-\end{array}
+    y(x) &= y_h(x) + y_p(x) \\
+         &= c \cdot \ct{e}^3x -5x^2 -\frac{5}{3} x - \frac{5}{9} \\
+         &= \frac{32}{9} \ct{e}^3x -5x^2 -\frac{5}{3} x - \frac{5}{9} \\
 \end{align*}
+
+\subsection{Lösung 2}
+
+Berechnen Sie die allgemeine Lösung der linearen Differentialgleichungen.
+
+\begin{align*}
+    y'-3y &= -3\ct{e}^{3x}
+\end{align*}
+
 
 
 \end{document}
