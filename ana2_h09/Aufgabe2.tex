@@ -5,9 +5,62 @@
 \section{Aufgabe 2}
 Lösen Sie die gegebene Differentialgleichung
 \[ 
-y' + \frac{y}{x} - x^2 \cdot \sqrt[3]{y} = 0
+    y' + \frac{y}{x} - x^2 \cdot \sqrt[3]{y} = 0
 \]
 
 \subsection{Lösung 2}
 
+Es handelt sich um eine \textit{Bernoullische Differentialgleichung}, also um eine nichtlineare gewöhnliche Differentialgleichung erster Ordnung der Form 
+$$
+    y'(x)=f(x)y(x) + g(x)y^\alpha(x), \quad \alpha \neq \{0,1\}
+$$
+
+mit $f(x)= x^{-1}, g(x)=x^2$ und $\alpha = \frac{1}{3}$.
+
+Durch die Substitution $z(x) = y(x)^{1-\alpha}$ kann man sie auf die lineare Differentialgleichung
+$$
+    z'(x) = (1-\alpha)\left( f(x)\cdot z(x) + g(x) \right)
+$$
+zurückführen.
+
+Wir erhalten die \textit{inhomogene} Differentialgleichung
+\begin{align*}
+    & z'(x) = \frac{2}{3}\left( x^{-1}\cdot z(x) + x^2 \right) \\[2mm]
+    \Leftrightarrow\ & z'(x) - \frac{2}{3} x^{-1} z(x) = \frac{2}{3} x^2
+\end{align*}
+welche von der Form $y'(x) + f(x)\cdot y(x) = g(x)$ ist. 
+
+Um diese durch \textit{Variation der Konstanten} zu lösen, lösen wir als erstes die homogene Differentialgleichung $z_h'(x) - \frac{2}{3} x^{-1} z_h(x) = 0$ mittels Trennung der Variablen und erhalten
+$$
+    z_h(x) 
+    = c\cdot \ct{e}^{\int \frac{2}{3} x^{-1} \dx{x}} 
+    = \tilde{c}\cdot x^{\frac{2}{3}}.
+$$
+Als nächstes ersetzen wir $c = c(x)$ in der Form
+\begin{align*}
+    z'(x) &= c'(x)\cdot \ct{e}^{\int -f(x)\dx{x}} + \underbrace{c(x)\cdot \ct{e}^{\int -f(x)\dx{x}}}_{z(x)} \cdot \left(-f(x)\right)
+\end{align*}
+und vergleichen $z'(x)$ mit der ursprünglichen Störfunktion:
+\begin{align*}
+    z'(x) + f(x) &= c'(x)\cdot \ct{e}^{\int -f(x)\dx{x}} \overset{!}{=} g(x) \\
+    z'(x) + f(x) &= \underbrace{c'(x)\cdot x^\frac{2}{3} \overset{!}{=} \frac{2}{3} x^2}_{\text{neue DGL}}
+\end{align*}
+
+Durch Lösung der neuen Differentialgleichung erhalten wir $c(x) = \frac{2}{7} x^{\frac{7}{3}} + \tilde{c}$  und können dies einsetzen in $z_h(x)$ um die allgemeine Lösung zu erhalten:
+
+$$
+    z(x) = \left(\frac{2}{7} x^{\frac{7}{3}} +\tilde{c}\right) \cdot x^{\frac{2}{3}} = \frac{2}{7} x^3 + \tilde{c}\cdot x^{\frac{2}{3}}
+$$
+
+Durch Rücksubstitution mit $y(x) = z^{\frac{3}{2}}$ erhalten wir
+$$
+    y(x) = \left( \frac{2}{7} x^3 + \tilde{c}\cdot x^{\frac{2}{3}} \right)^\frac{3}{2}
+$$
+
+
+
+
+
+
+\pagebreak
 \end{document}
