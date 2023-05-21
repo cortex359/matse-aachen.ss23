@@ -12,6 +12,66 @@ $$
 $$
 wobei $\ct{i}$ die imaginäre Einheit ist.
 
+\renewcommand{\equiv}{\Leftrightarrow}
+
 \subsection{Lösung 6}
+\begin{align*}
+	\begin{array}{rrl}
+		&\begin{vmatrix}
+			2i & 1 & -1\\
+			1+i & 1-i & 0
+		\end{vmatrix}&\\[5mm]
+		\Rightarrow & \det\begin{vmatrix}
+			2i & 1\\
+			1+i & 1-i
+		\end{vmatrix} & = 2i+2-1-i\\
+		\equiv & & = i+1\\
+		\Rightarrow & \text{Es gibt genau eine Lösung.}&
+	\end{array}\\
+	\begin{array}{rrl}
+		&\begin{vmatrix}
+			2i & 1 & -1\\
+			1+i & 1-i & 0
+		\end{vmatrix}& =\begin{vmatrix}
+			2i & 1 & -1\\
+			2+2i & 2-2i & 0
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+			2i & 1 & -1\\
+			2 & 1-2i & 1
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+			-2 & i & -i\\
+			2 & 1-2i & 1
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+		-2 & i & -i\\
+		0 & 1-i & 1-i
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+			-2 & i & -i\\
+			0 & 1 & 1
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+			2i & 1 & -1\\
+			0 & 1 & 1
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+		2i & 0 & -2\\
+		0 & 1 & 1
+		\end{vmatrix}\\[5mm]
+		\equiv && = \begin{vmatrix}
+			1 & 0 & i\\
+			0 & 1 & 1
+		\end{vmatrix}\\[5mm]
+		\Rightarrow & \begin{pmatrix}
+			x\\
+			y
+		\end{pmatrix} & = \begin{pmatrix}
+			i\\
+			1
+		\end{pmatrix}
+	\end{array}
+\end{align*}
 
 \end{document}

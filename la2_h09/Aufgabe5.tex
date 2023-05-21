@@ -21,6 +21,46 @@ Bestimmen Sie die Werte für $c$ und $d$, für die das lineare Gleichungssystem 
 \end{enumerate}
 hat.
 
-\subsection{Lösung 5}
+\subsection{Lösung 5a}
+\begin{align*}
+		\begin{array}{rrl}
+			& |A| & = \begin{vmatrix}
+				1 & 0 & 1\\
+				c & 1 & -1\\
+				0 & 2 & -1
+			\end{vmatrix}\\[7mm]
+			& & = -1+2c+2\\
+			& & = 2c+1\\
+			\Rightarrow & c & = -\frac{1}{2}
+		\end{array}
+	\end{align*}
+	$\det(A)=0$ für $c=-\frac{1}{2}\Rightarrow \rg(A)=2$.\vspace{5mm}\\
+	 Genau eine Lösung gibt es somit für $c\neq -\frac{1}{2}$ und $d \in \R$, da dann $|A| \neq 0$ gilt und $b$ somit für beliebiges $d$ als Linearkombination der Spaltenvektoren von $A$ darstellbar ist.
+
+\subsection{Lösung 5b}
+$|A,b|$ für $c=-\frac{1}{2}$ :
+\begin{align*}
+    \begin{array}{rrl}
+        & |A,b| & = \begin{vmatrix}
+            1 & 0 & 1 & -1\\
+            -\frac{1}{2} & 1 & -1 & d\\
+            0 & 2 & -1 & 1
+        \end{vmatrix}\\[7mm]
+        & & = \begin{vmatrix}
+            0 & 1 & -1\\
+            1 & -1 & d\\
+            2 & -1 & 1
+        \end{vmatrix}\\[7mm]
+        & & = 1 + 2d - 1 - 2\\
+        & & = 2d - 2\\
+        \Rightarrow & |A,b| & = 0 \text{ für } d = 1 \text{ und } c = -\frac{1}{2}
+    \end{array}
+\end{align*}
+Keine Lösung gibt es somit für $c = -\frac{1}{2}$ und $d \neq 1$, da $\rg(A) = 2 \neq 3 = \rg(A,b)$
+
+\subsection{Lösung 5c}
+Unendliche viele Lösungen gibt es somit für $c = -\frac{1}{2}$ und $d = 1$, da dann \\
+	$\rg(A) = 2 = \rg(A,b)$ und $|A| = 0$ gilt.
+
 
 \end{document}
