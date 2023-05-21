@@ -4,13 +4,13 @@
 
 \section{Aufgabe 2}
 Lösen Sie die gegebene Differentialgleichung
-\[ 
+\[
     y' + \frac{y}{x} - x^2 \cdot \sqrt[3]{y} = 0
 \]
 
 \subsection{Lösung 2}
 
-Es handelt sich um eine \textit{Bernoullische Differentialgleichung}, also um eine nichtlineare gewöhnliche Differentialgleichung erster Ordnung der Form 
+Es handelt sich um eine \textit{Bernoullische Differentialgleichung}, also um eine nichtlineare gewöhnliche Differentialgleichung erster Ordnung der Form
 $$
     y'(x)=f(x)y(x) + g(x)y^\alpha(x), \quad \alpha \neq \{0,1\}
 $$
@@ -28,12 +28,12 @@ Wir erhalten die \textit{inhomogene} Differentialgleichung
     & z'(x) = \frac{2}{3}\left( x^{-1}\cdot z(x) + x^2 \right) \\[2mm]
     \Leftrightarrow\ & z'(x) - \frac{2}{3} x^{-1} z(x) = \frac{2}{3} x^2
 \end{align*}
-welche von der Form $y'(x) + f(x)\cdot y(x) = g(x)$ ist. 
+welche von der Form $y'(x) + f(x)\cdot y(x) = g(x)$ ist.
 
 Um diese durch \textit{Variation der Konstanten} zu lösen, lösen wir als erstes die homogene Differentialgleichung $z_h'(x) - \frac{2}{3} x^{-1} z_h(x) = 0$ mittels Trennung der Variablen und erhalten
 $$
-    z_h(x) 
-    = c\cdot \ct{e}^{\int \frac{2}{3} x^{-1} \dx{x}} 
+    z_h(x)
+    = c\cdot \ct{e}^{\int \frac{2}{3} x^{-1} \dx{x}}
     = \tilde{c}\cdot x^{\frac{2}{3}}.
 $$
 Als nächstes ersetzen wir $c = c(x)$ in der Form
@@ -54,12 +54,8 @@ $$
 
 Durch Rücksubstitution mit $y(x) = z^{\frac{3}{2}}$ erhalten wir
 $$
-    y(x) = \left( \frac{2}{7} x^3 + \tilde{c}\cdot x^{\frac{2}{3}} \right)^\frac{3}{2}
+    y(x) = \left( \frac{2}{7} x^3 + \tilde{c}\cdot x^{\frac{2}{3}} \right)^\frac{3}{2}.
 $$
-
-
-
-
 
 
 \pagebreak
