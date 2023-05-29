@@ -8,7 +8,7 @@ $$
     a_1 = \vektor{1\\0\\1\\1}, \;
     a_2 = \vektor{2\\0\\1\\2}, \;
     a_3 = \vektor{1\\1\\1\\1}, \;
-    b   = \vektor{1\\0\\0\\lambda}, \;
+    b   = \vektor{1\\0\\0\\ \lambda}, \;
     \lambda \in \mathbb{R}
 $$
 sowie die zugehörigen LGS
@@ -25,6 +25,63 @@ $$
 \end{enumerate}
 
 
-\subsection{Lösung 7}
+% 1 & 2 & 1 & 1
+% 0 & 0 & 1 & 0
+% 1 & 1 & 1 & 0
+% 1 & 2 & 1 & \lambda
+
+% {{1,2,1,1},{0,0,1,0},{1,1,1,0},{1,2,1,a}}
+
+\subsection{Lösung 7a}
+Zur Berechnung der Determinanten bietet sich die Anwendung des Laplaceschen Entwicklungssatzes mit der zweite Zeile an.
+\begin{align*}
+    \det  (a_1, a_2, a_3, b) &= \det \eqmatrix{cccc}{
+        1 & 2 & 1 & 1 \\
+        0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 0 \\
+        1 & 2 & 1 & \lambda \\
+    }\\[2mm]
+    &= 1 \cdot \det \eqmatrix{ccc}{
+        1 & 2 & 1 \\
+        1 & 1 & 0 \\
+        1 & 2 & \lambda \\
+    } \\[2mm]
+    &= \lambda + 0 + 2 -1 -0 -2\lambda \\
+    &= 1-\lambda
+\end{align*}
+
+Somit ist $\lambda^* = 1$.
+
+\subsection{Lösung 7b}
+Wir untersuchen das LGS (1) mit $\lambda = \lambda^* = 1$. Sei $A=(a_1, a_2, a_3)$, so bestimmen wir zunächst $\rg (A) = 3 = \rg (A, b)$. 
+Da die Anzahl der Spalten der Matrix $A$ gleich ihrem Rang ist $\rg(A) = n$, existiert genau eine Lösung, nämlich die Triviallösung $x=0$.\\
+
+Da für das LGS (2) die Determinante, wie in 7a) gezeigt, $\det (a_1, a_2, a_3, b) = 0$ ist, betrachten wir den Rang $\rg(A) = 3 = \rg(A, \vec{0})$.
+Daher existieren unendlich viele Lösungen mit $n-\rg(A) = 1$ Parametern.
+
+\subsection{Lösung 7c}
+Für $\lambda \neq \lambda^*$ ist das LGS (1) mit $\rg (A) = 3 \neq 4 = \rg (A,b)$ nicht lösbar. Es existiert also keine Lösung.\\
+
+Da die Determinante für das LGS (2) $\det (a_1, a_2, a_3, b) \neq 0$ ist, existiert genau eine Lösung, nämlich die Triviallösung $x=0$.
+
+\subsection{Lösung 7d}
+Bestimme die Lösungsmenge für das LGS (2) $(a_1, a_2, a_3, b) x = 0$ mit $\lambda = \lambda^* = 1$.
+
+% \begin{align*}
+%     \eqmatrix{cccc|c}{
+%         1 & 2 & 1 & 1 & 0 \\
+%         0 & 0 & 1 & 0 & 0 \\
+%         1 & 1 & 1 & 0 & 0 \\
+%         1 & 2 & 1 & 1 & 0 \\
+%     }
+% \end{align*}
+
+%$$
+%    \mathcal{L} = \left\{ \mu \cdot \vektor{0 \\ -\nicefrac{1}{2} \\ 0 \\ 1} \middle| \mu \in \mathbb{R} \right\}
+%$$
+
+$$
+    \mathcal{L} = \left\{ \mu \cdot \eqmatrix{r}{1 \\ -1 \\ 0 \\ 1} \middle| \mu \in \mathbb{R} \right\}
+$$
 
 \end{document}
