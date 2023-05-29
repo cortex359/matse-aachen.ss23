@@ -20,6 +20,78 @@ Welchen Rang haben die Matrizen $A\in \mathbb{R}^{4\times 3}$ und $B\in \mathbb{
     \end{cases}$
 \end{enumerate}
 
-\subsection{Lösung 6}
+\subsection{Lösung 6a}
+Durch Anwendung des Gauß-Jordan-Verfahrens lässt sich eine Nullzeile wegstreichen und es bleiben drei lineare unabhängige Zeilen übrigen,
+sodass $\rg(A) = 3$ ist.
+
+\begin{align*}
+    \eqmatrix{rrr}{
+        4 & 3 & 6 \\
+        -2 & 1 & -8 \\
+        1 & 5 & -7 \\
+        4 & 2 & -1 \\
+    } \leadsto
+    \eqmatrix{rrr}{
+        4 & 3 & 6 \\
+        0 & 11 & -22 \\
+        1 & 5 & -7 \\
+        0 & -1 & -7 \\
+    } \leadsto
+    \eqmatrix{rrr}{
+        0 & -17 & -22 \\
+        0 & 0 & -99 \\
+        1 & 5 & -7 \\
+        0 & -1 & 0 \\
+    } \leadsto
+    \eqmatrix{rrr}{
+        0 & 0 & 0 \\
+        0 & 0 & 1 \\
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+    }
+\end{align*}
+
+\subsection{Lösung 6b}
+
+Wir betrachten die Matrizen $B_n$ mit $n\in \{2, 3, 4\}$
+% Zeile x Spalte 
+\begin{align*}
+    B_2 &= \eqmatrix{rr}{
+        1 & 1 \\
+        2 & 1 
+    } \\
+    B_3 &= \eqmatrix{rr}{
+         1 &  1 \\
+        -2 & -2 \\
+         3 &  2
+    } \\
+    B_4 &= \eqmatrix{rr}{
+         1 &  1 \\
+        -2 & -2 \\
+         3 &  3 \\
+         4 &  3
+    }
+\end{align*}
+
+sowie eine allgemeine Form für $n > 4$
+\begin{align*}
+    B_n &= \eqmatrix{rr}{
+        1 &  1 \\
+       -2 & -2 \\
+        3 &  3 \\
+       -4 & -4 \\
+       \vdots & \vdots \\
+       n &  n-1 
+   }
+\end{align*}
+
+Es ist leicht erkennbar das die Zeilen $i \in \{1, \ldots, n-1\}$ linear abhängig voneinander sind und auf die erste Zeile reduziert werden können. 
+Somit ist 
+\begin{align*}
+    \rg (B) &= \rg \eqmatrix{cc}{
+        1 &  1 \\
+        n &  n-1 
+    } = 2.
+\end{align*}
 
 \end{document}
