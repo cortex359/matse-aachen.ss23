@@ -11,6 +11,61 @@ Gegeben seien die folgenden Differentialgleichungen 2. Ordnung.
 Bestimmen Sie deren Lösung $y(x)$.
 
 \subsection{Lösung 1a}
+Die lineare inhomogene DGL 2. Ordnung ist in expliziter Form angegeben.
+Wir bestimmen homogene Lösung der DGL
+\begin{align*}
+    y_h'' - 6y_h' + 8y_h &= 0 \\
+\end{align*}
+und verwenden dazu den folgenden Ansatz:
+\begin{align*}
+    y_h(x) &= \ct{e}^{\lambda x} \\
+    y_h'(x) &= \lambda\cdot \ct{e}^{\lambda x} \\
+    y_h''(x) &= \lambda^2 \cdot \ct{e}^{\lambda x} \\
+\end{align*}
+
+Damit lässt sich $\lambda$ bestimmen.
+\begin{equation*}
+\begin{array}[pos]{lrl}
+                & y_h'' - 6y_h' + 8y_h &= 0 \\[2mm]
+\Leftrightarrow & \lambda^2 \cdot \ct{e}^{\lambda x} - 6\lambda\cdot \ct{e}^{\lambda x} + 8\ct{e}^{\lambda x} &= 0 \\[2mm]
+\Leftrightarrow & \lambda^2 -6\lambda +8 &= 0\\[2mm]
+\Rightarrow & \multicolumn{2}{l}{\lambda_1 = 4\; \land\; \lambda_2 = 2} \\
+\end{array}
+\end{equation*}
+
+$0 = \lambda^2 -6\lambda +8$ wird auch als \textit{charakteristische Gleichung} bezeichnet. 
+
+Da wir zwei mögliche Lösungen für $\lambda$ erhalten, lautet die Lösung
+$$
+    y_h(x) = c_1\ct{e}^{4x} + c_2\ct{e}^{2x}.
+$$
+
+Die partikuläre Lösung bestimmen wir mit dem Ansatz vom Typ der rechten Seite für die Störfunktion $g(x) = -24 -56x + 48x^2$
+
+\begin{align*}
+    y_p(x) &= c_0 + c_1x + c_2x^2 \\
+    y_p'(x) &= c_1 + 2c_2x \\
+    y_p''(x) &= 2c_2 \\
+\end{align*}
+
+und setzten in die linke Seite ein:
+
+\renewcommand{\equiv}{\Leftrightarrow}
+
+\begin{equation*}
+\begin{array}{rrl}
+       & y_p''(x) - 6y_p'(x) + 8y_p(x) &= -24 -56x + 48x^2 \\[2mm]
+\equiv & 2c_2 - 6\left( c_1 + 2c_2x \right) + 8\left( c_0 + c_1x + c_2x^2 \right) &= -24 -56x + 48x^2 \\[2mm]
+\equiv & \left(2c_2 - 6c_1 + 8c_0\right) - x \left( 12c_2 - 8c_1\right) + 8c_2x^2 &= -24 -56x + 48x^2 \\[2mm]
+\end{array}
+\end{equation*}
+
+Der Koeffizientenvergleich zeigt, dass $c_2 = 6,\; c_1 = 2,\; c_0 = -3$. Somit erhalten wir
+$$
+    y_p(x) = -3 +2x +6x^2
+$$
+
+und mit $y(x) = y_h(x) + y_p(x)$
 
 % Lösung durch WolframAlpha bestätigt
 $$
@@ -19,9 +74,31 @@ $$
 
 \subsection{Lösung 1b}
 
+Die lineare inhomogene DGL 2. Ordnung ist in expliziter Form angegeben. Wir bestimmen die homogene Lösung der DGL mit dem gleichen Ansatz wie zuvor.
+Die charakteristische Gleichung lautet $\lambda^2 + 2\lambda =0$, die Lösungen sind $\lambda_1 = 0 \land \lambda_2 = -2$ und somit erhalten wir
+\begin{align*}
+    y_h(x) = c_1\ct{e}^{-2x} + c_2.\\
+\end{align*}
+
+Die partikuläre Lösung lässt sich mit gleichem Ansatz wie in 1a) durch einsetzen in die DGL so bestimmen:
+\begin{equation*}
+\begin{array}{rrl}
+       & y_p''(x) + 2y_p'(x) &= 8 + 36x \\[2mm]
+\equiv & 2c_2 + 2\cdot \left(c_1 + 2c_2x\right) &= 8 + 36x \\
+\equiv & \left(2c_2 + 2c_1\right) + 4c_2x &= 8 + 36x \\
+\end{array}
+\end{equation*}
+
+Der Koeffizientenvergleich zeigt, dass $c_2 = 9,\; c_1 = -5$. Somit erhalten wir
+$$
+    y_p(x) = c_0 -5x + 9x^2.
+$$
+
+Wir fassen $c_2 + c_0 := c$ zusammen wir erhalten die allgemeine Lösung der DGL.
 % Lösung durch WolframAlpha bestätigt
 $$
-    y(x) = c_1 \ct{e}^{-2 x} + c_2 + 9 x^2 - 5 x
+    y(x) = c_1 \ct{e}^{-2 x} + c + 9x^2 - 5x
 $$
+\pagebreak
 
 \end{document}

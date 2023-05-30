@@ -9,6 +9,33 @@ Lösen Sie das folgende Anfangswertproblem
 \end{equation*}
 
 \subsection{Lösung 2}
+Es handelt sich um eine lineare inhomogene DGL 2. Ordnung in expliziter Form.
+Bestimme die homogene Lösung mit dem Ansatz
+\begin{align*}
+    y_h(x) &= \ct{e}^{\lambda x} \\
+    y_h'(x) &= \lambda\cdot \ct{e}^{\lambda x} \\
+    y_h''(x) &= \lambda^2 \cdot \ct{e}^{\lambda x} \\
+\end{align*}
+
+zur charakteristischen Gleichung
+\begin{equation*}
+\begin{array}[pos]{rrl}
+       & y_h'' - 3y_h' + 2y_h & = 0 \\
+\Leftrightarrow & \lambda^2 \cdot \ct{e}^{\lambda x} - 3\lambda\cdot \ct{e}^{\lambda x} + 2\ct{e}^{\lambda x} &= 0\\
+\Leftrightarrow & \lambda^2 - 3\lambda + 2 &= 0\\
+\end{array}
+\end{equation*}
+welche die Lösungen $\lambda_1 = 2 \land \lambda_2 = 1$ hat.
+
+$$
+    y_h(x) = c_1 \ct{e}^{2x} + c_2 \ct{e}^{x}
+$$
+
+Für die partikuläre Lösung wähle Ansatz vom Typ der rechten Seite mit
+\begin{align*}
+    y_p(x) = 
+\end{align*}
+
 
 % Lösung durch WolframAlpha bestätigt
 $$
