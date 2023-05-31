@@ -3,7 +3,59 @@
 \begin{document}
 
 \section{Aufgabe 5}
+Matse Maik plant eine Cafeteria und unterhält sich mit verschiedenen Freunden bzgl. angemessener Preise.
+Es werden Kuchen und Kaffee verkauft. Er hat in Erinnerung, letztens für \textbf{zwei Kaffee und ein Stück Kuchen 3 Euro} bezahlt zu haben.
+Zwei Freundinnen erzählen ihm, für \textbf{einen Kaffee und zwei Stücke Kuchen 3,50 Euro}, 
+bzw. für \textbf{zwei Kaffee und drei Stücke Kuchen 4 Euro} bezahlt zu haben.\\
+Berechnen Sie Preise, die möglichst wenig von den erfragten Preisen abweichen.
 
 \subsection{Lösung 5}
+Aus dem gegebenen Text ergibt sich das überbestimmte Gleichungssystem $Ax=b$ wie folgt.
+$$
+    A = \eqmatrix{rr}{
+        2 & 1 \\
+        1 & 2 \\
+        2 & 3 \\
+    }, \qquad
+    x = \vektor{
+        \texttwemoji{coffee} \\
+        \texttwemoji{cake}
+    }, \qquad
+    b = \vektor{
+        3 \\
+        3,5 \\
+        4
+    }
+$$
+
+% Voraussetzung für die \textit{Methode der kleinsten Quadrate} ist, dass der Rang von $A$ gleich der Anzahl der Spalten von $A$ ist. \\
+Für ein Gleichungssystem $Ax=b$ mit
+$$
+    A\in \mathbb{R}^{m\times n},\; b\in\mathbb{R}^m,\; m\geq n, \; \rg(A) = n
+$$
+lässt sich die Näherungslösung $x_s$ nach der \textit{Methode der kleinsten Quadrate} mit
+$$
+    x_s = \left( A^T A \right)^{-1} A^T b
+$$
+oder in Form der Normalgleichung
+$$
+    A^TAx = A^Tb
+$$
+bestimmen.
+
+\begin{align*}
+    A^T A &= \eqmatrix{rr}{9 & 10 \\ 10 & 14} \\
+    A^T b &= \eqmatrix{r}{17,5 \\ 22} \\
+\end{align*}
+Mit dem Gauß-Jordan-Algorithmus lösen wir das Normalgleichungssystem
+$$
+    \eqmatrix{rr}{9 & 10 \\ 10 & 14} \vektor{
+        \texttwemoji{coffee} \\
+        \texttwemoji{cake}
+    } = \vektor{17,5 \\ 12}
+$$
+
+und erhalten $\texttwemoji{coffee} = \frac{25}{26}$ und $\texttwemoji{cake} =\frac{23}{26}$
+
 
 \end{document}
