@@ -3,7 +3,38 @@
 \begin{document}
 
 \section{Aufgabe 6}
+Bestimmen Sie die Lösung mit der kleinsten Norm des folgenden unterbestimmten Gleichungssystems.
+\begin{equation*}
+\begin{array}{rrrr}
+     x &+ 2y &+ 3z &= 4 \\
+    3x &+ 2y &+ z  &= 2 \\
+\end{array}
+\end{equation*}
 
 \subsection{Lösung 6}
+\begin{align*}
+    A &= \eqmatrix{rrr}{1 & 2 & 3 \\ 3 & 2 & 1} \\
+    b &= \eqmatrix{r}{4 \\ 2} \\[4mm]
+    A^T A &= \eqmatrix{rrr}{10 & 8 & 6 \\ 8 & 8 & 8 \\ 6 & 8 & 10} \\[2mm]
+    A^T b &= \eqmatrix{r}{10 \\ 12 \\ 14} \\
+\end{align*}
+
+Aus $A^TA x = A^Tb$ ergibt sich die erweiterte Koeffizientenmatrix, welche mit dem freien Parameter $x_3 = \lambda \in \mathbb{R}$ folgende Lösungsmenge für $x \in \mathbb{R}^3$ liefert.
+\begin{align*}
+    \eqmatrix{rrr|r}{
+        10 & 8 &  6 & 10 \\
+         8 & 8 &  8 & 12 \\
+         6 & 8 & 10 & 14
+    } \leadsto
+    \eqmatrix{rrr|r}{
+        1 & 0,8 & 0,6 & 1 \\
+        0 &   1 &   2 & 2,5 \\
+        0 &   0 &   0 & 0
+    }\\ \Rightarrow \mathcal{L} = \left\{
+        \lambda \in \mathbb{R}
+        \middle|
+        x = \lambda \eqmatrix{r}{1 \\ -2 \\ 1} + \eqmatrix{r}{-1 \\ \sfrac{5}{2} \\ 0} \right\}
+\end{align*}
+
 
 \end{document}
