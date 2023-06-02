@@ -10,5 +10,47 @@ Lösen Sie das Differentialgleichungssystem
 \end{align*}
 
 \subsection{Lösung 1}
+Wir stellen die erste Gleichung nach $z$ um und leiten ab. 
+\begin{align*}
+    z  &= 5y - y' \\
+    z' &= 5y' - y''
+\end{align*}
+
+Nun setzen wir in die zweite Gleichung ein.
+\begin{align*}
+\begin{array}{rrl}
+                & z'        &= 2y + 8z \\
+\Leftrightarrow & 5y' - y'' &= 2y + 40y - 8y' \\
+\Leftrightarrow & 0 &= 42y - 13y' + y'' \\
+\end{array}
+\end{align*}
+
+Wir lösen die homogene DGL mit Hilfe der charakteristischen Gleichung.
+\begin{align*}
+\begin{array}{rrl}
+                & 0 &= \lambda^2 -13\lambda + 42 \\
+\Leftrightarrow & \lambda &= \frac{13}{2} \pm \sqrt{\left(\frac{13}{2}\right)^2 - 42} \\
+\Rightarrow & \multicolumn{2}{l}{\lambda_1 = 7 \;\land\; \lambda_2 = 6}
+\end{array}
+\end{align*}
+
+Und erhalten die allgemeine Lösung der ersten DGL, welche wir dann ableiten können.
+\begin{align*}
+    y(x)  &= c_0 \ct{e}^{7x} + c_1 \ct{e}^{6x} \\
+    y'(x) &= 7c_0 \ct{e}^{7x} + 6c_1 \ct{e}^{6x} \\
+\end{align*}
+
+Mit ersten nach $z$ umgestellten DGL können wir durch Einsetzen sodann auch $z(x)$ bestimmen:
+\begin{align*}
+    z(x) &= 5y - y' \\
+         &= 5c_0 \ct{e}^{7x} + 5c_1 \ct{e}^{6x} - 7c_0 \ct{e}^{7x} - 6c_1 \ct{e}^{6x} \\
+         &= -2c_0 \ct{e}^{7x} - c_1 \ct{e}^{6x}
+\end{align*}
+
+Die allgemeine Lösung des Differentialgleichungssystems lautet somit:
+\begin{align*}
+    y &= c_0 \ct{e}^{7x} + c_1 \ct{e}^{6x} \\
+    z &= -2c_0 \ct{e}^{7x} - c_1 \ct{e}^{6x}
+\end{align*}
 
 \end{document}
