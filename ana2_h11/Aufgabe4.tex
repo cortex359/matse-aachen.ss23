@@ -9,5 +9,35 @@ Bestimmen Sie die allgemeine Lösung der Differentialgleichung 2.Ordnung und lö
 \end{equation*}
 
 \subsection{Lösung 4}
+Die charakteristische Gleichung der homogenen DGL 2. Ordnung ist 
+$$
+    \lambda^2 - 2\lambda + 1 = 0.
+$$
+Mit $\lambda = 1$ liegt eine doppelte Nullstelle vor, weshalb der Ansatz
+$$
+    y(x) = c_1 \ct{e}^{x} + c_2 x \ct{e}^{x}
+$$
+zur Lösung gewählt werden muss.
+Wir bestimmen die Ableitung und setzen die beiden Anfangswerte ein um die Parameter zu bestimmen.
+\begin{align*}
+    y(x)  &= c_1 \ct{e}^{x} + c_2 x \ct{e}^{x} \\
+    y'(x) &= c_1 \ct{e}^{x} + c_2 \cdot \left( \ct{e}^{x} + \ct{e}^{x}x \right) \\
+          &= c_1 \ct{e}^{x} + c_2\ct{e}^{x} + c_2\ct{e}^{x}x
+\end{align*}
+
+\begin{equation*}
+\begin{array}{rrl}
+                & y(0) & = 1 \\
+\Leftrightarrow & c_1  &= 1 \\[2mm]
+                & y'(0) &= 0 \\
+\Leftrightarrow & 0 &= c_1 + c_2 \\
+\Leftrightarrow & c_2 &= -1 \\
+\end{array}
+\end{equation*}
+
+Die spezielle Lösung des Anfangswertproblems lautet somit
+$$
+    y(x) = \ct{e}^{x} - x \ct{e}^{x}.
+$$
 
 \end{document}
