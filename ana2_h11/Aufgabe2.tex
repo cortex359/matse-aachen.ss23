@@ -4,11 +4,64 @@
 
 \section{Aufgabe 2}
 Lösen Sie das folgende Differentialgleichungssystem
-\begin{align*}
+\begin{align}
     y' &= z \\
     z' &= -y - 5z + \sin(x)
-\end{align*}
+\end{align}
 
 \subsection{Lösung 2}
+Wir formen die Gleichung (1) nach $z$ um und leiten nach $x$ ab.
+\begin{align}
+    z &= y'  \\
+    z' &= y''
+\end{align}
+
+Dann setzen wir die Gleichungen (3) und (4) in die Gleichung (2) ein und erhalten
+$$
+    y'' = -y -5y' +\sin(x).
+$$
+
+Wir bestimmen die homogene Lösung der DGL mit Hilfe der charakteristischen Gleichung $\lambda^2 +5\lambda +1 = 0$,
+welche die Lösungen
+$$
+    \lambda = -\frac{5}{2} \pm \frac{\sqrt{21}}{2}
+$$
+hat.
+Wir erhalten somit
+$$
+    y_h = c_0 \ct{e}^{-\frac{5+\sqrt{21}}{2} x} + c_1 \ct{e}^{-\frac{5-\sqrt{21}}{2} x}.
+$$
+
+Aus $z = y'$ folgt unser $z_h$.
+\begin{align*}
+    y_h' &= -\frac{5+\sqrt{21}}{2} c_0 \ct{e}^{-\frac{5+\sqrt{21}}{2} x} -\frac{5-\sqrt{21}}{2} c_1 \ct{e}^{-\frac{5-\sqrt{21}}{2} x} \\
+         &= z_h
+\end{align*}
+
+Für die partikuläre Lösung $y_p$ verwenden wir auf Grund der trigonometrischen Störfunktion $g(x)=\sin(x)$ den Ansatz
+\begin{align*}
+    y_p   &= c_0 \sin(x) + c_1 \cos(x)\\
+    y_p'  &= c_0 \cos(x) - c_1 \sin(x)\\
+    y_p'' &= - c_0 \sin(x) - c_1 \cos(x)\\
+\end{align*}
+und bestimmen die Parameter $c_{1,2}$ durch Einsetzen der Gleichungen in $y'' + 5y' + y = \sin(x)$.
+
+\begin{equation*}
+\begin{array}[pos]{crl}
+                & \sin(x) =& y_p'' + 5y_p' + y_p\\
+\Leftrightarrow & \sin(x) =& \cancel{- c_0 \sin(x)} \cancel{- c_1 \cos(x)} + 5 \left( c_0 \cos(x) - c_1 \sin(x) \right) \\
+                &          & \cancel{+ c_0 \sin(x)} \cancel{+ c_1 \cos(x)}\\[2mm]
+\Leftrightarrow & \sin(x) =& 5 c_0 \cos(x) - 5 c_1 \sin(x)\\[2mm]
+\Rightarrow     & \multicolumn{2}{l}{c_0 = 0 \;\land\; c_1 = -\frac{1}{5}}
+\end{array}
+\end{equation*}
+
+Die partikuläre Lösung lautet somit $y_p = -\frac{1}{5} \cos(x)$ bzw. $z_p = y_p' = \frac{1}{5} \sin(x)$ und wir erhalten 
+die allgemeine Lösungen des inhomogenen DGL Systems.
+\begin{align*}
+    y(x) &= c_0 \ct{e}^{-\frac{5+\sqrt{21}}{2} x} + c_1 \ct{e}^{-\frac{5-\sqrt{21}}{2} x} -\frac{1}{5} \cos(x) \\[1mm]
+    z(x) &= -\frac{5+\sqrt{21}}{2} c_0 \ct{e}^{-\frac{5+\sqrt{21}}{2} x} -\frac{5-\sqrt{21}}{2} c_1 \ct{e}^{-\frac{5-\sqrt{21}}{2} x} + \frac{1}{5} \sin(x)
+\end{align*}
+
 
 \end{document}
