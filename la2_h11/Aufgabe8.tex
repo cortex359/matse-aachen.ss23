@@ -6,9 +6,36 @@
 Die Punkte $A=(6|0|0)$, $B=(2|1|3)$ und $C=(-2|-2|2)$ liegen in einer Ebene $E$.
 \begin{enumerate}
 	\item Stellen Sie die Hessesche Normalform der Ebene auf. Wie groß ist der Abstand der Ebene zum Ursprung?
-	\item Welcher Punkt in der Ebene hat den kleinsten Abstand zum Ursprung? Stellen Sie dazu das zugehörige unterbestimmte LGS auf und fnden Sie die Lösung mit Hilfe der verallgemeinerten Inverse.
+	\item Welcher Punkt in der Ebene hat den kleinsten Abstand zum Ursprung? Stellen Sie dazu das zugehörige unterbestimmte LGS auf und finden Sie die Lösung mithilfe der verallgemeinerten Inverse.
 \end{enumerate}
 
-\subsection{Lösung 8}
+\subsection{Lösung 8a}
+Um die Hessesche Normalform der Ebene zu bestimmen, können wir den Normalenvektor der Ebene finden. Der Normalenvektor ist orthogonal zu jedem Vektor, der in der Ebene liegt. 
+
+Wir können zwei Vektoren in der Ebene verwenden, um den Normalenvektor zu bestimmen. Zum Beispiel können wir die Vektoren $\overrightarrow{AB}$ und $\overrightarrow{AC}$ verwenden.
+
+Der Vektor $\overrightarrow{AB}$ ist gegeben durch:
+
+$$\overrightarrow{AB} = \begin{pmatrix} 2-6 \\ 1-0 \\ 3-0 \end{pmatrix} = \begin{pmatrix} -4 \\ 1 \\ 3 \end{pmatrix}$$
+
+Der Vektor $\overrightarrow{AC}$ ist gegeben durch:
+
+$$\overrightarrow{AC} = \begin{pmatrix} -2-6 \\ -2-0 \\ 2-0 \end{pmatrix} = \begin{pmatrix} -8 \\ -2 \\ 2 \end{pmatrix}$$
+
+Um den Normalenvektor zu bestimmen, berechnen wir das Kreuzprodukt von $\overrightarrow{AB}$ und $\overrightarrow{AC}$:
+
+$$\overrightarrow{n} = \overrightarrow{AB} \times \overrightarrow{AC} = \begin{pmatrix} -4 \\ 1 \\ 3 \end{pmatrix} \times \begin{pmatrix} -8 \\ -2 \\ 2 \end{pmatrix} = \vektor{8\\ -16 \\ 16}$$
+
+Wir normieren zunächst noch den Normalenvektor
+\begin{align*}
+	n_0 &= \frac{\overrightarrow{n}}{{\|\overrightarrow{n}\|}} \\
+	n_0 &= \frac{1}{3} \vektor{1\\ -2 \\ 2}
+\end{align*}
+
+und stellendie Hessesche Normalform der Ebene dann mit de Normalenvektor $\overrightarrow{n_0}$ und einem Punkt in der $A=(6|0|0)$ als Stützvektor auf:
+
+$$
+	E: \frac{1}{3} \vektor{1\\ -2 \\ 2} \cdot \left[ \overrightarrow{x} - \vektor{6 \\ 0 \\ 0} \right] = 0
+$$
 
 \end{document}
