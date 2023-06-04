@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Aufgabe 5}
-Gegeben seien die folgenden Differentialgleichungen 2.Ordnung
+Gegeben seien die folgenden Differentialgleichungen 2. Ordnung
 \begin{enumerate}
     \item $y'' - 6y' + 9y = -17 + 21x + 18x^2$
     \item $y'' - 8y' + 16y = -72e^{-2x}$
@@ -11,6 +11,125 @@ Gegeben seien die folgenden Differentialgleichungen 2.Ordnung
 \end{enumerate}
 Bestimmen Sie jeweils die Lösung $y(x)$.
 
-\subsection{Lösung 5}
+\subsection{Lösung 5a}
+\begin{align*}
+    y_h'' - 6y_h' + 9y_h = 0 \\[5mm]
+    \lambda^2 -6 \lambda + 9 = 0 \\
+    \Leftrightarrow \lambda_{1,2} = 3
+\end{align*}
+Doppelte Nullstelle, daher ist die Lösung der homogenen DGL
+$$
+    y_h(x) = c_0 \ct{e}^{3x} + c_1 x \ct{e}^{3x}. \\
+$$
+
+Auf Grund der Störfunktion wählen wir für die partikuläre Gleichung den folgenden Ansatz:
+\begin{align*}
+    y_p(x)   &= c_0 + c_1 x + c_2 x^2\\
+    y_p'(x)  &= c_1 + 2 c_2 x\\
+    y_p''(x) &= 2 c_2\\
+\end{align*}
+
+\begin{equation*}
+\begin{array}{rll}
+                & y_p'' - 6y_p' + 9y_p &= -17 + 21x + 18x^2 \\
+\Leftrightarrow & 2 c_2 - 6c_1 - 12 c_2 x + 9c_0 + 9c_1 x + 9c_2 x^2 &= -17 + 21x + 18x^2\\
+\Leftrightarrow & \left(2 c_2 - 6c_1 + 9c_0\right)
+    + \left(9c_1 - 12 c_2\right) x 
+    + 9c_2 x^2 &= -17 + 21x + 18x^2\\
+\end{array}
+\end{equation*}
+Der Koeffizientenvergleich liefert $c_2 =2$, $c_1 = 5$ und 
+$c_0 = 1$, also erhalten wir folgende partikuläre Gleichung.
+$$
+    y_p(x) = 1 + 5x + 2x^2\\
+$$
+
+Die allgemeine Lösung lautet somit:
+% y(x) = c_2 e^(3 x) x + c_1 e^(3 x) + 2 x^2 + 5 x + 1
+$$
+    y(x) =  c_0 \ct{e}^{3x} + c_1 x \ct{e}^{3x} + 2x^2 + 5x + 1
+$$
+
+\subsection{Lösung 5b}
+Die homogene DGL, ihre charakteristische Gleichung und das vorlegen einer doppelten Nullstelle in der charakterischen Gleichung
+\begin{align*}    
+    y_h'' - 8y_h' + 16y_h = 0 \\
+    \lambda^2 - 8\lambda + 16 = 0 \\
+    \Leftrightarrow \lambda = 4
+\end{align*}
+
+liefert uns diese Lösung.
+$$
+    y_h(x) = c_0 \ct{e}^{4x} + c_1 x \ct{e}^{4x} 
+$$
+
+Setzt man den Ansatz für die rechte Seite
+\begin{align*}
+    y_p(x) &= c_0 \ct{e}^{\alpha x} \\
+    y_p'(x) &= c_0 \alpha \ct{e}^{\alpha x} \\
+    y_p''(x) &= c_0 \alpha^2 \ct{e}^{\alpha x}
+\end{align*}
+ein, so lassen sich die Parameter bestimmen.
+\begin{equation*}
+\begin{array}{cll}
+                & y_p'' - 8y_p' + 16y_p &= -72e^{-2x} \\[2mm]
+\Leftrightarrow &  c_0 \alpha^2 \ct{e}^{\alpha x}
+                - 8  c_0 \alpha \ct{e}^{\alpha x}
+                + 16 c_0 \ct{e}^{\alpha x}
+                &= -72e^{-2x} \\[2mm]
+\overset{\alpha = -2}{\Leftrightarrow} &  4 c_0 \ct{e}^{-2x}
+                \cancel{+ 16  c_0 \ct{e}^{-2x}}
+                \cancel{- 16 c_0 \ct{e}^{-2x}}
+                &= -72e^{-2x} \\[2mm]
+\Rightarrow & \multicolumn{2}{l}{ c_0 = -18 }
+\end{array}
+\end{equation*}
+Wir erhalten $y_p(x) = 18 \ct{e}^{-2x}$ und damit lautet die allgemeine Lösung der DGL
+$$
+    y(x) = c_0 \ct{e}^{4x} + c_1 x \ct{e}^{4x} - 18 \ct{e}^{-2x}.
+$$
+
+\subsection{Lösung 5c}
+Wir lösen die homogene DGL nach dem beschriebenen Verfahren.
+\begin{align*}
+    y_h'' - 7y_h' + 6y_h = 0 \\
+    \lambda^2 - 7\lambda + 6 = 0 \\
+    \Leftrightarrow \lambda_{1,2} = \frac{7}{2} \pm \sqrt{\frac{49-24}{4}}\\
+    \Rightarrow  \lambda_1 = 6 \;\land\; \lambda_2 = 1
+\end{align*}
+
+$$
+    y_h(x) = c_0 \ct{e}^{6x} + c_1 \ct{e}^{x}
+$$
+
+Zur Bestimmung der partikulären Lösung wählen wir den Ansatz
+\begin{align*}
+    y_p(x)   &= c_0 \sin(\alpha x) + c_1 \cos(\alpha x) \\
+    y_p'(x)  &= \alpha c_0 \cos(\alpha x) - \alpha c_1 \sin(\alpha x) \\
+    y_p''(x) &= - \alpha^2 c_0 \sin(\alpha x) - \alpha^2 c_1 \cos(\alpha x) \\
+\end{align*}
+und setzten ein:
+
+\begin{equation*}
+\begin{array}{crl}
+                & 82\sin(2x) + 26\cos(2x) &= y_p'' - 7y_p' + 6y_p \\
+\Leftrightarrow & 82\sin(2x) + 26\cos(2x) &=
+    - \alpha^2 c_0 \sin(\alpha x) - \alpha^2 c_1 \cos(\alpha x) 
+    - 7\alpha c_0 \cos(\alpha x) + 7\alpha c_1 \sin(\alpha x)\\
+    && \quad +6c_0 \sin(\alpha x) + 6c_1 \cos(\alpha x) \\
+\overset{\alpha = 2}{\Leftrightarrow} & 82\sin(2x) + 26\cos(2x) &=
+    \underbrace{\left(2c_0 + 14c_1\right)}_{\overset{!}{=} 82} \sin(2x)
+    + \underbrace{\left(2c_1 - 14c_0\right)}_{\overset{!}{=} 26}\cos(2x) \\
+\end{array}
+\end{equation*}
+
+Der Koeffizientenvergleich ergibt $c_0 = -1$ und $c_1 = 6$ und wir erhalten die partikuläre Lösung
+$$
+    y_p(x) = -\sin(2x) + 6\cos(2x),
+$$
+sowie die allgemein Lösung der DGL:
+$$
+    y(x) = c_0 \ct{e}^{6x} + c_1 \ct{e}^{x} -\sin(2x) + 6\cos(2x)
+$$
 
 \end{document}
