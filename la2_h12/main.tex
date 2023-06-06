@@ -394,8 +394,9 @@ right=25mm
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
 \DeclarePairedDelimiter\interval{[}{]}
+
+\newcommand{\scalarprod}[1]{\left\langle#1\right\rangle}
 
 \newcommand*\conj[1]{\,\overline{\!{#1}}} % kinda fits here
 
@@ -544,11 +545,11 @@ right=25mm
 \fancyhf{}
 \newcommand{\semester}{SoSe 2023}
 
-%\newcommand{\module}{Lineare Algebra 2}
-\newcommand{\module}{Analysis 2}
+\newcommand{\module}{Lineare Algebra 2}
+%\newcommand{\module}{Analysis 2}
 %\newcommand{\module}{Theoretische Informatik}
 
-%\hausaufgabe{01}{20.03.2023}{26.03.2023}
+\hausaufgabe{01}{20.03.2023}{26.03.2023}
 %\hausaufgabe{02}{27.03.2023}{02.04.2023}
 %\hausaufgabe{03}{03.04.2023}{10.04.2023}
 %\hausaufgabe{04}{11.04.2023}{16.04.2023}
@@ -559,12 +560,12 @@ right=25mm
 %\hausaufgabe{09}{15.05.2023}{21.05.2023}
 %\hausaufgabe{10}{22.05.2023}{29.05.2023}
 %\hausaufgabe{11}{30.05.2023}{04.06.2023}
-\hausaufgabe{12}{05.06.2023}{11.06.2023}
+%\hausaufgabe{12}{05.06.2023}{11.06.2023}
 %\hausaufgabe{13}{12.06.2023}{18.06.2023}
 %--- Footer -
 \newcommand{\lastMod}{
-    \Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}{Aufgabe5.tex}}}
-    %\Filemodtoday{\filemodNewest{{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
+    \Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}}}
+    %\Filemodtoday{\filemodNewest{{Aufgabe5.tex}{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
 }
 \date{\lastMod{}}
 \author{Christian Rene Thelen}
@@ -577,15 +578,12 @@ right=25mm
 
 \begin{document}
 
-%\subfile{Aufgabe1.tex}
-%subfile{Aufgabe2.tex}
-%subfile{Aufgabe3.tex}
-%\subfile{Aufgabe4.tex}
-%\subfile{Aufgabe5.tex}
-
-\subfile{Notes.tex}
-
-% \subfile{Aufgabe6.tex}
+\subfile{Aufgabe1.tex}
+\subfile{Aufgabe2.tex}
+\subfile{Aufgabe3.tex}
+\subfile{Aufgabe4.tex}
+\subfile{Aufgabe5.tex}
+\subfile{Aufgabe6.tex}
 % \subfile{Aufgabe7.tex}
 % \subfile{Aufgabe8.tex}
 % \subfile{Aufgabe9.tex}

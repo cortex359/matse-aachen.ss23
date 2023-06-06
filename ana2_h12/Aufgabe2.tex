@@ -6,9 +6,19 @@
 \textit{Analysis 2-Klausur vom 16.07.2021, A06}\\
 Lösen Sie die Differentialgleichung
 \begin{equation*}
-	2y \cdot e^x + y + (2e^x + x) \cdot y' = 0
+	2y \cdot \ct{e}^x + y + (2\ct{e}^x + x) \cdot y' = 0
 \end{equation*}
-
+% 2y * e^x + y + (2e^x + x) * y' = 0
 \subsection{Lösung 2}
+Gegeben ist eine lineare DGL 1. Ordnung. Wir lösen durch Trennung der Variablen.
+\[\everymath={\displaystyle}\begin{array}{crll}
+				& 2y \cdot \ct{e}^x + y + \left(2\ct{e}^x + x\right) \cdot y' &= 0 & \\[2mm]
+\Leftrightarrow & y\cdot \left(2\ct{e}^x + 1\right) &= - y' \cdot \left(2\ct{e}^x + x\right) & \\[2mm]
+\Leftrightarrow & \int \frac{2\ct{e}^x + 1}{2\ct{e}^x + x} \dx{x} &= - \int \frac{1}{y} \dx{y} & u = 2\ct{e}^x+x \\[4mm]
+\Leftrightarrow & \int \frac{\cancel{2\ct{e}^x + 1}}{u} \frac{1}{\cancel{2\ct{e}^x+1}} \dx{u} &= - \int \frac{1}{y} \dx{y} \\[2mm]
+\Leftrightarrow & \ln\abs{u} + c_1 &= - \ln \abs{y} + c_2 \\[2mm]
+\Leftrightarrow & u \cdot c &= \frac{1}{y} \\[2mm]
+\Leftrightarrow & \frac{1}{2\ct{e}^x+x} \cdot c &= y \\[2mm]
+\end{array}\]
 
 \end{document}

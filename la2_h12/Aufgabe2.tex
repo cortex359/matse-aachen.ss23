@@ -1,0 +1,83 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2a}
+Zeigen Sie, dass $A= \frac{1}{7} \eqmatrix{rrr}{
+    3 & -6 & 2 \\
+    2 &  3 & 6 \\
+    6 &  2 & -3
+}$ orthogonal ist. Berechnen Sie zu $x= \vektor{1 \\ 1 \\ 0}$ den Bildvektor $y=Ax$ und vergleichen Sie den Winkel zwischen $x$ und $y$ mit dem zwischen $Ax$ und $Ay$. 
+
+
+\subsection{Lösung 2a}
+
+Zeige, dass die Spaltenvektoren orthogonal sind:
+\begin{align*}
+    \scalarprod{\vektor{3 \\ 2 \\ 6}, \vektor{-6\\ 3\\ 2}} &= -18 + 6 + 12 = 0 \\
+    \scalarprod{\vektor{3 \\ 2 \\ 6}, \vektor{2\\ 6\\ -3}} &= 6 + 12 - 18 = 0 \\
+    \scalarprod{\vektor{2\\ 6\\ -3}, \vektor{-6\\ 3\\ 2}} &= -12 + 18 - 6 = 0 \\
+\end{align*}
+
+Bildvektor 
+\begin{align*}
+    y &= Ax \\
+      &= \frac{1}{7} \eqmatrix{rrr}{
+        3 & -6 & 2 \\
+        2 &  3 & 6 \\
+        6 &  2 & -3
+      } \vektor{1 \\ 1 \\ 0} \\
+      &= \frac{1}{7} \eqmatrix{r}{
+        -3 \\
+         5 \\
+         8
+      }
+\end{align*}
+
+Der Winkel zwischen $\angle (x, y)$ ergibt sich durch
+\begin{align*}
+    \angle (x, y) &= \arccos \frac{\scalarprod{x, y}}{\norm{x}\norm{y}} \\
+                  &= \arccos \frac{\sfrac{2}{7}}{\sqrt{2} \sqrt{2}} \\
+                  &= \arccos \frac{1}{7} \\
+                  &\approx 81,79^\circ
+\end{align*}
+
+Wir berechnen $Ay$.
+\begin{align*}
+    Ay &= AAx \\
+       &= \frac{1}{7} \eqmatrix{rrr}{
+        3 & -6 & 2 \\
+        2 &  3 & 6 \\
+        6 &  2 & -3
+      } \frac{1}{7} \eqmatrix{r}{
+        -3 \\
+         5 \\
+         8
+      } \\
+      &= \frac{1}{49} \eqmatrix{r}{
+        -9 -30 + 16 \\
+        -6 +15 + 48 \\
+        -18 +10 -24
+      }\\
+      &= \frac{1}{49} \eqmatrix{r}{
+        -23 \\
+         57 \\
+        -32
+      }
+\end{align*}
+Und den Winkel $\angle (Ax, Ay)$ entsprechend.
+\begin{align*}
+    \angle (Ax, Ay) &= \arccos \frac{\scalarprod{Ax, Ay}}{\norm{Ax}\norm{Ay}} \\[2mm]
+    &= \arccos \left( \frac{1}{7}\frac{1}{49} \frac{98}{\sqrt{2} \sqrt{2}} \right)\\
+    &= \arccos \frac{1}{7} \\
+    &\approx 81,79^\circ
+\end{align*}
+
+% Ay = {{-23/49}, {57/49}, {-32/49}}
+% Ax = {{-3/7}, {5/7}, {8/7}}
+
+\section{Aufgabe 2b}
+Zeigen Sie, dass eine lineare Abbildung, deren Abbildungsmatrix orthogonal ist, den
+Winkel zwischen Vektoren unverändert lässt.
+
+\end{document}

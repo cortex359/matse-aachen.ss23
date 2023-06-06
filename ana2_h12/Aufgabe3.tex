@@ -1,5 +1,16 @@
 \documentclass[main.tex]{subfiles}
 
+\newenvironment{equiveqs}[1][crll]{begdef}{enddef}
+\[\everymath={\displaystyle}\begin{array}{#1}
+
+\begin{equation*}
+\begin{array}{crl}
+                    & \\
+    \Leftrightarrow & 
+\end{array}
+\end{equation*}
+
+
 \begin{document}
 
 \section{Aufgabe 3}
@@ -10,5 +21,10 @@ Lösen Sie die Differentialgleichung
 \end{equation*}
 
 \subsection{Lösung 3}
+Gegeben ist eine lineare DGL 2. Ordnung. 
+\begin{align*}
+	y'' &= 4y' - 4y + 8x + 4
+\end{align*}
+
 
 \end{document}

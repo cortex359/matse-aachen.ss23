@@ -1,0 +1,233 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+Wir haben eine DGL + Anfangswert gegeben. 
+Ist die DGL nicht in expliziter From gegeben, also ist $y'$ nicht freigestellt, so können wir sie nicht ohne weiteres Lösen. 
+
+Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$. 
+
+
+\section{Mitschrift Fortsetzung vom 06.06.2023}
+
+\subsection{[D]}
+Wenn nicht der Form $y'(x) = p(x)\cdot y + g(x)$, dann untersuchen wir, ob die DGL in einer speziellen Form vorliegt.
+
+Liegt eine Bernoulli DGL vor?
+\begin{align*}
+	y'(x) + f(x)\cdot y(x) &= g(x)\cdot y^\alpha \\
+	y'(x) + p(x)\cdot y(x) &= q(x)\cdot \textcolor{red}{y(x)^\alpha}
+\end{align*}
+
+Wenn ja: 
+\begin{align*}
+	z(x)  &= y(x)^{1-\alpha} \\
+	z'(x) &= \underbrace{(1-\alpha)\cdot p(x)}_{= \tilde{p}}\cdot z(x) + \underbrace{(1-\alpha)\cdot q(x)}_{= \tilde{q}}	
+\end{align*}
+Wir erhalten die Form wie [C.1] und lösen entsprechend.\\
+
+\textit{Beispiel:}
+\begin{align*}
+	(1+x)\cdot y' + y &= - (1+x)^2\cdot y^4, \quad y(0) = 1
+\end{align*}
+
+Um zu erkennen, dass es sich um eine Bernoulli DGL handelt, formen wir wir folgt um: 
+\begin{align*}
+	(1+x)\cdot y' + y &= - (1+x)^2\cdot y^4 \\
+\Leftrightarrow	y' &= \frac{-y}{1+x} - \frac{(1+x)^2}{1+x} \cdot y^4, \quad x\neq -1 \\
+\Leftrightarrow	y' &= \underbrace{\frac{-1}{1+x}}_{p(x)} \cdot y \underbrace{- \frac{(1+x)^2}{1+x}}_{q(x)} \cdot y^4, \quad \alpha = 4
+\end{align*}
+
+Substituiere: $z(x) = y(x)^{1-\alpha} = y(x)^{-3}$
+\begin{align*}
+	z'(x) &= (1-\alpha)\cdot p(x) \cdot z(x) + (1-\alpha)\cdot q(x)\\
+		  &= -3(\frac{-1}{1+x} z(x) +3 (1+x)), \quad z(0)=y(0)^{-3}=1
+\end{align*}
+
+Mit
+\begin{align*}
+	P(x) &= \int^x_0 p(\tau) \dx{\tau}\\
+	&= \int^x_0 \frac{3}{1+\tau}\dx{\tau}\\
+	&= 3\ln(1+x) - 0 \\
+	&= 3\ln(1+x)
+\end{align*}
+bestimmen wir:
+\begin{align*}
+	z_h(x) &= 1\cdot e^{P(x)} \\
+		   &= 1\cdot \ct{e}^{\ln(1+x)^3} \\
+		   &= (1+x)^3
+\end{align*}
+
+Die Bestimmung der homogenen Lösung $z_h$, weicht am Standort Aachen dadurch ab, dass wir $f(x) = -p(x)$ setzen. Ansonsten sind die Verfahren gleich. 
+\begin{align*}
+	z_h'(x) + f(x)\cdot z(x) &= 0 \\
+	z_h'(x) - \frac{3}{1+x}\cdot z(x) &= 0 \\
+	z_h'(x) &= \frac{3}{1+x} z(x) \\
+	\int \frac{1}{z}\dx{z} &= \int \frac{3}{1+x} \dx{x} \\
+	\ln(z_h) &= \int \frac{3}{1+x} \dx{x}\\
+	z_h(x) &= \ct{e}^{\int \frac{3}{1+x}\dx{x}} \\
+	  &= \ct{e}^{3\ln(1+x)+\tilde{c}}\\
+	  &= c\cdot \ct{e}^{\ln((1+x)^3)}\\
+	  &= c\cdot (1+x)^3 \\
+	z_h(0) &= c\cdot 1 \Leftrightarrow c = 1 \\
+	z_h(x) &= (1+x)^3
+\end{align*}
+
+Zur Bestimung der partikulären Lösung. Dies lässt sich auch mit Ansatz vom Typ der rechten Seite machen. Wir wählen jedoch Variation der Konstanten: 
+\begin{align*}
+	z_p(x) &= \ct{e}^{P(x)} \cdot c(x)\\
+		   &= \ct{e}^{P(x)} \cdot \int_0^x q(\tau)\ct{e}^{-P(\tau)} \dx{\tau}\\
+		   &= (1+x)^3 \int_0^x 3(1+\tau) \ct{e}^{-\ln((1+\tau)^3)} \dx{\tau} \\
+		   &= (1+x)^3 \int_0^x 3(1+\tau) \ct{e}^{\ln\frac{1}{(1+\tau)^3}} \dx{\tau} \\
+		   &= (1+x)^3 \int_0^x 3(1+\tau) \frac{1}{(1+\tau)^3} \dx{\tau} \\
+		   &= (1+x)^3 \int_0^x \frac{3}{(1+\tau)^2} \dx{\tau} \\
+		   &= (1+x)^3 \left[ - \frac{1}{1+\tau} \right]_0^x \\
+		   &= -3(1+x)^2 + 3(1+x)^3 \\
+\end{align*}
+
+\begin{align*}
+	z(x) &= z_h(x) + z_p(x) \\
+		 &= (1+x)^3 -3(1+x)^2 + 3(1+x)^3 \\
+		 &= 4(1+x)^3 -3(1+x)^2 \\
+\end{align*}
+
+Rücksubstitution:
+\begin{align*}
+	y(x) &= \frac{1}{\sqrt[3]{z(x)}} \\
+		 &= \frac{1}{\sqrt[3]{4(1+x)^3 -3(1+x)^2}}
+\end{align*}
+
+\subsection{[E]}
+Ist die DGL in der Form?
+$$
+	P(x,y) + Q(x,y)\cdot y' = 0
+$$
+Wenn ja, ist die Integrabilitätsbedingung erfüllt?
+\begin{align*}
+	\frac{\partial P}{\partial y} (x,y) \overset{?}{=} \frac{\partial Q}{\partial x}(x,y)
+\end{align*}
+
+\textit{Beispiel:}\\
+\begin{align*}
+	x^2 -y = (x + \sin^2(y))\cdot y'
+\end{align*}
+Wir stellen um, damit sich diese Form ergibt: 
+\[\everymath={\displaystyle}\begin{array}{crl}
+				& x^2 -y &= (x + \sin^2(y)) \cdot y' \\
+\Leftrightarrow & \underbrace{(x^2 -y)}_{P(x,y)} + \underbrace{(-(x+\sin^2(y)))}_{Q(x,y)} \cdot y' & = 0 \\
+\end{array}\]
+Integrabilitätsbedingung erfüllt?
+\begin{align*}
+	\frac{\partial P}{\partial y}(x,y) &= -1 \\
+	\frac{\partial Q}{\partial x}(x,y) &= -1 
+\end{align*}
+$\Rightarrow$ Ja, Integrabilitätsbedingung erfüllt.
+
+\begin{align*}
+	F(x,y) &= \int P(x,y) \dx{x} = \int x^2 -y \dx{x} \\
+		&= \frac{x^3}{3} \textcolor{blue}{-y x} + \textcolor{magenta}{c_1(y)} \\
+	F(x,y) &= \int Q(x,y) \dx{y} = \int -x - \sin^2(y) \dx{y} \\
+		&= \textcolor{blue}{-y x} \textcolor{magenta}{-\frac{1}{2}y + \frac{1}{y} \sin(2 y)} + c_2(x)\\
+\end{align*}
+Koeffizientenvergleich gibt uns die Potentialfunktion $F(x,y)$
+\begin{align*}
+	F(x,y) = \frac{x^3}{3} -xy -\frac{1}{2}y + \frac{1}{y} \sin(2 y) = c
+\end{align*}
+
+In Aachen setzen wir üblicherweise $\frac{\partial F(x,y)}{\partial y} \overset{!}{=} Q(x,y)$ gleich und lösen dann die Gleichung nach $c_1 * y'$ auf.
+
+\subsection{[F]}
+\vspace{6cm}
+Oder in der From? 
+$$
+	P(x,y) + Q(x,y)\cdot y' = f(x)
+$$
+
+\textit{Beispiel:}
+\begin{align*}
+	\underbrace{y}_{P(x,y)} \underbrace{- (2x +y)}_{Q(x,y)} \cdot y' = 0 \\
+\end{align*}
+
+Integrabilitätsbedingung:
+\begin{align*}
+	\frac{\partial P}{\partial y}(x,y) &= 1 \\
+	\frac{\partial Q}{\partial x}(x,y) &= -2 
+\end{align*}
+Nein, ist nicht erfüllt. 
+-> Finde den integrierenden Faktor:
+\begin{align*}
+	\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y} = 3
+\end{align*}
+Versuche: 
+\begin{align*}
+	\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y}}{P} 
+	&= \frac{3}{y} =: g(y)
+\end{align*}
+
+Suche nach einer Funktion in Abhängigkeit von $y$. 
+\begin{align*}
+	\mu(y) = \ct{e}^{-\int g(y)\dx{y}} = \ct{e}^{-3\ln y} = \frac{1}{y^3} \\
+	y-(2x +y) \cdot y' = 0 \\
+	\Rightarrow \underbrace{\frac{1}{y^2}}_{P(x,y)} \underbrace{ -\left(\frac{2x}{y^3} + \frac{1}{y^2} \right)}_{Q(x,y)} = 0
+\end{align*}
+
+Neue Integrabilitätsbedingung:
+\begin{align*}
+	\frac{\partial P}{\partial y}(x,y) &= - \frac{2}{y^3} \\
+	\frac{\partial Q}{\partial x}(x,y) &= - \frac{2}{y^3} 
+\end{align*}
+IB ist nun erfüllt. 
+
+% TODO farbig markieren
+\begin{align*}
+	F(x,y) = \int \frac{1}{y^2} \dx{x} = \frac{x}{y^2} + c_1(y) + 0\\
+	F(x,y) = \int - \frac{2}{y^3} - \frac{1}{y^2} \dx{y} = \frac{x}{y^2} + \frac{1}{y} + c_2(x)
+\end{align*}
+
+Koeffizientenvergleich liefert
+
+\begin{align*}
+	F(x,y) = \frac{x}{y^2} + \frac{1}{y} = c
+\end{align*}
+
+Können wir nach $y$ freistellen? Nein, also fertig. 
+
+\section{DGLs 2. Ordnung}
+
+\subsection*{[2.A]}
+
+Homogene DGL 2. Ordnung. (für inhomogene DGLs 2. Ordnung ist auch eine Lösung mit Variation der Kontanten möglich).
+\begin{align*}
+	y'' + a y' + by = 0 \qquad y(\zeta) = \eta_1,\ y'(\zeta) = \eta_2
+\end{align*}
+
+Ansatz: $y(x) = \ct{e}^{\lambda x}$. 
+\begin{align*}
+	\lambda^2 \ct{e}^{\lambda x} + a\lambda \ct{e}^{\lambda x} + b\ct{e}^{\lambda x} = 0 \\
+	\Leftrightarrow \ct{e}^{\lambda x} \cdot \underbrace{\left( \textcolor{blue}{\lambda^2 +a\lambda + b} \right)}_{= 0} = 0
+\end{align*}
+
+\textcolor{blue}{charakteristische Gleichung}
+
+Entscheidung anhand der Diskriminanten der Charakteristischen Gleichgung.
+
+\begin{align}
+	D &= \frac{a^2}{4} -b \\
+\end{align}
+
+Wenn $D > 0$ haben wir zwei reelle Nullstellen, $\lambda_1, \lambda_2$.
+$$
+	y(x) = c_1 \ct{e}^{\lambda_1 x} + c_2 \ct{e}^{\lambda_2 x} 
+$$
+
+Wenn $D = 0$ haben wir eine reelle (doppelte) Nullstelle $\lambda$.
+$$
+	y(x) = c_1 \ct{e}^{\lambda x} + c_2 \cdot x \cdot \ct{e}^{\lambda x} 
+$$
+
+Wenn $D < 0$ liegen zwei komplexe Nullstellen vor. $\lambda_1 = w + \ct{i}v, \lambda_2 = w - \ct{i}v$
+$$
+	y(x) = \ct{e}^{w x} \cdot \left( c_1 \cos(b x) + c_2 \sin(b x) \right) 
+$$
+
+\end{document}
