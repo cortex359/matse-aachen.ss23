@@ -10,7 +10,7 @@
 %%%                                                                         %%%
 %%%                                                                         %%%
 
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a3paper]{article}
 
 %%%%%%%%%%%%%%% Deutsch %%%%%%%%%%%%%%%
 \usepackage[ngerman]{babel}
@@ -229,86 +229,20 @@ linkcolor=td-blue
   numbersstyle = {\color{blue}},
 }
 
-\lstdefinestyle{MyCodeStyle}{
-  %backgroundcolor=,           % colour for the background. External color or xcolor package needed.
-  commentstyle = \color{fhdarkcyan},        % style of comments in source language.
-  basicstyle = \footnotesize\ttfamily, % font size/family/etc. for source (e.g. basicstyle=\ttfamily\small)
-  keywordstyle = \bfseries\color{codeblue}, % style of keywords in source language (e.g. keywordstyle=\color{red})
-  numberstyle = \scriptsize\ttfamily\color{codegrey},               % style used for line-numbers
-  numbersep = 10pt,                 % distance of line-numbers from the code
-  stringstyle = \color{codered},            % style of strings in source language
-  showspaces = false,           % emphasize spaces in code (true/false)
-  showstringspaces = false,     % emphasize spaces in strings (true/false)
-  showtabs = false,             % emphasize tabulators in code (true/false)
-  numbers = left,               % position of line numbers (left/right/none, i.e. no line numbers)
-  prebreak = \tiny\raisebox{0ex}[0ex][0ex]{\ensuremath{\ldots}},  % displaying mark on the end of breaking line (e.g. prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}})
-  postbreak = \tiny\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\ }},  % displaying mark on the end of breaking line (e.g. prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}})
-  breakindent = 12pt,
-  captionpos = b,               % position of caption (t/b)
-  breakatwhitespace = true,    % sets if automatic breaks should only happen at whitespaces
-  breaklines = true,            % automatic line-breaking
-  keepspaces = true,            % keep spaces in the code, useful for indetation
-  tabsize = 4,                  % default tabsize
-  gobble=4,                     % gobbles <number> characters at the beginning of each environment code line.
-  texcl = true, % LaTeX comments f activated, comment line delimiters are printed as usual, but the comment line text (up to the end of line) is read as LATEX code and typeset in comment style.
-  %escapeinside = {\%*}{*)},     % specify characters to escape from source code to LaTeX, e.g. escapeinside={\%*}{*)} -> %* latexcode here *)
-  escapeinside={(*@}{@*)},
-  frame = single,               % showing frame outside code (none/leftline/topline/bottomline/lines/single/shadowbox)
-  rulecolor = \color{codegrey},                 % Specify the colour of the frame-box
-  framerule = 0.4pt,            % controls the width of the rules; default: 0.4pt
-  framesep = 3pt, % control the space between frame and listing, effects size of the quarter circles when used with frameround; default 3pt
-  frameround = tttt, % top right, bottom right, bottom left and top left corner; t makes the according corner round. If you use round corners, the rule width is controlled via \thinlines and \thicklines.
-  resetmargins = true, % If true, indention from list environments like enumerate or itemize is reset, i.e. not used.
-  xleftmargin = 5pt,
-  xrightmargin = 0pt,
-  % framex{left,right,top,bottom}margin are the dimensions which are used additionally to framesep to make up the margin of a frame.
-  framexleftmargin = 0.5mm, % Note include the line numbers inside the frame.
-  framexrightmargin = 2pt,
-  framextopmargin = 0pt,
-  framexbottommargin = 0pt,
-  inputencoding = utf8,
-  extendedchars = true,       % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  parsenumbers = true, % number coloring extension from above
-  literate =         % Support additional characters
-    {á}{{\'a}}1  {é}{{\'e}}1  {í}{{\'i}}1 {ó}{{\'o}}1  {ú}{{\'u}}1
-    {Á}{{\'A}}1  {É}{{\'E}}1  {Í}{{\'I}}1 {Ó}{{\'O}}1  {Ú}{{\'U}}1
-    {à}{{\`a}}1  {è}{{\`e}}1  {ì}{{\`i}}1 {ò}{{\`o}}1  {ù}{{\`u}}1
-    {À}{{\`A}}1  {È}{{\'E}}1  {Ì}{{\`I}}1 {Ò}{{\`O}}1  {Ù}{{\`U}}1
-    {ä}{{\"a}}1  {ë}{{\"e}}1  {ï}{{\"i}}1 {ö}{{\"o}}1  {ü}{{\"u}}1
-    {Ä}{{\"A}}1  {Ë}{{\"E}}1  {Ï}{{\"I}}1 {Ö}{{\"O}}1  {Ü}{{\"U}}1
-    {â}{{\^a}}1  {ê}{{\^e}}1  {î}{{\^i}}1 {ô}{{\^o}}1  {û}{{\^u}}1
-    {Â}{{\^A}}1  {Ê}{{\^E}}1  {Î}{{\^I}}1 {Ô}{{\^O}}1  {Û}{{\^U}}1
-    {œ}{{\oe}}1  {Œ}{{\OE}}1  {æ}{{\ae}}1 {Æ}{{\AE}}1  {ß}{{\ss}}1
-    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1  {Ø}{{\O}}1   {å}{{\r a}}1
-    {Å}{{\r A}}1 {ã}{{\~a}}1  {õ}{{\~o}}1 {Ã}{{\~A}}1  {Õ}{{\~O}}1
-    {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1
-    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1 {»}{{\guillemotright}}1
-    {°}{{\textdegree}}1 {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1
-    % textgreek symbols
-    %   - not needed with texcl = true
-    % {α}{{\textalpha}}1 {β}{{\textbeta}}1 {γ}{{\textgamma}}1 {δ}{{\textdelta}}1 {ε}{{\textepsilon}}1 {ζ}{{\textzeta}}1 {η}{{\texteta}}1 {θ}{{\texttheta}}1 {ι}{{\textiota}}1
-    % {κ}{{\textkappa}}1 {λ}{{\textlambda}}1 {μ}{{\textmu}}1 {μ}{{\textmugreek}}1 {ν}{{\textnu}}1 {ξ}{{\textxi}}1 {ο}{{\textomikron}}1 {π}{{\textpi}}1
-    % {ρ}{{\textrho}}1 {σ}{{\textsigma}}1 {τ}{{\texttau}}1 {υ}{{\textupsilon}}1 {φ}{{\textphi}}1 {χ}{{\textchi}}1 {ψ}{{\textpsi}}1 {ω}{{\textomega}}1
-    % {Α}{{\textAlpha}}1 {Β}{{\textBeta}}1 {Γ}{{\textGamma}}1 {Δ}{{\textDelta}}1 {Ε}{{\textEpsilon}}1 {Ζ}{{\textZeta}}1 {Η}{{\textEta}}1 {Θ}{{\textTheta}}1 {Ι}{{\textIota}}1
-    % {Κ}{{\textKappa}}1 {Λ}{{\textLambda}}1 {Μ}{{\textMu}}1 {Ν}{{\textNu}}1 {Ξ}{{\textXi}}1 {Ο}{{\textOmikron}}1 {Π}{{\textPi}}1 {Ρ}{{\textRho}}1 {Σ}{{\textSigma}}1
-    % {Τ}{{\textTau}}1 {Υ}{{\textUpsilon}}1 {Φ}{{\textPhi}}1 {Χ}{{\textChi}}1 {Ψ}{{\textPsi}}1 {Ω}{{\textOmega}}1 {ς}{{\textvarsigma}}1 {φ}{{\straightphi}}1 {θ}{{\scripttheta}}1
-    % {θ}{{\straighttheta}}1 {}{{\straightepsilon}}1
-}
-\lstset{style=MyCodeStyle}
 
 \usepackage{relsize}
 
 %---- Part 2 ----%
 
 % Seiten Geometrie
-\usepackage[a4paper,
-includehead,% See below for an explanation
+\usepackage[a3paper,
+%includehead,% See below for an explanation
 nomarginpar,% We don't want any margin paragraphs
-headheight=28pt, % Set \headheight to 16pt to avoid fancyhr warnings
-top=25mm,
-bottom=25mm,
-left=25mm,
-right=25mm
+headheight=0pt, % Set \headheight to 16pt to avoid fancyhr warnings
+top=15mm,
+bottom=15mm,
+left=15mm,
+right=15mm
 ]{geometry}
 
 % Zeitstempel der letzten Modifikation
@@ -511,12 +445,7 @@ right=25mm
     \end{array}\right)}%
 }
 
-\newcommand{\hausaufgabe}[3]{
-  \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
-  \fancyhead[C]{\textbf{Hausaufgaben}\\\textbf{Blatt #1}}
-  \fancyhead[R]{Ausgabe: #2\\Abgabe: #3}
-
-  \hypersetup{
+\hypersetup{
     pdfprintscaling=,        % siehe https://komascript.de/node/1897
     breaklinks=true,         %
     colorlinks=true,         % false: boxed links; true: colored links
@@ -524,70 +453,36 @@ right=25mm
     pdfnewwindow=true,       % links in new window
     pdfpagemode=UseNone, % Determines how the file is opened. Possibilities are UseThumbs (Thumbnails), UseOutlines (Bookmarks) and FullScreen
     pdfstartpage=1,          % Determines on which page the PDF file is opened
-    pdftitle={\module: Hausaufgabenblatt #1},
-    pdfsubject={Aufgaben vom #2, Abgabe am #3},
-    pdfkeywords={Hausaufgaben, \module},
+    pdftitle={Entscheidungsbaum Differentialgleichungen},
+    pdfsubject={Entscheidungsbaum zum Lösen von Differentialgleichungen 1. und 2. Ordnung},
+    pdfkeywords={Differentialgleichungen},
     pdfauthor={Christian Rene Thelen}, % author
     pdfcreator={cortex359 v1.2}, % creator of the document
     pdfproducer={cortex359 / Christian Rene Thelen}, % producer of the document
     linkcolor=td-blue,       % color of internal links
-                             %   (change box color with linkbordercolor)
+                            %   (change box color with linkbordercolor)
     citecolor=td-blue,       % color of links to bibliography
     filecolor=td-blue,       % color of file links
     urlcolor=td-blue,        % color of external links
     menucolor=td-blue
-  }
-
 }
 
 %---- Header ---%
-\fancyhf{}
-\newcommand{\semester}{SoSe 2023}
+\fancyhead{}
+\fancyfoot{}
 
-%\newcommand{\module}{Lineare Algebra 2}
-\newcommand{\module}{Analysis 2}
-%\newcommand{\module}{Theoretische Informatik}
-
-%\hausaufgabe{01}{20.03.2023}{26.03.2023}
-%\hausaufgabe{02}{27.03.2023}{02.04.2023}
-%\hausaufgabe{03}{03.04.2023}{10.04.2023}
-%\hausaufgabe{04}{11.04.2023}{16.04.2023}
-%\hausaufgabe{05}{17.04.2023}{23.04.2023}
-%\hausaufgabe{06}{24.04.2023}{01.05.2023}
-%\hausaufgabe{07}{02.05.2023}{07.05.2023}
-%\hausaufgabe{08}{08.05.2023}{14.05.2023}
-%\hausaufgabe{09}{15.05.2023}{21.05.2023}
-%\hausaufgabe{10}{22.05.2023}{29.05.2023}
-%\hausaufgabe{11}{30.05.2023}{04.06.2023}
-\hausaufgabe{12}{05.06.2023}{11.06.2023}
-%\hausaufgabe{13}{12.06.2023}{18.06.2023}
-%--- Footer -
-\newcommand{\lastMod}{
-    \Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}{Aufgabe5.tex}}}
-    %\Filemodtoday{\filemodNewest{{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
-}
-\date{\lastMod{}}
+\date{05.06.2023}
 \author{Christian Rene Thelen}
 
-\makeatletter
-\fancyfoot[L]{{\small \@date}}
-\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
-\fancyfoot[R]{{\small \@author}}
-\makeatother
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning}
+
+\everymath{\displaystyle}
 
 \begin{document}
+\renewcommand{\headrulewidth}{0pt}
 
-\subfile{Aufgabe1.tex}
-\subfile{Aufgabe2.tex}
-\subfile{Aufgabe3.tex}
-\subfile{Aufgabe4.tex}
-\subfile{Aufgabe5.tex}
-
-%\subfile{Präsenz.tex}
-
-% \subfile{Aufgabe6.tex}
-% \subfile{Aufgabe7.tex}
-% \subfile{Aufgabe8.tex}
-% \subfile{Aufgabe9.tex}
+%\subfile{Topic1.tex}
+\subfile{DGLs.tex}
 
 \end{document}

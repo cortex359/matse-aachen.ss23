@@ -511,12 +511,11 @@ right=25mm
     \end{array}\right)}%
 }
 
-\newcommand{\hausaufgabe}[3]{
-  \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
-  \fancyhead[C]{\textbf{Hausaufgaben}\\\textbf{Blatt #1}}
-  \fancyhead[R]{Ausgabe: #2\\Abgabe: #3}
 
-  \hypersetup{
+\newcommand{\semester}{SoSe 2023}
+\newcommand{\module}{Analysis 2}
+
+\hypersetup{
     pdfprintscaling=,        % siehe https://komascript.de/node/1897
     breaklinks=true,         %
     colorlinks=true,         % false: boxed links; true: colored links
@@ -524,9 +523,8 @@ right=25mm
     pdfnewwindow=true,       % links in new window
     pdfpagemode=UseNone, % Determines how the file is opened. Possibilities are UseThumbs (Thumbnails), UseOutlines (Bookmarks) and FullScreen
     pdfstartpage=1,          % Determines on which page the PDF file is opened
-    pdftitle={\module: Hausaufgabenblatt #1},
-    pdfsubject={Aufgaben vom #2, Abgabe am #3},
-    pdfkeywords={Hausaufgaben, \module},
+    pdftitle={\module: Übersicht},
+    pdfsubject={DGLs},
     pdfauthor={Christian Rene Thelen}, % author
     pdfcreator={cortex359 v1.2}, % creator of the document
     pdfproducer={cortex359 / Christian Rene Thelen}, % producer of the document
@@ -536,58 +534,26 @@ right=25mm
     filecolor=td-blue,       % color of file links
     urlcolor=td-blue,        % color of external links
     menucolor=td-blue
-  }
-
 }
 
 %---- Header ---%
 \fancyhf{}
-\newcommand{\semester}{SoSe 2023}
 
-%\newcommand{\module}{Lineare Algebra 2}
-\newcommand{\module}{Analysis 2}
-%\newcommand{\module}{Theoretische Informatik}
-
-%\hausaufgabe{01}{20.03.2023}{26.03.2023}
-%\hausaufgabe{02}{27.03.2023}{02.04.2023}
-%\hausaufgabe{03}{03.04.2023}{10.04.2023}
-%\hausaufgabe{04}{11.04.2023}{16.04.2023}
-%\hausaufgabe{05}{17.04.2023}{23.04.2023}
-%\hausaufgabe{06}{24.04.2023}{01.05.2023}
-%\hausaufgabe{07}{02.05.2023}{07.05.2023}
-%\hausaufgabe{08}{08.05.2023}{14.05.2023}
-%\hausaufgabe{09}{15.05.2023}{21.05.2023}
-%\hausaufgabe{10}{22.05.2023}{29.05.2023}
-%\hausaufgabe{11}{30.05.2023}{04.06.2023}
-\hausaufgabe{12}{05.06.2023}{11.06.2023}
-%\hausaufgabe{13}{12.06.2023}{18.06.2023}
 %--- Footer -
-\newcommand{\lastMod}{
-    \Filemodtoday{\filemodNewest{{Aufgabe1.tex}{Aufgabe2.tex}{Aufgabe3.tex}{Aufgabe4.tex}{Aufgabe5.tex}}}
-    %\Filemodtoday{\filemodNewest{{Aufgabe6.tex}{Aufgabe7.tex}{Aufgabe8.tex}}}
-}
-\date{\lastMod{}}
+\date{06.06.2023}
 \author{Christian Rene Thelen}
 
+
+\fancyhead[L]{\textbf{\module} Lösen von Differentialgleichungen}
+\fancyhead[C]{}
+\fancyhead[R]{}
 \makeatletter
 \fancyfoot[L]{{\small \@date}}
-\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
-\fancyfoot[R]{{\small \@author}}
+\fancyfoot[R]{{\small Seite \thepage~von~\pageref{LastPage}}}
 \makeatother
 
 \begin{document}
 
-\subfile{Aufgabe1.tex}
-\subfile{Aufgabe2.tex}
-\subfile{Aufgabe3.tex}
-\subfile{Aufgabe4.tex}
-\subfile{Aufgabe5.tex}
-
-%\subfile{Präsenz.tex}
-
-% \subfile{Aufgabe6.tex}
-% \subfile{Aufgabe7.tex}
-% \subfile{Aufgabe8.tex}
-% \subfile{Aufgabe9.tex}
+\subfile{DGLs.tex}
 
 \end{document}

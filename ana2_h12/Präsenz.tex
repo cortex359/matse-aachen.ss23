@@ -1,0 +1,62 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+Gewöhnliche DGLs.\\
+
+\begin{tabular}{c|l|l|l|l}
+GL & Ord. & Homogenität & Linearität & Lösungsverfahren \\
+\hline
+a & 1 & inhomogen & linear, kont. Koeffizienten & Trennung der Variablen \\
+b & 1 & inhomogen & linear & Variation der Konstanten -> 15.2.7\\
+c & 2 & inhomogen & linear, konst. Koeffizienten & 2. Ordnung, charakterische Gleichung Typ der Rechten Seite \\
+d & 1 & inhomogen & linear & Homogene, Partikuläre (Ansatz vom Typ der rechten Seite) \\
+e & 1 & inhomogen & nicht-linear & Bernoulli \\
+f & 1 & inhomogen & linear & Homogene Lösung, Partikuläre (Ansatz vom Typ der rechten Seite) \\
+% -----
+g & 2 & homogen & linear & 2 Ordnung \\
+h & 1 & inhomogen & nicht-linear & Bernoulli \\
+i & 1 & homogen & nicht-linear & Trennung der Variablen \\
+j & 1 & homogen & linear & Trennung der Variablen \\
+k & 1 & inhomogen & linear & Homogene, Partikuläre mit Ansatz vom Typ der rechten Seite \\
+l & 1 & homogen & linear & Homogene, Variation der Konstanten \\
+\end{tabular}
+
+\section{Aufgabe 2}
+\begin{align*}
+    y' &= x^2 + y + \frac{y}{x} \\
+\end{align*}
+Substituiere mit
+%\begin{align*}
+%    z &= \frac{y}{x} \\
+%    z' &= \frac{y'x -y}{x^2} \\
+%\end{align*}
+
+\[\everymath={\displaystyle}\begin{array}{crl}
+    & z &= \frac{y}{x} \\
+\Leftrightarrow & y &= z x \\[2mm]
+    & y' &= z'x + z \\
+\end{array}\]
+
+Und setze ein:
+\[\everymath={\displaystyle}\begin{array}{crl}
+    & y' &= x^2 + y + \frac{y}{x} \\[2mm]
+\Leftrightarrow & z'x + z &= x^2 + z x + \frac{z x}{x} \\
+\Leftrightarrow & z'x &= x^2 + z x \\
+\overset{x\neq 0}{\Leftrightarrow} & z' &= x + z \\
+\end{array}\]
+
+Die Lösung bestimmen wir zu
+$$
+    z(x) = c_1 e^x - x - 1
+$$
+Rücksubstitution:
+$$
+    y(x) = x c_1 e^x - x^2 - x
+$$
+
+
+
+\end{document}
