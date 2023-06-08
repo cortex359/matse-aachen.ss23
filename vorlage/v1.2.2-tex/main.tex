@@ -329,10 +329,9 @@ right=25mm
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{amssymb}
-%\usepackage{gensymb}
-%\usepackage{tabularx}
 \usepackage{extarrows}
 \usepackage{booktabs}
+\usepackage{twemojis}
 
 
 \usepackage{tikz}
@@ -435,6 +434,8 @@ right=25mm
     \end{array}\right)}%
 }
 
+\renewcommand{\equiv}{\Leftrightarrow}
+
 \author{Christian Rene Thelen}
 
 %% Hausaufgabenspezifisch
@@ -498,9 +499,9 @@ right=25mm
 
 \makeatletter
 \fancyfoot[L]{{\small \@date}}
-\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
-\fancyfoot[R]{{\small \@author}}
 \makeatother
+\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
+\fancyfoot[R]{{\small \href{mailto://christian.thelen@rwth-aachen.de}{Christian Rene Thelen}}}
 
 \begin{document}
 
