@@ -1,30 +1,46 @@
 \documentclass[main.tex]{subfiles}
 
-\newenvironment{equiveqs}[1][crll]{begdef}{enddef}
-\[\everymath={\displaystyle}\begin{array}{#1}
-
-\begin{equation*}
-\begin{array}{crl}
-                    & \\
-    \Leftrightarrow & 
-\end{array}
-\end{equation*}
-
-
 \begin{document}
 
 \section{Aufgabe 3}
 \textit{Analysis 2-Klausur vom 24.09.2020, A04}\\
-Lösen Sie die Differentialgleichung
+Lösen Sie die Differenzialgleichung
 \begin{equation*}
 	y'' = 4y' - 4y + 8x + 4
 \end{equation*}
 
 \subsection{Lösung 3}
-Gegeben ist eine lineare DGL 2. Ordnung. 
+Gegeben ist eine lineare DGL 2. Ordnung mit polynomialer Störfunktion.
+\begin{equiveqs}[clcl]
+	   & y'' 			&=& 4y' - 4y + 8x + 4 \\
+\equiv & y'' - 4y' + 4y &=& 8x + 4
+\end{equiveqs}
+
+Die charakteristische Gleichung der homogenen DGL lautet $\lambda^2-4\lambda+4=0 \equiv \lambda_{1,2} = 2$, also liegt eine doppelte Nullstelle vor und die Lösung lautet:
+\[
+	y_h = c_0 \e^{2x} + c_1 x \e^{2x}
+\]
+
+Zur Bestimmung der partikulären Lösung wählen wir den Ansatz
 \begin{align*}
-	y'' &= 4y' - 4y + 8x + 4
+	y_p   &= ax^2 + bx + c \\
+	y'_p  &= 2ax + b\\
+	y''_p &= 2a
 \end{align*}
+und setzen ein:
+\begin{equiveqs}[clcl]
+	   & y_p'' - 4y_p' + 4y_p &=& 8x + 4 \\
+\equiv & 2a - 8ax - 4b + 4ax^2 + 4bx + 4c  &=& 8x + 4  \\
+\equiv & \underbrace{4a}_{\exeq 0}\cdot x^2 + \underbrace{(4b - 8a)}_{\exeq 8} \cdot x \underbrace{+2a -4b + 4c}_{\exeq 4}  &=& 8x + 4  \\
+\end{equiveqs}
 
-
+Mit $b=2$ und $c=3$ erhalten wir als partikuläre Lösung
+\[
+	y_p = 2x + 3
+\]
+und somit als allgemeine Lösung der DGL
+\[
+	y(x) = c_0 \e^{2x} + c_1 x \e^{2x} + 2x + 3.
+\]
+	
 \end{document}

@@ -17,26 +17,27 @@ $$
 $$
 mit $\alpha = 2, g(x) = \sin(x), f(x) = -1$ vor. 
 
-Wir substituieren mit $\alpha = 2$.
+Wir substituieren mit
 \begin{align*}
-	z &:= y^{1-\alpha} = \frac{y}{y^\alpha} \;\Leftrightarrow\; y=z^{\frac{1}{1-\alpha}}\\[4mm]
+	z &:= y^{1-\alpha} = \frac{y}{y^\alpha} \;\equiv\; y=z^{\frac{1}{1-\alpha}}\\[4mm]
+\intertext{also}
 	y  &= z^{-1} \\
 	y' &= -z^{-2}\cdot z'
 \end{align*}
 
-Einsetzen in DGL:
+und setzen in die DGL:
 \begin{equation*}
 \begin{array}{crl}
 				& y' - y &= y^2 \cdot \sin(x) \\[2mm]
-\Leftrightarrow	& -z^{-2}\cdot z' - z^{-1} &= z^{-2}\cdot \sin(x) \\
-\overset{z(x) \neq 0}{\Leftrightarrow}	& -z' - z &= \sin(x)\\
+\overset{z(x) \neq 0}{\equiv} & -z^{-2}\cdot z' - z^{-1} &= z^{-2}\cdot \sin(x) \\[2mm]
+\equiv	& -z' - z &= \sin(x)
 \end{array}
 \end{equation*}
 
 Wir bestimmen die Lösung der linearen inhomogen DGL $-z' - z = \sin(x)$, indem wir zunächst die Lösung der homogenen DGL $-z_h' - z_h = 0$ bestimmen.
 Diese lautet
 $$
-	z_h = c_0 \cdot \ct{e}^{-x}. 
+	z_h = c_0 \cdot \e^{-x}. 
 $$
 Die Rücksubstitution ergibt
 \begin{align*}
@@ -44,7 +45,7 @@ Die Rücksubstitution ergibt
 	    &= c \cdot \ct{e}^{x}
 \end{align*}
 
-Für die partikuläre Lösung nutzen wir den trigonometrischen Ansatz
+Für die partikuläre Lösung nutzen wir den trigonometrischen Ansatz 
 \begin{align*}
     z_p(x)   &= c_0 \sin(\alpha x) + c_1 \cos(\alpha x) \\
     z_p'(x)  &= \alpha c_0 \cos(\alpha x) - \alpha c_1 \sin(\alpha x)
@@ -53,18 +54,19 @@ und setzen ein:
 \begin{align*}
 \begin{array}{crl}
 				& \sin(x) &= -z_p' - z_p \\
-\Leftrightarrow & \sin(x) &= - \alpha c_0 \cos(\alpha x) + \alpha c_1 \sin(\alpha x)
+\equiv & \sin(x) &= - \alpha c_0 \cos(\alpha x) + \alpha c_1 \sin(\alpha x)
 							 - c_0 \sin(\alpha x) - c_1 \cos(\alpha x) \\
-\overset{\alpha = 1}{\Leftrightarrow} & \sin(x) &=
+\overset{\alpha = 1}{\equiv} & \sin(x) &=
 					  \underbrace{(c_1 - c_0)}_{= 1}\cdot \sin(x)
 					- \underbrace{(c_0 + c_1)}_{= 0}\cdot \cos(x) \\
 \end{array}
 \end{align*}
 
-Der Koeffizientenvergleich liefert uns mit $c_0 = -\sfrac{1}{2}, c_1 = \sfrac{1}{2}$ die Funktion
-$$
+Der Koeffizientenvergleich liefert uns mit $c_0 = -\sfrac{1}{2}$ und $c_1 = \sfrac{1}{2}$ die Funktion
+\[
 	z_p(x) = -\frac{1}{2} \sin(x) + \frac{1}{2}\cos(x).
-$$
+\]
+
 Die Rücksubstitution ergibt:
 \begin{align*}
 	y_p &= \frac{1}{z_p} \\

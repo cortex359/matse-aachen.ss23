@@ -14,10 +14,41 @@ $\begin{aligned}
 \end{aligned}$
 \item
 $\begin{aligned}
-	y' + x \cdot y = x \cdot e^{-\frac{1}{2}x^2}
+	y' + x \cdot y = x \cdot \e^{-\frac{1}{2}x^2}
 \end{aligned}$
 \end{enumerate}
 
-\subsection{Lösung 4}
+\subsection{Lösung 4a}
+Wir substituieren mit $z = \frac{y}{x} \equiv y = z\cdot x$ und entsprechend $y' = z'\cdot x + z$:
+
+\begin{equiveqs}[crcl]
+		& y' &=& 2\sqrt{\frac{y}{x}} + \frac{y}{x}\\[4mm]
+\equiv  & z'\cdot x + z &=& 2\sqrt{z} + z\\[2mm]
+\equiv  & z'\cdot x &=& 2\sqrt{z}\\[2mm]
+\overset{x\neq 0}{\equiv} & z' &=& \frac{1}{x} \cdot 2\sqrt{z}\\[4mm]
+\equiv & \frac{\dx{z}}{\dx{x}} &=& \frac{1}{x} \cdot 2\sqrt{z}\\[4mm]
+\Rightarrow & \int \frac{1}{2\sqrt{z}} \dx{z} &=& \int \frac{1}{x} \dx{x}\\[4mm]
+\equiv & \frac{1}{2} \int z^{-\frac{1}{2}} \dx{z} &=& \ln\abs{x} + c \\[2mm]
+\equiv & z &=& \left(\ln\abs{x} + c\right)^2 \\
+\equiv & y &=& x\cdot \left(\ln\abs{x} + c\right)^2
+\end{equiveqs}
+
+\subsection{Lösung 4b}
+Gegeben ist eine inhomogene DGL 1. Ordnung. Wir lösen zunächst die homogene DGL durch \textit{Trennung der Variablen} zur Bestimmung der homogenen Lösung:
+\begin{equiveqs}[crcl]
+	   & y'_h + x \cdot y_h &=& 0 \\
+\Rightarrow & \ln\abs{y} + c &=& - \int x \dx{x}\\[4mm]
+\equiv & \ln\abs{y} + c &=& - \frac{1}{2} x^2\\[4mm]
+\equiv & y\cdot \tilde{c} &=& \e^{- \frac{1}{2} x^2}\\
+\equiv & y &=& c \cdot \e^{- \frac{1}{2} x^2}\\
+\end{equiveqs}
+
+Durch \textit{Variation der Konstanten} bestimmen wir mit
+\begin{equiveqs}[rcl]
+	 y(x) &=& c(x) \cdot \e^{- \frac{1}{2} x^2}\\
+	y'(x) &=& c'(x) \cdot \e^{- \frac{1}{2} x^2} - c(x) \cdot x \cdot \e^{- \frac{1}{2} x^2}\\
+		  &=& \e^{- \frac{1}{2} x^2} \cdot \left( c'(x) - c(x) \cdot x \right) \\
+\end{equiveqs}
+
 
 \end{document}

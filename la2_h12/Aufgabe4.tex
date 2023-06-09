@@ -3,7 +3,55 @@
 \begin{document}
 
 \section{Aufgabe 4}
+Die Abbildung $f_A$ dreht einen Vektor im $\R^3$ innerhalb der $x$-$z$-Ebene um einen Winkel $\phi$. Die Abbildung $f_B$ spiegelt einen Vektor im $\R^3$ an der $x$-Achse.
+\begin{enumerate}
+	\item Stellen Sie die zugehörigen Abbildungsmatrizen $A$ und $B$ auf.
+	\item Stellen Sie die zugehörige Abbildungsmatrix der hintereinander geschalteten Abbildungen $f_B\circ f_A$ auf.
+	\item Bestimmen Sie auch die zugehörige Abbildungsmatrix der Umkehrabbildung $(f_B\circ f_A)^{-1}$.
+\end{enumerate}
 
 \subsection{Lösung 4}
+\begin{enumerate}
+\item 
+\begin{align*}
+    \begin{array}{rl}
+        A & = \begin{pmatrix}
+            \cos\phi & 0 & -\sin\phi\\
+            0 & 1 & 0\\
+            \sin\phi & 0 & \cos\phi				
+        \end{pmatrix}\\[7mm]
+        B & = \begin{pmatrix}
+            1 & 0 & 0\\
+            0 & -1 & 0\\
+            0 & 0 & -1
+        \end{pmatrix}
+    \end{array}
+\end{align*}
+
+\item
+\begin{align*}
+    \begin{array}{rl}
+        f_B \circ f_A & = B\cdot A\\ 
+        & = \begin{pmatrix}
+            1 & 0 & 0\\
+            0 & -1 & 0\\
+            0 & 0 & -1
+        \end{pmatrix} \cdot
+        \begin{pmatrix}
+            \cos\phi & 0 & -\sin\phi\\
+            0 & 1 & 0\\
+            \sin\phi & 0 & \cos\phi				
+        \end{pmatrix}\\[7mm]
+        & = \begin{pmatrix}
+            \cos\phi & 0 & -\sin\phi\\
+            0 & -1 & 0\\
+            -\sin\phi & 0 & -\cos\phi	
+        \end{pmatrix}
+    \end{array}
+\end{align*}
+
+\item
+Da die Vektoren der Abbildungsmatrix von $f_B\circ f_A$ eine Orthonormalbasis bilden, liegt somit eine Orthogonalmatrix vor, die zu ihrer Hauptdiagonalen symmetrisch ist und somit ist sie ihre eigene Inverse, also gilt $f_B\circ f_A = (f_B\circ f_A)^{-1}$
+\end{enumerate}
 
 \end{document}
