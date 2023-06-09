@@ -387,6 +387,9 @@ right=25mm
 \newcommand{\ct}[1]{\mathrm{#1}}
 \newcommand{\dx}[1]{~\mathrm{d}#1}
 
+\let\i\relax
+\DeclareMathOperator{\i}{\mathrm{i}}
+\DeclareMathOperator{\e}{\mathrm{e}}
 
 \RequirePackage{mathtools}
 \mathtoolsset{centercolon}
@@ -422,6 +425,7 @@ right=25mm
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 
+% Roman Numeral 2 -> II 
 \newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \def\ojoin{\setbox0=\hbox{$\bowtie$}%
