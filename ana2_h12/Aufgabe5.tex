@@ -7,7 +7,15 @@ Lösen Sie die Differentialgleichung
 \[
     y^2 \dx{x} + \left( x \cdot y - 2 \right) \dx{y} = 0
 \]
+% y^2 dx + ( x * y - 2 ) dy = 0
 
 \subsection{Lösung 5}
+\begin{equiveqs}[crcl]
+             & y^2 \dx{x} + \left( x \cdot y - 2 \right) \dx{y} &=& 0 \\
+\equiv       & y^2 \dx{x} &=& - \left( x \cdot y - 2 \right) \dx{y} \\
+\equiv       & \frac{1}{\left( x \cdot y - 2 \right)} \dx{x} &=& - \frac{1}{y^2} \dx{y} \\
+\Rightarrow  & \int \frac{1}{\left( x \cdot y - 2 \right)} \dx{x} &=& - \int \frac{1}{y^2} \dx{y} \\[4mm]
+\Rightarrow  & \ln\left( x \cdot y - 2 \right) \cdot \frac{1}{y} + c &=& - \frac{1}{y} + c \\
+\end{equiveqs}
 
 \end{document}
