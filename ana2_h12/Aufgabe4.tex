@@ -55,24 +55,23 @@ Durch \textit{Variation der Konstanten} bestimmen wir mit
 \equiv & y'(x) + x \cdot \underbrace{c(x) \cdot \e^{- \frac{1}{2} x^2}}_{:= y(x)} &=& c'(x) \cdot \e^{- \frac{1}{2} x^2}\\
 \equiv & y'(x) + x \cdot y(x) &=& c'(x) \cdot \e^{- \frac{1}{2} x^2} \exeq g(x) \\
 \end{equiveqs}
-
-Wir stellen zur $c'$-Funktion um, damit wir die neue DGL lösen und $c(x)$ bestimmen können. 
+Dabei ist $g(x)$ die ursprüngliche Störfunktion! Wir stellen zur $c'$-Funktion um, damit wir die neue DGL lösen und $c(x)$ bestimmen können. 
 \begin{equiveqs}[crcl]
        & c'(x) \cdot \e^{- \frac{1}{2} x^2} &=& g(x) \\
 \equiv & c'(x) &=& g(x) \cdot \e^{\frac{1}{2} x^2} \\[2mm]
 \Rightarrow & c(x) = \int c'(x) \dx{x} &=& \int g(x) \cdot \e^{\frac{1}{2} x^2} \dx{x} \\
-\multicolumn{4}{l}{\text{mit der ursprünglichen Störfunktion $g(x)=\e^{-\frac{1}{2}x^2}$}}\\[2mm]
-\equiv & c(x) &=& \int \frac{1}{\cancel{\e^{\frac{1}{2}x^2}}} \cdot \cancel{\e^{\frac{1}{2} x^2}} \dx{x} \\[4mm]
-\equiv & c(x) &=& x + \tilde{c} \\
+\multicolumn{4}{l}{\text{mit der ursprünglichen Störfunktion $g(x)=x\cdot \e^{-\frac{1}{2}x^2}$}}\\[2mm]
+\equiv & c(x) &=& \int x\cdot \frac{1}{\cancel{\e^{\frac{1}{2}x^2}}} \cdot \cancel{\e^{\frac{1}{2} x^2}} \dx{x} \\[4mm]
+\equiv & c(x) &=& \frac{1}{2} x^2 + \tilde{c} \\
 \end{equiveqs}
 Durch einsetzen in die zuvor bestimmte Funktion erhalten wir nun die allgemeine Lösung der DGL.
 \begin{align*}
 	y(x) &= c(x) \cdot \e^{- \frac{1}{2} x^2}\\
-		 &= (x + \tilde{c}) \cdot \e^{- \frac{1}{2} x^2}\\
-		% @TODO: Resolve magic.
-		 &\overset{\texttwemoji{1f9d9-1f3fb-200d-2642-fe0f}}{=} \left(\frac{x^2}{2} + \tilde{c}\right) \cdot \e^{- \frac{1}{2} x^2}\\
+		 &= \left(\frac{x^2}{2} + \tilde{c}\right) \cdot \e^{- \frac{1}{2} x^2}\\
 \end{align*}
 
+% @DONE: Magic resolved. 
+% \overset{\texttwemoji{1f9d9-1f3fb-200d-2642-fe0f}}{=}
 % y' + x * y = x * e^((-1/2)*x^2)
 
 \end{document}
