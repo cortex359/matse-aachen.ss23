@@ -2,12 +2,10 @@
 %%%    Vorlage für Hausaufgaben und Übungen                                 %%%
 %%%   ======================================                                %%%
 %%%                                                                         %%%
-%%%    Version:                                                   v1.2.0    %%%
-%%%                                            2022-11-13, 12:11 Uhr CET    %%%
+%%%    Version:                                                   v1.2.3    %%%
 %%%                                                                         %%%
 %%%    Erstellt von:                  Christian Rene Thelen (@cortex359)    %%%
 %%%               https://cortex359.de <christian.thelen@rwth-aachen.de>    %%%
-%%%                                                                         %%%
 %%%                                                                         %%%
 
 \documentclass[12pt,a4paper]{article}
@@ -331,10 +329,9 @@ right=25mm
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{amssymb}
-%\usepackage{gensymb}
-%\usepackage{tabularx}
 \usepackage{extarrows}
 \usepackage{booktabs}
+\usepackage{twemojis}
 
 
 \usepackage{tikz}
@@ -371,15 +368,18 @@ right=25mm
 
 %---- Customs ----%
 \newcommand{\checked}{\checkmark} % for compatibility with mathcha.io exports
-\newcommand*{\eqdef}{\stackrel{\text{def}}{=}}
-\newcommand*{\questeq}{\overset{?}{=}}
-\newcommand*{\defeq}{\overset{?}{=}}
 \renewcommand{\cdotp}{\cdot} % for compatibility with mathcha.io exports
+
+\newcommand*{\defeq}{\overset{\text{def}}{=}}
+\newcommand*{\questeq}{\overset{?}{=}}
+\newcommand*{\exeq}{\overset{!}{=}}
+
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
 \newcommand{\vektor}[1]{%
-  \arraycolsep=1pt\def\arraystretch{1}%
-  \begin{pmatrix*}[c] #1 \end{pmatrix*}%
+  %\arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[r] #1 \end{pmatrix*}%
 }
+
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
 % \ct{e} für Konstanten wie e, i, etc.
@@ -387,122 +387,50 @@ right=25mm
 \newcommand{\ct}[1]{\mathrm{#1}}
 \newcommand{\dx}[1]{~\mathrm{d}#1}
 
+\DeclareMathOperator{\e}{\mathrm{e}}
+\let\i\relax
+\DeclareMathOperator{\i}{\mathrm{i}}
 
 \RequirePackage{mathtools}
+\mathtoolsset{centercolon}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
+\DeclarePairedDelimiterX\skalarprod[2]{\langle}{\rangle}{#1, #2}
+\DeclarePairedDelimiter\interval{[}{]}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
-\DeclarePairedDelimiter\interval{[}{]}
-
-\newcommand*\conj[1]{\,\overline{\!{#1}}} % kinda fits here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Operators
 \DeclareMathOperator{\Eig}{Eig}
-\DeclareMathOperator{\Exists}{\exists}
-\DeclareMathOperator{\Forall}{\forall}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Mean}{E}
-\DeclareMathOperator*{\argmin}{argmin}
-\DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator{\Bild}{Bild}
+\DeclareMathOperator{\Spur}{Spur}
+\DeclareMathOperator{\Kern}{Kern}
 \DeclareMathOperator{\rg}{rg}
-\DeclareMathOperator{\defect}{defect}
 \DeclareMathOperator{\rang}{rang}
-\DeclareMathOperator{\spur}{spur}
-\DeclareMathOperator{\diagonal}{diag}
-\DeclareMathOperator{\Sol}{Sol}
-\DeclareMathOperator{\row}{row}
-\DeclareMathOperator{\col}{col}
-\DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\diff}{d}
-\DeclareMathOperator{\Poi}{Poi}
-\DeclareMathOperator{\VarK}{VarK}
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\IG}{IG}
-\DeclareMathOperator{\CosSim}{CosSim}
-\DeclareMathOperator{\PVE}{PVE}
-\DeclareMathOperator{\PDME}{PDME}
-\DeclareMathOperator{\purity}{purity}
-\DeclareMathOperator{\koh}{koh}
-\DeclareMathOperator{\sep}{sep}
-\DeclareMathOperator{\ps}{ps}
-\DeclareMathOperator{\ACC}{ACC}
-\DeclareMathOperator{\TP}{TP}
-\DeclareMathOperator{\TN}{TF}
-\DeclareMathOperator{\FP}{FP}
-\DeclareMathOperator{\FN}{FF}
-\DeclareMathOperator{\PPV}{PPV}
-\DeclareMathOperator{\TPR}{TPR}
-\DeclareMathOperator{\FPR}{FPR}
-\DeclareMathOperator{\recall}{recall}
-\DeclareMathOperator{\precision}{precision}
-
-% db
-\DeclareMathOperator{\proj}{proj}
-\DeclareMathOperator{\cnt}{count}
-\DeclareMathOperator{\ident}{ident}
-\DeclareMathOperator{\schema}{schema}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\FD}{FD}
-\DeclareMathOperator{\AttrHuelle}{\textnormal{AttrHülle}}
-
-\DeclareMathOperator{\Spur}{Spur}
-
+\DeclareMathOperator*{\argmin}{argmin} % star indicates, that limits typeset beneath them instead of to the right
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\R}{\mathbb{R}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Symbols
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
-\usepackage{pifont}
-\newcommand{\cmark}{\ding{51}}%
-\newcommand{\xmark}{\ding{55}}%
 
-\newcommand{\Nplus}{\mathbb{N}^+}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Rnonneg}{\mathbb{R}^+_0}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\bigo}{\mathcal{O}}
-\newcommand{\Pot}{\mathcal{P}}
-
-\newcommand{\Modal}[1]{\conj{#1}_M}
+% Roman Numeral 2 -> II 
 \newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
-\newcommand{\Fabs}{F_{\text{abs}}}
-\newcommand{\Frel}{F_{\text{rel}}}
 
 \def\ojoin{\setbox0=\hbox{$\bowtie$}%
   \rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
-
-\newcommand{\lojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
-\newcommand{\rojoin}{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
-\newcommand{\fojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
-
-\newcommand{\dotto}{\stackrel{\boldsymbol{\cdot}}{\to}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Symbols @cortex359
-\newcommand{\cis}[1]{\left( \cos\left( #1 \right) + i \sin\left( #1 \right) \right)}
-
-
-
-% Standardmäßige Vergrößerung normaler Arrays
-%\arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
-% Anpassbarkeit von Matrizen und Vektoren
-%\makeatletter
-%\renewcommand*\env@matrix[1][\arraystretch]{%
-%  \edef\arraystretch{#1}%
-%  \hskip -\arraycolsep
-%  \let\@ifnextchar\new@ifnextchar
-%  \array{*\c@MaxMatrixCols c}}
-%\makeatother
 
 %% Erweiterte Matrizen in der Form \eqmatrix{ccc|c}{1 & 1 \\ ...}
 \newcommand*{\eqmatrix}[2]{%
@@ -511,6 +439,24 @@ right=25mm
     \end{array}\right)}%
 }
 
+\renewcommand{\equiv}{\Leftrightarrow}
+
+\usepackage{environ}
+\NewEnviron{equiveqs}[1][crl]{%
+	\begin{displaymath}%
+		\everymath={\displaystyle}%
+		\begin{array}{#1}%
+			\BODY
+		\end{array}%
+	\end{displaymath}%
+}
+%\newenvironment{equiveqs}[1][crl]{%
+%	\[\everymath={\displaystyle}\begin{array}{#1}%
+%}{%
+%	\end{array}\]%
+%}
+
+\author{Christian Rene Thelen}
 
 \newcommand{\semester}{SoSe 2023}
 \newcommand{\module}{Analysis 2}
@@ -540,8 +486,7 @@ right=25mm
 \fancyhf{}
 
 %--- Footer -
-\date{06.06.2023}
-\author{Christian Rene Thelen}
+\date{13.06.2023}
 
 
 \fancyhead[L]{\textbf{\module} Lösen von Differentialgleichungen}
@@ -555,5 +500,6 @@ right=25mm
 \begin{document}
 
 \subfile{DGLs.tex}
+\subfile{Topic2.tex}
 
 \end{document}

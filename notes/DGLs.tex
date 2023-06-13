@@ -2,10 +2,49 @@
 
 \begin{document}
 
-Wir haben eine DGL + Anfangswert gegeben. 
-Ist die DGL nicht in expliziter From gegeben, also ist $y'$ nicht freigestellt, so können wir sie nicht ohne weiteres Lösen. 
+Wir haben eine DGL + Anfangswert gegeben. \\
 
-Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$. 
+Ist die DGL nicht in expliziter From gegeben, also ist $y'$ nicht freigestellt, so können wir sie nicht ohne Weiteres lösen.
+
+Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$ bestimmen wir als nächstes die Ordnung der DGL.
+
+1. Ordnung siehe [1.A]
+2. Ordnung siehe [2.A]
+Höherer Ordnung: Können wir nicht lösen.
+
+\section{DGLs 1. Ordnung}
+
+\subsection*{[1.A]}
+Ist die DGL separabel? Ja -> [1.B], Nein -> [1.C]
+
+\subsection*{[1.B]}
+Die DGL ist separabel, also können wir durch Trennung der Variablen lösen.\\
+
+\textit{Beispiel:}
+\[
+	y' = x\cdot y^2
+\]
+1. Fall: $y(x) = 0$ ist eine triviale Lösung. \\
+2. Fall: $y(x) \neq 0$ Trennung der Variablen.
+\begin{equiveqs}[crcl]
+	& \int \frac{1}{y^2} \dx{y} &=& \int x \dx{x} \\
+\equiv & -\frac{1}{y} &=& \frac{x^2}{2} + c \\
+\equiv & y &=& -\frac{2}{x^2} + \tilde{c} \\
+\end{equiveqs}
+
+\subsection*{[1.C]}
+Die DGL ist nicht separabel. \\
+
+Ist die DGL in der Form 
+\[
+	y' = h(ax + by + c)\; ?
+\]
+Dann können wir durch Substitution lösen.
+
+Ist die DGL in der Form
+\[
+	y' = h\left(\frac{y}{x}\right)
+\]
 
 
 \section{Mitschrift Fortsetzung vom 06.06.2023}
@@ -229,8 +268,5 @@ Wenn $D < 0$ liegen zwei komplexe Nullstellen vor. $\lambda_1 = w + \ct{i}v,\ \l
 $$
 	y(x) = \ct{e}^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right) 
 $$
-
-\section{Mitschrift 13.06.2023}
-
 
 \end{document}

@@ -1,0 +1,115 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Mitschrift 13.06.2023}
+\begin{align*}
+    A = \int_{G} f(x,y) \dx{A} = \int_0^? \int ... % @TODO
+\end{align*}
+
+Jakobi Matrix
+\begin{align*}
+    g(r, \phi) &= \left( r\cdot \cos \phi, r\sin\phi\right) \\[2mm]
+    J_{g(r, \phi)} &= \eqmatrix{rr}{
+        \frac{\partial g_1}{\partial r} (r,\phi) & \frac{\partial g_2}{\partial r} (r,\phi) \\
+        \frac{\partial g_1}{\partial \phi} (r,\phi) & \frac{\partial g_2}{\partial \phi} (r,\phi) \\
+    } \\
+    &= \eqmatrix{cc}{
+        \cos\phi & \sin\phi \\
+        -r\cdot \sin\phi & r\cdot \cos\phi
+    }\\[2mm]
+    \det J_{g(r, \phi)} &= r\cdot \cos^2\phi + r\sin^2\phi - \sin\phi + r\cdot\sin\phi
+\end{align*}
+
+Abbildung A\\
+Abbildung B\\
+\begin{align*}
+    \int_\alpha^\beta \int_{\theta_1(r)}^{\theta_2(v)} f\left( r\cdot \cos \phi, r\sin\phi \right) v \dx{r} \dx{\phi}
+\end{align*}
+\textit{Beispiel:}
+Abbildung C\\
+Aufgabe: Volumen berechnen. Siehe \ref{ab1}.
+\begin{align*}
+    f(x,y) = \sqrt{1- x^2 -y^2}
+\end{align*}
+Die Funktion $f(x,y)$ beschreibe eine flach liegende Halbkugel.
+\begin{figure}
+    \begin{center}
+        \includegraphics*{ab1.png}
+    \end{center}
+    \caption{$f(x,y) = \sqrt{1- x^2 -y^2}$}
+    \label{ab1}
+\end{figure}
+
+Volumen über Grunfläche $G$
+\begin{align*}
+    V &= \int_G f(x,y) \dx{(x,y)} \\
+    &= \int_0^{2\phi} \int_0^1 \sqrt{1-r^2\cos^2\phi - r\sin^2\phi} \cdot r \dx{r} \dx{\phi}\\
+    &= \int_0^{2\phi} \underbrace{\int_0^1 \sqrt{1-r^2} \cdot r \dx{r}}_{t=1-r^2} \dx{\phi}\\
+\end{align*}
+Substitution mit
+\begin{align*}
+    t &=1-r^2 \\
+    \frac{\dx{t}}{\dx{r}} &= -2r \\
+    &= \int_0^{2\pi} -\frac{1}{r} \int_{1}^{0} \sqrt{t} \dx{t} \dx{\phi}
+\end{align*}
+
+\subsection*{Schwerpunkt Berechnung}
+Um den Schwerpunkt $(x_s|y_s)$ eines Gebietes $G$ zu berrechnen, können wir diese Formel verwenden:
+\begin{align*}
+    x_s &= \frac{\int_G x \dx{(x,y)}}{\int_G 1 \dx{(x,y)}} &
+    y_s &= \frac{\int_G y \dx{(x,y)}}{\int_G 1 \dx{(x,y)}} 
+\end{align*}
+
+
+Hinweis: 
+\begin{align*}
+    \int_a^b \int_c^d f(x) \cdot g(y) \dx{(x,y)} \\
+    &= \int_a^b g(y) \cdot \underbrace{\int_c^d f(x) \dx{x}}_{z} \dx{y}
+\end{align*}
+
+\subsection*{Arbeitsintegral}
+Arbeit durch ein Vektorfeld
+\begin{align*}
+    W &= \int_a^b \vec{F}(g(t)) \cdot g'(t) \dx{t}\\
+      &= \int_\gamma 
+\end{align*}
+Prüfen der Integrabilitätsbedingung. Wenn erfüllt existiert eine Potentialfunktion; dann ist das Vektorfeld konservativ und es ist egal, welchen Weg wir gehen. 
+
+Beispiel:
+\begin{align*}
+    g_1(t) = (t,t^2) \quad t\in [0; 1] \\
+    g_2(t) = (t^2, t) \quad t\in [0; 1]\\
+\end{align*}
+Vektorfeld:
+\begin{align*}
+    \vec{F}(x,y) &= \vektor{x^2 + 2y \\ 2x +y^2}
+\end{align*}
+
+Einsetzen durch $x = g_1(t)$ und $y = g_2(t)$
+\begin{align*}
+    W_1 &= \int_0^1 \vec{F}(g_1(t)) \cdot g'_1(t)\dx{t} \\
+    &= \int_{0}^{1} \vektor{t^2 + \alpha t^2 \\ 2t + t^4} \cdot \vektor{1 \\ 2t} \dx{t} \\
+    &= \int_0^1 3t^2 + 4t^2 + 2t^5 \dx{t} \\
+    \int_0^1 7t^2 + 2t^5\dx{t} %@TODO
+\end{align*}
+
+Der zweite Weg liefert das gleiche Ergebnis $W_1 = W_2$, weil das Vektorfeld konservativ ist, also die Integrabilitätsbedingung erfüllt ist.
+
+Integrabilitätsbedingung:
+\begin{align*}
+    \frac{\partial f_1}{\partial y} (x,y) \questeq \frac{\partial f_2}{\partial x} (x, y) \\
+\end{align*}
+
+Im Beispiel: 2=2
+Potentialfunktion:
+\begin{align*}
+    v(x,y) &= \int f_1(x, y) \dx{x} = \int x^2 + 2y \dx{x} \\
+    &= \textcolor{magenta}{\frac{x^3}{3}} + \textcolor{blue}{2xy} + c(y) \\[4mm]
+    v(x,y) &= \int f_2(x, y) \dx{x} = \int 2 + y^2 \dx{y} \\
+    &= \textcolor{blue}{2xy} + \frac{y^3}{3} + \textcolor{magenta}{\tilde{c}(x)} \\[4mm]
+    % Koeffizientenvergleich liefert:
+    v(x,y) &= \frac{x^3}{3} + 2xy + \frac{y^3}{3}\\[4mm]
+\end{align*}
+
+\end{document}
