@@ -441,6 +441,21 @@ right=25mm
 
 \renewcommand{\equiv}{\Leftrightarrow}
 
+\usepackage{environ}
+\NewEnviron{equiveqs}[1][crl]{%
+	\begin{displaymath}%
+		\everymath={\displaystyle}%
+		\begin{array}{#1}%
+			\BODY
+		\end{array}%
+	\end{displaymath}%
+}
+%\newenvironment{equiveqs}[1][crl]{%
+%	\[\everymath={\displaystyle}\begin{array}{#1}%
+%}{%
+%	\end{array}\]%
+%}
+
 \author{Christian Rene Thelen}
 
 %% Hausaufgabenspezifisch
