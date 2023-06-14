@@ -2,15 +2,212 @@
 
 \begin{document}
 
+\definecolor{chatgpt}{rgb}{0,0.64,0.5}
+\newcommand{\mybox}[2]{{%
+    \setlength\fboxsep{1mm}%
+    \fcolorbox{red}{red!20}{%
+        $#2$%
+    }%
+}}
+
+% \newcommand*{\chatgptbox}[1]{%
+%     \awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{%
+%         #2
+%     }%
+% }
+
 \section{Aufgabe 5}
 Sei $A = \eqmatrix{rr}{1 & 2 \\ 4 & -1}$.
 \begin{enumerate}
     \item Lassen Sie eine KI Ihrer Wahl, z.B. ChatGPT, mehrfach die Eigenwerte und Eigenvektoren von A berechnen.
     \item Bewerten Sie die KI-Lösungen.
-    \item Kopieren Sie eine fehlerhafte KI-Antwort und markieren Sie die Fehler. 
+    \item Kopieren Sie eine fehlerhafte KI-Antwort und markieren Sie die Fehler.
     \item Wie kann man erkennen, dass die Lösung falsch war, ohne die gesamte Lösung durchzugehen?
 \end{enumerate}
 
 \subsection{Lösung 5}
+Die Eigenwerte von $A$ sind $\lambda_1 = -3$ und $\lambda_2 = 3$.
+Die Eigenvektoren sind
+\[
+    v_1 = \vektor{-1\\2} \qquad \mbox{und} \qquad v_2 = \vektor{1\\1}.
+\]
+
+Die folgende Ausgabe wurde am 14.06.2023 mit OpenAIs ChatGPT in der Version \mbox{May 24} generiert. \cite{openai2021chatgpt} Für eine bessere Darstellung in diesem Dokument wurden minimale Änderungen an der Formatierung vorgenommen und Umbrüche hinzugefügt. Die rot unterlegten Boxen wurden nachträglich hinzugefügt. Die Originalausgabe kann hier nachgelesen werden. \cite{chatgptconversation}.
+
+\setlength{\aweboxleftmargin}{0.09\linewidth}
+\setlength{\aweboxvskip}{2.5mm}
+
+\awesomebox[violet]{2pt}{\faUser}{violet}{%
+    Given the matrix $A = \begin{pmatrix} 1 & 2 \\ 4 & -1 \end{pmatrix}$, compute its eigenvalues and eigenvectors step by step and check your results.
+}
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{%
+To compute the eigenvalues and eigenvectors of the matrix $A = \begin{pmatrix} 1 & 2 \\ 4 & -1 \end{pmatrix}$, we follow these steps:
+}
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{%
+Step 1: Compute the characteristic equation.
+The characteristic equation is given by $\det(A - \lambda I) = 0$, where $I$ is the identity matrix and $\lambda$ is the eigenvalue we want to find.
+
+Let's compute $A - \lambda I$:
+\[
+    A - \lambda I = \begin{pmatrix} 1 & 2 \\ 4 & -1 \end{pmatrix} - \begin{pmatrix} \lambda & 0 \\ 0 & \lambda \end{pmatrix} = \begin{pmatrix} 1 - \lambda & 2 \\ 4 & -1 - \lambda \end{pmatrix}.
+\]
+}
+
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+Step 2: Calculate the determinant.
+
+We need to find the determinant of $A - \lambda I$.
+\[
+    \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 2 \\ 4 & -1 - \lambda \end{vmatrix} = (1 - \lambda)(-1 - \lambda) - (2 \cdot 4) = \lambda^2\; \mybox{red}{- 2\lambda} - 9.
+\]
+}
+Das charakteristische Polynom müsste $\lambda^2 -9$ sein. Der Fehler wird in den nächsten Schritt übernommen, jedoch wird die quadratischen Gleichung dennoch richtig gelöst und die Eigenwerte korrekt bestimmt:
+
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+Step 3: Solve the characteristic equation.
+Set the determinant equal to zero and solve for $\lambda$.
+\[
+    \lambda^2\; \mybox{red}{- 2\lambda} - 9 = 0
+\]
+
+To solve this quadratic equation, we can factor it or use the quadratic formula.
+
+Factoring it, we get:
+\[
+    (\lambda - 3)(\lambda + 3) = 0
+\]
+
+So, the eigenvalues are $\lambda_1 = 3$ and $\lambda_2 = -3$.
+}
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+Step 4: Compute the eigenvectors.
+To find the eigenvectors corresponding to each eigenvalue, we substitute the eigenvalues into the equation $(A - \lambda I)\cdot v = 0$ and solve for $v$.
+
+For $\lambda_1 = 3$:
+\[
+    A - 3I = \begin{pmatrix} -2 & 2 \\ 4 & -4 \end{pmatrix}
+\]
+
+Reducing this matrix to row-echelon form, we get:
+\[
+    \begin{pmatrix} -2 & 2 \\ 4 & -4 \end{pmatrix} \rightarrow \begin{pmatrix} 1 & -1 \\ 0 & 0 \end{pmatrix}
+\]
+
+From this, we can see that $x_1 - x_2 = 0$.
+
+Choosing $x_2 = t$ as a free variable, we get $x_1 = t$.
+
+Therefore, the eigenvector corresponding to $\lambda_1 = 3$ is $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+}
+
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+For $\lambda_2 = -3$:
+\[
+    A - (-3)I = \begin{pmatrix} 4 & 2 \\ 4 & 2 \end{pmatrix}
+\]
+
+Reducing this matrix to row-echelon form, we get:
+\[
+    \begin{pmatrix} 4 & 2 \\ 4 & 2 \end{pmatrix} \rightarrow \begin{pmatrix} 2 & 1 \\ 0 & 0 \end{pmatrix}
+\]
+
+From this, we can see that $2x_1 + x_2 = 0$.
+
+Choosing $x_2 = t$ as a free variable, we get $x_1 = -\frac{1}{2}t$.
+
+Therefore, the eigenvector corresponding to $\lambda_2 = -3$ is $v_2 = \begin{pmatrix} -\frac{1}{2} \\ 1 \end{pmatrix}$.
+}
+
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+Step 5: Check the results.
+To check our results, we can multiply $A$ by each eigenvector and see if we obtain the corresponding eigenvalue times the eigenvector.
+
+For $\lambda_1 = 3$:
+\[
+    Av_1 = \begin{pmatrix} 1 & 2 \\ 4 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 3 \end{pmatrix} = 3\begin{pmatrix} 1 \\ 1 \end{pmatrix} = \lambda_1 v_1
+\]
+
+For $\lambda_2 = -3$:
+\[
+    Av_2 = \begin{pmatrix} 1 & 2 \\ 4 & -1 \end{pmatrix} \begin{pmatrix} -\frac{1}{2} \\ 1 \end{pmatrix} = \mybox{}{\begin{pmatrix}-3 \\ 3 \end{pmatrix}} = -3\begin{pmatrix} -\frac{1}{2} \\ 1 \end{pmatrix} = \lambda_2 v_2
+\]
+
+Both results confirm that the calculated eigenvalues and eigenvectors are correct.
+}
+Das Ergebnis der zweiten Prüfung müsste $\left( \frac{3}{2}, -3\right)^T$ lauten, aber die Schlussfolgerung ist korrekt.
+
+Auf Rückfrage bzgl. des ersten Fehlers vermutet ChatGPT zunächst einen Vorzeichenfehler gemacht zu haben.
+
+\awesomebox[violet]{2pt}{\faUser}{violet}{%
+    Are you sure about the $- 2\lambda$ in Step 2?
+}
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+    Apologies for the mistake. You are correct. In Step 2, the correct calculation should be:
+
+    \[
+        \det(A - \lambda I) = \begin{vmatrix} 1 - \lambda & 2 \\ 4 & -1 - \lambda \end{vmatrix} = (1 - \lambda)(-1 - \lambda) - (2 \cdot 4) = \lambda^2\; \mybox{}{+ 2\lambda} - 9.
+    \]
+    I apologize for the confusion caused by the incorrect sign in the previous response. Let me proceed with the correct calculation.
+
+    Using the corrected characteristic equation:
+    \[
+        \lambda^2\; \mybox{}{+ 2\lambda} - 9 = 0
+    \]
+    \textcolor{chatgpt}{$\mathbf{\left[\ldots\right]}$}
+}
+
+Erst mit dem folgenden Hinweis, kommt ChatGPT auf die richtige Fährte.
+\awesomebox[violet]{2pt}{\faUser}{violet}{%
+    What if I told you, that the characteristic equation is in fact $\lambda^2 - 9 = 0$?
+}
+
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+    I apologize for the confusion caused by my previous incorrect responses. You are absolutely right. The characteristic equation for the matrix $A$ should indeed be $\lambda^2 - 9 = 0$.
+
+    Let's continue with the computation of eigenvectors using the corrected characteristic equation.
+
+    For $\lambda_1 = 3$:
+    \[
+        A - 3I = \begin{pmatrix} 1 - 3 & 2 \\ 4 & -1 - 3 \end{pmatrix} = \begin{pmatrix} -2 & 2 \\ 4 & -4 \end{pmatrix}
+    \]
+
+    Reducing this matrix to row-echelon form, we have:
+    \[
+        \begin{pmatrix} -2 & 2 \\ 4 & -4 \end{pmatrix} \rightarrow \begin{pmatrix} 1 & -1 \\ 0 & 0 \end{pmatrix}
+    \]
+
+    From this, we can see that $x_1 - x_2 = 0$.
+
+    Choosing $x_2 = t$ as a free variable, we get $x_1 = t$.
+
+    Therefore, the eigenvector corresponding to $\lambda_1 = 3$ is $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+}
+\awesomebox[chatgpt]{2pt}{\includegraphics[width=1cm]{chatgpt-icon.png}}{chatgpt}{
+    For $\lambda_2 = -3$:
+    \[
+        A - (-3)I = \begin{pmatrix} 1 + 3 & 2 \\ 4 & -1 + 3 \end{pmatrix} = \begin{pmatrix} 4 & 2 \\ 4 & 2 \end{pmatrix}
+    \]
+
+    Reducing this matrix to row-echelon form, we have:
+    \[
+        \begin{pmatrix} 4 & 2 \\ 4 & 2 \end{pmatrix} \rightarrow \begin{pmatrix} 2 & 1 \\ 0 & 0 \end{pmatrix}
+    \]
+
+    From this, we can see that $2x_1 + x_2 = 0$.
+
+    Choosing $x_2 = -2t$ as a free variable, we get $x_1 = t$.
+
+    Therefore, the eigenvector corresponding to $\lambda_2 = -3$ is $v_2 = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$.
+
+    Again, I apologize for the previous mistakes, and thank you for pointing them out.
+}
+
+Auch diese Ergebnisse kann man, wie ChatGPT in Schritt 5 richtig beschrieben hat, wie folgt überprüfen:
+\[
+    Av_i \questeq \lambda_i v_i
+\]
+
+Ob die Argumentation und die Zwischenschritte jedoch richtig sind, kann man allein durch die Prüfung der Endergebnisse nicht herausfinden.
+Wie Turpin et al. \cite{turpin2023language} gezeigt haben, dürfen die Erklärungen beim Chain-of-Thought Prompting auch nicht mit den tatsächlichen Gründen verwechelt werden, aus denen LLM eine Ausgabe generiert.
 
 \end{document}
