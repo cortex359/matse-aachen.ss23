@@ -4,8 +4,135 @@
 
 \section{Aufgabe 2}
 % Kugelkoordinaten
-Gegeben sei eine Halbkugel mit dem Radius $R$, deren Schnittfläche in einem kartesischen Koordinatensystem auf der $xy$-Ebene liegt. Berechnen Sie den Schwerpunkt dieser Halbkugel. 
+Gegeben sei eine Halbkugel mit dem Radius $R$, deren Schnittfläche in einem kartesischen Koordinatensystem auf der $xy$-Ebene liegt. Berechnen Sie den Schwerpunkt dieser Halbkugel.
 
 \subsection{Lösung 2}
+Für das Rechnen mit Kugelkoordinaten, mit $\phi$ \textbf{auf} der $x$-$y$-Ebene und dem Winkel $\theta$ von der $z$-Achse auf die $x$-$y$-Ebene gilt:
+\begin{align*}
+    \iiint f(x,y,z) \dx{(z,y,x)} &=
+        \iiint f(r\cos\phi\sin\theta, r\sin\phi\sin\theta, r\cos\theta )\cdot |r^2\sin\theta| \dx{(\theta, \phi, r)}
+\end{align*}
+
+Wir integrieren über das Gebiet
+\[
+    H = \left\{
+        r \in \interval*{0; R} \land
+        \theta \in \interval*{0; \frac{\pi}{2}} \land
+        \phi \in \interval*{0; 2\pi}
+    \right\}.
+\]
+
+Die $x_S$ und $y_S$ Koordinaten des Schwerpunkts liegen im Mittelpunkt der Kugel, also im Koordinatenursprung.
+
+Für die Koordinate in Richtung der $z$-Achse gilt:
+\begin{equiveqs}[rl]
+    z_S &= \frac{
+        \iiint \limits_H z \dx{(z,y,x)}
+    }{
+        \iiint \limits_H 1 \dx{(z,y,x)}
+    }
+\end{equiveqs}
+
+Wir berechnen den Zähler.
+\begin{align*}
+\iiint \limits_H z \dx{(z,y,x)}
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+    \int_{\theta=0}^{\frac{\pi}{2}}
+        r\cdot \cos\theta
+        \cdot \abs*{r^2\sin\theta}
+    \dx{(\theta, \phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+    \left[
+        \frac{r^3}{2} \cdot \sin(\theta) \cdot \abs*{\sin(\theta)}
+    \right]_{\theta=0}^{\frac{\pi}{2}}
+    \dx{(\phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+        \frac{r^3}{2}
+    \dx{(\phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \left[
+        \frac{r^3}{2} \phi
+    \right]_{\phi=0}^{2\pi}
+    \dx{r} \\
+    &=
+    \int_{r=0}^{R}
+        r^3 \cdot \pi
+    \dx{r} \\
+    &=
+    \left[
+        \frac{r^4}{4} \cdot \pi
+    \right]_{r=0}^{R} \\
+    &=
+        \frac{1}{4} R^4 \cdot \pi
+\end{align*}
+
+Wir berechnen den Nenner:
+\begin{align*}
+\iiint \limits_H 1 \dx{(z,y,x)}
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+    \int_{\theta=0}^{\frac{\pi}{2}}
+        1 \cdot \abs*{r^2\sin\theta}
+    \dx{(\theta, \phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+    \int_{\theta=0}^{\frac{\pi}{2}}
+        r^2 \cdot \sin\theta
+    \dx{(\theta, \phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+    \left[
+        - r^2 \cdot \cos\theta
+    \right]_{\theta=0}^{\frac{\pi}{2}}
+    \dx{(\phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \int_{\phi=0}^{2\pi}
+        r^2
+    \dx{(\phi, r)} \\
+    &=
+    \int_{r=0}^{R}
+    \left[
+        r^2 \cdot \phi
+    \right]_{\phi=0}^{2\pi}
+    \dx{r} \\
+    &=
+    \int_{r=0}^{R}
+        r^2 \cdot 2\pi
+    \dx{r} \\
+    &=
+    \left[
+        \frac{2}{3} r^3 \cdot \pi
+    \right]_{r=0}^{R} \\
+    &=
+        \frac{2}{3} R^3 \cdot \pi
+\end{align*}
+
+Somit erhalten wir für
+\begin{equiveqs}[rcl]
+    z_S &=& \frac{
+        \iiint \limits_H z \dx{(z,y,x)}
+    }{
+        \iiint \limits_H 1 \dx{(z,y,x)}
+    } \\[8mm]
+    &=& \frac{
+        \frac{1}{4} R^{\cancel{4}} \cdot \cancel{\pi}
+    }{
+        \frac{2}{3} \cancel{R^3} \cdot \cancel{\pi}
+    } \\[6mm]
+    &=& \frac{3}{8} R.
+\end{equiveqs}
+
+Der Schwerpunkt der Halbkugel $S = (x_S|y_S|z_S)$ liegt also bei $\left(0 \middle| 0 \middle| \frac{3}{8} R\right)$.
 
 \end{document}
