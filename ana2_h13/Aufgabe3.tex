@@ -13,5 +13,19 @@ y = x
 begrenzt wird.
 
 \subsection{Lösung 3}
+Wir berechnen die Schnittpunkte der Funktionen.
+\begin{equiveqs}[crcl]
+       & x^3 &=& x^2 \\
+\equiv & \multicolumn{3}{l}{x = 1 \lor x = 0}
+\end{equiveqs}
+
+Sodann integrieren wir in dem Intervall $\interval{0; 1}$, wobei wir die Funktion $y=x$ von der Funktion $y^2 = x^3$ abziehen. 
+
+\begin{align*}
+    \int_{0}^{1} x - \sqrt{x^3} \dx{x}
+    &= \left[ \frac{x^2}{2} - \frac{2x^\frac{5}{2}}{5} \right]_{0}^{1} \\[2mm]
+    &= \frac{1}{2} - \frac{2}{5} \\[2mm]
+    &= \frac{1}{10} \\
+\end{align*}
 
 \end{document}

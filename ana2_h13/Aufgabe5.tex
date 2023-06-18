@@ -17,6 +17,41 @@ Gegeben sei das Vektorfeld/ Kraftfeld
 \item Berechnen Sie die Arbeit zwischen den Punkten $A = (0, 1)$ zu $E = (1, 0)$ über die Potentialfunktion oder als Wert des Kurvenintegrals über ein Geradenstück von $A$ nach $E$.
 \end{enumerate}
 
-\subsection{Lösung 5}
+\subsection{Lösung 5a}
+Ein Gradientenfeld ist konservativ, wenn es eine Funktion $f(x, y) : D \to \R$ gibt, mit der $F=\nabla f$.
+
+Wir bestimmen $\nabla f$ und prüfen die Integrabilitätsbedingung:
+\begin{align*}
+    \nabla f &= \vektor{f_x \\ f_y} \\
+    \frac{\partial \vec{f_x}}{\partial y} &=
+        2x -2y \\
+    \frac{\partial \vec{f_y}}{\partial x} &=
+        2x -2y
+\end{align*}
+
+Die Integrabilitätsbedingung ist erfüllt und das Vektorfeld damit konservativ, also Kurvenintegrale wegunabhängig.
+
+\subsection{Lösung 5b}
+\begin{align*}
+    \begin{array}{rrl}
+        & V(x,y) & = \int \vec{F_1} \dx{x}\\[2mm]
+        && = \frac{1}{3}x^3+x^2y-xy^2 + c(y)\\[2mm]
+        \Rightarrow & \frac{\dx{V}}{\dx{y}} & = x^2-2xy+c'(y)\\[2mm]
+        & = \vec{F_2} & = x^2-2xy-y^2\\
+        \Rightarrow & c'(y) & = -y^2\\
+        \Rightarrow & c(y) & = -\frac{1}{3}y^3+c\\[2mm]
+        \Rightarrow & V(x,y) & = \frac{1}{3}x^3+x^2y-xy^2-\frac{1}{3}y^3+c
+    \end{array}
+\end{align*}
+
+\subsection{Lösung 5c}
+\begin{align*}
+    \begin{array}{rl}
+        W & =V(E)-V(A)\\
+        & = V(1, 0) - V(0, 1)\\[2mm]
+        & = \frac{1}{3} - \frac{1}{3}\\[2mm]
+        & = 0
+    \end{array}
+\end{align*}
 
 \end{document}

@@ -4,7 +4,7 @@
 
 \section{Aufgabe 4}
 % Analysis 2-Klausur vom 25.03.2021, A09
-Der Graph von $y = \sin(x)$ beschreibt eine Kurve $K$ in der $xy-$Ebene: 
+Der Graph von $y = \sin(x)$ beschreibt eine Kurve $K$ in der $x$-$y$-Ebene: 
 \[
 \vec{X}(t)
 = \left( \begin{array}{cc}
@@ -26,5 +26,36 @@ $\vec{v}(x,y)
 mit Hilfe einer Potentialfunktion (im Falle der Existenz).
 
 \subsection{Lösung 4}
+Potenzialfunktion existiert, da
+\[
+	\frac{\dx{\vec{v_1}}}{\dx{y}} = \cos(x)+1 = \frac{\dx{\vec{v_2}}}{\dx{x}}
+\]
+Bestimmung der Potenzialfunktion:
+\begin{align*}
+	\begin{array}{rrl}
+		& V(x,y) & =  \int \vec{v_1} dx\\
+		&& = y\cdot \sin(x) + xy+c(y)\\
+		\Rightarrow & \frac{\dx{V}}{\dx{y}} & = \sin(x) + x + c'(y)\\
+		&& = \vec{v_2} = sin(x) + x + 2\\
+		\Rightarrow & c'(y) & = 2\\
+		\Rightarrow & c(y) & = 2y+c\\
+		\Rightarrow & V & = y\cdot \sin(x) + xy + 2y+c
+	\end{array}
+\end{align*}
+Bestimmung des Anfangs- und Endpunktes:
+\begin{align*}
+	\begin{array}{rl}
+		A & = \vec{X}(0) = \vektor{0\\0}\\
+		E & = \vec{X}\left(\frac{\pi}{2}\right) = \vektor{\sfrac{\pi}{2}\\1}
+	\end{array}
+\end{align*}
+Einsetzen in $\int_K \vec{v} \dx{\vec{X}} = V(E)-V(A)$:
+\begin{align*}
+	\begin{array}{rl}
+		\int_K \vec{v} \dx{\vec{X}} & = V\left(\frac{\pi}{2}, 1\right) - V(0,0)\\[2mm]
+		& = 1 + \frac{\pi}{2} + 2\\[2mm]
+		& = \frac{6+\pi}{2}
+	\end{array}
+\end{align*}
 
 \end{document}
