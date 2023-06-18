@@ -5,11 +5,61 @@
 \section{Aufgabe 6}
 Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrizen
 \begin{align*}
-    \text{a) }\; A&=\eqmatrix{rr}{2 & 4 \\ 1 & 2}
-    & \text{b) }\; B&=\eqmatrix{rr}{3 & -1 \\ 2 & 5}
+    \text{a) }\; A &=\eqmatrix{rr}{2 & 4 \\ 1 & 2}
+    & \text{b) }\; B &=\eqmatrix{rr}{3 & -1 \\ 2 & 5}
 \end{align*}
 Bestimmen  Sie auch eventuelle komplexe Eigenwerte und Eigenvektoren. Ein komplexes Gleichungssystem können Sie wie ein reelles Gleichungssystem mit dem Gauß-Verfahren lösen.
 
-\subsection{Lösung 6}
+\subsection{Lösung 6a}
+Wir ermitteln die Eigenwerte durch lösen der charakteristischen Gleichung.
+\begin{equiveqs}[crcl]
+       & 0 &=& \det(A-\lambda E) \\[2mm]
+\equiv & 0 &=& \begin{vmatrix}
+        2-\lambda & 4 \\
+        1 & 2 - \lambda
+    \end{vmatrix} \\
+\equiv & 0 &=& (2-\lambda)^2 - 4 \\
+\equiv & 0 &=& \lambda^2 - 4\lambda \\
+\end{equiveqs}
+
+Somit erhalten wir die Eigenwerte $\lambda_1 = 4$ und $\lambda_2 = 0$.
+Um die zugehörigen Eigenvektoren zu erhalten, setzen wir lösen wir die Gleichung $(A-\lambda E)\cdot v = 0$ nach $v$.
+\begin{equiveqs}[crcl]
+       & 0 &=& (A-\lambda_1 E)\cdot v\\[2mm]
+\equiv & 0 &=& \eqmatrix{rr}{
+    2-4 & 4 \\
+    1 & 2-4 } \cdot v \\
+\equiv & 0 &=& \eqmatrix{rr}{
+    -2 & 4 \\
+    1 & -2 } \cdot v \\
+\end{equiveqs}
+Wir addieren zwei mal die zweite Zeile zur ersten Zeilen und bestimmen $x_1 = t$ als freie Variable. Damit erhalten wir $x_2 = \sfrac{t}{2}$ und den zu $\lambda_1 = 4$ gehörigen Eigenvektor $v_1 = \vektor{1 \\ 0,5}$.
+
+Für $\lambda_2 = 0$ verfahren wir ebenso und erhalten $v_2 = \vektor{-2 \\ 1}$.
+
+\subsection{Lösung 6b}
+Wir bestimmen $\abs{B - \lambda E} = 0$ also $(3-\lambda)(5-\lambda)+2 = 0 \equiv \lambda^2 -8\lambda + 17 = 0$ und erhalten die komplexen Eigenwerte $\lambda_1 = 4+\i$ und $\lambda_2 = 4-\i$.
+
+Für $\lambda_1$ bestimmen wir $v_1$.
+\begin{equiveqs}[crcl]
+    & 0 &=& (B-\lambda_1 E)\cdot v\\[2mm]
+\equiv & 0 &=& \eqmatrix{rr}{
+ -1 -\i & -1 \\
+ 2 & 1 -\i } \cdot v \\
+\end{equiveqs}
+\[
+    \eqmatrix{rr}{
+     -1 -\i & -1 \\
+    2 & 1 -\i }
+    \leadsto \eqmatrix{rr}{
+    1 & (1-\i)/2 \\
+    2 & 1 -\i }
+    \leadsto \eqmatrix{rr}{
+    1 & (1-\i)/2 \\
+    0 & 0 }
+\]
+Mit $x_2 = t$ erhalten wir $x_1 = t \cdot (-\frac{1}{2} + \frac{\i}{2})$ und den zu $\lambda_1 = 4+\i$ gehörigen Eigenvektor $v_1 = \vektor{-1 + \i \\ 2}$.
+
+Für $\lambda_2 = 4-\i$ kommt man entsprechend auf den Eigenvektor $v_2 = \vektor{-1 - \i \\ 2}$.
 
 \end{document}

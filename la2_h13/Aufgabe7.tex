@@ -12,6 +12,34 @@ Ein gegebener Vektor $x$ wird zuerst um $90^\circ$ im Uhrzeigersinn gedreht und 
     \item Bestimmen Sie die Eigenwerte von $A$. Passen diese zu den Beobachtungen aus a) und b)?
 \end{enumerate}
 
-\subsection{Lösung 7}
+\subsection{Lösung 7a}
+Dreht man bspw. den Vektor $(1, -1)^T$ um $90^\circ$ im Uhrzeigersinn $(-1, -1)^T$ und spiegelt ihn an der $y$-Achse, so erhalt man wieder den Ursprungsvektor $(1, -1)^T$. Dies gilt auch alle Vielfachen des Vektors.
+
+\subsection{Lösung 7b}
+In die entgegengesetzte Richtung nach Anwendung der Transformationen zeigen die Vektoren $(1, 1)^T$, $(-1, -1)^T$, sowie weitere Vielfache.
+
+\subsection{Lösung 7c}
+Die Abbildungsmatrix der Transformationen ergibt sich als Produkt der Rotationsmatirx
+\[
+    R_\alpha = \eqmatrix{rr}{\cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha}
+\]
+sowie der Spiegelmatirx
+\[
+    S_y = \eqmatrix{rr}{1 & 0\\ 0 & -1}
+\]
+zu
+\begin{align*}
+    A &= S_y \cdot R_{\frac{\pi}{2}}\\
+    &= \eqmatrix{rr}{1 & 0\\ 0 & -1} \cdot \eqmatrix{rr}{0 & -1\\ 1 & 0} \\
+    &= \eqmatrix{rr}{0 & -1 \\ -1 & 0}
+\end{align*}
+
+\subsection{Lösung 7d}
+Die charakteristische Gleichung der Abbildungsmatrix $A$ lautet $\lambda^2 -1 = 0$ und die Eigenwerte sind somit $\lambda_1 = 1$ und $\lambda_2 = -1$.
+
+Zu $\lambda_1$ gehört der Eigenvektor $v_1 = \vektor{-1 \\ 1}$ und zu $\lambda_2$ der Eigenvektor $v_2 = \vektor{1 \\ 1}$.
+
+Der Vektor $v_1$ passt zu unserem Ergebnis aus 7a) mit $(-1)\cdot v_1 = (1, -1)^T$. Der Vektor $v_2$ passt zu dem Ergebnis aus 7b).
+
 
 \end{document}

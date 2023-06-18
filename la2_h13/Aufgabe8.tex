@@ -14,5 +14,23 @@ $$
 \end{enumerate}
 
 \subsection{Lösung 8}
+Wir bestimmen die allgemeine charakteristische Gleichung und formen in einer Weise um, die uns den Koeffizientenvergleich mit der $p$-$q$-Formel erlaubt.
+
+\begin{align*}
+    0 &= \det (A-\lambda E) \\
+    &= \begin{vmatrix}
+        a -\lambda & -1 \\ 1 & b-\lambda
+    \end{vmatrix} \\[1mm]
+    &= (a-\lambda)(b-\lambda)+1 \\[1mm]
+    &= ab -a\lambda -b\lambda + \lambda^2 + 1 \\[1mm]
+    &= \lambda^2 \underbrace{-(a+b)}_{:= p}\cdot \lambda + \underbrace{ab +1}_{:= q}
+\end{align*}
+
+Mit $\lambda = \frac{p}{2} \pm \sqrt{\left(\frac{p}{2}\right)^2 -q}$ können wir nun durch Betrachtung der Diskriminante erkennen, dass
+\begin{enumerate}
+    \item zwei verschiedene reelle Eigenwerte genau dann vorliegen, wenn $\left(\frac{p}{2}\right)^2 > q$, also $(a-b)^2 > 4$
+    \item ein doppelter reeller Eigenwert genau dann vorliegt, wenn $\left(\frac{p}{2}\right)^2 = q$, also $(a-b)^2 = 4$
+    \item keine reellen Eigenwerte vorliegen, genau dann wenn $\left(\frac{p}{2}\right)^2 < q$, also $(a-b)^2 < 4$.
+\end{enumerate}
 
 \end{document}

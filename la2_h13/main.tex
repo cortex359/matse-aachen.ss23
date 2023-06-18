@@ -426,6 +426,7 @@ right=25mm
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 
+% Roman Numeral 2 -> II
 \newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 
 \def\ojoin{\setbox0=\hbox{$\bowtie$}%
@@ -439,6 +440,21 @@ right=25mm
 }
 
 \renewcommand{\equiv}{\Leftrightarrow}
+
+\usepackage{environ}
+\NewEnviron{equiveqs}[1][crl]{%
+	\begin{displaymath}%
+		\everymath={\displaystyle}%
+		\begin{array}{#1}%
+			\BODY
+		\end{array}%
+	\end{displaymath}%
+}
+%\newenvironment{equiveqs}[1][crl]{%
+%	\[\everymath={\displaystyle}\begin{array}{#1}%
+%}{%
+%	\end{array}\]%
+%}
 
 \author{Christian Rene Thelen}
 
