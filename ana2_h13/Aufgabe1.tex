@@ -1,0 +1,77 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+% Analysis 2-Klausur vom 10.07.2020, A04
+Wir betrachten den Bereich 
+\[
+    B = \{(x,y) \ | \ x \geq 0, y \geq 0,1 \leq x^{2} + y^{2} \leq 4\}
+\]
+\begin{enumerate}
+\item Skizzieren Sie $B$.
+\item Über diesen Bereich wird die Funktion 
+    $f(x,y) = (x^{2} + y^{2})^{2}$ 
+    integriert. Wie groß ist das Integral?
+\end{enumerate}
+
+\subsection{Lösung 1}
+\begin{center}
+    \begin{tikzpicture}[scale=0.6]
+        \begin{axis}[
+                width=\textwidth,
+                unit vector ratio*=1 1 1,
+                axis lines = middle,
+                no markers,
+                ymin=-0.2, ymax=2.2,
+                xmin=-0.2, xmax=2.2,
+                xtick distance=0.5, ytick distance=0.5,
+                minor x tick num = 5,
+                minor y tick num = 5,
+                xlabel = $x$, ylabel = $y$,
+                legend cell align={left},
+                samples=400,
+                domain=0:2, y domain=0:2,
+            ]
+        
+            \addplot [name path=a, blue, samples at={1,0.999,0.995,0.99,...,0.81,0.8,0.79,...,0.01,0.001,0}] {sqrt(1-x^2)};
+            \addplot [name path=b, blue, samples at={2,1.999,1.995,1.99,...,1.81,1.8,1.79,...,0.01,0.001,0}] {sqrt(4-x^2)};
+
+            % \addplot [name path=a, red] {(1/4)*x^2-1};
+            % \addplot [name path=b, red] {x^2-4};
+
+            \addplot [
+                thick,
+                color=blue,
+                fill=blue, 
+                fill opacity=0.05
+            ]
+            fill between[
+                of=a and b,
+                soft clip={domain=0:2},
+            ];
+
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{align*}
+    \int_{0}^{2} \int_{\sqrt{1-x^2}}^{\sqrt{4-x^2}} f(x,y) \dx{y} \dx{x} 
+    &=
+    \int_{0}^{2} \int_{\sqrt{1-x^2}}^{\sqrt{4-x^2}} (x^{2} + y^{2})^{2} \dx{y} \dx{x} \\
+    &=
+    \int_{0}^{2} \int_{\sqrt{1-x^2}}^{\sqrt{4-x^2}} x^4 + 2x^2y^2 + y^4 \dx{y} \dx{x} \\
+    &=
+    \int_{0}^{2} \left[
+        x^4 y +\frac{2}{3} x^2 y^3 + \frac{y^5}{5}
+    \right]_{\sqrt{1-x^2}}^{\sqrt{4-x^2}} \dx{x} \\
+    &=
+    \int_{0}^{2}
+        x^4 \sqrt{4-x^2} +\frac{2}{3} x^2 (\sqrt{4-x^2})^3 + \frac{(\sqrt{4-x^2})^5}{5}
+        - x^4 \sqrt{1-x^2} - \frac{2}{3} x^2 (\sqrt{1-x^2})^3 - \frac{(\sqrt{1-x^2})^5}{5}
+    \dx{x} \\
+\end{align*}
+
+
+\end{document}
