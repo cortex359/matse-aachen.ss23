@@ -1,0 +1,95 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Geben Sie für die folgende Rekursionsgleichung eine möglichst genaue Abschätzung in $\mathcal{O}$-Notation an:
+\[
+    T(n) = \begin{cases}
+        1 & \text{sonst}\\
+        7\cdot T\left(\frac{16n}{81}\right) + \sqrt{n} & \text{falls $n>1$}
+    \end{cases}
+\]
+
+\subsection{Lösung 1}
+Aufstellen der Erzeugenden Funktion.
+
+
+\section{Aufgabe 2}
+Lösen Sie die folgende lineare Rekursionsgleichung mit Hilfe von Erzeugenden Funktionen:
+
+\[
+    T(n) = \begin{cases}
+        4\cdot T(n-3) + 4\cdot T(n-2) -1\cdot T(n-1) & \text{falls $n>2$} \\
+        1 & \text{sonst}
+    \end{cases}
+\]
+
+\subsection{Lösung 2}
+Aufstellen der Erzeugenden Funktion.
+\begin{align*}
+    F(x) &= \sum_{n=0}^{\infty} T(n) x^n \\
+    &= 1 + x + x^2 + \sum_{n=3}^{\infty} T(n) x^n \\
+    &= 1 + x + x^2 + \sum_{n=3}^{\infty} \left( 4\cdot T(n-3) + 4\cdot T(n-2) -1\cdot T(n-1) \right) x^n \\ % Rekursionsgleichung eingesetzt
+    &= % Summe auseinanderziehen:
+    1 + x + x^2 
+    + \sum_{n=3}^{\infty} 4\cdot T(n-3) x^n
+    + \sum_{n=3}^{\infty} 4\cdot T(n-2) x^n
+    - \sum_{n=3}^{\infty} T(n-1) x^n \\
+    &= %
+    1 + x + x^2 
+    + 4x^3 \underbrace{\sum_{n=3}^{\infty} T(n-3) x^{n-3}}_{F(x)}
+    + 4x^2 \sum_{n=3}^{\infty} T(n-2) x^{n-2}
+    - x \sum_{n=3}^{\infty} T(n-1) x^{n-1} \\
+    &= % 
+    1 + x + x^2 
+    + 4x^3 F(x)
+    + 4x^2 \left( F(x) -1 \right)
+    - x \left( F(x) - 1 -x \right) \\
+    &= % Auflösen nach F(x)
+    \frac{
+        -2x^2 + 2x +1
+    }{
+        -4x^3 -4x^2 + x +1} \\
+    % Partialbruchzerlegung (Klausur) oder Polynomdivision (nicht in der Klausur) 
+\end{align*}
+
+Das reflexierte Polynom lautet $-4 -4x + x^2 + x^3$
+
+Nullstellen zu $-4x^3 -4x^2 + x + 1$ sind $x_1 = -1, x_2 = \frac{1}{2}, x_3 = -\frac{1}{2}$.
+
+Kehrwerte hierzu: $\lambda_1 = -1, \lambda_2 = 2, \lambda_3 = -2$
+
+Ansatz für Partialbruchzerlegung:
+
+\begin{align*}
+    \frac{
+        -2x^2 + 2x +1
+    }{
+        (1+x)(1+2x)(1-2x)} &= \frac{A}{\textcolor{blue}{1+x}} + \frac{B}{1+2x} + \frac{C}{1-2x} \\
+\end{align*}
+
+Wir erhalten $A=1, B= \frac{-1}{2}, C=\frac{1}{2}$.
+
+Der Koeffizientenvergleich der Nenner mit der Formel 
+\begin{align*}
+    \sum_{n=0}^{\infty} \textcolor{blue}{\gamma}^n x^n = \frac{1}{\textcolor{blue}{1-\gamma x}}
+\end{align*}
+
+liefert uns die entsprechenden Werte für $\textcolor{blue}{\gamma}$ (hier mit $d_{1,2,3}$ bezeichnet), welche wir summieren können.
+
+\begin{align*}
+    F(x) &= \underbrace{1}_{A} \sum_{n=0}^{\infty} (\underbrace{-1}_{d_1})^n\cdot x^n
+    + \underbrace{\frac{-1}{2}}_{B} \sum_{n=0}^{\infty} (\underbrace{-2}_{d_2})^n x^n + \underbrace{\frac{1}{2}}_{C} \sum_{n=0}^{\infty} (\underbrace{2}_{d_3})^n x^n \\
+    &= \sum_{n=0}^{\infty}
+        \underbrace{
+            \left( (-1)^n - \frac{(-2)^n}{2} + \frac{2^n}{2} \right)
+        }_{T(n)} x^n
+\end{align*}
+
+Die erzeugenden Funktion lautet somit: 
+\[
+    T(n) = (-1)^n - \frac{(-2)^n}{2} + \frac{2^n}{2}
+\]
+
+\end{document}
