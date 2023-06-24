@@ -1,3 +1,7 @@
 {
-    "explorer.excludeGitIgnore": true
+    "explorer.excludeGitIgnore": true,
+    "ltex.additionalRules.enablePickyRules": true,
+    "ltex.additionalRules.motherTongue": "de-DE",
+    "ltex.completionEnabled": true,
+    "ltex.language": "auto"
 }
