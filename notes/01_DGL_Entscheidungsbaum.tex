@@ -1,0 +1,96 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+Im Zusammenhang mit \textit{gewöhnlichen} Differenzialgleichungen (DGLs), also Gleichungen, in denen Ableitungen der Funktion $y(x)$ nach nur \textit{einer} Veränderlichen $x$ vorkommen, schreiben wir zu besseren Übersichtlichkeit $y, y', y'', \ldots, y^{(n)}$ statt $y(x), y'(x), y''(x), \ldots, y^{(n)}(x)$. 
+Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden diese wie gewohnt angegeben.
+
+\pagebreak
+
+\begin{tikzpicture}[node distance=1.8cm]
+	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+	\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+	\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+	%\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+	\tikzstyle{decision} = [rectangle, draw, fill=green!30, text centered, rounded corners, text width=5cm]
+	
+	\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+
+	\node (start) [startstop] {
+		DGL + Anfangswert
+	};
+	\node (explizit) [decision, below of=start] {
+		explizite Form?\\
+		$y' = f\left(x,y\right)$
+	};
+	\node (nl) [process, right of=explizit, xshift=5.5cm] {
+		Nicht (ohne weiteres) lösbar
+	};
+	\node (ordnung) [decision, below of=explizit] {
+		Ordnung der DGL? (höchste Ableitung $y^{(n)}$)
+	};
+	\node (2ord) [process, right of=ordnung, xshift=6cm, yshift=-1cm] {
+		2.A
+	};
+	\node (separabel) [decision, below of=ordnung] {
+		Ist die DGL separabel?
+	};
+	\node (substitution1) [decision, below of=separabel, text width=5cm] {
+		Ist die DGL in der Form\\
+		$y'=h(ax + by +c)$?
+	};
+	\node (substitution2) [decision, below of=substitution1, text width=5cm, yshift=-0.2cm] {
+		Ist die DGL in der Form\\
+		$y'=h\left(\frac{y}{x}\right)$?
+	};
+	\node (homogen) [decision, below of=substitution2, text width=7cm] {
+		Ist die DGL inhomogen, dh. kommt eine Störfunktion $q(x)\neq 0$ vor?
+	};
+	\node (inhomogen) [decision, below of=homogen, text width=5cm] {
+		Ist die DGL in der Form\\
+		$y' = p(x)\cdot y + q(x)$
+	};
+
+	\node (bernoulli) [decision, below of=inhomogen, text width=7cm, yshift=-0.4cm] {
+		Ist die DGL in der Form\\
+		$y' + p(x)y + q(x)\cdot \fbox{ $y^{\alpha}$ } = 0$
+		% \alpha \notin \{0, 1\} ergibt sich aus den vorherigen Entscheidungen
+	};
+	\node (bernoullilgs) [process, right of=bernoulli, xshift=5cm] {
+		Bernoulli
+	};
+
+	\node (riccati) [decision, below of=bernoulli, text width=7cm, yshift=-0.4cm] {
+		Ist die DGL in der Form\\
+		$y' = p(x)y + q(x)y^2 +h(x)$
+		% \alpha \notin \{0, 1\} ergibt sich aus den vorherigen Entscheidungen
+	};
+	\node (riccatilgs) [process, right of=riccati, xshift=5cm] {
+		Riccati
+	};
+
+	\node (partiell) [decision, below of=riccati, textwidth=7cm] {
+		Ist die DGL partiell?
+		$P(x,y) + Q(x,y)\cdot y' = 0$
+	}
+
+	\draw [arrow] (start)         -- (explizit);
+	\draw [arrow] (explizit)      -- node[anchor=east]  {Ja}  	  (ordnung);
+	\draw [arrow] (explizit) 	  -- node[anchor=north] {Nein}    (nl);
+	\draw [arrow] (ordnung)       -- node[anchor=east]  {1. Ord.} (separabel);
+	\draw [arrow] (ordnung) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {2. Ord.} (2ord);
+	\draw [arrow] (ordnung) to[out = 0, in = 270, looseness = 1] node[anchor=south] {n > 2}   (nl);
+	\draw [arrow] (separabel) 	  -- node[anchor=east]  {Nein} 	  (substitution1);
+	\draw [arrow] (substitution1) -- node[anchor=east]  {Nein} 	  (substitution2);
+	\draw [arrow] (substitution2) -- node[anchor=east]  {Nein} 	  (homogen);
+	\draw [arrow] (homogen) 	  -- node[anchor=east]  {Ja}      (inhomogen);
+	\draw [arrow] (inhomogen)     -- node[anchor=east]  {Nein}    (bernoulli);
+	\draw [arrow] (bernoulli)     -- node[anchor=north] {Ja}      (bernoullilgs);
+	\draw [arrow] (bernoulli)     -- node[anchor=east]  {Nein}    (riccati);
+	\draw [arrow] (riccati)       -- node[anchor=north] {Ja}      (riccatilgs);
+\end{tikzpicture}
+
+
+\end{document}

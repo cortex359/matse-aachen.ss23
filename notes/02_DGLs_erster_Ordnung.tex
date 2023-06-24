@@ -2,7 +2,9 @@
 
 \begin{document}
 
-Wir haben eine DGL + Anfangswert gegeben. \\
+\section{Lösen von gewöhnlichen Differenzialgleichungen}
+
+%Wir haben eine DGL + Anfangswert gegeben.
 
 Ist die DGL nicht in expliziter From gegeben, also ist $y'$ nicht freigestellt, so können wir sie nicht ohne Weiteres lösen.
 
@@ -12,7 +14,7 @@ Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$ bestimm
 2. Ordnung siehe [2.A]
 Höherer Ordnung: Können wir nicht lösen.
 
-\section{DGLs 1. Ordnung}
+\subsection{DGLs 1. Ordnung}
 
 \subsection*{[1.A]}
 Ist die DGL separabel? Ja -> [1.B], Nein -> [1.C]
@@ -41,13 +43,40 @@ Ist die DGL in der Form
 \]
 Dann können wir durch Substitution lösen.
 
+
+\textit{Beispiel:}
+\[
+	y' = (x - y +3)^2,\quad y(1) = 1
+\]
+Wir substituieren mit $z(x) := x-y+3$ und leiten nach $x$ ab:
+\begin{align*}
+	z(x) &= x - y(x) + 3 \\
+	z'(x) &= 1 - y'(x) \\
+		  &= 1-z^2(x)
+\end{align*}
+
+Nun können wir den Anfangswert $y(1)=1$ an der Stell $x=1$ in die Funktion einsetzen.
+\begin{equiveqs}[rcllr]
+	z(1) &=& 1& -y(1) & + 3 \\
+		 &=& 1&    -1 & + 3 \\
+		 &=& 3& &
+\end{equiveqs}
+
+Wenn die neue DGL, die wir durch die Substitution erhalten haben, separabel ist, können wir nach \textbf{[1.B]} weiterverfahren.
+Da unser Beispiel $z' = 1 - z^2$ nicht separabel ist, müssen wir stattdessen Lösen und Rücksubstituieren.
+
+Im Beispiel fahren wir fort mit 
+
+% @TODO Marker:
+
+
 Ist die DGL in der Form
 \[
 	y' = h\left(\frac{y}{x}\right)
 \]
 
 
-\section{Mitschrift Fortsetzung vom 06.06.2023}
+% Mitschrift Fortsetzung vom 06.06.2023
 
 \subsection{[D]}
 Wenn nicht der Form $y'(x) = p(x)\cdot y + g(x)$, dann untersuchen wir, ob die DGL in einer speziellen Form vorliegt.
@@ -168,7 +197,7 @@ $\Rightarrow$ Ja, Integrabilitätsbedingung erfüllt.
 	F(x,y) &= \int Q(x,y) \dx{y} = \int -x - \sin^2(y) \dx{y} \\
 		&= \textcolor{blue}{-y x} \textcolor{magenta}{-\frac{1}{2}y + \frac{1}{y} \sin(2 y)} + c_2(x)\\
 \end{align*}
-Koeffizientenvergleich gibt uns die Potentialfunktion $F(x,y)$
+Koeffizientenvergleich gibt uns die Potenzialfunktion $F(x,y)$
 \begin{align*}
 	F(x,y) = \frac{x^3}{3} -xy -\frac{1}{2}y + \frac{1}{y} \sin(2 y) = c
 \end{align*}

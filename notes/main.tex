@@ -486,20 +486,22 @@ right=25mm
 \fancyhf{}
 
 %--- Footer -
-\date{13.06.2023}
+\date{23.06.2023}
 
-
-\fancyhead[L]{\textbf{\module} Lösen von Differentialgleichungen}
-\fancyhead[C]{}
-\fancyhead[R]{}
+\fancyhead{}
+\fancyhead[L]{\textbf{\module} \nouppercase{\leftmark}}
 \makeatletter
 \fancyfoot[L]{{\small \@date}}
-\fancyfoot[R]{{\small Seite \thepage~von~\pageref{LastPage}}}
 \makeatother
+\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
+\fancyfoot[R]{{\small \href{mailto://christian.thelen@rwth-aachen.de}{Christian Rene Thelen}}}
 
 \begin{document}
 
-\subfile{DGLs.tex}
-\subfile{Topic2.tex}
+\subfile{01_DGL_Entscheidungsbaum.tex}
+\pagebreak
+\subfile{02_DGLs_erster_Ordnung.tex}
+\pagebreak
+%\subfile{Topic2.tex}
 
 \end{document}
