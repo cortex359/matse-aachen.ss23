@@ -1,0 +1,60 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Taylorpolynom 2. Grades um die Entwicklungspunkte $(0,0)$ und $(2,1)$.
+\[
+    f(x, y) = (x+2y)^2 - 3x\cdot y^2
+\]
+
+\subsection{Lösung 1}
+
+\begin{align*}
+    f(x, y) &= (x+2y)^2 - 3x\cdot y^2 \\
+    f_{x}(x, y) &= 2x +4y - 3y^2 \\
+    f_{xx}(x, y) &= 2 \\
+    f_{y}(x, y) &= 4x +8y - 6x\cdot y \\
+    f_{yy}(x, y) &= 8 - 6x \\
+    f_{xy}(x, y) &= 4 - 6y \\
+                 &= f_{yx}(x, y) \\
+\end{align*}
+
+Das Taylorpolynom 2. Ordnung um den Entwicklungspunkt $(x_0, y_0)$ lautet:
+\begin{align*}
+    T(x,y) &= f(x_0, y_0) 
+    + f_x(x_0, y_0)(x-x_0) 
+    + f_y(x_0, y_0)(y-y_0) \\
+    &+ \frac{1}{2} f_{xx}(x_0, y_0)(x-x_0)^2
+    + f_{xy}(x_0, y_0)(x-y_0)(y-y_0)
+    + \frac{1}{2} f_{yy}(x_0, y_0)(y-y_0)^2
+\end{align*}
+
+Für den Entwicklungspunkt $(0, 0)$
+\begin{align*}
+    T(x,y) &= f(0, 0) 
+    + f_x(0, 0)(x-0) 
+    + f_y(0, 0)(y-0) \\
+    &+ \frac{1}{2} f_{xx}(0, 0)(x-0)^2
+    + f_{xy}(0, 0)(x-0)(y-0)
+    + \frac{1}{2} f_{yy}(0, 0)(y-0)^2 \\[3mm]
+    &= x^2
+    + 4 xy
+    + 4\cdot y^2 \\[3mm]
+\end{align*}
+
+Für den Entwicklungspunkt $(2, 1)$:
+\begin{align*}
+    T(x,y) &= 30
+    + 5(x-2) 
+    + 4(y-1)
+    + (x-2)^2
+    -2(x-1)(y-1)
+    -2(y-1)^2 \\
+    &= 30 + 5x -10 + 4y -4 +x^2 -4x +4 \\
+    & -2xy +2x +2y -2 -2y^2 +4y -2 \\
+    &= \fbox{$x^2 + 3x -2xy -2y^2 + 10y + 16$}
+\end{align*}
+
+
+\end{document}

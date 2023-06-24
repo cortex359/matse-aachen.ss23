@@ -1,0 +1,56 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 2}
+Berechnen Sie alle relativen Extrema und Sattelpunkte der Funktionen
+
+\[
+    f(x, y) = x^2\cdot y^2
+\]
+
+\subsection{Lösung 2}
+
+Bestimme $\nabla f$
+
+\begin{align*}
+    \nabla f &= \vektor{f_x \\ f_y} \\
+    &= \vektor{
+        2x\cdot y^2 \\
+        2x^2\cdot y
+    }
+\end{align*}
+
+Wir setzten jede Zeile des Vektors $\nabla f$ null und lösen das Gleichungssystem. Wir erkennen leicht, dass nur $(x, y) = (0, 0)$ eine Lösung ist, also haben wir eine Extremstelle in $(0, 0)$.
+
+Um zusätzlich die Art des Extremums zu bestimmen brauchen wir die Hesse-Matrix der Funktion, und dafür wiederum die zweiten partiellen Ableitung: 
+
+\begin{align*}
+    f_{xx} &= 2y^2 \\
+    f_{yy} &= 2x^2 \\
+    f_{xy} &= 4xy
+\end{align*}
+
+Dies fassen wir in der Hesse-Matrix zusammen:
+
+\begin{align*}
+    H_f(x,y) &= \eqmatrix{lr}{
+        f_{xx} & f_{xy} \\
+        f_{yx} & f_{yy} \\
+    } \\
+    &= \eqmatrix{lr}{
+        2y^2 & 4xy \\
+         4xy & 2x^2 \\
+    } \\
+\end{align*}
+
+Nun setzten wir die zuvor gefundene Extremstelle $(0, 0)$ in die Hesse-Matrix ein:
+\begin{align*}
+    H_f(0, 0) &= \eqmatrix{lr}{
+        0 & 0 \\
+        0 & 0 \\
+    } \\
+\end{align*}
+
+
+\end{document}
