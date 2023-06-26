@@ -1,11 +1,8 @@
-\documentclass[main.tex]{subfiles}
+\documentclass{standalone}
+
+\input{header.tex} 
 
 \begin{document}
-
-Im Zusammenhang mit \textit{gewöhnlichen} Differenzialgleichungen (DGLs), also Gleichungen, in denen Ableitungen der Funktion $y(x)$ nach nur \textit{einer} Veränderlichen $x$ vorkommen, schreiben wir zu besseren Übersichtlichkeit $y, y', y'', \ldots, y^{(n)}$ statt $y(x), y'(x), y''(x), \ldots, y^{(n)}(x)$. 
-Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden diese wie gewohnt angegeben.
-
-\pagebreak
 
 \begin{tikzpicture}[node distance=1.8cm]
 	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
@@ -22,6 +19,7 @@ Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden die
 		DGL + Anfangswert
 	};
 	\node (explizit) [decision, below of=start] {
+		% implizit: keine unabhängigen Variablen, alle auf einer Seite bspw. f(x,y) =0
 		explizite Form?\\
 		$y' = f\left(x,y\right)$
 	};
@@ -31,9 +29,41 @@ Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden die
 	\node (ordnung) [decision, below of=explizit] {
 		Ordnung der DGL? (höchste Ableitung $y^{(n)}$)
 	};
-	\node (2ord) [process, right of=ordnung, xshift=6cm, yshift=-1cm] {
-		2.A
+
+	%%% DGL 2. ORdnung
+	\node (secordHomogen) [decision, right of=ordnung, text width=2.6cm, xshift=5cm, yshift=-1.4cm] {
+		Homogen?
 	};
+	
+	\node (2ord) [decision, right of=secordHomogen, xshift=5cm, yshift=-2cm, text width=6cm] {
+		charakteristische Gleichung $\lambda^2+a\lambda+b = 0$ aufstellen
+		$D = \frac{a^2}{4}-b$
+	};
+	\draw [arrow] (secordHomogen) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {homogen} (2ord);
+	
+	\node ()
+
+	\node (dgtnull) [process, right of=2ord, text width=4.5cm, xshift=54mm] {
+		zwei reelle Nullstellen
+		$y(x) = c_1 \e^{\lambda_1 x} + c_2 \e^{\lambda_2 x}$
+	};
+
+	\node (deqnull) [process, above of=2ord, text width=6cm, yshift=2mm] {
+		eine reelle (doppelte) Nullstelle
+		$y(x) = c_1 \e^{\lambda x} + c_2 \cdot x \cdot \e^{\lambda x}$
+	};
+
+	\node (dlenull) [process, below of=2ord, text width=6cm, yshift=-5mm] {
+		zwei komplexe Nullstellen $\lambda_1 = w + \ct{i}v,\ \lambda_2 = w - \ct{i}v$
+		$y(x) = \e^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right)$
+	};
+
+	\draw [arrow] (2ord) -- node[anchor=south] {$D \geq 0$} (dgtnull);
+	\draw [arrow] (2ord) -- node[anchor=east] {$D = 0$}    (deqnull);
+	\draw [arrow] (2ord) -- node[anchor=east] {$D \leq 0$} (dlenull);
+
+
+	%% DGLs 1. Ordnung
 	\node (separabel) [decision, below of=ordnung] {
 		Ist die DGL separabel?
 	};
@@ -71,16 +101,36 @@ Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden die
 		Riccati
 	};
 
-	\node (partiell) [decision, below of=riccati, textwidth=7cm] {
-		Ist die DGL partiell?
+	\node (partiell) [decision, below of=riccati] {
+		Ist die DGL gewöhnlich oder partiell?
+	};
+	\node (partiell1) [decision, below of=partiell, text width=7cm] {
+		Ist die DGL partiell und von der Form
 		$P(x,y) + Q(x,y)\cdot y' = 0$
-	}
+	};
+	\draw [arrow] (partiell) -- node[anchor=east] {partiell} (partiell1);
+
+	\node (integrabilitaet) [decision, right of=partiell1, xshift=7cm] {
+		Integrabilitätsbedingung erfüllt?
+		\[
+			\frac{\partial P}{\partial y}(x,y) \questeq \frac{\partial Q}{\partial x}(x,y)
+		\]
+	};
+
+	\node (partiell2) [decision, below of=partiell1, text width=7cm] {
+		Ist die DGL partiell und von der Form?
+		$P(x,y) + Q(x,y)\cdot y' = f(x)$
+	};
+
+	\node (potenzialfunktion) [process, right of=integrabilitaet, xshift=5cm] {
+		Potenzialfunktion $F(x,y)$ bestimmen
+	};
 
 	\draw [arrow] (start)         -- (explizit);
 	\draw [arrow] (explizit)      -- node[anchor=east]  {Ja}  	  (ordnung);
 	\draw [arrow] (explizit) 	  -- node[anchor=north] {Nein}    (nl);
 	\draw [arrow] (ordnung)       -- node[anchor=east]  {1. Ord.} (separabel);
-	\draw [arrow] (ordnung) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {2. Ord.} (2ord);
+	\draw [arrow] (ordnung) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {2. Ord.} (secordHomogen);
 	\draw [arrow] (ordnung) to[out = 0, in = 270, looseness = 1] node[anchor=south] {n > 2}   (nl);
 	\draw [arrow] (separabel) 	  -- node[anchor=east]  {Nein} 	  (substitution1);
 	\draw [arrow] (substitution1) -- node[anchor=east]  {Nein} 	  (substitution2);
@@ -90,6 +140,9 @@ Bei \textit{partiellen} DGLs, also jene mit mehreren Veränderlichen, werden die
 	\draw [arrow] (bernoulli)     -- node[anchor=north] {Ja}      (bernoullilgs);
 	\draw [arrow] (bernoulli)     -- node[anchor=east]  {Nein}    (riccati);
 	\draw [arrow] (riccati)       -- node[anchor=north] {Ja}      (riccatilgs);
+	\draw [arrow] (riccati)       -- node[anchor=east]  {Nein}    (partiell);
+	\draw [arrow] (partiell1)     -- node[anchor=east]  {Nein}    (partiell2);
+	\draw [arrow] (partiell1)     -- node[anchor=north] {Ja}      (integrabilitaet);
 \end{tikzpicture}
 
 

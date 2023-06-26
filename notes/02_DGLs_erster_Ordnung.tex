@@ -121,8 +121,8 @@ Mit
 \end{align*}
 bestimmen wir:
 \begin{align*}
-	z_h(x) &= 1\cdot e^{P(x)} \\
-		   &= 1\cdot \ct{e}^{\ln(1+x)^3} \\
+	z_h(x) &= 1\cdot \e^{P(x)} \\
+		   &= 1\cdot \e^{\ln(1+x)^3} \\
 		   &= (1+x)^3
 \end{align*}
 
@@ -133,9 +133,9 @@ Die Bestimmung der homogenen Lösung $z_h$, weicht am Standort Aachen dadurch ab
 	z_h'(x) &= \frac{3}{1+x} z(x) \\
 	\int \frac{1}{z}\dx{z} &= \int \frac{3}{1+x} \dx{x} \\
 	\ln(z_h) &= \int \frac{3}{1+x} \dx{x}\\
-	z_h(x) &= \ct{e}^{\int \frac{3}{1+x}\dx{x}} \\
-	  &= \ct{e}^{3\ln(1+x)+\tilde{c}}\\
-	  &= c\cdot \ct{e}^{\ln((1+x)^3)}\\
+	z_h(x) &= \e^{\int \frac{3}{1+x}\dx{x}} \\
+	  &= \e^{3\ln(1+x)+\tilde{c}}\\
+	  &= c\cdot \e^{\ln((1+x)^3)}\\
 	  &= c\cdot (1+x)^3 \\
 	z_h(0) &= c\cdot 1 \Leftrightarrow c = 1 \\
 	z_h(x) &= (1+x)^3
@@ -143,10 +143,10 @@ Die Bestimmung der homogenen Lösung $z_h$, weicht am Standort Aachen dadurch ab
 
 Zur Bestimung der partikulären Lösung. Dies lässt sich auch mit Ansatz vom Typ der rechten Seite machen. Wir wählen jedoch Variation der Konstanten: 
 \begin{align*}
-	z_p(x) &= \ct{e}^{P(x)} \cdot c(x)\\
-		   &= \ct{e}^{P(x)} \cdot \int_0^x q(\tau)\ct{e}^{-P(\tau)} \dx{\tau}\\
-		   &= (1+x)^3 \int_0^x 3(1+\tau) \ct{e}^{-\ln((1+\tau)^3)} \dx{\tau} \\
-		   &= (1+x)^3 \int_0^x 3(1+\tau) \ct{e}^{\ln\frac{1}{(1+\tau)^3}} \dx{\tau} \\
+	z_p(x) &= \e^{P(x)} \cdot c(x)\\
+		   &= \e^{P(x)} \cdot \int_0^x q(\tau)\e^{-P(\tau)} \dx{\tau}\\
+		   &= (1+x)^3 \int_0^x 3(1+\tau) \e^{-\ln((1+\tau)^3)} \dx{\tau} \\
+		   &= (1+x)^3 \int_0^x 3(1+\tau) \e^{\ln\frac{1}{(1+\tau)^3}} \dx{\tau} \\
 		   &= (1+x)^3 \int_0^x 3(1+\tau) \frac{1}{(1+\tau)^3} \dx{\tau} \\
 		   &= (1+x)^3 \int_0^x \frac{3}{(1+\tau)^2} \dx{\tau} \\
 		   &= (1+x)^3 \left[ - \frac{1}{1+\tau} \right]_0^x \\
@@ -234,7 +234,7 @@ Versuche:
 
 Suche nach einer Funktion in Abhängigkeit von $y$. 
 \begin{align*}
-	\mu(y) = \ct{e}^{-\int g(y)\dx{y}} = \ct{e}^{-3\ln y} = \frac{1}{y^3} \\
+	\mu(y) = \e^{-\int g(y)\dx{y}} = \e^{-3\ln y} = \frac{1}{y^3} \\
 	y-(2x +y) \cdot y' = 0 \\
 	\Rightarrow \underbrace{\frac{1}{y^2}}_{P(x,y)} \underbrace{ -\left(\frac{2x}{y^3} + \frac{1}{y^2} \right)}_{Q(x,y)} = 0
 \end{align*}
@@ -269,10 +269,10 @@ Homogene DGL 2. Ordnung. (für inhomogene DGLs 2. Ordnung ist auch eine Lösung 
 	y'' + a y' + by = 0 \qquad y(\zeta) = \eta_1,\ y'(\zeta) = \eta_2
 \end{align*}
 
-Ansatz: $y(x) = \ct{e}^{\lambda x}$. 
+Ansatz: $y(x) = \e^{\lambda x}$. 
 \begin{align*}
-	\lambda^2 \ct{e}^{\lambda x} + a\lambda \ct{e}^{\lambda x} + b\ct{e}^{\lambda x} = 0 \\
-	\Leftrightarrow \ct{e}^{\lambda x} \cdot \underbrace{\left( \textcolor{blue}{\lambda^2 +a\lambda + b} \right)}_{= 0} = 0
+	\lambda^2 \e^{\lambda x} + a\lambda \e^{\lambda x} + b\e^{\lambda x} = 0 \\
+	\Leftrightarrow \e^{\lambda x} \cdot \underbrace{\left( \textcolor{blue}{\lambda^2 +a\lambda + b} \right)}_{= 0} = 0
 \end{align*}
 
 \textcolor{blue}{charakteristische Gleichung}
@@ -285,17 +285,17 @@ Entscheidung anhand der Diskriminanten der Charakteristischen Gleichgung.
 
 Wenn $D > 0$ haben wir zwei reelle Nullstellen, $\lambda_1, \lambda_2$.
 $$
-	y(x) = c_1 \ct{e}^{\lambda_1 x} + c_2 \ct{e}^{\lambda_2 x} 
+	y(x) = c_1 \e^{\lambda_1 x} + c_2 \e^{\lambda_2 x} 
 $$
 
 Wenn $D = 0$ haben wir eine reelle (doppelte) Nullstelle $\lambda$.
 $$
-	y(x) = c_1 \ct{e}^{\lambda x} + c_2 \cdot x \cdot \ct{e}^{\lambda x} 
+	y(x) = c_1 \e^{\lambda x} + c_2 \cdot x \cdot \e^{\lambda x} 
 $$
 
 Wenn $D < 0$ liegen zwei komplexe Nullstellen vor. $\lambda_1 = w + \ct{i}v,\ \lambda_2 = w - \ct{i}v$
 $$
-	y(x) = \ct{e}^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right) 
+	y(x) = \e^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right) 
 $$
 
 \end{document}
