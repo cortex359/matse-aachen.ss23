@@ -1,0 +1,92 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\renewcommand*{\phi}{\varphi}
+
+\section{Extremwertprobleme mit Nebenbedingung}
+\subsection{Lagrange-Multiplikator}
+
+\section{Extremstellen von Funktionen mit mehreren Veränderlichen}
+
+\section{Stetigkeit}
+
+\section{Taylorpolynom}
+
+\section{Vektorfelder}
+% grad, rot, div 
+
+\section{Tangentialebenen, Richtungsableitungen}
+\subsubsection{Gradient}
+\[
+    \grad \left(f(x, y)\right) = \nabla f(x, y) = \vector{ f_x(x, y) \\ f_y(x, y)}
+\]
+
+\subsubsection{Tangentialebene}
+\newcommand{\fxxnyn}[2]{
+    \textcolor{#1}{
+        f_{#2}(x_0, y_0)
+    }
+}
+\[
+    T(x, y) = \fxxnyn{blue!40}{}
+    + \fxxnyn{red!70}{x}\cdot (x-x_0) 
+    + \fxxnyn{orange!70}{y}\cdot (y-y_0)
+\]
+\[
+    T(x, y) = \vector{x_0 \\ y_0 \\ \fxxnyn{blue!40}{}} + \lambda \vector{1 \\ 0 \\ \fxxnyn{red!70}{x}} + \mu \vector{0 \\ 1 \\ \fxxnyn{orange!70}{y}}
+\]
+
+\subsubsection{Richtungsableitung}
+\[
+    D_{\vec{v}}\left(f\left(x_0, y_0\right)\right) = \frac{\partial f}{\partial \vec{v}} = \scalarprod*{\nabla f, \vec{v}} \quad \text{mit} \quad \norm*{\vec{v}} = 1
+\]
+\subsubsection{Normieren}
+\[
+    \vec{v} = \frac{\vec{a}}{\norm*{\vec{a}}}
+\]
+\subsubsection{Richtung des steilsten Anstiegs}
+\[
+    \vec{v}_{\text{max}} = \frac{\nabla f}{\norm*{\nabla f}}
+\]
+\subsubsection{Wert der maximalen Steigung}
+\[
+    D_{\vec{v}_{\text{max}}}\left(f\left(x_0, y_0\right)\right) 
+    = \scalarprod*{\nabla f, \vec{v}_{\text{max}}}
+    %= \scalarprod*{\nabla f, \frac{\nabla f}{\norm*{\nabla f}}} 
+    %= \norm*{\nabla f}^{-1} \scalarprod*{\nabla f, \nabla f} 
+    = \norm*{\nabla f\left(x_0, y_0\right)}
+\]
+
+
+\section{Kurvenintegral, Potentialfunktion}
+
+\section{Mehrdimensionale Integration}
+\subsubsection{Polarkoordinaten}
+\[
+    \iint f(\textcolor{blue!70}{x}, \textcolor{OrangeRed}{y}) \dx{(x, y)} = \iint f(
+        \textcolor{blue!70}{r\cos\phi}, 
+        \textcolor{OrangeRed}{r\sin\phi}
+    ) \cdot r \dx{(\phi, r)}
+\]
+Kreisfläche: $A = \pi \cdot r^2$
+
+\subsubsection{Kugelkoordinaten}
+\[
+    \iiint f(\textcolor{blue!70}{x}, \textcolor{OrangeRed}{y}, \textcolor{OliveGreen}{z}) \dx{(x, y, z)} = \iiint f\left(
+        \textcolor{blue!70}{r\cos \phi \sin\theta},
+        \textcolor{OrangeRed}{r\sin \phi \sin\theta}, 
+        \textcolor{OliveGreen}{r\cos\theta} \right) 
+        \abs{r^2 \sin\theta}
+        \dx{(\theta, \phi, r)}
+\]
+
+Kugelvolumen: $V = \frac{4}{3} \pi\cdot r^3$
+
+\subsection{Schwerpunkte}
+
+\section{Implizite Funktionen}
+
+\section{Differenzialgleichungen und Anfangswertprobleme}
+
+\end{document}

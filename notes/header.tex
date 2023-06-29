@@ -333,10 +333,13 @@ linkcolor=td-blue
 \newcommand*{\questeq}{\overset{?}{=}}
 \newcommand*{\exeq}{\overset{!}{=}}
 
-\renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
 \newcommand{\vektor}[1]{%
   %\arraycolsep=1pt\def\arraystretch{1}%
   \begin{pmatrix*}[r] #1 \end{pmatrix*}%
+}
+\renewcommand{\vector}[1]{%
+  %\arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[c] #1 \end{pmatrix*}%
 }
 
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
@@ -375,6 +378,7 @@ linkcolor=td-blue
 \DeclareMathOperator{\diff}{d}
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator*{\argmin}{argmin} % star indicates, that limits typeset beneath them instead of to the right
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator{\R}{\mathbb{R}}

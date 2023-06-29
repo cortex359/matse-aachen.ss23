@@ -35,13 +35,17 @@
 		Homogen?
 	};
 	
-	\node (2ord) [decision, right of=secordHomogen, xshift=5cm, yshift=-2cm, text width=6cm] {
+	\node (2ord) [decision, right of=secordHomogen, xshift=5cm, yshift=-1cm, text width=6cm] {
 		charakteristische Gleichung $\lambda^2+a\lambda+b = 0$ aufstellen
 		$D = \frac{a^2}{4}-b$
 	};
 	\draw [arrow] (secordHomogen) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {homogen} (2ord);
 	
-	\node ()
+	\node (varKonst) [process, below of=secordHomogen, xshift=0mm] {
+		Variation der Kontanten
+	};
+	\draw [arrow] (secordHomogen) to[out = 270, in = 90, looseness = 1.5] node[anchor=east] {inhomogen} (varKonst);
+	%\node ()
 
 	\node (dgtnull) [process, right of=2ord, text width=4.5cm, xshift=54mm] {
 		zwei reelle Nullstellen
@@ -117,13 +121,26 @@
 		\]
 	};
 
+	\node (integrierenderFaktor) [process, below of=integrabilitaet, yshift=-8mm, text width=50mm] {
+		Integrierenden Faktor finden
+		\[
+			\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y}}{P}
+		\]
+	};
+	\draw [arrow] (integrabilitaet) -- node[anchor=east] {nicht erfüllt} (integrierenderFaktor);
+
+	\node (potenzialfunktion) [process, right of=integrabilitaet, xshift=54mm] {
+		Potenzialfunktion $F(x,y)$ bestimmen
+	};
+	\draw [arrow] (integrabilitaet) -- node[anchor=north]  {erfüllt} (potenzialfunktion);
+	\draw [arrow] (integrierenderFaktor) to[out = 0, in = 270, looseness = 1.0] node[anchor=north] {
+		neue IB prüfen
+	} (potenzialfunktion);
+	
+
 	\node (partiell2) [decision, below of=partiell1, text width=7cm] {
 		Ist die DGL partiell und von der Form?
 		$P(x,y) + Q(x,y)\cdot y' = f(x)$
-	};
-
-	\node (potenzialfunktion) [process, right of=integrabilitaet, xshift=5cm] {
-		Potenzialfunktion $F(x,y)$ bestimmen
 	};
 
 	\draw [arrow] (start)         -- (explizit);
