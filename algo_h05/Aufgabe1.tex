@@ -1,0 +1,150 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{Aufgabe 1}
+Minimieren Sie den nachfolgenden DEA unter Verwendung eines in der Vorlesung vorgestellten Verfahrens:
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+
+\begin{center}
+\begin{tikzpicture}[->, >=stealth', shorten >=1pt,
+    node distance = 2 cm ]
+\node [state, initial] (q0) {$q_0$};
+\node [state] (q1) [right= of q0 ] {$q_1$};
+\node [state] (q2) [right= of q1 ] {$q_2$};
+\node [state] (q4) [below=10mm of q2] {$q_4$};
+
+\node [state] (q6) [above left=15mm and 10mm of q1] {$q_6$};
+\node [state] (q7) [above right=15mm and 10mm of q1] {$q_7$};
+\node [state] (q8) [above=35mm of q1] {$q_8$};
+
+
+\node [state, accepting ] (q3) [right= of q4] {$q_3$};
+\node [state, accepting ] (q5) [above right=12mm and 12mm of q3] {$q_5$};
+
+\path (q0) edge[below] node {0} (q1)
+           edge[bend right=45, below] node {1} (q3)
+      (q1) edge[left] node {0} (q6)
+           edge[right] node {1} (q7)
+      (q2) edge[below] node {0} (q1) 
+           edge[right] node {1} (q4)
+      (q3) edge[below right] node {0, 1} (q5)
+      (q4) edge[above] node {0, 1} (q3)
+      (q5) edge[loop above, above] node {0, 1} ()
+      (q6) edge[bend left, above] node {0} (q7)
+           edge[left] node {1} (q8)
+      (q7) edge[bend left, below] node {0} (q6)
+           edge[right] node {1} (q8)
+      (q8) edge[bend left=45, above right] node {0} (q3)
+           edge[bend right=45, left] node {1} (q0);
+\end{tikzpicture}
+\end{center}
+
+\subsection{Lösung 1}
+
+\textbf{Schritt 1} Streichen von unerreichbaren Zuständen.
+
+Der Zustand $q_2$ ist nicht erreichbar und kann damit gestrichen werden.\\
+
+\textbf{Schritt 2} Wir fassen die nicht-akzeptierenden Zustände in die mögliche Äquivalenzklasse [1] zusammen und die akzeptierenden Zustände in die mögliche Äquivalenzklasse [2].\\
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|r|r|r}
+     Eq & Q & $\vdash 0$ & $\vdash 1$ \\
+     \hline
+                         & \cellcolor{yellow!20} $q_0$ & \cellcolor{yellow!20} [1] & \cellcolor{yellow!20} [2] \\
+                         & \cellcolor{blue!20} $q_1$ & \cellcolor{blue!20} [1] & \cellcolor{blue!20} [1] \\    
+                         & \cellcolor{orange!20} $q_4$ & \cellcolor{orange!20} [2] & \cellcolor{orange!20} [2] \\    
+                         & \cellcolor{blue!20} $q_6$ & \cellcolor{blue!20} [1] & \cellcolor{blue!20} [1] \\    
+                         & \cellcolor{blue!20} $q_7$ & \cellcolor{blue!20} [1] & \cellcolor{blue!20} [1] \\    
+     \multirow{-6}{*}{[1]} & \cellcolor{red!20} $q_8$ & \cellcolor{red!20} [2] & \cellcolor{red!20} [1] \\
+     \hline
+     \multirow{2}{*}{[2]}
+                         & $q_3$ & [2] & [2] \\    
+                         & $q_5$ & [2] & [2] \\    
+\end{tabular}\\
+\end{table}
+
+\textbf{Schritt 3} Nun Suchen wir nach Zuständen, die sich nicht gleich verhalten, also nicht in der selben Äquivalenzklasse liegen können (farbliche Markierungen in der vorherigen Tabelle) und unterteilen diese in neue Äquivalenzklassen.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|r|r|r}
+    Eq & Q & $\vdash 0$ & $\vdash 1$ \\
+    \hline
+    \cellcolor{yellow!20} [1] & $q_0$ & [2] & [5] \\
+    \hline
+    \cellcolor{blue!20}
+    & $q_1$ & [2] & [2] \\    
+    \cellcolor{blue!20}
+    & $q_6$ & [2] & [4] \\    
+    \cellcolor{blue!20}
+    \multirow{-3}{*}{[2]} & $q_7$ & [2] & [4] \\    
+    \hline
+    \cellcolor{orange!20}
+    [3] & $q_4$ & [5] & [5] \\    
+    \hline
+    \cellcolor{red!20}
+    [4] & $q_8$ & [5] & [1] \\
+    \hline
+    \multirow{2}{*}{[5]}
+                         & $q_3$ & [5] & [5] \\    
+                         & $q_5$ & [5] & [5] \\    
+\end{tabular}
+\end{table}
+
+\textbf{Schritt 4} Dies wiederholen wir solange, bis wir in einer Äquivalenzklasse nur noch Zustände habe, die sich gleich verhalten (die also äquivalent sind).
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|r|r|r}
+    Eq & Q & $\vdash 0$ & $\vdash 1$ \\
+    \hline
+    [1] & $q_0$ & [2] & [6] \\
+    \hline
+    [2] & $q_1$ & [3] & [3] \\
+    \hline
+    \multirow{2}{*}{[3]}
+    & $q_6$ & [3] & [5] \\    
+    & $q_7$ & [3] & [5] \\    
+    \hline
+    \rowcolor{blue!20} $[4]$ & $q_4$ & $[6]$ & $[6]$ \\    
+    \hline
+    [5] & $q_8$ & [6] & [1] \\
+    \hline
+    \multirow{2}{*}{[6]}
+                         & $q_3$ & [6] & [6] \\    
+                         & $q_5$ & [6] & [6] \\    
+\end{tabular}
+\end{table}
+
+Wenn dabei weitere Zustände auftreten, die nicht erreicht werden können, sollten diese ebenfalls gestrichen werden. Hier ist das \colorbox{blue!20}{$q_4$}.\\
+
+\textbf{Schritt 5} Die so erzeugte Transitionstabelle ergibt den minimalen DEA.
+
+\begin{center}
+\begin{tikzpicture}[->, >=stealth', shorten >=1pt,
+     node distance = 15mm]
+ \node [state, initial] (q0) {$q_0$};
+ \node [state] (q1) [right= of q0 ] {$q_1$};
+ \node [state] (q67) [above=10mm of q1] {$q_{6,7}$};
+ \node [state] (q8) [above=10mm of q67] {$q_8$};
+ 
+ \node [state, accepting ] (q35) [right= of q1] {$q_{3,5}$};
+ 
+ \path (q0) edge[below] node {0} (q1)
+            edge[bend right=45, below] node {1} (q35)
+       (q1) edge[left] node {0, 1} (q67)
+       (q35) edge[loop right, right] node {0, 1} ()
+       (q67) edge[left] node {1} (q8)
+             edge[loop right] node {0} ()
+       (q8) edge[bend left=45, above right] node {0} (q35)
+            edge[bend right=45, above left] node {1} (q0);
+\end{tikzpicture}
+\end{center}
+
+\end{document}
