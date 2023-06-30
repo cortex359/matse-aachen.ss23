@@ -1,0 +1,43 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section{DGLs 2. Ordnung} \label{zweite_ordnung}
+
+\subsection*{[2.A]}
+
+Homogene DGL 2. Ordnung. (für inhomogene DGLs 2. Ordnung ist auch eine Lösung mit Variation der Kontanten möglich).
+\begin{align*}
+	y'' + a y' + by = 0 \qquad y(\zeta) = \eta_1,\ y'(\zeta) = \eta_2
+\end{align*}
+
+Ansatz: $y(x) = \e^{\lambda x}$. 
+\begin{align*}
+	\lambda^2 \e^{\lambda x} + a\lambda \e^{\lambda x} + b\e^{\lambda x} = 0 \\
+	\Leftrightarrow \e^{\lambda x} \cdot \underbrace{\left( \textcolor{blue}{\lambda^2 +a\lambda + b} \right)}_{= 0} = 0
+\end{align*}
+
+\textcolor{blue}{charakteristische Gleichung}
+
+Entscheidung anhand der Diskriminanten der Charakteristischen Gleichgung.
+
+\begin{align}
+	D &= \frac{a^2}{4} -b \\
+\end{align}
+
+Wenn $D > 0$ haben wir zwei reelle Nullstellen, $\lambda_1, \lambda_2$.
+$$
+	y(x) = c_1 \e^{\lambda_1 x} + c_2 \e^{\lambda_2 x} 
+$$
+
+Wenn $D = 0$ haben wir eine reelle (doppelte) Nullstelle $\lambda$.
+$$
+	y(x) = c_1 \e^{\lambda x} + c_2 \cdot x \cdot \e^{\lambda x} 
+$$
+
+Wenn $D < 0$ liegen zwei komplexe Nullstellen vor. $\lambda_1 = w + \ct{i}v,\ \lambda_2 = w - \ct{i}v$
+$$
+	y(x) = \e^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right) 
+$$
+
+\end{document}

@@ -28,11 +28,14 @@
         f_{#2}(x_0, y_0)
     }
 }
-\[
-    T(x, y) = \fxxnyn{blue!40}{}
+\begin{align*}
+    T(x, y) &=  \fxxnyn{blue!40}{} 
+    + \scalarprod*{\nabla \fxxnyn{blue!40}{}, (\vec{X} - \vec{X_0})} \\    
+    &= \fxxnyn{blue!40}{}
     + \fxxnyn{red!70}{x}\cdot (x-x_0) 
-    + \fxxnyn{orange!70}{y}\cdot (y-y_0)
-\]
+    + \fxxnyn{orange!70}{y}\cdot (y-y_0) \\
+\end{align*}
+
 \[
     T(x, y) = \vector{x_0 \\ y_0 \\ \fxxnyn{blue!40}{}} + \lambda \vector{1 \\ 0 \\ \fxxnyn{red!70}{x}} + \mu \vector{0 \\ 1 \\ \fxxnyn{orange!70}{y}}
 \]
@@ -56,6 +59,11 @@
     %= \scalarprod*{\nabla f, \frac{\nabla f}{\norm*{\nabla f}}} 
     %= \norm*{\nabla f}^{-1} \scalarprod*{\nabla f, \nabla f} 
     = \norm*{\nabla f\left(x_0, y_0\right)}
+\]
+
+\subsection{Vollständiges/totales Differential}
+\[
+    \dx{z} = f_x (x_0, y_0)\cdot \dx{x} + f_y(x_0, y_0)\cdot \dx{y}
 \]
 
 
@@ -88,5 +96,17 @@ Kugelvolumen: $V = \frac{4}{3} \pi\cdot r^3$
 \section{Implizite Funktionen}
 
 \section{Differenzialgleichungen und Anfangswertprobleme}
+
+
+
+\section{Umformungstricks}
+\[
+	a = \frac{b+1}{b-1} \equiv
+	b = \frac{a+1}{a-1}\quad \text{mit } a \neq 1
+\]
+\[
+	a = \frac{b-1}{b+1} \equiv
+	b = -\frac{a+1}{a-1} = \frac{a+1}{1-a} \quad \text{mit } a \neq 1
+\]
 
 \end{document}

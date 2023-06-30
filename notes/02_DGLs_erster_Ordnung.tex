@@ -6,43 +6,41 @@
 
 %Wir haben eine DGL + Anfangswert gegeben.
 
-Ist die DGL nicht in expliziter From gegeben, also ist $y'$ nicht freigestellt, so können wir sie nicht ohne Weiteres lösen.
+Wenn die DGL nicht in expliziter Form gegeben ist, also $y'$ nicht freigestellt ist und wir sie auch nicht in explizite Form bringen können, so können wir sie nicht (ohne Weiteres) lösen.
 
-Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$ bestimmen wir als nächstes die Ordnung der DGL.
+Ist sie in expliziter Form gegeben, also in der Form $y'(x) = f(x,y(x))$, bestimmen wir als Nächstes die Ordnung der DGL.
 
-1. Ordnung siehe [1.A]
-2. Ordnung siehe [2.A]
+1. Ordnung siehe \nameref{erste_ordnung}\\
+2. Ordnung siehe \nameref{zweite_ordnung}\\
 Höherer Ordnung: Können wir nicht lösen.
 
-\subsection{DGLs 1. Ordnung}
+\subsection{DGLs 1. Ordnung} \label{erste_ordnung}
 
-\subsection*{[1.A]}
-Ist die DGL separabel? Ja -> [1.B], Nein -> [1.C]
+Ist die DGL separable? Ja $\rightarrow$ \nameref{trennung_der_variablen}, Nein $\rightarrow$ Weiter mit \nameref{substitution_1}
 
-\subsection*{[1.B]}
-Die DGL ist separabel, also können wir durch Trennung der Variablen lösen.\\
+\subsection{Trennung der Variablen} \label{trennung_der_variablen}
+Die DGL ist separable, also können wir durch Trennung der Variablen lösen.\\
 
 \textit{Beispiel:}
 \[
 	y' = x\cdot y^2
 \]
-1. Fall: $y(x) = 0$ ist eine triviale Lösung. \\
-2. Fall: $y(x) \neq 0$ Trennung der Variablen.
+1. Fall: $y = 0 \Rightarrow y' = 0$ ist eine triviale Lösung. \\
+2. Fall: $y \neq 0$ Trennung der Variablen.
 \begin{equiveqs}[crcl]
 	& \int \frac{1}{y^2} \dx{y} &=& \int x \dx{x} \\
 \equiv & -\frac{1}{y} &=& \frac{x^2}{2} + c \\
 \equiv & y &=& -\frac{2}{x^2} + \tilde{c} \\
 \end{equiveqs}
 
-\subsection*{[1.C]}
-Die DGL ist nicht separabel. \\
+\subsection{Substitution I} \label{substitution_1}
+Die DGL ist nicht separable. \\
 
 Ist die DGL in der Form 
 \[
 	y' = h(ax + by + c)\; ?
 \]
-Dann können wir durch Substitution lösen.
-
+Dann können wir durch Substitution mit $z = ax + by + c$ lösen.
 
 \textit{Beispiel:}
 \[
@@ -62,23 +60,129 @@ Nun können wir den Anfangswert $y(1)=1$ an der Stell $x=1$ in die Funktion eins
 		 &=& 3& &
 \end{equiveqs}
 
-Wenn die neue DGL, die wir durch die Substitution erhalten haben, separabel ist, können wir nach \textbf{[1.B]} weiterverfahren.
-Da unser Beispiel $z' = 1 - z^2$ nicht separabel ist, müssen wir stattdessen Lösen und Rücksubstituieren.
+Wenn die neue DGL, die wir durch die Substitution erhalten haben, separable ist, können wir nach \nameref{trennung_der_variablen} weiterverfahren.
+Da unser Beispiel $z' = 1 - z^2$ nicht separable ist, müssen wir stattdessen wie folgt lösen und rücksubstituieren.
 
-Im Beispiel fahren wir fort mit 
+\begin{align*}
+	\int_{3}^{z} \frac{1}{1-s^2} \dx{s} &= \int_{1}^{x} 1 \dx{t}
+\end{align*}
 
-% @TODO Marker:
+Zum Lösen des Integrals führen wir mit $\frac{1}{1-s^2} = \frac{1}{-s^2+1} = -\frac{1}{s^2-1}$ eine Partialbruchzerlegung durch. 
+\begin{equiveqs}[cccl]
+		& \frac{1}{1-s^2} &=& \frac{A}{s-1} + \frac{B}{s+1} \\[5mm]
+		& -\frac{1}{(s+1)(s-1)} &=& \frac{A}{s-1} + \frac{B}{s+1} \\[5mm]
+\equiv 	& -1 &=& \frac{A\cdot \cancel{(s-1)}(s+1)}{\cancel{s-1}} + \frac{B\cdot (s-1)\cancel{(s+1)}}{\cancel{s+1}} \\[5mm]
+\equiv 	& -1 &=& A\cdot (s+1) + B\cdot (s-1) \\
+\end{equiveqs}
 
+Mit $s_1=1$ erhalten wir $A = -\frac{1}{2}$ und mit $s_2=-1$ erhalten wir $B = \frac{1}{2}$. Somit gilt:
+\begin{equiveqs}[ccl]
+	\frac{1}{1-s^2} &=& -\frac{1}{2} \cdot \frac{1}{s-1} +\frac{1}{2} \cdot \frac{1}{s+1}\\[5mm]
+			        &=& \frac{1}{2} \cdot \left( \frac{1}{s+1} - \frac{1}{s-1} \right)
+\end{equiveqs}
+
+Damit können wir unser Integral lösen:
+\begin{equiveqs}[cccl]
+		& \int_{3}^{z} \frac{1}{1-s^2} \dx{s} &=& \int_{1}^{x} 1 \dx{t} \\[4mm]
+\equiv	& \frac{1}{2} \int_{3}^{z} \frac{1}{s+1} - \frac{1}{s-1} \dx{s} &=& \int_{1}^{x} 1 \dx{t} \\[4mm]
+\equiv	& \frac{1}{2} \Bigl[ \ln(s+1) - \ln(s-1) \Bigr]_{3}^{z} &=& \bigl[ t \bigr]_{1}^{x} \\[4mm]
+\equiv	& \frac{1}{2} \left[ \ln\left(\frac{s+1}{s-1}\right) \right]_{3}^{z} &=& x - 1 \\[4mm]
+\equiv	& \ln\left(\frac{z+1}{z-1}\right) - \ln\left(2\right)  &=& 2x - 2 \\[4mm]
+\end{equiveqs}
+
+Danach stellen wir nach $z$ um:
+\begin{equiveqs}[cccl]
+		& \ln\left(\frac{z+1}{z-1}\right) - \ln\left(2\right)  &=& 2x - 2 \\[4mm]
+\equiv	& \ln\left(\frac{z+1}{z-1}\right)  &=& 2x - 2 + \ln\left(2\right) \\[4mm]
+\equiv	& \frac{z+1}{z-1} &=& \e^{2x - 2} \cdot \e^{\ln\left(2\right)} \\[4mm]
+\equiv	& \frac{z+1}{z-1} &=& 2\e^{2x - 2} \\[4mm]
+\equiv  & z &=& \frac{2\e^{2x - 2} + 1}{\underbrace{2\e^{2x - 2} - 1}_{\neq 0}}\\
+\end{equiveqs}
+
+\textcolor{blue!60}{
+Umformungstrick:
+\[
+	a = \frac{b+1}{b-1} \equiv
+	b = \frac{a+1}{a-1}\quad \text{mit } a \neq 1
+\]
+\[
+	a = \frac{b-1}{b+1} \equiv
+	b = -\frac{a+1}{a-1} = \frac{a+1}{1-a} \quad \text{mit } a \neq 1
+\]
+}
+
+Rücksubstitution:
+\begin{align*}
+	y &= x + 3 - z \\
+	  &= x + 3 - \frac{2\e^{2x - 2} + 1}{2\e^{2x - 2} - 1}
+\end{align*}
+
+
+
+\pagebreak
+
+\subsection{Substitution II} \label{substitution_2}
+Die DGL ist nicht separable aber in der Form 
+\[
+	y' = h\left(\frac{y}{x}\right)\; ?
+\]
+
+Dann können wir sie durch Substitution mit $z = \frac{y}{x}$ und $y' = z'\cdot x + z$ lösen.\\
+
+\textit{Beispiel:}
+\[
+	y' = \frac{x^2 + y^2}{x\cdot y},\quad y(1) = 1
+\]
+
+Wir formen um, sodass wir mit $z = \frac{y}{x}$ substituieren können.
+\begin{align*}
+	y' &= \frac{x^2 + y^2}{x\cdot y} \\
+	&= \frac{x^{\cancel{2}}}{\cancel{x}\cdot y} + \frac{y^{\cancel{2}}}{x\cdot \cancel{y}}\\[2mm]
+	&= \underbrace{\frac{x}{y}}_{=z^{-1}} + \underbrace{\frac{y}{x}}_{=z}\\
+\end{align*}
+
+Wir sehen also, dass wir mit der Substitution $z = \frac{y}{x}$ eine Funktion $h(t^{-1} + t)$ vorliegen haben. 
+\begin{equiveqs}[rrclr]
+		& y' &=& z^{-1} + z \\
+\equiv 	& z'\cdot x + \cancel{z} &=& z^{-1} + \cancel{z}\\
+\equiv  & z'\cdot x &=& z^{-1}\\
+\end{equiveqs}
+
+Diese DGL ist nun wieder separable und kann wieder leicht durch \nameref{trennung_der_variablen} gelöst werden.
+
+Da wir einen Anfangswert mit $z(\textcolor{orange!80}{1})=\frac{y(\textcolor{orange!80}{1})}{\textcolor{orange!80}{1}}=\textcolor{blue!60}{1}$ gegeben haben, können wir auch mit dem bestimmten Integral rechnen und dann nach $z$ umstellen.
+\begin{equiveqs}[rrclr]
+	& z'\cdot x &=& z^{-1}\\
+\equiv & z' &=& \frac{z^{-1}}{x} \\[5mm]
+\equiv & \int_{\textcolor{blue!60}{1}}^{z} s \dx{s} &=& \int_{\textcolor{orange!80}{1}}^{x} \frac{1}{t} \dx{t} \\[3mm]
+\equiv & \frac{z^2}{2} - \frac{1}{2} &=& \ln(x) - \overbrace{\ln(1)}^{=0} \\[4mm]
+\equiv & z &=& \sqrt{2\ln(x) + 1}
+\end{equiveqs}
+
+Wobei wegen des Anfangswertes $2\ln(x) + 1 > 0$ sein muss, also gilt diese Lösung nur für $x > \sqrt{\e^{-1}}$.
+
+Die Rücksubstitution liefert sodann die Lösung des Anfangswertproblemes.
+\begin{align*}
+	y &= x\cdot z \\
+	  &= x\cdot \sqrt{2\ln(x) + 1}
+\end{align*}
+
+\subsection{Inhomogene DGL} \label{inhomogen}
+Handelt es sich um eine inhomogene DGL, so können wir die folgenden Formen unterscheiden: 
 
 Ist die DGL in der Form
 \[
-	y' = h\left(\frac{y}{x}\right)
+	y' = p(x)\cdot y + q(x)\; ?
 \]
-
+Dann können wir sie mithilfe des Superpositionsprinzips wie folgt lösen: 
+Wir bestimmen die homogene Lösung $y_h$, für die $q(x)=0$ ist, sowie die partikuläre Lösung $y_p$ und setzen diese zusammen:
+\[
+	y(x) = y_h(x) + y_p(x)
+\]
 
 % Mitschrift Fortsetzung vom 06.06.2023
 
-\subsection{[D]}
+\subsection{Bernoulli} \label{bernoulli}
 Wenn nicht der Form $y'(x) = p(x)\cdot y + g(x)$, dann untersuchen wir, ob die DGL in einer speziellen Form vorliegt.
 
 Liegt eine Bernoulli DGL vor?
@@ -92,25 +196,27 @@ Wenn ja:
 	z(x)  &= y(x)^{1-\alpha} \\
 	z'(x) &= \underbrace{(1-\alpha)\cdot p(x)}_{= \tilde{p}}\cdot z(x) + \underbrace{(1-\alpha)\cdot q(x)}_{= \tilde{q}}	
 \end{align*}
-Wir erhalten die Form wie [C.1] und lösen entsprechend.\\
+Wir erhalten die Form wie im Abschnitt \nameref{inhomogen} und lösen entsprechend.\\
 
 \textit{Beispiel:}
 \begin{align*}
 	(1+x)\cdot y' + y &= - (1+x)^2\cdot y^4, \quad y(0) = 1
 \end{align*}
 
-Um zu erkennen, dass es sich um eine Bernoulli DGL handelt, formen wir wir folgt um: 
+Um zu erkennen, dass es sich um eine Bernoulli DGL handelt, formen wir wie folgt um: 
 \begin{align*}
 	(1+x)\cdot y' + y &= - (1+x)^2\cdot y^4 \\
-\Leftrightarrow	y' &= \frac{-y}{1+x} - \frac{(1+x)^2}{1+x} \cdot y^4, \quad x\neq -1 \\
-\Leftrightarrow	y' &= \underbrace{\frac{-1}{1+x}}_{p(x)} \cdot y \underbrace{- \frac{(1+x)^2}{1+x}}_{q(x)} \cdot y^4, \quad \alpha = 4
+\equiv	y' &= \frac{-y}{1+x} - \frac{(1+x)^2}{1+x} \cdot y^4, \quad x\neq -1 \\
+\equiv	y' &= \underbrace{\frac{-1}{1+x}}_{p(x)} \cdot y \underbrace{- \frac{(1+x)^2}{1+x}}_{q(x)} \cdot y^4, \quad \alpha = 4
 \end{align*}
 
-Substituiere: $z(x) = y(x)^{1-\alpha} = y(x)^{-3}$
+Substituiere $z = y^{1-\alpha} = y^{-3}$ 
 \begin{align*}
-	z'(x) &= (1-\alpha)\cdot p(x) \cdot z(x) + (1-\alpha)\cdot q(x)\\
-		  &= -3(\frac{-1}{1+x} z(x) +3 (1+x)), \quad z(0)=y(0)^{-3}=1
+	z' &= (1-\alpha)\cdot p(x) \cdot z + (1-\alpha)\cdot q(x)\\
+	   &= -3\cdot \left( \frac{-1}{1+x}\right) z + 3 (1+x)\\
+	   &= \underbrace{\frac{3}{1+x}\cdot z + 3 (1+x)}_{P(x)}\\
 \end{align*}
+% $z(0)=y(0)^{-3}=1$
 
 Mit
 \begin{align*}
@@ -137,7 +243,7 @@ Die Bestimmung der homogenen Lösung $z_h$, weicht am Standort Aachen dadurch ab
 	  &= \e^{3\ln(1+x)+\tilde{c}}\\
 	  &= c\cdot \e^{\ln((1+x)^3)}\\
 	  &= c\cdot (1+x)^3 \\
-	z_h(0) &= c\cdot 1 \Leftrightarrow c = 1 \\
+	z_h(0) &= c\cdot 1 \equiv c = 1 \\
 	z_h(x) &= (1+x)^3
 \end{align*}
 
@@ -165,8 +271,8 @@ Rücksubstitution:
 		 &= \frac{1}{\sqrt[3]{4(1+x)^3 -3(1+x)^2}}
 \end{align*}
 
-\subsection{[E]}
-Ist die DGL in der Form?
+\subsection{Exakte DGLs I} \label{exakte1}
+Ist die DGL in der Form
 $$
 	P(x,y) + Q(x,y)\cdot y' = 0
 $$
@@ -182,7 +288,7 @@ Wenn ja, ist die Integrabilitätsbedingung erfüllt?
 Wir stellen um, damit sich diese Form ergibt: 
 \[\everymath={\displaystyle}\begin{array}{crl}
 				& x^2 -y &= (x + \sin^2(y)) \cdot y' \\
-\Leftrightarrow & \underbrace{(x^2 -y)}_{P(x,y)} + \underbrace{(-(x+\sin^2(y)))}_{Q(x,y)} \cdot y' & = 0 \\
+\equiv & \underbrace{(x^2 -y)}_{P(x,y)} + \underbrace{(-(x+\sin^2(y)))}_{Q(x,y)} \cdot y' & = 0 \\
 \end{array}\]
 Integrabilitätsbedingung erfüllt?
 \begin{align*}
@@ -202,10 +308,9 @@ Koeffizientenvergleich gibt uns die Potenzialfunktion $F(x,y)$
 	F(x,y) = \frac{x^3}{3} -xy -\frac{1}{2}y + \frac{1}{y} \sin(2 y) = c
 \end{align*}
 
-In Aachen setzen wir üblicherweise $\frac{\partial F(x,y)}{\partial y} \overset{!}{=} Q(x,y)$ gleich und lösen dann die Gleichung nach $c_1 * y'$ auf.
+In Aachen setzen wir üblicherweise $\frac{\partial F(x,y)}{\partial y} \overset{!}{=} Q(x,y)$ gleich und lösen dann die Gleichung nach $c_1 \cdot y'$ auf.
 
-\subsection{[F]}
-\vspace{6cm}
+\subsection{Exakte DGLs II} \label{exakte2}
 Oder in der From? 
 $$
 	P(x,y) + Q(x,y)\cdot y' = f(x)
@@ -221,11 +326,21 @@ Integrabilitätsbedingung:
 	\frac{\partial P}{\partial y}(x,y) &= 1 \\
 	\frac{\partial Q}{\partial x}(x,y) &= -2 
 \end{align*}
-Nein, ist nicht erfüllt. 
--> Finde den integrierenden Faktor:
+Nein, ist nicht erfüllt. $\rightarrow$ Finde den integrierenden Faktor:
 \begin{align*}
-	\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y} = 3
+	\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x} = 3
 \end{align*}
+
+Nun müssen wir überprüfen, ob 
+\[
+	\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial x}}{P} 
+\]
+von $y$ abhängig ist, oder ob 
+\[
+	\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y}}{P} 
+\]
+
+
 Versuche: 
 \begin{align*}
 	\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y}}{P} 
@@ -259,43 +374,5 @@ Koeffizientenvergleich liefert
 \end{align*}
 
 Können wir nach $y$ freistellen? Nein, also fertig. 
-
-\section{DGLs 2. Ordnung}
-
-\subsection*{[2.A]}
-
-Homogene DGL 2. Ordnung. (für inhomogene DGLs 2. Ordnung ist auch eine Lösung mit Variation der Kontanten möglich).
-\begin{align*}
-	y'' + a y' + by = 0 \qquad y(\zeta) = \eta_1,\ y'(\zeta) = \eta_2
-\end{align*}
-
-Ansatz: $y(x) = \e^{\lambda x}$. 
-\begin{align*}
-	\lambda^2 \e^{\lambda x} + a\lambda \e^{\lambda x} + b\e^{\lambda x} = 0 \\
-	\Leftrightarrow \e^{\lambda x} \cdot \underbrace{\left( \textcolor{blue}{\lambda^2 +a\lambda + b} \right)}_{= 0} = 0
-\end{align*}
-
-\textcolor{blue}{charakteristische Gleichung}
-
-Entscheidung anhand der Diskriminanten der Charakteristischen Gleichgung.
-
-\begin{align}
-	D &= \frac{a^2}{4} -b \\
-\end{align}
-
-Wenn $D > 0$ haben wir zwei reelle Nullstellen, $\lambda_1, \lambda_2$.
-$$
-	y(x) = c_1 \e^{\lambda_1 x} + c_2 \e^{\lambda_2 x} 
-$$
-
-Wenn $D = 0$ haben wir eine reelle (doppelte) Nullstelle $\lambda$.
-$$
-	y(x) = c_1 \e^{\lambda x} + c_2 \cdot x \cdot \e^{\lambda x} 
-$$
-
-Wenn $D < 0$ liegen zwei komplexe Nullstellen vor. $\lambda_1 = w + \ct{i}v,\ \lambda_2 = w - \ct{i}v$
-$$
-	y(x) = \e^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right) 
-$$
 
 \end{document}

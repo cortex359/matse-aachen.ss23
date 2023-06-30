@@ -23,15 +23,17 @@
 		explizite Form?\\
 		$y' = f\left(x,y\right)$
 	};
-	\node (nl) [process, right of=explizit, xshift=5.5cm] {
+	\node (nl) [startstop, right of=explizit, xshift=5.5cm, yshift=10mm] {
 		Nicht (ohne weiteres) lösbar
 	};
 	\node (ordnung) [decision, below of=explizit] {
 		Ordnung der DGL? (höchste Ableitung $y^{(n)}$)
 	};
+	\draw [arrow] (explizit) -- node[anchor=east]  {Ja}  	  (ordnung);
+	\draw [arrow] (explizit) to[out = 0, in = 180, looseness = 1] node[anchor=north, yshift=-2mm] {Nein}    (nl);
 
 	%%% DGL 2. ORdnung
-	\node (secordHomogen) [decision, right of=ordnung, text width=2.6cm, xshift=5cm, yshift=-1.4cm] {
+	\node (secordHomogen) [decision, right of=ordnung, text width=2.6cm, xshift=90mm] {
 		Homogen?
 	};
 	
@@ -47,38 +49,58 @@
 	\draw [arrow] (secordHomogen) to[out = 270, in = 90, looseness = 1.5] node[anchor=east] {inhomogen} (varKonst);
 	%\node ()
 
-	\node (dgtnull) [process, right of=2ord, text width=4.5cm, xshift=54mm] {
+	\node (dgtnull) [process, above of=2ord, text width=4.5cm, yshift=2mm] {
 		zwei reelle Nullstellen
 		$y(x) = c_1 \e^{\lambda_1 x} + c_2 \e^{\lambda_2 x}$
 	};
 
-	\node (deqnull) [process, above of=2ord, text width=6cm, yshift=2mm] {
+	\node (deqnull) [process, right of=2ord, text width=6cm, xshift=58mm] {
 		eine reelle (doppelte) Nullstelle
 		$y(x) = c_1 \e^{\lambda x} + c_2 \cdot x \cdot \e^{\lambda x}$
 	};
 
-	\node (dlenull) [process, below of=2ord, text width=6cm, yshift=-5mm] {
+	\node (dlenull) [process, below of=2ord, text width=6cm, yshift=-3mm] {
 		zwei komplexe Nullstellen $\lambda_1 = w + \ct{i}v,\ \lambda_2 = w - \ct{i}v$
 		$y(x) = \e^{w x} \cdot \left( c_1 \cos(v x) + c_2 \sin(v x) \right)$
 	};
 
-	\draw [arrow] (2ord) -- node[anchor=south] {$D \geq 0$} (dgtnull);
-	\draw [arrow] (2ord) -- node[anchor=east] {$D = 0$}    (deqnull);
-	\draw [arrow] (2ord) -- node[anchor=east] {$D \leq 0$} (dlenull);
+	\draw [arrow] (2ord) -- node[anchor=east] {$D > 0$} (dgtnull);
+	\draw [arrow] (2ord) -- node[anchor=south] {$D = 0$}    (deqnull);
+	\draw [arrow] (2ord) -- node[anchor=east] {$D < 0$} (dlenull);
 
 
 	%% DGLs 1. Ordnung
 	\node (separabel) [decision, below of=ordnung] {
 		Ist die DGL separabel?
 	};
+	\node (trennungDerVariablen) [process, right of=separabel, xshift=40mm, text width=38mm] {
+		Trennung der Variablen
+	};
+	\draw [arrow] (separabel) -- node[anchor=south] {Ja} (trennungDerVariablen);
+
+	\draw [arrow] (ordnung) -- node[anchor=east]  {1. Ord.} (separabel);
+	\draw [arrow] (ordnung) -- node[anchor=north] {2. Ord.} (secordHomogen);
+	\draw [arrow] (ordnung) to[out = 2, in = 210, looseness = 1.1] node[anchor=west] {n > 2}   (nl);
+
 	\node (substitution1) [decision, below of=separabel, text width=5cm] {
 		Ist die DGL in der Form\\
 		$y'=h(ax + by +c)$?
 	};
+	\node (substituieren1) [process, right of=substitution1, xshift=40mm, text width=38mm] {
+		Substituiere mit $z(x) = ax + by +c$
+	};
+	\draw [arrow] (substitution1) -- node[anchor=south] {Ja} (substituieren1);
+
 	\node (substitution2) [decision, below of=substitution1, text width=5cm, yshift=-0.2cm] {
 		Ist die DGL in der Form\\
 		$y'=h\left(\frac{y}{x}\right)$?
 	};
+	\node (substituieren2) [process, right of=substitution2, xshift=40mm, text width=38mm] {
+		Substituiere mit $z(x) = \frac{y}{x}$
+	};
+	\draw [arrow] (substitution2) -- node[anchor=south] {Ja} (substituieren2);
+
+
 	\node (homogen) [decision, below of=substitution2, text width=7cm] {
 		Ist die DGL inhomogen, dh. kommt eine Störfunktion $q(x)\neq 0$ vor?
 	};
@@ -87,16 +109,16 @@
 		$y' = p(x)\cdot y + q(x)$
 	};
 
-	\node (bernoulli) [decision, below of=inhomogen, text width=7cm, yshift=-0.4cm] {
+	\node (bernoulli) [decision, below of=inhomogen, yshift=-0.4cm] {
 		Ist die DGL in der Form\\
-		$y' + p(x)y + q(x)\cdot \fbox{ $y^{\alpha}$ } = 0$
+		$y' + p(x)y + q(x)\cdot y^{\alpha} = 0$
 		% \alpha \notin \{0, 1\} ergibt sich aus den vorherigen Entscheidungen
 	};
 	\node (bernoullilgs) [process, right of=bernoulli, xshift=5cm] {
 		Bernoulli
 	};
 
-	\node (riccati) [decision, below of=bernoulli, text width=7cm, yshift=-0.4cm] {
+	\node (riccati) [decision, below of=bernoulli, yshift=-0.4cm] {
 		Ist die DGL in der Form\\
 		$y' = p(x)y + q(x)y^2 +h(x)$
 		% \alpha \notin \{0, 1\} ergibt sich aus den vorherigen Entscheidungen
@@ -121,21 +143,47 @@
 		\]
 	};
 
-	\node (integrierenderFaktor) [process, below of=integrabilitaet, yshift=-8mm, text width=50mm] {
-		Integrierenden Faktor finden
+	\node (integrierenderFaktor) [process, below of=integrabilitaet, yshift=-15mm, text width=60mm] {
+		Erweitern mit integrierendem Faktor $\mu(\eta)$ mit $\eta \in \left\{x, y\right\}$, sodass % Euler-Multiplikator
 		\[
-			\frac{\frac{\partial P}{\partial y} - \frac{\partial Q}{\partial y}}{P}
+			\mu \frac{\partial P}{\partial y}(x,y) = \mu \frac{\partial Q}{\partial x}(x,y)
 		\]
 	};
+
+	\node (intFaktorAbhaengigVonX) [decision, below of = integrierenderFaktor, xshift = -30mm, yshift=-15mm] {
+		\[
+			m(\eta) = \frac{P_y - Q_x}{Q}
+		\]
+		Ist $m$ abhängig von $x$?
+	};
+
+	\node (intFaktorAbhaengigVonY) [decision, below of = integrierenderFaktor, xshift = 30mm, yshift=-15mm] {
+		\[
+			m(\eta) = \frac{Q_x - P_y}{P}
+		\]
+		Ist $m$ abhängig von $y$?
+	};
+	\draw [arrow] (integrierenderFaktor) -- node[anchor=east] {$\eta = x$} (intFaktorAbhaengigVonX);
+	\draw [arrow] (integrierenderFaktor) -- node[anchor=west] {$\eta = y$} (intFaktorAbhaengigVonY);
+
+	\node (faktorEinsetzen) [process, below of=integrierenderFaktor, yshift=-45mm, text width=50mm] {
+		$m(\eta)$ und $\eta$ einsetzen in
+		\[
+			\mu (\eta) = \exp \int m(\eta) \dx{\eta}
+		\]
+	};
+	\draw [arrow] (intFaktorAbhaengigVonX) -- (faktorEinsetzen);
+	\draw [arrow] (intFaktorAbhaengigVonY) -- (faktorEinsetzen);
+
 	\draw [arrow] (integrabilitaet) -- node[anchor=east] {nicht erfüllt} (integrierenderFaktor);
 
 	\node (potenzialfunktion) [process, right of=integrabilitaet, xshift=54mm] {
 		Potenzialfunktion $F(x,y)$ bestimmen
 	};
 	\draw [arrow] (integrabilitaet) -- node[anchor=north]  {erfüllt} (potenzialfunktion);
-	\draw [arrow] (integrierenderFaktor) to[out = 0, in = 270, looseness = 1.0] node[anchor=north] {
-		neue IB prüfen
-	} (potenzialfunktion);
+	\draw [arrow] (faktorEinsetzen) to[out = 180, in = 200, looseness = 1.6] node[anchor=east] {
+		neue IB  mit $\mu(\eta)$
+	} (integrabilitaet);
 	
 
 	\node (partiell2) [decision, below of=partiell1, text width=7cm] {
@@ -144,11 +192,7 @@
 	};
 
 	\draw [arrow] (start)         -- (explizit);
-	\draw [arrow] (explizit)      -- node[anchor=east]  {Ja}  	  (ordnung);
-	\draw [arrow] (explizit) 	  -- node[anchor=north] {Nein}    (nl);
-	\draw [arrow] (ordnung)       -- node[anchor=east]  {1. Ord.} (separabel);
-	\draw [arrow] (ordnung) to[out = 0, in = 180, looseness = 1.5] node[anchor=east] {2. Ord.} (secordHomogen);
-	\draw [arrow] (ordnung) to[out = 0, in = 270, looseness = 1] node[anchor=south] {n > 2}   (nl);
+
 	\draw [arrow] (separabel) 	  -- node[anchor=east]  {Nein} 	  (substitution1);
 	\draw [arrow] (substitution1) -- node[anchor=east]  {Nein} 	  (substitution2);
 	\draw [arrow] (substitution2) -- node[anchor=east]  {Nein} 	  (homogen);
