@@ -22,9 +22,21 @@ positiv definit => Tiefpunkt\\
 negativ definit => Hochpunkt\\
 indefinit => Sattelpunkt
 
-Bei einer $\R^{2\times 2}$ Hessematrix: 
+Bei einer $\R^{2\times 2}$ Hessematrix:
 $D_2 < 0$ -> indefinit. \\
 Wenn $D_2 > 0$, $D_1$ bestimmen: Wenn $D_1 > 0$ positiv, wenn $D_1 < 0$ negativ.
+
+\vspace{1cm}
+
+Berechne für jeden Kandidaten $(x_0, y_0)$ die Werte $f_{xx}(x_0, y_0)$, $f_{xy}(x_0, y_0)$ und $f_{yy}(x_0, y_0)$ und daraus den Wert
+$$
+    d := f_{xx}(x_0, y_0) \cdot f_{yy}(x_0, y_0) - \left(f_{xy}(x_0, y_0)\right)^2
+$$
+Dann gilt:
+$f_{xx}(x_0, y_0) > 0 \ \land \ d > 0 \implies$ \emph{lokales Minimum} \\
+$f_{xx}(x_0, y_0) < 0 \ \land \ d > 0 \implies$ \emph{lokales Maximum} \\
+$d < 0 \implies$ \emph{Sattelpunkt} \\
+$d = 0 \implies$ höhere Ableitung entscheidet \\
 
 \subsection{Hesse-Matrix}
 \[
@@ -36,10 +48,16 @@ Wenn $D_2 > 0$, $D_1$ bestimmen: Wenn $D_1 > 0$ positiv, wenn $D_1 < 0$ negativ.
 
 \section{Stetigkeit}
 
-\section{Taylorpolynom}
+\section{Taylorentwicklung}
+\[
+\begin{aligned}
+    f(x, y) \quad = \quad & f(x_0, y_0) + f_x(x_0, y_0) (x-x_0) + f_y(x_0, y_0) (y-y_0)                                                    \\
+    + \quad               & \frac{f_{xx}(x_0, y_0) (x-x_0)^2}{2} + f_{xy}(x_0, y_0) (x-x_0) (y-y_0) + \frac{f_{yy}(x_0, y_0) (y-y_0)^2}{2}
+\end{aligned}
+\]
 
 \section{Vektorfelder}
-% grad, rot, div 
+% grad, rot, div
 \subsubsection{Rotation}
 \[
     \rot(\vec{v}) = \nabla \times \vec{v} = \vektor{
@@ -48,7 +66,7 @@ Wenn $D_2 > 0$, $D_1$ bestimmen: Wenn $D_1 > 0$ positiv, wenn $D_1 < 0$ negativ.
         \sfrac{\partial}{\partial z} \\
     } \times \vec{v}
 \]
-Wirbelfrei wenn $\rot(\vec{v}) = \vec{0}$. 
+Wirbelfrei wenn $\rot(\vec{v}) = \vec{0}$.
 
 \subsubsection{Divergenz}
 \[
@@ -58,9 +76,11 @@ Wirbelfrei wenn $\rot(\vec{v}) = \vec{0}$.
         \sfrac{\partial}{\partial z} \\
     }, \vec{v}}
 \]
+Punkte mit $\div f > 0$ heißen Quellen, $\div f < 0$ heißen Senken des Vektorfeldes.\\
+Quellenfrei wenn $\div f = 0$.
 
 \subsection{Potenzialfunktion}
-Prüfe ob $\rot(\vec{v}) = \vec{0}$. 
+Prüfe ob $\rot(\vec{v}) = \vec{0}$.
 
 
 \section{Tangentialebenen, Richtungsableitungen}
@@ -68,6 +88,13 @@ Prüfe ob $\rot(\vec{v}) = \vec{0}$.
 \[
     \grad \left(f(x, y)\right) = \nabla f(x, y) = \vector{ f_x(x, y) \\ f_y(x, y)}
 \]
+
+Rechenregeln: $f,g: U\to \R$ differenzierbar und $\alpha \in \R$
+\begin{align*}
+    \nabla (f+g) &= \nabla(f) + \nabla(g) \\
+    \nabla (\alpha g) &= \alpha \cdot \nabla(f)\\
+    \nabla (f\cdot g) &= g\cdot \nabla(f) + f\cdot \nabla(g) \\
+\end{align*}
 
 
 
@@ -78,10 +105,10 @@ Prüfe ob $\rot(\vec{v}) = \vec{0}$.
     }
 }
 \begin{align*}
-    T(x, y) &=  \fxxnyn{blue!40}{} 
-    + \scalarprod*{\nabla \fxxnyn{blue!40}{}, (\vec{X} - \vec{X_0})} \\    
+    T(x, y) &=  \fxxnyn{blue!40}{}
+    + \scalarprod*{\nabla \fxxnyn{blue!40}{}, (\vec{X} - \vec{X_0})} \\
     &= \fxxnyn{blue!40}{}
-    + \fxxnyn{red!70}{x}\cdot (x-x_0) 
+    + \fxxnyn{red!70}{x}\cdot (x-x_0)
     + \fxxnyn{orange!70}{y}\cdot (y-y_0) \\
 \end{align*}
 
@@ -97,23 +124,38 @@ Prüfe ob $\rot(\vec{v}) = \vec{0}$.
 \[
     \vec{v} = \frac{\vec{a}}{\norm*{\vec{a}}}
 \]
-\subsubsection{Richtung des steilsten Anstiegs}
+\subsubsection{Richtung des steilsten Anstiegs/Abstiegs}
 \[
     \vec{v}_{\text{max}} = \frac{\nabla f}{\norm*{\nabla f}}
+    \qquad
+    \vec{v}_{\text{min}} = - \frac{\nabla f}{\norm*{\nabla f}}
 \]
 \subsubsection{Wert der maximalen Steigung}
 \[
-    D_{\vec{v}_{\text{max}}}\left(f\left(x_0, y_0\right)\right) 
+    D_{\vec{v}_{\text{max}}}\left(f\left(x_0, y_0\right)\right)
     = \scalarprod*{\nabla f, \vec{v}_{\text{max}}}
-    %= \scalarprod*{\nabla f, \frac{\nabla f}{\norm*{\nabla f}}} 
-    %= \norm*{\nabla f}^{-1} \scalarprod*{\nabla f, \nabla f} 
+    %= \scalarprod*{\nabla f, \frac{\nabla f}{\norm*{\nabla f}}}
+    %= \norm*{\nabla f}^{-1} \scalarprod*{\nabla f, \nabla f}
     = \norm*{\nabla f\left(x_0, y_0\right)}
 \]
+
+\subsection{Partielle Ableitung}
+Eine Funktion heißt partiell differenzierbar, wenn alle partiellen Ableitungen existieren.
 
 \subsection{Vollständiges/totales Differential}
 \[
     \dx{z} = f_x (x_0, y_0)\cdot \dx{x} + f_y(x_0, y_0)\cdot \dx{y}
 \]
+
+\subsection{Jacobi-Matrix}
+\[
+    J_f = \eqmatrix{ccc}{
+        \frac{\partial f_1}{\partial x} & \cdots & \frac{\partial f_1}{\partial z} \\
+        \vdots & \ddots & \vdots \\
+        \frac{\partial f_n}{\partial x} & \cdots & \frac{\partial f_n}{\partial z} \\
+    }
+\]
+
 
 
 \section{Kurvenintegral, Potentialfunktion}
@@ -122,18 +164,25 @@ Prüfe ob $\rot(\vec{v}) = \vec{0}$.
 \subsubsection{Polarkoordinaten}
 \[
     \iint f(\textcolor{blue!70}{x}, \textcolor{OrangeRed}{y}) \dx{(x, y)} = \iint f(
-        \textcolor{blue!70}{r\cos\phi}, 
+        \textcolor{blue!70}{r\cos\phi},
         \textcolor{OrangeRed}{r\sin\phi}
     ) \cdot r \dx{(\phi, r)}
 \]
 Kreisfläche: $A = \pi \cdot r^2$
 
 \subsubsection{Kugelkoordinaten}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Kugelkoord-def.svg.png}
+        \caption{Kugelkoordinaten. CC-BY-SA by \href{https://commons.wikimedia.org/wiki/User:Ag2gaeh}{User:Ag2gaeh}}
+    \end{center}
+\end{figure}
+
 \[
     \iiint f(\textcolor{blue!70}{x}, \textcolor{OrangeRed}{y}, \textcolor{OliveGreen}{z}) \dx{(x, y, z)} = \iiint f\left(
         \textcolor{blue!70}{r\cos \phi \sin\theta},
-        \textcolor{OrangeRed}{r\sin \phi \sin\theta}, 
-        \textcolor{OliveGreen}{r\cos\theta} \right) 
+        \textcolor{OrangeRed}{r\sin \phi \sin\theta},
+        \textcolor{OliveGreen}{r\cos\theta} \right)
         \abs{r^2 \sin\theta}
         \dx{(\theta, \phi, r)}
 \]
@@ -146,9 +195,9 @@ Kugelvolumen: $V = \frac{4}{3} \pi\cdot r^3$
 \begin{enumerate}
     \item $F(x, y)$ nach $0$ umstellen.
     \item Stelle $(x_0, y_0)$ einsetzen und überprüfen ob Gleichung erfüllt.
-    \item $F_x$ und $F_y$ bestimmen. 
+    \item $F_x$ und $F_y$ bestimmen.
     \item Werte von $F_x(x_0, y_0)$ und $F_y(x_0, y_0)$ ausrechnen.
-    \item $y'(x) = - \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)}$ 
+    \item $y'(x) = - \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)}$
 \end{enumerate}
 
 
