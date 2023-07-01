@@ -1,13 +1,38 @@
 \documentclass[main.tex]{subfiles}
 
 \begin{document}
-
+\renewcommand{\labelenumi}{\arabic{enumi}.}
 \renewcommand*{\phi}{\varphi}
 
 \section{Extremwertprobleme mit Nebenbedingung}
 \subsection{Lagrange-Multiplikator}
 
 \section{Extremstellen von Funktionen mit mehreren Veränderlichen}
+\begin{enumerate}
+    \item Partielle Ableitungen bilden
+    \item $\nabla f = \vec{0}$ setzen
+    \item $F_y$ nach $y$ umstellen und in $F_x$ einsetzen
+    \item Neue Gleichung $0$ setzen und mögliche $x$ Stellen bestimmen
+    \item $y$ Koordinaten mit nach $y$ umgestellte Gleichung bestimmen.
+    \item Hesse Matrix aufstellen
+    \item Punkte jeweils in Hesse-Matrix einsetzen und Definitheit bestimmen
+\end{enumerate}
+
+positiv definit => Tiefpunkt\\
+negativ definit => Hochpunkt\\
+indefinit => Sattelpunkt
+
+Bei einer $\R^{2\times 2}$ Hessematrix: 
+$D_2 < 0$ -> indefinit. \\
+Wenn $D_2 > 0$, $D_1$ bestimmen: Wenn $D_1 > 0$ positiv, wenn $D_1 < 0$ negativ.
+
+\subsection{Hesse-Matrix}
+\[
+    H_f(x, y) = \eqmatrix{cc}{
+        f_{xx} & f_{xy} \\
+        f_{xy} & f_{yy}
+    }
+\]
 
 \section{Stetigkeit}
 
@@ -118,7 +143,6 @@ Kugelvolumen: $V = \frac{4}{3} \pi\cdot r^3$
 \subsection{Schwerpunkte}
 
 \section{Implizite Funktionen}
-\renewcommand{\labelenumi}{\arabic{enumi}.}
 \begin{enumerate}
     \item $F(x, y)$ nach $0$ umstellen.
     \item Stelle $(x_0, y_0)$ einsetzen und überprüfen ob Gleichung erfüllt.
