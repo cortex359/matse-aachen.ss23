@@ -15,12 +15,36 @@
 
 \section{Vektorfelder}
 % grad, rot, div 
+\subsubsection{Rotation}
+\[
+    \rot(\vec{v}) = \nabla \times \vec{v} = \vektor{
+        \sfrac{\partial}{\partial x} \\
+        \sfrac{\partial}{\partial y} \\
+        \sfrac{\partial}{\partial z} \\
+    } \times \vec{v}
+\]
+Wirbelfrei wenn $\rot(\vec{v}) = \vec{0}$. 
+
+\subsubsection{Divergenz}
+\[
+    \div(\vec{v}) = \scalarprod*{\nabla, \vec{v}} = \scalarprod*{\vektor{
+        \sfrac{\partial}{\partial x} \\
+        \sfrac{\partial}{\partial y} \\
+        \sfrac{\partial}{\partial z} \\
+    }, \vec{v}}
+\]
+
+\subsection{Potenzialfunktion}
+Prüfe ob $\rot(\vec{v}) = \vec{0}$. 
+
 
 \section{Tangentialebenen, Richtungsableitungen}
 \subsubsection{Gradient}
 \[
     \grad \left(f(x, y)\right) = \nabla f(x, y) = \vector{ f_x(x, y) \\ f_y(x, y)}
 \]
+
+
 
 \subsubsection{Tangentialebene}
 \newcommand{\fxxnyn}[2]{
@@ -94,6 +118,15 @@ Kugelvolumen: $V = \frac{4}{3} \pi\cdot r^3$
 \subsection{Schwerpunkte}
 
 \section{Implizite Funktionen}
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\begin{enumerate}
+    \item $F(x, y)$ nach $0$ umstellen.
+    \item Stelle $(x_0, y_0)$ einsetzen und überprüfen ob Gleichung erfüllt.
+    \item $F_x$ und $F_y$ bestimmen. 
+    \item Werte von $F_x(x_0, y_0)$ und $F_y(x_0, y_0)$ ausrechnen.
+    \item $y'(x) = - \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)}$ 
+\end{enumerate}
+
 
 \section{Differenzialgleichungen und Anfangswertprobleme}
 
