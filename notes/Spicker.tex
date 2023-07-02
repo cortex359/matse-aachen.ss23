@@ -47,15 +47,21 @@ $d = 0 \implies$ höhere Ableitung entscheidet \\
 \]
 
 \section{Stetigkeit}
+Ggf. in Polarkoordinaten umwandeln und prüfen, ob ein \textit{winkelunabhängiger} Grenzwert existiert. 
+\[
+    \lim_{(x,y)\to (0,0)} f(x, y) = \lim_{r\to 0} f(r\cdot \cos\varphi, r\cdot \sin\varphi)
+\]
+Ggf. lohnt auch eine Betrachtung entlang der Achsen, bspw. bei $x-y$ im Zähler. 
 
 \section{Taylorentwicklung}
-\[
-\begin{aligned}
-    f(x, y) \quad = \quad & f(x_0, y_0) + f_x(x_0, y_0) (x-x_0) + f_y(x_0, y_0) (y-y_0)                                                    \\
-    + \quad               & \frac{f_{xx}(x_0, y_0) (x-x_0)^2}{2} + f_{xy}(x_0, y_0) (x-x_0) (y-y_0) + \frac{f_{yy}(x_0, y_0) (y-y_0)^2}{2}
-\end{aligned}
-\]
+Sei $\Delta x = (x-x_0)$, $\Delta y = (y-y_0)$ und $(x_0, y_0) = \vec{\chi}$
 
+\begin{align*}
+    T_1(x, y) &= f(\vec{\chi}) + f_x(\vec{\chi}) \cdot \Delta x + f_y(\vec{\chi}) \cdot \Delta y \\[2mm]
+    T_2(x, y) &= T_1(x, y) + \frac{f_{xx}(\vec{\chi}) \cdot \Delta x^2}{2} + f_{xy}(\vec{\chi}) \cdot \Delta x \cdot \Delta y + \frac{f_{yy}(\vec{\chi})\cdot \Delta y^2}{2}
+\end{align*}
+    
+    
 \section{Vektorfelder}
 % grad, rot, div
 \subsubsection{Rotation}
@@ -130,6 +136,9 @@ Rechenregeln: $f,g: U\to \R$ differenzierbar und $\alpha \in \R$
     \qquad
     \vec{v}_{\text{min}} = - \frac{\nabla f}{\norm*{\nabla f}}
 \]
+\subsubsection{Steigung gleich Null}
+Orthogonal zur Richtung des Gradienten, also für $\vec{v}_{\text{max}} = \vektor{v_x\\v_y}$ wäre $\vec{v}_{0} = \vektor{-v_y\\ v_x}$ 
+
 \subsubsection{Wert der maximalen Steigung}
 \[
     D_{\vec{v}_{\text{max}}}\left(f\left(x_0, y_0\right)\right)
@@ -159,15 +168,39 @@ Eine Funktion heißt partiell differenzierbar, wenn alle partiellen Ableitungen 
 
 
 \subsection{Kurvenintegral}
+Kurve/Weg: $\vec{X}: \begin{cases}
+    \R &\to \R^n \\
+    t &\mapsto \vektor{x_1(t)\\ x_2(t)}
+\end{cases}$\\
+Ist immer eine Funktion in Abhängigkeit von $t$.\\
+
+Vektorfeld: $\vec{F}: \begin{cases}
+    \R^n &\to \R^n \\
+    (x, y) &\mapsto \vektor{F_1(x, y)\\ F_2(x, y)}
+\end{cases}$
+
+\begin{enumerate}
+    \item Wenn nur Punkte gegeben sind: Kurvendarstellung $\vec{X}(t)$ bestimmen
+    \item Ableitung der Kurve $\vec{X'}(t)=\vektor{x_1' \\[2mm] x_2'}$
+    \item Kurvenpunkte in Vektorfeld einsetzen $\vec{F}\left( \vec{X}(t) \right) = \vec{F}\left( x_1(t), x_2(t) \right)$.
+\end{enumerate}
 \[
-    W = \int_{a}^{b} F\left( \vec{x}(t) \right) \cdot \vec{x'}(t) \dx{t}
+    W = \int_K \vec{F}\dx{\vec{X}} = \int_{a}^{b} \scalarprod*{\vec{F}\left( \vec{X}(t) \right), \vec{X'}(t)} \dx{t}
 \]
-Tangentenvektor einer Kurve $\vec{x}(t)$ ist $\vec{x'}(t)$.\\
-Die Tangente ist $T(t) = \vec{x}(t) + \lambda\cdot \vec{x'}(t)$.
+Tangentenvektor einer Kurve ist $\vec{X'}(t)$.\\
+Tangente ist $T(t) = \vec{X}(t) + \lambda\cdot \vec{X'}(t)$.
 
 \subsection{Potentialfunktion}
-
-
+Sei $\vec{f}: \R^n \to \R^n$. Erfüllt $\vec{f}(x, y)$ die Integrabilitätsbedingung, 
+\[
+    \frac{\partial f_1}{\partial y} \questeq \frac{\partial f_2}{\partial x}
+\]
+dann existiert eine Potentialfunktion $V: \R^n \to \R$ mit $\nabla V = \vec{f}$.
+\[
+    V(x, y) = \int f_1(x, y) \dx{x} = F_1(x, y) + c(y)
+\]
+$c'(y)$ berechnen mit $\frac{\partial V}{\partial y} \exeq f_2(x, y)$ und Koeffizientenvergleich.\\
+Dann $c(y) = \int c'(y) \dx{y}$ in $V(x, y)$ einsetzen. 
 
 \section{Mehrdimensionale Integration}
 \subsubsection{Polarkoordinaten}
