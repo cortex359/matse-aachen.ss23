@@ -15,13 +15,19 @@
 \end{enumerate}
 
 \subsection{Lösung 6a}
-Gemeint scheint hier die Skalarmultiplikation zu sein, also $f:\mathbb{R}^{n}\rightarrow \mathbb{R} ,f(x) = \scalarprod{a,x} $.\\
+Gemeint scheint hier die Skalarmultiplikation zu sein.
+$$
+f:\begin{cases}
+    \mathbb{R}^{n}\to \mathbb{R}\\
+    x \mapsto \scalarprod{a,x}
+\end{cases}
+$$
 
-Die Abbildung ist surjektiv, da $Bild( f) =\mathbb{R}$ gilt und daher auch $rg( f) =\dim( Bild( f)) =\dim(\mathbb{R}) =1$.\\
+Die Abbildung ist surjektiv, da $\Bild(f) =\mathbb{R}$ gilt und daher auch $\text{rg}(f) =\dim(\Bild(f)) =\dim(\mathbb{R}) =1$.\\
 
 Sie ist jedoch nicht injektiv, da $\ker( f) \neq \{0\}$.\\
 
-Notiz: Bild $f\left(\tilde{X}\right) =\left\{f( x)\middle| x\in \tilde{X}\right\} \subseteq \mathbb{R} ,\ \tilde{X} \subseteq \mathbb{R}^{n}$)
+Notiz: $\Bild\left(f\right) =\left\{f( x)\middle| x\in \tilde{X}\right\} \subseteq \mathbb{R} ,\ \tilde{X} \subseteq \mathbb{R}^{n}$
 
 
 \subsection{Lösung 6b}
@@ -49,6 +55,24 @@ Daher kann $\varphi _{a}$ auch nicht bijektiv sein.
 
 
 \subsection{Lösung 6c}
-Fehlt.
+$$
+\varphi : \begin{cases}
+    \mathcal{C}^1 [a,b] \to \mathcal{C} [a,b] & a < b \in \mathbb{R}\\
+    f \mapsto f
+\end{cases}
+$$
+
+Es handelt sich um eine lineare Abbildung, da sie homogen
+$$
+    \varphi (\lambda \cdot f) = \lambda \varphi (f),\quad \lambda \in \mathbb{R} \quad \checkmark
+$$
+und additiv ist.
+$$
+    \varphi (f_1 + f_2) = \varphi (f_1) + \varphi (f_2),\quad f_{1,2} \in \mathcal{C}^1 [a,b] \quad \checkmark
+$$
+
+Da aus $\varphi(f_1) = \varphi (f_2) \Rightarrow f_1 = f_2$ folgt, ist die Einbettung injektiv. 
+Da es jedoch stetige Funktionen gibt, welche nicht stetig differenzierbar sind, ist die Einbettung nicht surjektiv. $\mathcal{C}^1 [a,b] \subsetneq \mathcal{C} [a,b]$ Beispiel: $f(x) = \abs{x} \in \mathcal{C} [-1, 1]$, aber $f(x) \notin \mathcal{C}^1 [-1, 1]$.
+
 
 \end{document}
