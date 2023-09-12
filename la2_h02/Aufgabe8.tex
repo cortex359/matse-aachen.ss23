@@ -21,9 +21,10 @@ Additivität:
     & f(x_1, x_2, x_3) + f(y_1, y_2, y_3) & = (x_1 - 2x_3, 4x_2) + (y_1 - 2y_3, 4y_2) \\
     & & = (x_1 - 2x_3 + y_1 - 2y_3, 4x_2 + 4y_2) \\
     & & = (x_1 + y_1 - 2(x_3 + y_3 ), 4(x_2 + y_2)) \\
-    \Rightarrow  & f(x_1, x_2, x_3) + f(y_1, y_2, y_3) & = f(x_1 + y_1, x_2 + y_2, x_3 + y_3) \ \checked
+    \Rightarrow  & f(x_1, x_2, x_3) + f(y_1, y_2, y_3) & = f(x_1 + y_1, x_2 + y_2, x_3 + y_3) \quad \checked
     \end{array}
 \end{equation*}
+
 Homogenität:
 \begin{equation*}
     \begin{array}{ r r l }
@@ -31,13 +32,24 @@ Homogenität:
     & & = (\lambda \cdot (x_1 - 2 \cdot x_3), 4 \cdot \lambda \cdot x_2)\\
     & \lambda f(x_1, x_2, x_3) & = \lambda \cdot (x_1 - 2x_3, 4x_2)\\
     & & = (\lambda \cdot (x_1 - 2x_3), 4 \cdot \lambda \cdot x_2)\\
-    \Rightarrow  & f( \lambda x_{1} ,\lambda x_{2}) & =\lambda f( x_{1} ,x_{2}) \ \checked
+    \Rightarrow  & f( \lambda x_{1} ,\lambda x_{2}) & =\lambda f( x_{1} ,x_{2}) \quad \checked
     \end{array}
 \end{equation*}
 Die Abbildung ist linear.
 
 \subsection{Lösung 8b}
+Die Menge der Vektoren aus dem Definitionsbereich, welche auf den Nullvektor im Wertebereich abbilden, ermitteln wir durch Betrachtung der Abbildung. Es fällt auf, dass $x_2 = 0$ sein muss und dass $x_1-2x_3 = 0$, also $x_1 = 2x_3$ sein muss. Wählen $x_3=\lambda \in \R$ beliebig:
+$$
+    \ker(f) = \left\{ \lambda \cdot \vektor{2 \\ 0 \\ 1} \middle| \lambda \in \R \right\}
+$$
+Die Dimension ist die Anzahl der Vektoren in einem minimal Erzeugendensystem, welche wir aus der obrigen Darstellung einfach abzählen können. $\dim(\ker(f)) = 1$.
+
 \subsection{Lösung 8c}
+Aus der Rangformel $\text{def}(f) + \text{rg}(f) = \dim(V)$ können wir mit dem zuvor ermittelten $\text{def}(f) + \dim(\ker(f)) = 1$ leicht erkennen, dass $\dim(\Bild(f)) = \text{rg}(f) = 2$ ist.
+
+Außerdem ist $\Bild(f) = \left\{y\in \R^2 \middle| y=\alpha \vektor{1\\0} + \beta \vektor{0\\1},\; \alpha,\beta \in \R \right\} = \R^2$
+
 \subsection{Lösung 8d}
+Die Abbildung $f$ ist surjektiv, wie in Aufgabenteil c gezeigt, aber nicht injektv, wie in Teil b gezeigt.
 
 \end{document}
