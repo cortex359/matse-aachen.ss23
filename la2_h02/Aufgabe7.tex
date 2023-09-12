@@ -9,10 +9,38 @@ Es sei $\lambda \in \mathbb{R}$ und $x \in \mathbb{R}^n$. Der Ausdruck $\lambda 
     \item $\mathbb{R}^1 \to \mathbb{R}^n : \lambda \mapsto \lambda x$
 \end{enumerate}
 
-Wie lauten in jedem Fall die Matrizen der zugehörigen Abbildungen? Im Fall a) kann damit die
-Multiplikation eines Vektors mit einem Faktor als Matrixmultiplikation interpretiert werden.
+Wie lauten in jedem Fall die Matrizen der zugehörigen Abbildungen? Im Fall a) kann damit die Multiplikation eines Vektors mit einem Faktor als Matrixmultiplikation interpretiert werden.
 
 \subsection{Lösung 7a}
+Für die Abbildung 
+$$
+    f_a: \begin{cases}
+        \R^n \to R^n\\
+        x \mapsto \lambda x & \lambda \in \R
+    \end{cases}
+$$
+ist die Abbildungsmatrix $A_{f_a} = \lambda E_n$, also das $\lambda$-fache der $n\times n$-Einheitsmatrix.
+\arraycolsep=0.6em\def\arraystretch{1}
+$$
+A_{f_a} = \eqmatrix{cccc}{
+    \lambda &      0 & \cdots & 0 \\
+          0 & \ddots &      0 & \vdots \\
+     \vdots &      0 & \ddots & 0 \\
+          0 & \cdots & 0 & \lambda}
+$$
+
 \subsection{Lösung 7b}
+\textit{Hinweis:} Bei $\lambda$ handelt es sich um eine Variable, während $x$ hier ein Parameter ist. \\
+Für die Abbildung 
+$$
+    f_b: \begin{cases}
+        \R \to \R^n\\
+        \lambda \mapsto \lambda x & x \in \R^n
+    \end{cases}
+$$
+hat die Abbildungsmatrix die Gestalt $A_{f_b} \in K^n\times 1$. Es handelt sich somit um einen Vektor, welcher durch Multiplikation mit $\lambda$, $\lambda$ in $f_b$ abbildet.
+$$
+    A_{f_b} = \vec{x} = \vektor{x_1 \\ \vdots \\ x_n}
+$$
 
 \end{document}

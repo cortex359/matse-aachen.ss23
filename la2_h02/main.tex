@@ -273,15 +273,12 @@ right=25mm
 \def\ojoin{\setbox0=\hbox{$\bowtie$}%
   \rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
 
-\newcommand{\lojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
-\newcommand{\rojoin}{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
-\newcommand{\fojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
-
-\newcommand{\dotto}{\stackrel{\boldsymbol{\cdot}}{\to}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Symbols @cortex359
-\newcommand{\cis}[1]{\left( \cos\left( #1 \right) + i \sin\left( #1 \right) \right)}
+%% Erweiterte Matrizen in der Form \eqmatrix{ccc|c}{1 & 1 \\ ...}
+\newcommand*{\eqmatrix}[2]{%
+    \ensuremath{\left(\begin{array}{#1}
+        #2
+    \end{array}\right)}%
+}
 
 \newcommand{\dudx}{~\frac{\mathrm{d}u}{\mathrm{d}x}}
 \newcommand{\dudn}{~\frac{\mathrm{d}u}{\mathrm{d}n}}
@@ -292,6 +289,20 @@ right=25mm
 \newcommand{\dFdx}{\frac{\mathrm{d}F}{\mathrm{d}x}}
 \newcommand{\dfdx}{\frac{\mathrm{d}f}{\mathrm{d}x}}
 
+\usepackage{environ}
+\NewEnviron{equiveqs}[1][crl]{%
+	\begin{displaymath}%
+		\everymath={\displaystyle}%
+		\begin{array}{#1}%
+			\BODY
+		\end{array}%
+	\end{displaymath}%
+}
+%\newenvironment{equiveqs}[1][crl]{%
+%	\[\everymath={\displaystyle}\begin{array}{#1}%
+%}{%
+%	\end{array}\]%
+%}
 
 % Standardmäßige Vergrößerung normaler Arrays
 \arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
