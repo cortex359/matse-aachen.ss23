@@ -23,13 +23,12 @@ Die Abbildung $f:\mathbb{Z}\rightarrow \mathbb{Z}$ ist genau dann linear, wenn s
 Additivität:
 \begin{equation*}
 \begin{array}{ r r l }
- & f( a+y) & =( a+y) \ \bmod 17\\
- & f( a) +y & =( a\bmod 17) +y\\
-\Rightarrow  & f( a+y) & \neq f( a) +y
+ f(a+b) & = & (a+b) \bmod 17\\
+    & \neq & a \bmod 17 + b \bmod 17\\
+    & = & f(a) + f(b)
 \end{array}
 \end{equation*}
 Die Abbildung ist nicht linear, da sie nicht additiv ist.
-
 
 \subsection{Lösung 7b}
 Der Kern von $f$ ist die Menge aller Vielfachen von 17:
@@ -41,7 +40,8 @@ Der Kern von $f$ ist die Menge aller Vielfachen von 17:
 
 Die Abbildung ist nicht injektiv, da nicht jedes Element der Zielmenge maximal einmal als Funktionswert angenommen wird. Beispiel: $f(1) = f(18) = 1$.\\
 
-Die Abbildung ist nicht surjektiv, weil nicht jedes Element der Zielmenge mindestens einmal als Funktionswert angenommen wird. Beispiel: $18\in \mathbb{Z}$ aber $18 \notin B$.
+Die Abbildung ist nicht surjektiv, weil nicht jedes Element der Zielmenge mindestens einmal als Funktionswert angenommen wird. Beispiel:
+$\mathbb{Z} = B \ni  17 \notin \Bild (f)$.
 
 \subsection{Lösung 7d}
 
