@@ -2,12 +2,10 @@
 %%%    Vorlage für Hausaufgaben und Übungen                                 %%%
 %%%   ======================================                                %%%
 %%%                                                                         %%%
-%%%    Version:                                                   v1.2.0    %%%
-%%%                                            2022-11-13, 12:11 Uhr CET    %%%
+%%%    Version:                                                   v1.2.3    %%%
 %%%                                                                         %%%
 %%%    Erstellt von:                  Christian Rene Thelen (@cortex359)    %%%
 %%%               https://cortex359.de <christian.thelen@rwth-aachen.de>    %%%
-%%%                                                                         %%%
 %%%                                                                         %%%
 
 \documentclass[12pt,a4paper]{article}
@@ -16,7 +14,6 @@
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 
-%\usepackage[ansinew]{inputenc}
 \usepackage[T1]{fontenc}
 
 % Verfeinerungen des Schriftbildes durch Grauwertausgleich etc.
@@ -182,8 +179,8 @@ linkcolor=td-blue
 % User interface
 \newcommand\ifnumber[4][]{%
     \begingroup
-    \let\parsesign=\iftrue
-    \let\parsefloat=\iftrue
+    \let\parsesign=\iftrue%
+    \let\parsefloat=\iftrue%
     \let\parse@num@minus=-%
     \let\parse@num@plus=+%
     \let\parse@num@point=.%
@@ -297,9 +294,6 @@ linkcolor=td-blue
 }
 \lstset{style=MyCodeStyle}
 
-% nötig, um in Formeln Kreise um Zahlen zu ermöglichen
-\usepackage{tikz}
-
 \usepackage{relsize}
 
 %---- Part 2 ----%
@@ -324,6 +318,8 @@ right=25mm
 \usepackage{siunitx} % für SI Einheiten
 \sisetup{locale = DE}
 
+\usepackage{icomma} % Intelligent commas for decimal numbers
+
 %\usepackage{physics}
 
 \usepackage{mathdots}
@@ -333,15 +329,22 @@ right=25mm
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{amssymb}
-%\usepackage{gensymb}
-%\usepackage{tabularx}
 \usepackage{extarrows}
 \usepackage{booktabs}
+\usepackage{twemojis}
+
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
 
 \usetikzlibrary{fadings}
 \usetikzlibrary{patterns}
 \usetikzlibrary{shadows.blur}
 \usetikzlibrary{shapes}
+\usetikzlibrary{plotmarks}
+\usepgflibrary{plotmarks}
+\usepgfplotslibrary{fillbetween}
 
 \usepackage{stmaryrd}
 
@@ -358,9 +361,6 @@ right=25mm
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\usepackage{listings}
-\usepackage{xcolor}
-
 % Subfiles
 \usepackage{xr}
 \usepackage{subfiles}
@@ -368,145 +368,93 @@ right=25mm
 
 %---- Customs ----%
 \newcommand{\checked}{\checkmark} % for compatibility with mathcha.io exports
-\newcommand*{\eqdef}{\stackrel{\text{def}}{=}}
-\newcommand*{\questeq}{\overset{?}{=}}
-\newcommand*{\defeq}{\overset{?}{=}}
 \renewcommand{\cdotp}{\cdot} % for compatibility with mathcha.io exports
+
+\newcommand*{\defeq}{\overset{\text{def}}{=}}
+\newcommand*{\questeq}{\overset{?}{=}}
+\newcommand*{\exeq}{\overset{!}{=}}
+
 \renewcommand{\vec}{\overrightarrow} % Darstellung von Vektoren
+\newcommand{\vektor}[1]{%
+  %\arraycolsep=1pt\def\arraystretch{1}%
+  \begin{pmatrix*}[r] #1 \end{pmatrix*}%
+}
+
 \renewcommand{\labelenumi}{\alph{enumi})} % task list with a) b) c) ...
 
+% \ct{e} für Konstanten wie e, i, etc.
+%\newcommand\ct[1]{\text{\rmfamily\upshape #1}}
+\newcommand{\ct}[1]{\mathrm{#1}}
+\newcommand{\dx}[1]{~\mathrm{d}#1}
+
+\DeclareMathOperator{\e}{\mathrm{e}}
+\let\i\relax
+\DeclareMathOperator{\i}{\mathrm{i}}
+
 \RequirePackage{mathtools}
+\mathtoolsset{centercolon}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
+\DeclarePairedDelimiterX\skalarprod[2]{\langle}{\rangle}{#1, #2}
+\DeclarePairedDelimiter\interval{[}{]}
 \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
-\DeclarePairedDelimiter\scalarprod{\langle}{\rangle}
-\DeclarePairedDelimiter\interval{[}{]}
-
-\newcommand*\conj[1]{\,\overline{\!{#1}}} % kinda fits here
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Operators
 \DeclareMathOperator{\Eig}{Eig}
-\DeclareMathOperator{\Exists}{\exists}
-\DeclareMathOperator{\Forall}{\forall}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Mean}{E}
-\DeclareMathOperator*{\argmin}{argmin}
-\DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator{\Bild}{Bild}
-\DeclareMathOperator{\defect}{defect}
+\DeclareMathOperator{\Spur}{Spur}
+\DeclareMathOperator{\Kern}{Kern}
+\DeclareMathOperator{\rg}{rg}
 \DeclareMathOperator{\rang}{rang}
-\DeclareMathOperator{\spur}{spur}
-\DeclareMathOperator{\diagonal}{diag}
-\DeclareMathOperator{\Sol}{Sol}
-\DeclareMathOperator{\row}{row}
-\DeclareMathOperator{\col}{col}
-\DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\diff}{d}
-\DeclareMathOperator{\Poi}{Poi}
-\DeclareMathOperator{\VarK}{VarK}
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\IG}{IG}
-\DeclareMathOperator{\CosSim}{CosSim}
-\DeclareMathOperator{\PVE}{PVE}
-\DeclareMathOperator{\PDME}{PDME}
-\DeclareMathOperator{\purity}{purity}
-\DeclareMathOperator{\koh}{koh}
-\DeclareMathOperator{\sep}{sep}
-\DeclareMathOperator{\ps}{ps}
-\DeclareMathOperator{\ACC}{ACC}
-\DeclareMathOperator{\TP}{TP}
-\DeclareMathOperator{\TN}{TF}
-\DeclareMathOperator{\FP}{FP}
-\DeclareMathOperator{\FN}{FF}
-\DeclareMathOperator{\PPV}{PPV}
-\DeclareMathOperator{\TPR}{TPR}
-\DeclareMathOperator{\FPR}{FPR}
-\DeclareMathOperator{\recall}{recall}
-\DeclareMathOperator{\precision}{precision}
-
-% db
-\DeclareMathOperator{\proj}{proj}
-\DeclareMathOperator{\cnt}{count}
-\DeclareMathOperator{\ident}{ident}
-\DeclareMathOperator{\schema}{schema}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\FD}{FD}
-\DeclareMathOperator{\AttrHuelle}{\textnormal{AttrHülle}}
-
-% integration, compatibility with ana1
-\newcommand{\dx}{~\mathrm{d}x}
-\newcommand{\du}{~\mathrm{d}u}
-\newcommand{\dv}{~\mathrm{d}v}
-\newcommand{\dw}{~\mathrm{d}w}
-\newcommand{\dt}{~\mathrm{d}t}
-\newcommand{\dn}{~\mathrm{d}n}
+\DeclareMathOperator*{\argmin}{argmin} % star indicates, that limits typeset beneath them instead of to the right
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\R}{\mathbb{R}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Symbols
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
-\usepackage{pifont}
-\newcommand{\cmark}{\ding{51}}%
-\newcommand{\xmark}{\ding{55}}%
-
-\newcommand{\Nplus}{\mathbb{N}^+}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Rnonneg}{\mathbb{R}^+_0}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\bigo}{\mathcal{O}}
-\newcommand{\Pot}{\mathcal{P}}
-
-\newcommand{\Modal}[1]{\conj{#1}_M}
 \newcommand{\Rnum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
-\newcommand{\Fabs}{F_{\text{abs}}}
-\newcommand{\Frel}{F_{\text{rel}}}
 
 \def\ojoin{\setbox0=\hbox{$\bowtie$}%
   \rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
 
-\newcommand{\lojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
-\newcommand{\rojoin}{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
-\newcommand{\fojoin}{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
+%% Erweiterte Matrizen in der Form \eqmatrix{ccc|c}{1 & 1 \\ ...}
+\newcommand*{\eqmatrix}[2]{%
+    \ensuremath{\left(\begin{array}{#1}
+        #2
+    \end{array}\right)}%
+}
 
-\newcommand{\dotto}{\stackrel{\boldsymbol{\cdot}}{\to}}
+\renewcommand{\equiv}{\Leftrightarrow}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Symbols @cortex359
-\newcommand{\cis}[1]{\left( \cos\left( #1 \right) + i \sin\left( #1 \right) \right)}
+\usepackage{environ}
+\NewEnviron{equiveqs}[1][crl]{%
+	\begin{displaymath}%
+		\everymath={\displaystyle}%
+		\begin{array}{#1}%
+			\BODY
+		\end{array}%
+	\end{displaymath}%
+}
+%\newenvironment{equiveqs}[1][crl]{%
+%	\[\everymath={\displaystyle}\begin{array}{#1}%
+%}{%
+%	\end{array}\]%
+%}
 
-\newcommand{\dudx}{~\frac{\mathrm{d}u}{\mathrm{d}x}}
-\newcommand{\dudn}{~\frac{\mathrm{d}u}{\mathrm{d}n}}
-\newcommand{\dvdx}{~\frac{\mathrm{d}v}{\mathrm{d}x}}
-\newcommand{\dwdx}{~\frac{\mathrm{d}w}{\mathrm{d}x}}
-\newcommand{\dtdx}{~\frac{\mathrm{d}t}{\mathrm{d}x}}
-\newcommand{\ddx}{\frac{\mathrm{d}}{\mathrm{d}x}}
-\newcommand{\dFdx}{\frac{\mathrm{d}F}{\mathrm{d}x}}
-\newcommand{\dfdx}{\frac{\mathrm{d}f}{\mathrm{d}x}}
-
-
-% Standardmäßige Vergrößerung normaler Arrays
-% \arraycolsep=1.4pt\def\arraystretch{2.2} % streach array
-% Anpassbarkeit von Matrizen und Vektoren
-% \makeatletter
-% \renewcommand*\env@matrix[1][\arraystretch]{%
-%   \edef\arraystretch{#1}%
-%   \hskip -\arraycolsep
-%   \let\@ifnextchar\new@ifnextchar
-%   \array{*\c@MaxMatrixCols c}}
-% \makeatother
-
-
-\newenvironment{ematrix}[1]
-{\left(\begin{array}{@{}#1@{}}}
-{\end{array}\right)}
+\author{Christian Rene Thelen}
 
 \newcommand{\hausaufgabe}[3]{
   \fancyhead[L]{\textbf{\module}\\\textbf{\semester}}
@@ -519,7 +467,7 @@ right=25mm
     colorlinks=true,         % false: boxed links; true: colored links
     unicode=true,            % non-Latin characters in Acrobat’s bookmarks
     pdfnewwindow=true,       % links in new window
-    pdfpagemode=UseNone, % Determines how the file is opened. Possibilities are UseThumbs (Thumbnails), UseOutlines (Bookmarks) and FullScreen
+    pdfpagemode=UseNone,     % Determines how the file is opened. Possibilities are UseThumbs (Thumbnails), UseOutlines (Bookmarks) and FullScreen
     pdfstartpage=1,          % Determines on which page the PDF file is opened
     pdftitle={\module: Hausaufgabenblatt #1},
     pdfsubject={Aufgaben vom #2, Abgabe am #3},
@@ -527,14 +475,12 @@ right=25mm
     pdfauthor={Christian Rene Thelen}, % author
     pdfcreator={cortex359 v1.2}, % creator of the document
     pdfproducer={cortex359 / Christian Rene Thelen}, % producer of the document
-    linkcolor=td-blue,       % color of internal links
-                             %   (change box color with linkbordercolor)
+    linkcolor=black,         % color of internal links
     citecolor=td-blue,       % color of links to bibliography
     filecolor=td-blue,       % color of file links
     urlcolor=td-blue,        % color of external links
     menucolor=td-blue
   }
-
 }
 
 %---- Header ---%
@@ -564,13 +510,12 @@ right=25mm
     \Filemodtoday{\filemodNewest{{Aufgabe5.tex}{Aufgabe6.tex}{Aufgabe7.tex}}}
 }
 \date{\lastMod{}}
-\author{Christian Rene Thelen}
 
 \makeatletter
 \fancyfoot[L]{{\small \@date}}
-\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
-\fancyfoot[R]{{\small \@author}}
 \makeatother
+\fancyfoot[C]{{\small Seite \thepage~von~\pageref{LastPage}}}
+\fancyfoot[R]{{\small \href{mailto://christian.thelen@rwth-aachen.de}{Christian Rene Thelen}}}
 
 \begin{document}
 
