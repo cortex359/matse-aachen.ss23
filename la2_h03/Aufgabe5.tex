@@ -31,7 +31,6 @@ $$
 $$
 Statt $\dim (\ker (f))$ kann man auch $\operatorname{def}(f)$ schreiben.
 
-\subsection{Lösung 5a}
 
 Der Kern einer linearen Abbildung $A$ ist die Menge aller Vektoren $x \in \mathbb{R}^4$, die von $A$ auf den Nullvektor abgebildet werden. Ganz allgemein bedeutet das, dass der Kern die Menge der Lösungen des Gleichungssystems $Ax=0$ ist:
 $$
@@ -107,6 +106,16 @@ $$
 \rg(A_{a=8}) = \dim(V) - \operatorname{def} (A_{a=8}) = 4 - 1 = 3.
 $$
 
+Das Bild der Matrix ist die Menge aller Linearkombinationen der Spaltenvektoren, sodass wir diese einfach wie folgt angeben können:
+$$
+    \Bild (A) = \left\{
+        \lambda_1 \vektor{1\\0\\0\\0} + 
+        \lambda_2 \vektor{0\\1\\0\\0} + 
+        \lambda_3 \vektor{0\\0\\1\\0}
+        \middle| \lambda_{1,2,3} \in \R
+      \right\}
+$$
+
 \underline{2. Fall, $a \neq 8$:}\\
 Wenn $a \neq 8$ ist, dann muss $x_4 = 0$ sein. Für die übrigen Koordinaten ergibt sich so ebenfalls $x_4 = x_3 = x_2 = x_1 = 0$, was bedeutet, dass lediglich der Nullvektor eine Lösung des Gleichungssystems $Ax=0$ ist und $\ker(A_{a\neq 8})=\{0\}$ ist.
 
@@ -117,5 +126,15 @@ $$
 \rg(A_{a\neq 8}) = \dim(V) - \operatorname{def} (A_{a\neq 8}) = 4 - 0 = 4.
 $$
 
+Da der Rang der Matrix gleich der Anzahl der Spaltenvektoren ist, können wir das Bild mit den Spalten der Ausgangsmatrix beschreiben.
+$$
+    \Bild (A) = \left\{
+        \lambda_1 \vektor{2\\2\\1\\2} + 
+        \lambda_2 \vektor{1\\5\\2\\1} + 
+        \lambda_3 \vektor{2\\4\\5\\3}
+        \lambda_4 \vektor{3\\3\\a\\5}
+        \middle| \lambda_{1,2,3,4} \in \R
+      \right\}
+$$
 
 \end{document}
