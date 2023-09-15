@@ -12,7 +12,7 @@ Stellen Sie zu folgenden Abbildungen die zugehörigen Abbildungsmatritzen auf.
 \end{enumerate}
 
 \subsection{Lösung 6a}
-Die Abbildung der Polynome maximal zweiten Gerades auf ihre Stammfunktion aus den Polynomen maximal dritten Gerades
+Die Abbildung der Polynome maximal zweiten Grades auf ihre Stammfunktion aus den Polynomen maximal dritten Grades.
 $$
     f : \begin{cases}
         \mathbb{P}^2 \to \mathbb{P}^3\\
@@ -20,19 +20,26 @@ $$
     \end{cases}
 $$
 
-lässt sich ebenfalls als $f(p(x)) = A\cdot p(x)$ schreiben, mit
+Zur Bestimmung der Abbildungsmatrix nehmen wir die Monombasis $(1, x, x^2) \in \mathbb{P}^2$ und wenden die Abbildung $f$ auf ihre Vektoren an. 
+\begin{align*}
+    f\left(1\right) &= x                 & f\left(\vektor{1\\0\\0}\right) &= \vektor{0\\1\\0\\0} \\
+    f\left(x\right) &= \frac{1}{2} x^2   & f\left(\vektor{0\\1\\0}\right) &= \vektor{0\\0\\\nicefrac{1}{2}\\0} \\
+    f\left(x^2\right) &= \frac{1}{3} x^3 & f\left(\vektor{0\\0\\1}\right) &= \vektor{0\\0\\0\\\nicefrac{1}{3}} \\
+\end{align*}
+
+Die Bilder der Basisvektoren sind die Spalten der Abbildungsmatrix. Somit erhalten wir:
 
 $$
-    A = \begin{pmatrix}
+    A_f = \begin{pmatrix}
         0 & 0 & 0 \\
         1 & 0 & 0 \\
         0 & \nicefrac{1}{2} & 0 \\
         0 & 0 & \nicefrac{1}{3}
-    \end{pmatrix}.
+    \end{pmatrix}
 $$
 
 \subsection{Lösung 6b}
-Umgekehrt lässt sich
+Nach dem gleichen Verfahren erhalten wir für die Abbildung
 $$
     g : \begin{cases}
         \mathbb{P}^3 \to \mathbb{P}^2\\
@@ -40,23 +47,19 @@ $$
     \end{cases}
 $$
 
-als $f(p(x)) = B\cdot p(x)$ mit
+die Abbildungsmatrix
 
 $$
-    B = \begin{pmatrix}
-        0 & 0 & 0 & 0 \\
-        1 & 0 & 0 & 0 \\
-        0 & 2 & 0 & 0 \\
-        0 & 0 & 3 & 0
-    \end{pmatrix}
+    A_g = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix}.
 $$
-
-schreiben.
 
 \subsection{Lösung 6c}
 
-Begrenzt man den Wertebereich der injektiven Abbildung $f$ auf die Menge aller Polynome
-maximal vierten Gerades ohne die Polynome vom Grad Null
+Begrenzt man den Wertebereich der injektiven Abbildung $f$ auf die Menge aller Polynome maximal vierten Grades ohne die Polynome vom Grad Null
 $\tilde{f}:\mathbb{P}^2 \to \mathbb{P}^3\setminus \mathbb{P}^0$,
 so wird die Abbildung surjektiv und damit bijektiv.\\
 
@@ -69,17 +72,7 @@ $$
     \end{cases}
 $$
 
-Die Abbildungsmatrix braucht dabei ebenfalls nur invertiert zu werden.
-
-$$
-    A^{-1} = \begin{pmatrix}
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 0 & 0 \\
-        0 & 0 & \nicefrac{1}{2} & 0 \\
-        0 & 0 & 0& \nicefrac{1}{3}
-    \end{pmatrix}.
-$$
-
+Die Abbildungsmatrix von $A_{f^{-1}}$ ist entsprechend $A_g$ aus dem Aufgabenteil b. 
 
 
 \end{document}

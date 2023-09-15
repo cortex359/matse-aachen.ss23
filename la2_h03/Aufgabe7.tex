@@ -32,95 +32,15 @@ $$
 \subsection{Lösung 7}
 Wir betrachten die lineare Abbildung $f : V \to W$ mit $V \subseteq \mathbb{R}^3$ und $W \subseteq \mathbb{R}^2$.
 
-Sei $\mathcal{B}_V = \left(\begin{pmatrix}
+Wenn $\mathcal{B}_V = \left(\begin{pmatrix}
     1 \\ 1 \\ 0
 \end{pmatrix}, \begin{pmatrix}
     0 \\ 1 \\ 1
 \end{pmatrix}, \begin{pmatrix}
     1 \\ 0 \\ \alpha
 \end{pmatrix}\right)$
-eine Basis von $V$ und $\mathcal{B}_W = \left(\begin{pmatrix}
-    1 \\ 1
-\end{pmatrix}, \begin{pmatrix}
-    0 \\ 1
-\end{pmatrix}\right)$ eine Basis von $W$…
+eine Basis von $V$ ist, dann ist die Abbildungsmatrix eindeutig bestimmt. Also prüfen wir die Vektoren auf lineare Unabhängigkeit und stellen fest, dass für $\alpha = - 1$ der dritte Vektor zu einer Linearkombination der ersten beiden wird. In einem solchen Fall ist die Abbildungsmatrix nicht eindeutig bestimmt.
 
-$$
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0 \\
-        0 & 1 & \alpha
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & -1
-    \end{pmatrix}
-$$
-
-Wenn $\alpha = 1$
-
-$$
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0 \\
-        0 & 1 & 1
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        0 & 1 & -1 \\
-        0 & 1 & 1
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        0 & 1 & -1 \\
-        0 & 0 & 2
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 0 \\
-        0 & 1 & 0 \\
-        0 & 0 & 1
-    \end{pmatrix}
-$$
-
-was passiert, wenn $\alpha \neq 1$ z.B. $\alpha = 0$
-
-$$
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0 \\
-        0 & 1 & 0
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        0 & 0 & 1 \\
-        1 & 0 & 0 \\
-        0 & 1 & 0
-    \end{pmatrix}
-$$
-
-da $\det (A_f) = \alpha + 1$ und für $\alpha + 1 = 0 \Leftrightarrow \alpha = -1$ gilt:
-
-$$
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0 \\
-        0 & 1 & -1
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0 \\
-        1 & 1 & 0
-    \end{pmatrix}
-    \rightsquigarrow
-    \begin{pmatrix}
-        1 & 0 & 1 \\
-        1 & 1 & 0
-    \end{pmatrix}
-$$
+Wenn $\alpha 
 
 \end{document}
